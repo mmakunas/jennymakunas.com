@@ -9,3 +9,7 @@ Static site for Jenny Makunas (brand strategist), ported from Wix. Astro, GitHub
 - Paths stay identical to the Wix site (including `/contact-8`). `BASE` env var sets Astro's `base` (`/jennymakunas.com/` preview, `/` production).
 - Branch `capy/<short-name>`; PR title `Closes #N`; PR body `## What changed`, `## Why`, `## Approvals`; run `/review` before the PR when gstack is available. Do not merge: merging is Michael's.
 - Never print environment values.
+
+## Hosting facts (verified 2026-10-31)
+- GitHub Pages is enabled on this repo with build type `workflow` (Actions). The preview (project site) is https://www.makunas.com/jennymakunas.com/ because the mmakunas user site has the custom domain www.makunas.com; `BASE=/jennymakunas.com/` for the preview build.
+- Production: custom domain `www.jennymakunas.com` set in Settings → Pages (Michael, Sunday); then `BASE=/`.
