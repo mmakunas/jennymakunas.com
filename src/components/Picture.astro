@@ -1,10 +1,12 @@
 ---
-// A still at the crop Wix gives its box: the desktop rendition, and the phone's
-// own rendition where the phone box is a different shape.
+// A still at the crop Wix gives its box: the widest desktop box's crop, the 1440
+// box's for everything under it, and the phone box's own below the phone breakpoint.
+// Each is the crop Wix serves at those widths; one file cannot be.
 import { url } from '../lib/url.js';
-const { src, phone, alt, fit } = Astro.props;
+const { src, wide, phone, alt, fit } = Astro.props;
 ---
 <picture>
   {phone && <source media="(max-width: 749.9px)" srcset={url(phone)} />}
+  {wide && <source media="(max-width: 1449.9px)" srcset={url(wide)} />}
   <img src={url(src)} alt={alt || ''} loading="lazy" style={`object-fit:${fit || 'cover'}`} />
 </picture>

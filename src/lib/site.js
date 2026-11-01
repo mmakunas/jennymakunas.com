@@ -37,13 +37,17 @@ const mediaId = (url) => {
   const m = /([0-9a-f]{6}_[0-9a-f]{32}~mv2\.[a-z]+)/i.exec(url || '');
   return m ? m[1].toLowerCase() : (url || '').split('/').pop().split('?')[0].toLowerCase();
 };
-// Wix crops a picture to the shape of its box, and the phone's box is a different
-// shape, so a picture carries a second rendition for the phone layout.
-const phoneImages = new Map(manifest.images
-  .filter((i) => i.mobile && i.mobile.file)
-  .map((i) => [`/${i.file}`, `/${i.mobile.file}`]));
+// Wix crops a picture to the shape of its box, and the box changes shape with the
+// width: the 1440 crop for everything below the widest desktop width, the phone's own
+// crop below the phone breakpoint.
+const crops = (field) => new Map(manifest.images
+  .filter((i) => i[field] && i[field].file)
+  .map((i) => [`/${i.file}`, `/${i[field].file}`]));
+const wideImages = crops('wide');
+const phoneImages = crops('mobile');
 // The reverse join: a Markdown image path back to the media id Wix serves it as.
 const fileToMedia = new Map(manifest.images.map((i) => [`/${i.file}`, mediaId(i.url)]));
+const wideImage = (src) => wideImages.get(src) || null;
 const phoneImage = (src) => phoneImages.get(src) || null;
 
 // Markdown links are written as site paths; in the built page they carry the
@@ -295,7 +299,8 @@ function zip(contentBlocks, layoutBlocks, { byText = false } = {}) {
     }
     media.splice(media.indexOf(content), 1);
     if (content.type === 'image') {
-      placed.push({ ...lb, content, src: content.src, phone: phoneImage(content.src),
+      placed.push({ ...lb, content, src: content.src, wide: wideImage(content.src),
+                    phone: phoneImage(content.src),
                     alt: content.alt || lb.alt, href: content.href || lb.href });
     } else {
       // The box now carries a film or a facade: drop the captured still URL so
@@ -454,6 +459,7 @@ function tileData(slug, images, headerH, mobileHeaderH) {
       return {
         cls: `t${i}`,
         src: image.src,
+        wide: wideImage(image.src),
         phone: phoneImage(image.src),
         alt: image.alt || '',
         href: image.href || null,

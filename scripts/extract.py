@@ -22,16 +22,17 @@ carries only ~30-pixel blur placeholders for images and no video blocks at all. 
 extractor therefore renders every page in headless Chromium and reads the rendered
 DOM, which is what a visitor's browser sees.
 
-Rendition rule: each page is rendered twice, at a 1920-wide desktop and at a 390-wide
-phone, both at a 2x device pixel ratio, and each image's `currentSrc` is taken. Wix
-crops a `fill` rendition to the shape of the box it sits in, and the same box has a
-different shape on a phone — and a wider one on a wider screen, since the desktop
-canvas keeps stretching. The desktop rendition is therefore taken at the widest width
-the design is read at, where a box crops its picture the least: a narrower box crops
-the same picture on the sides only, which is exactly the crop Wix serves it. The phone
-box is a different shape entirely, so it gets its own rendition. Images are
-re-downloaded from the manifest URL itself, so the file on disk is the same rendition
-the page referenced.
+Rendition rule: each page is rendered three times — at 1920 and at 1440 on the desktop,
+and at 390 on a phone, all at a 2x device pixel ratio — and each image's `currentSrc` is
+taken. Wix crops a `fill` rendition to the shape of the box it sits in, and the box has a
+different shape at each of those widths: it widens as the desktop canvas stretches, and
+the phone layout draws its own. A wide box crops a picture's sides or, when the picture is
+narrower than the box, its height, so one file cannot stand for both a wide box and a
+narrow one. The build therefore carries the crop of the widest desktop box for wide
+screens, the crop of the 1440 box for everything below it, and the phone box's own crop
+for phones; each is used at the widths where it is the crop Wix serves. Images are
+re-downloaded from the manifest URL itself, so the file on disk is the same rendition the
+page referenced.
 
 Usage:
     python3 -m playwright install chromium      # once per machine
@@ -79,6 +80,7 @@ SITE_NAME = "Jenny Makunas"
 ROOT = Path(__file__).resolve().parent.parent
 
 VIEWPORT = {"width": 1920, "height": 1080}
+WIDE_VIEWPORT = {"width": 1440, "height": 900}
 MOBILE_VIEWPORT = {"width": 390, "height": 844}
 DPR = 2
 USER_AGENT = ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
@@ -622,11 +624,12 @@ def finish(value: str) -> str:
 
 @dataclass
 class Picture:
-    """One picture, at the rendition each breakpoint's box actually serves.
+    """One picture, at the rendition each width's box actually serves.
 
-    Wix crops a `fill` rendition to the shape of the box it sits in, and the box has a
-    different shape on a phone than on the desktop, so a picture keeps two renditions:
-    the desktop one (taken at the widest desktop width) and the phone one.
+    Wix crops a `fill` rendition to the shape of the box it sits in, and the box's shape
+    changes with the width: it widens as the desktop canvas stretches, and the phone
+    layout draws its own. So a picture keeps up to three: the widest desktop box's crop
+    (`url`), the 1440 box's (`wide_url`) and the phone box's (`mobile_url`).
     """
 
     media: str
@@ -640,6 +643,13 @@ class Picture:
     caption: str = ""
     hint: str = ""
     payload: bytes | None = None
+    wide_url: str = ""
+    wide_width: int = 0
+    wide_height: int = 0
+    wide_size: int = 0
+    wide_file: str = ""
+    wide_format: str = ""
+    wide_payload: bytes | None = None
     mobile_url: str = ""
     mobile_width: int = 0
     mobile_height: int = 0
@@ -682,6 +692,7 @@ class Tile:
 class Extractor:
     def __init__(self, out: Path):
         self.out = out
+        self.wide: dict[str, dict] = {}
         self.phone: dict[str, dict] = {}
         self.pictures: dict[str, Picture] = {}
         self.tiles: list[Tile] = []
@@ -697,13 +708,14 @@ class Extractor:
 
     # -- rendering ---------------------------------------------------------- #
 
-    def render(self, browser, spec: Page, mobile: bool = False) -> dict:
-        if mobile:
+    def render(self, browser, spec: Page, width: str = "widest") -> dict:
+        if width == "mobile":
             context = browser.new_context(viewport=MOBILE_VIEWPORT, device_scale_factor=DPR,
                                           user_agent=MOBILE_UA, is_mobile=True, has_touch=True)
         else:
-            context = browser.new_context(viewport=VIEWPORT, device_scale_factor=DPR,
-                                          user_agent=USER_AGENT)
+            context = browser.new_context(
+                viewport=WIDE_VIEWPORT if width == "wide" else VIEWPORT,
+                device_scale_factor=DPR, user_agent=USER_AGENT)
         page = context.new_page()
         fonts: set[str] = set()
         page.on("response", lambda r: fonts.add(r.url)
@@ -754,7 +766,7 @@ class Extractor:
     # -- images ------------------------------------------------------------- #
 
     def register(self, url: str, alt: str, page: str, caption: str = "", hint: str = "",
-                 mobile_url: str = "") -> str:
+                 mobile_url: str = "", wide_url: str = "") -> str:
         """One picture, carrying the rendition its box serves at each breakpoint."""
         media = picture_key(url)
         picture = self.pictures.get(media)
@@ -764,6 +776,9 @@ class Extractor:
         elif rendition_width(url) > picture.width:
             picture.url = url
             picture.width = rendition_width(url)
+        if wide_url and rendition_width(wide_url) > picture.wide_width:
+            picture.wide_url = wide_url
+            picture.wide_width = rendition_width(wide_url)
         if mobile_url and rendition_width(mobile_url) > picture.mobile_width:
             picture.mobile_url = mobile_url
             picture.mobile_width = rendition_width(mobile_url)
@@ -775,14 +790,14 @@ class Extractor:
             picture.pages.append(page)
         return media
 
-    def phone_sources(self, page: str) -> dict[str, list[str]]:
-        """The renditions a page's pictures are served in on a phone, per picture.
+    def sources(self, page: str, width: str) -> dict[str, list[str]]:
+        """The rendition a page's pictures are served in at one width, per picture.
 
-        A picture drawn in two places appears twice, so the list is in document order
-        and the desktop walk takes the same occurrence.
+        A picture drawn in two places appears twice, so each list is in document order
+        and the widest-width walk takes the same occurrence.
         """
         sources: dict[str, list[str]] = {}
-        for block in self.phone.get(page, {}).get("blocks", []):
+        for block in getattr(self, width).get(page, {}).get("blocks", []):
             if block["kind"] == "image" and block.get("src"):
                 sources.setdefault(media_id(block["src"]), []).append(block["src"])
         return sources
@@ -826,6 +841,22 @@ class Extractor:
             picture.file = name
             (directory / name).write_bytes(payload)
             written.add(name)
+            # The 1440 box is a different shape from the widest one, so narrow it to
+            # its own crop; only carry it when the crops actually differ.
+            if picture.wide_url and not same_crop(picture.url, picture.wide_url):
+                wide = (picture.wide_payload if picture.wide_payload is not None
+                        else fetch(picture.wide_url))
+                picture.wide_width, picture.wide_height, picture.wide_format = read(wide)
+                picture.wide_size = len(wide)
+                wide_name = f"{stem}-wide.{picture.wide_format}"
+                if wide_name in names:
+                    wide_name = (f"{stem}-wide-"
+                                 f"{hashlib.sha1(picture.media.encode()).hexdigest()[:6]}"
+                                 f".{picture.wide_format}")
+                names[wide_name] = f"{picture.media}|wide"
+                picture.wide_file = wide_name
+                (directory / wide_name).write_bytes(wide)
+                written.add(wide_name)
             # A phone box has its own shape, and Wix crops the picture to it; only
             # carry that rendition when it is a different crop from the desktop one.
             if picture.mobile_url and not same_crop(picture.url, picture.mobile_url):
@@ -918,6 +949,9 @@ class Extractor:
                  "width": picture.width, "height": picture.height, "bytes": picture.size,
                  "format": picture.format, "alt": picture.alt, "caption": picture.caption,
                  "pages": picture.pages,
+                 "wide": ({"url": picture.wide_url, "file": f"images/{picture.wide_file}",
+                           "width": picture.wide_width, "height": picture.wide_height,
+                           "bytes": picture.wide_size} if picture.wide_file else None),
                  "mobile": ({"url": picture.mobile_url, "file": f"images/{picture.mobile_file}",
                              "width": picture.mobile_width, "height": picture.mobile_height,
                              "bytes": picture.mobile_size} if picture.mobile_file else None)}
@@ -955,9 +989,11 @@ class Extractor:
             if not source:
                 self.notes.append(f"{spec.file}: grid tile {title!r} has no rendered image")
                 continue
-            phone = self.phone_sources(spec.file).get(media_id(source), [])
+            phone = self.sources(spec.file, "phone").get(media_id(source), [])
+            wide = self.sources(spec.file, "wide").get(media_id(source), [])
             key = self.register(source, "", spec.file, caption=meta.get("description", ""), hint=title,
-                                mobile_url=phone[0] if phone else "")
+                                mobile_url=phone[0] if phone else "",
+                                wide_url=wide[0] if wide else "")
             if page is None:
                 self.notes.append(f"{spec.file}: grid tile {meta.get('title')!r} links to {target!r}, "
                                   "which is not one of the 15 pages")
@@ -1249,7 +1285,8 @@ class Extractor:
                 # Every page is read a second time on a phone: Wix crops a picture to
                 # the shape of the box it sits in, and the phone layout's boxes have
                 # their own shape.
-                self.phone[spec.file] = self.render(browser, spec, mobile=True)
+                self.wide[spec.file] = self.render(browser, spec, width="wide")
+                self.phone[spec.file] = self.render(browser, spec, width="mobile")
                 self.collect_fonts(spec, data)
             browser.close()
 
@@ -1257,14 +1294,17 @@ class Extractor:
         self.tiles = self.read_tiles(PAGES[0], self.pages["home"])
         for spec in PAGES:
             position = 0
-            phone = self.phone_sources(spec.file)
+            phone = self.sources(spec.file, "phone")
+            wide = self.sources(spec.file, "wide")
             seen: dict[str, int] = {}
+            seen_wide: dict[str, int] = {}
             for block in self.in_document_order(self.pages[spec.file]["blocks"]):
                 if block["kind"] == "image":
                     position += 1
                     self.register(block["src"], block["alt"], spec.file,
                                   hint=f"{spec.file}-{position}",
-                                  mobile_url=self.nth_rendition(phone, block["src"], seen))
+                                  mobile_url=self.nth_rendition(phone, block["src"], seen),
+                                  wide_url=self.nth_rendition(wide, block["src"], seen_wide))
 
         for spec in PAGES:
             for block in self.pages[spec.file]["blocks"]:
@@ -1359,8 +1399,9 @@ def normalized_manifest(payload: bytes) -> dict:
     manifest = json.loads(payload)
     for row in manifest.get("images", []):
         row.pop("bytes", None)
-        if row.get("mobile"):
-            row["mobile"].pop("bytes", None)
+        for field in ("wide", "mobile"):
+            if row.get(field):
+                row[field].pop("bytes", None)
     return manifest
 
 
@@ -1401,13 +1442,14 @@ def compare(root: Path, scratch: Path) -> tuple[list[str], dict[str, int]]:
                 changed.append("size")
             if without_requested_size(old[name]["url"]) != without_requested_size(new[name]["url"]):
                 changed.append("url")
-            old_phone, new_phone = old[name].get("mobile") or {}, new[name].get("mobile") or {}
-            if (old_phone.get("file") != new_phone.get("file")
-                    or without_requested_size(old_phone.get("url") or "")
-                    != without_requested_size(new_phone.get("url") or "")
-                    or not same_size((old_phone.get("width") or 0, old_phone.get("height") or 0),
-                                     (new_phone.get("width") or 0, new_phone.get("height") or 0))):
-                changed.append("phone rendition")
+            for label, field in (("wide rendition", "wide"), ("phone rendition", "mobile")):
+                old_extra, new_extra = old[name].get(field) or {}, new[name].get(field) or {}
+                if (old_extra.get("file") != new_extra.get("file")
+                        or without_requested_size(old_extra.get("url") or "")
+                        != without_requested_size(new_extra.get("url") or "")
+                        or not same_size((old_extra.get("width") or 0, old_extra.get("height") or 0),
+                                         (new_extra.get("width") or 0, new_extra.get("height") or 0))):
+                    changed.append(label)
             if changed:
                 problems.append(f"{MANIFEST}: {name} changed ({', '.join(sorted(changed))})")
 
@@ -1452,10 +1494,13 @@ def check(root: Path) -> int:
         for problem in problems:
             print(f"  {problem}")
         return 1
-    phone = sum(1 for name in files_under(root, [PICTURES]) if "-mobile." in name)
+    pictures = files_under(root, [PICTURES])
+    phone = sum(1 for name in pictures if "-mobile." in name)
+    wide = sum(1 for name in pictures if "-wide." in name)
     print(f"ok: the live site matches content/, images/, fonts/ and public/ — "
           f"{counts['same']} pictures byte-identical "
-          f"({counts['same'] - phone} at the desktop crop, {phone} at the phone's), "
+          f"({counts['same'] - phone - wide} at the widest desktop crop, {wide} at the 1440 "
+          f"box's, {phone} at the phone's), "
           f"{counts['re-encoded']} re-encoded by Wix but the same picture")
     return 0
 
