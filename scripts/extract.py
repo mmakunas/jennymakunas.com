@@ -22,13 +22,16 @@ carries only ~30-pixel blur placeholders for images and no video blocks at all. 
 extractor therefore renders every page in headless Chromium and reads the rendered
 DOM, which is what a visitor's browser sees.
 
-Rendition rule: each page is rendered twice, at a 1440-wide desktop and at a 390-wide
+Rendition rule: each page is rendered twice, at a 1920-wide desktop and at a 390-wide
 phone, both at a 2x device pixel ratio, and each image's `currentSrc` is taken. Wix
 crops a `fill` rendition to the shape of the box it sits in, and the same box has a
-different shape on a phone, so a picture carries the rendition each breakpoint's box
-asks for; the phone one is only kept when its crop differs from the desktop crop.
-Images are re-downloaded from the manifest URL itself, so the file on disk is the same
-rendition the page referenced.
+different shape on a phone — and a wider one on a wider screen, since the desktop
+canvas keeps stretching. The desktop rendition is therefore taken at the widest width
+the design is read at, where a box crops its picture the least: a narrower box crops
+the same picture on the sides only, which is exactly the crop Wix serves it. The phone
+box is a different shape entirely, so it gets its own rendition. Images are
+re-downloaded from the manifest URL itself, so the file on disk is the same rendition
+the page referenced.
 
 Usage:
     python3 -m playwright install chromium      # once per machine
@@ -75,7 +78,7 @@ BASE = f"{SITE}/mysite"
 SITE_NAME = "Jenny Makunas"
 ROOT = Path(__file__).resolve().parent.parent
 
-VIEWPORT = {"width": 1440, "height": 900}
+VIEWPORT = {"width": 1920, "height": 1080}
 MOBILE_VIEWPORT = {"width": 390, "height": 844}
 DPR = 2
 USER_AGENT = ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
