@@ -1403,9 +1403,11 @@ def check(root: Path) -> int:
         for problem in problems:
             print(f"  {problem}")
         return 1
+    phone = sum(1 for name in files_under(root, [PICTURES]) if "-mobile." in name)
     print(f"ok: the live site matches content/, images/, fonts/ and public/ — "
-          f"{counts['same']} pictures byte-identical, {counts['re-encoded']} re-encoded by Wix "
-          f"but the same picture")
+          f"{counts['same']} pictures byte-identical "
+          f"({counts['same'] - phone} at the desktop crop, {phone} at the phone's), "
+          f"{counts['re-encoded']} re-encoded by Wix but the same picture")
     return 0
 
 
