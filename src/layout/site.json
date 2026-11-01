@@ -1,6 +1,6 @@
 {
  "source": "https://jenny6926.wixsite.com/mysite",
- "captured": "2026-11-01T00:36:57.119Z",
+ "captured": "2026-11-01T00:56:10.928Z",
  "desktopRef": 983,
  "desktop": {
   "header": {
@@ -401,7 +401,123 @@
     "y": 2796
    }
   ],
-  "docHeight": 3034
+  "docHeight": 3034,
+  "footerBlocks": [
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span class=\"color_37 wixui-rich-text__text\"><span style=\"letter-spacing:normal;\" class=\"wixui-rich-text__text\"><a data-auto-recognition=\"true\" href=\"mailto:jenny@makunas.com\" class=\"wixui-rich-text__text\">jenny@makunas.com</a>​ &nbsp;|&nbsp; 415-609-1504</span></span>",
+    "text": "jenny@makunas.com  |  415-609-1504",
+    "rect": {
+     "x": 211.5,
+     "y": 2968,
+     "w": 560,
+     "h": 21
+    },
+    "box": {
+     "x": 211.5,
+     "y": 2968,
+     "w": 560,
+     "h": 21
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 17,
+     "weight": 400,
+     "lineHeight": null,
+     "color": "rgb(217, 75, 149)",
+     "align": "center",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span style=\"letter-spacing:normal;\" class=\"wixui-rich-text__text\">© 2024 by Jenny Makunas</span>",
+    "text": "© 2024 by Jenny Makunas",
+    "rect": {
+     "x": 181.5,
+     "y": 2998,
+     "w": 619,
+     "h": 19.6
+    },
+    "box": {
+     "x": 181.5,
+     "y": 2998,
+     "w": 619,
+     "h": 19.6
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 14,
+     "weight": 400,
+     "lineHeight": 19.6,
+     "color": "rgb(217, 75, 149)",
+     "align": "center",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null
+   }
+  ],
+  "footerLinks": [
+   {
+    "text": "Instagram",
+    "href": "https://www.instagram.com/a_live_one/",
+    "rect": {
+     "x": 373.5,
+     "y": 2918,
+     "w": 103,
+     "h": 30
+    },
+    "style": {
+     "font": "futura-lt-w01-book",
+     "size": 17,
+     "weight": 700,
+     "lineHeight": 23.8,
+     "color": "rgb(193, 198, 209)",
+     "align": "start",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "icon": false,
+    "src": null
+   },
+   {
+    "text": "Linkedin",
+    "href": "https://www.linkedin.com/in/jennymakunas/",
+    "rect": {
+     "x": 504.5,
+     "y": 2918,
+     "w": 103,
+     "h": 30
+    },
+    "style": {
+     "font": "futura-lt-w01-book",
+     "size": 17,
+     "weight": 700,
+     "lineHeight": 23.8,
+     "color": "rgb(193, 198, 209)",
+     "align": "start",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "icon": false,
+    "src": null
+   }
+  ]
  },
  "desktopWide": {
   "header": {
@@ -802,7 +918,123 @@
     "y": 3826
    }
   ],
-  "docHeight": 4064
+  "docHeight": 4064,
+  "footerBlocks": [
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span class=\"color_37 wixui-rich-text__text\"><span style=\"letter-spacing:normal;\" class=\"wixui-rich-text__text\"><a data-auto-recognition=\"true\" href=\"mailto:jenny@makunas.com\" class=\"wixui-rich-text__text\">jenny@makunas.com</a>​ &nbsp;|&nbsp; 415-609-1504</span></span>",
+    "text": "jenny@makunas.com  |  415-609-1504",
+    "rect": {
+     "x": 440,
+     "y": 3998.5,
+     "w": 560,
+     "h": 21
+    },
+    "box": {
+     "x": 440,
+     "y": 3998.5,
+     "w": 560,
+     "h": 21
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 17,
+     "weight": 400,
+     "lineHeight": null,
+     "color": "rgb(217, 75, 149)",
+     "align": "center",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span style=\"letter-spacing:normal;\" class=\"wixui-rich-text__text\">© 2024 by Jenny Makunas</span>",
+    "text": "© 2024 by Jenny Makunas",
+    "rect": {
+     "x": 410,
+     "y": 4028.5,
+     "w": 619,
+     "h": 19.6
+    },
+    "box": {
+     "x": 410,
+     "y": 4028.5,
+     "w": 619,
+     "h": 19.6
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 14,
+     "weight": 400,
+     "lineHeight": 19.6,
+     "color": "rgb(217, 75, 149)",
+     "align": "center",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null
+   }
+  ],
+  "footerLinks": [
+   {
+    "text": "Instagram",
+    "href": "https://www.instagram.com/a_live_one/",
+    "rect": {
+     "x": 602,
+     "y": 3948.5,
+     "w": 103,
+     "h": 30
+    },
+    "style": {
+     "font": "futura-lt-w01-book",
+     "size": 17,
+     "weight": 700,
+     "lineHeight": 23.8,
+     "color": "rgb(193, 198, 209)",
+     "align": "start",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "icon": false,
+    "src": null
+   },
+   {
+    "text": "Linkedin",
+    "href": "https://www.linkedin.com/in/jennymakunas/",
+    "rect": {
+     "x": 733,
+     "y": 3948.5,
+     "w": 103,
+     "h": 30
+    },
+    "style": {
+     "font": "futura-lt-w01-book",
+     "size": 17,
+     "weight": 700,
+     "lineHeight": 23.8,
+     "color": "rgb(193, 198, 209)",
+     "align": "start",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "icon": false,
+    "src": null
+   }
+  ]
  },
  "mobile": {
   "header": {
@@ -1257,7 +1489,74 @@
     "y": 3475
    }
   ],
-  "docHeight": 3862
+  "docHeight": 3862,
+  "footerBlocks": [
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span class=\"color_37 wixui-rich-text__text\"><span style=\"letter-spacing:normal;\" class=\"wixui-rich-text__text\"><a data-auto-recognition=\"true\" href=\"mailto:jenny@makunas.com\" class=\"wixui-rich-text__text\">jenny@makunas.com</a>​ &nbsp;|&nbsp; <a data-auto-recognition=\"true\" href=\"tel:415-609-1504\" class=\"wixui-rich-text__text\">415-609-1504</a></span></span>",
+    "text": "jenny@makunas.com  |  415-609-1504",
+    "rect": {
+     "x": 80,
+     "y": 3576.5,
+     "w": 162,
+     "h": 42
+    },
+    "box": {
+     "x": 80,
+     "y": 3576.5,
+     "w": 162,
+     "h": 42
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 17,
+     "weight": 400,
+     "lineHeight": null,
+     "color": "rgb(217, 75, 149)",
+     "align": "center",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span style=\"letter-spacing:normal;\" class=\"wixui-rich-text__text\">© 2024 by Jenny Makunas</span>",
+    "text": "© 2024 by Jenny Makunas",
+    "rect": {
+     "x": 48,
+     "y": 3641.5,
+     "w": 224,
+     "h": 21
+    },
+    "box": {
+     "x": 48,
+     "y": 3641.5,
+     "w": 224,
+     "h": 21
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 15,
+     "weight": 400,
+     "lineHeight": 21,
+     "color": "rgb(217, 75, 149)",
+     "align": "center",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null
+   }
+  ],
+  "footerLinks": []
  },
  "mobileMenu": {
   "container": {

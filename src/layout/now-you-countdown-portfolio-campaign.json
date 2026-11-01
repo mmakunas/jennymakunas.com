@@ -1,7 +1,7 @@
 {
  "slug": "now-you-countdown-portfolio-campaign",
  "url": "https://jenny6926.wixsite.com/mysite/now-you-countdown-portfolio-campaign",
- "captured": "2026-11-01T00:42:44.381Z",
+ "captured": "2026-11-01T00:51:41.796Z",
  "desktop": {
   "width": 983,
   "wideWidth": 1440,
@@ -478,9 +478,9 @@
     "href": null,
     "alt": "Screen Shot 2023-08-22 at 12.07.57 PM.png",
     "wide": {
-     "x": 1.5,
+     "x": 80,
      "y": 140,
-     "w": 333,
+     "w": 434.9,
      "h": 560
     }
    },
@@ -676,34 +676,6 @@
    },
    {
     "kind": "video",
-    "src": null,
-    "iframe": null,
-    "playable": true,
-    "rect": {
-     "x": 203.5,
-     "y": 772,
-     "w": 575,
-     "h": 323
-    },
-    "box": {
-     "x": 203.5,
-     "y": 772,
-     "w": 575,
-     "h": 323
-    },
-    "fit": "contain",
-    "radius": "0px",
-    "href": null,
-    "alt": "",
-    "wide": {
-     "x": 432,
-     "y": 772,
-     "w": 575,
-     "h": 323
-    }
-   },
-   {
-    "kind": "video",
     "src": "https://static.wixstatic.com/media/a8ae1a_3229a4f164b64e5db9e1ecbdbf1b5d42f000.jpg/v1/fill/w_575,h_323,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/a8ae1a_3229a4f164b64e5db9e1ecbdbf1b5d42f000.jpg",
     "iframe": null,
     "playable": true,
@@ -754,7 +726,7 @@
     "wide": {
      "x": 40,
      "y": 1135,
-     "w": 205.8,
+     "w": 320,
      "h": 400
     }
    },
@@ -780,9 +752,9 @@
     "href": null,
     "alt": "Screenshot 2023-11-07 at 10.31.09 AM.png",
     "wide": {
-     "x": 285.8,
+     "x": 400,
      "y": 1135,
-     "w": 411.5,
+     "w": 640,
      "h": 400
     }
    },
@@ -808,9 +780,9 @@
     "href": null,
     "alt": "Screenshot 2023-11-07 at 10.30.35 AM.png",
     "wide": {
-     "x": 737.3,
+     "x": 1080,
      "y": 1135,
-     "w": 205.8,
+     "w": 320,
      "h": 400
     }
    },
@@ -866,7 +838,7 @@
     "wide": {
      "x": 40,
      "y": 2085,
-     "w": 431.5,
+     "w": 660,
      "h": 400
     }
    },
@@ -892,9 +864,9 @@
     "href": null,
     "alt": "Screenshot 2023-11-07 at 10.31.33 AM.png",
     "wide": {
-     "x": 511.5,
+     "x": 740,
      "y": 2085,
-     "w": 431.5,
+     "w": 660,
      "h": 400
     }
    },
@@ -1692,28 +1664,6 @@
     },
     "href": null,
     "target": null
-   },
-   {
-    "kind": "video",
-    "src": null,
-    "iframe": null,
-    "playable": true,
-    "rect": {
-     "x": 20,
-     "y": 912.3,
-     "w": 280,
-     "h": 157
-    },
-    "box": {
-     "x": 20,
-     "y": 912.3,
-     "w": 280,
-     "h": 157
-    },
-    "fit": "contain",
-    "radius": "0px",
-    "href": null,
-    "alt": ""
    },
    {
     "kind": "video",

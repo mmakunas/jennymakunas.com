@@ -1,7 +1,7 @@
 {
  "slug": "the-world-could-use-one-of-you",
  "url": "https://jenny6926.wixsite.com/mysite/the-world-could-use-one-of-you",
- "captured": "2026-11-01T00:42:09.550Z",
+ "captured": "2026-11-01T00:51:07.675Z",
  "desktop": {
   "width": 983,
   "wideWidth": 1440,
@@ -468,9 +468,9 @@
     "href": null,
     "alt": "Screen Shot 2023-08-23 at 11.20.07 AM.png",
     "wide": {
-     "x": 1.5,
+     "x": 80,
      "y": 114,
-     "w": 333,
+     "w": 434.9,
      "h": 701
     }
    },
@@ -780,34 +780,6 @@
    },
    {
     "kind": "video",
-    "src": null,
-    "iframe": null,
-    "playable": true,
-    "rect": {
-     "x": 203.5,
-     "y": 883.1,
-     "w": 575,
-     "h": 323
-    },
-    "box": {
-     "x": 203.5,
-     "y": 883.1,
-     "w": 575,
-     "h": 323
-    },
-    "fit": "contain",
-    "radius": "0px",
-    "href": null,
-    "alt": "",
-    "wide": {
-     "x": 432,
-     "y": 883.1,
-     "w": 575,
-     "h": 323
-    }
-   },
-   {
-    "kind": "video",
     "src": "https://static.wixstatic.com/media/a8ae1a_bf7c7745d6c8418bb554d9d018a4e110f000.jpg/v1/fill/w_575,h_323,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/a8ae1a_bf7c7745d6c8418bb554d9d018a4e110f000.jpg",
     "iframe": null,
     "playable": true,
@@ -830,34 +802,6 @@
     "wide": {
      "x": 432,
      "y": 883.1,
-     "w": 575,
-     "h": 323
-    }
-   },
-   {
-    "kind": "video",
-    "src": null,
-    "iframe": null,
-    "playable": true,
-    "rect": {
-     "x": 203.5,
-     "y": 1245.1,
-     "w": 575,
-     "h": 323
-    },
-    "box": {
-     "x": 203.5,
-     "y": 1245.1,
-     "w": 575,
-     "h": 323
-    },
-    "fit": "contain",
-    "radius": "0px",
-    "href": null,
-    "alt": "",
-    "wide": {
-     "x": 432,
-     "y": 1245.1,
      "w": 575,
      "h": 323
     }
@@ -942,7 +886,7 @@
     "wide": {
      "x": 40,
      "y": 2135.1,
-     "w": 431.5,
+     "w": 660,
      "h": 400
     }
    },
@@ -968,9 +912,9 @@
     "href": null,
     "alt": "WCU1oy NYT mag.png",
     "wide": {
-     "x": 511.5,
+     "x": 740,
      "y": 2135.1,
-     "w": 431.5,
+     "w": 660,
      "h": 400
     }
    },
@@ -998,7 +942,7 @@
     "wide": {
      "x": 40,
      "y": 2575.1,
-     "w": 345,
+     "w": 528,
      "h": 400
     }
    },
@@ -1024,9 +968,9 @@
     "href": null,
     "alt": "WCU1OY OOH.png",
     "wide": {
-     "x": 425.2,
+     "x": 608,
      "y": 2575.1,
-     "w": 517.8,
+     "w": 792,
      "h": 400
     }
    },
@@ -1885,28 +1829,6 @@
    },
    {
     "kind": "video",
-    "src": null,
-    "iframe": null,
-    "playable": true,
-    "rect": {
-     "x": 20,
-     "y": 1405.7,
-     "w": 280,
-     "h": 157
-    },
-    "box": {
-     "x": 20,
-     "y": 1405.7,
-     "w": 280,
-     "h": 157
-    },
-    "fit": "contain",
-    "radius": "0px",
-    "href": null,
-    "alt": ""
-   },
-   {
-    "kind": "video",
     "src": "https://static.wixstatic.com/media/a8ae1a_bf7c7745d6c8418bb554d9d018a4e110f000.jpg/v1/fill/w_280,h_157,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/a8ae1a_bf7c7745d6c8418bb554d9d018a4e110f000.jpg",
     "iframe": null,
     "playable": true,
@@ -1923,28 +1845,6 @@
      "h": 157
     },
     "fit": "cover",
-    "radius": "0px",
-    "href": null,
-    "alt": ""
-   },
-   {
-    "kind": "video",
-    "src": null,
-    "iframe": null,
-    "playable": true,
-    "rect": {
-     "x": 20,
-     "y": 1602.7,
-     "w": 280,
-     "h": 157
-    },
-    "box": {
-     "x": 20,
-     "y": 1602.7,
-     "w": 280,
-     "h": 157
-    },
-    "fit": "contain",
     "radius": "0px",
     "href": null,
     "alt": ""

@@ -139,6 +139,19 @@ const PAGE_JS = ({ offset, wantMenu }) => {
       })
     : [];
 
+  // The footer's social links are plain anchors, not rich text: capture them
+  // separately so the rebuild can place them where Wix does.
+  const footerLinks = footer
+    ? [...footer.querySelectorAll('[data-testid="linkElement"]')].map((el) => ({
+        text: el.innerText.replace(/\u200b/g, '').trim(),
+        href: el.getAttribute('href'),
+        rect: rect(el),
+        style: styleOf(textEl(el)),
+        icon: !!el.querySelector('img, svg'),
+        src: el.querySelector('img') ? el.querySelector('img').currentSrc || null : null,
+      }))
+    : [];
+
   let menu = null;
   if (wantMenu) {
     const toggle = document.querySelector('#MENU_AS_CONTAINER_TOGGLE');
@@ -168,6 +181,7 @@ const PAGE_JS = ({ offset, wantMenu }) => {
     bands: bgOf('[data-testid="colorUnderlay"], #pageBackground_c1dmp'),
     blocks: kept.sort((a, b) => a.rect.y - b.rect.y || a.rect.x - b.rect.x),
     gallery,
+    footerLinks,
     menu,
   };
 };
@@ -252,13 +266,27 @@ if (wantSite) {
   for (const [name, width] of [['desktop', DESKTOP_REF], ['desktopWide', DESKTOP_WIDE]]) {
     const { page, context, offset } = await open(browser, home.url, { width });
     const data = await page.evaluate(PAGE_JS, { offset, wantMenu: false });
-    site[name] = { header: data.header, footer: data.footer, bands: data.bands, docHeight: data.docHeight };
+    site[name] = {
+      header: data.header,
+      footer: data.footer,
+      bands: data.bands,
+      docHeight: data.docHeight,
+      footerBlocks: data.blocks.filter((b) => data.footer && b.rect.y >= data.footer.rect.y - 2),
+      footerLinks: data.footerLinks,
+    };
     await context.close();
   }
 
   const { page, context, offset } = await open(browser, home.url, { width: MOBILE_W, device: mobileDevice });
   const data = await page.evaluate(PAGE_JS, { offset, wantMenu: false });
-  site.mobile = { header: data.header, footer: data.footer, bands: data.bands, docHeight: data.docHeight };
+  site.mobile = {
+    header: data.header,
+    footer: data.footer,
+    bands: data.bands,
+    docHeight: data.docHeight,
+    footerBlocks: data.blocks.filter((b) => data.footer && b.rect.y >= data.footer.rect.y - 2),
+    footerLinks: data.footerLinks,
+  };
   await context.close();
 
   const menu = await open(browser, home.url, { width: MOBILE_W, device: mobileDevice });

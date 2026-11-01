@@ -1,7 +1,7 @@
 {
  "slug": "today-s-the-day-brand-campaign",
  "url": "https://jenny6926.wixsite.com/mysite/today-s-the-day-brand-campaign",
- "captured": "2026-11-01T00:43:52.033Z",
+ "captured": "2026-11-01T00:52:47.536Z",
  "desktop": {
   "width": 983,
   "wideWidth": 1440,
@@ -458,9 +458,9 @@
     "href": null,
     "alt": "TTD Header.png",
     "wide": {
-     "x": 1.5,
+     "x": 80,
      "y": 140,
-     "w": 333,
+     "w": 434.9,
      "h": 590
     }
    },
@@ -732,34 +732,6 @@
    },
    {
     "kind": "video",
-    "src": null,
-    "iframe": null,
-    "playable": true,
-    "rect": {
-     "x": 203.5,
-     "y": 995.1,
-     "w": 575,
-     "h": 323
-    },
-    "box": {
-     "x": 203.5,
-     "y": 995.1,
-     "w": 575,
-     "h": 323
-    },
-    "fit": "contain",
-    "radius": "0px",
-    "href": null,
-    "alt": "",
-    "wide": {
-     "x": 432,
-     "y": 995.1,
-     "w": 575,
-     "h": 323
-    }
-   },
-   {
-    "kind": "video",
     "src": "https://static.wixstatic.com/media/a8ae1a_34a6c0c439c7446fb11435273dd9dbcdf002.jpg/v1/fill/w_575,h_323,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/a8ae1a_34a6c0c439c7446fb11435273dd9dbcdf002.jpg",
     "iframe": null,
     "playable": true,
@@ -808,9 +780,9 @@
     "href": null,
     "alt": "TTD Print spread.png",
     "wide": {
-     "x": 285.8,
+     "x": 400,
      "y": 1358.1,
-     "w": 411.5,
+     "w": 640,
      "h": 400
     }
    },
@@ -1652,28 +1624,6 @@
     },
     "href": null,
     "target": null
-   },
-   {
-    "kind": "video",
-    "src": null,
-    "iframe": null,
-    "playable": true,
-    "rect": {
-     "x": 20,
-     "y": 1568.3,
-     "w": 280,
-     "h": 157
-    },
-    "box": {
-     "x": 20,
-     "y": 1568.3,
-     "w": 280,
-     "h": 157
-    },
-    "fit": "contain",
-    "radius": "0px",
-    "href": null,
-    "alt": ""
    },
    {
     "kind": "video",

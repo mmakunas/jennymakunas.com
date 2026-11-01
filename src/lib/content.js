@@ -72,6 +72,27 @@ export function parseBlocks(body) {
   for (const raw of chunks) {
     const chunk = raw.trim();
     if (!chunk) continue;
+    // A film the extraction now carries: a plain <video> element in the page flow.
+    const video = /^<video\b([\s\S]*)<\/video>$/i.exec(chunk);
+    if (video) {
+      const attrs = video[1];
+      const attr = (n) => {
+        const m = new RegExp(`${n}\\s*=\\s*"([^"]*)"`, 'i').exec(attrs);
+        return m ? m[1] : null;
+      };
+      const has = (n) => new RegExp(`(^|\\s)${n}($|\\s|=)`, 'i').test(attrs);
+      blocks.push({
+        type: 'video',
+        src: attr('src'),
+        poster: attr('poster'),
+        controls: has('controls'),
+        autoplay: has('autoplay'),
+        muted: has('muted') || has('autoplay'),
+        loop: has('loop'),
+        playsinline: true,
+      });
+      continue;
+    }
     const comment = /^<!--\s*(.*?)\s*-->$/s.exec(chunk);
     if (comment) {
       const text = comment[1];
@@ -88,7 +109,12 @@ export function parseBlocks(body) {
     }
     const linkedImage = /^\[!\[([^\]]*)\]\(([^)\s]+)\)\]\(([^)\s]+)(?:\s+"([^"]*)")?\)$/.exec(chunk);
     if (linkedImage) {
-      blocks.push({ type: 'image', alt: linkedImage[1], src: linkedImage[2], href: linkedImage[3], caption: linkedImage[4] || '' });
+      const target = linkedImage[3];
+      // A linked still that points at a player is the click-to-play facade: the
+      // iframe is only inserted once someone clicks.
+      const player = /(?:youtube(?:-nocookie)?\.com\/embed\/|youtu\.be\/|vimeo\.com\/video\/)/.test(target);
+      if (player) blocks.push({ type: 'facade', alt: linkedImage[1], src: linkedImage[2], embedUrl: target, caption: linkedImage[4] || '' });
+      else blocks.push({ type: 'image', alt: linkedImage[1], src: linkedImage[2], href: target, caption: linkedImage[4] || '' });
       continue;
     }
     const image = /^!\[([^\]]*)\]\(([^)\s]+)\)$/.exec(chunk);
@@ -106,6 +132,25 @@ export function parseBlocks(body) {
     blocks.push({ type: 'text', tag: 'p', html, text: plain(html) });
   }
   return blocks;
+}
+
+// `content/_site.md` carries the header order and the footer exactly as served.
+export function siteContent() {
+  const file = path.join(root, 'content', '_site.md');
+  const { body } = parseFrontMatter(readFileSync(file, 'utf8'));
+  const [headerPart, footerPart] = body.split(/^## Footer/m);
+  const links = (md) =>
+    [...md.matchAll(/\[([^\]]+)\]\(([^)\s]+)\)/g)].map((m) => ({ text: m[1], href: m[2] }));
+  const footerLines = footerPart
+    .split(/\n\s*\n/)
+    .map((l) => l.trim())
+    .filter(Boolean);
+  return {
+    nav: links(headerPart.replace(/^## Header/m, '')),
+    social: links(footerLines[0] || ''),
+    contact: footerLines[1] || '',
+    copyright: footerLines[2] || '',
+  };
 }
 
 let cache = null;

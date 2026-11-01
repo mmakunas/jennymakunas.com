@@ -1,7 +1,7 @@
 {
  "slug": "mariah-carey-pass-the-mic",
  "url": "https://jenny6926.wixsite.com/mysite/mariah-carey-pass-the-mic",
- "captured": "2026-11-01T00:41:35.123Z",
+ "captured": "2026-11-01T00:50:33.838Z",
  "desktop": {
   "width": 983,
   "wideWidth": 1440,
@@ -438,9 +438,9 @@
     "href": null,
     "alt": "MC2.jpeg",
     "wide": {
-     "x": 1.5,
+     "x": 80,
      "y": 128,
-     "w": 333,
+     "w": 434.9,
      "h": 523
     }
    },
@@ -746,34 +746,6 @@
      "y": 603.8,
      "w": 559,
      "h": 25.2
-    }
-   },
-   {
-    "kind": "video",
-    "src": null,
-    "iframe": null,
-    "playable": true,
-    "rect": {
-     "x": 203.5,
-     "y": 690,
-     "w": 575,
-     "h": 323
-    },
-    "box": {
-     "x": 203.5,
-     "y": 690,
-     "w": 575,
-     "h": 323
-    },
-    "fit": "contain",
-    "radius": "0px",
-    "href": null,
-    "alt": "",
-    "wide": {
-     "x": 432,
-     "y": 690,
-     "w": 575,
-     "h": 323
     }
    },
    {
@@ -1626,28 +1598,6 @@
     },
     "href": null,
     "target": null
-   },
-   {
-    "kind": "video",
-    "src": null,
-    "iframe": null,
-    "playable": true,
-    "rect": {
-     "x": 20,
-     "y": 1164.3,
-     "w": 280,
-     "h": 157
-    },
-    "box": {
-     "x": 20,
-     "y": 1164.3,
-     "w": 280,
-     "h": 157
-    },
-    "fit": "contain",
-    "radius": "0px",
-    "href": null,
-    "alt": ""
    },
    {
     "kind": "video",
