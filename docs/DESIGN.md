@@ -17,7 +17,7 @@ Measured tonight (curl, 2026-10-31 15:5x PDT), evidence kind: live probe:
 |---|---|---|
 | Live | 404 on the custom domain; free URL serves everything | 301 → www, live |
 | Pages | 15: Work (home), 11 case studies, Thoughts, About, Contact | not inventoried |
-| Media | 74 distinct images on static.wixstatic.com; **no video**, no forms; contact = mailto; Instagram + LinkedIn links | — |
+| Media | 74 distinct images on static.wixstatic.com (crew #1 found 80 renditions); **nine Wix-hosted videos on seven pages** (~190 MB at the served 1080p; one 360p loop), one YouTube embed (animaniacs), a contact form beside the mailto block — the curl inventory of 15:5x missed all three because Wix renders them client-side (corrected 2026-10-31 18:0x after PR #4). Decisions (Michael 17:5x): videos at native resolution in the repo with the native player; YouTube click-to-play facade; contact = mailto only | — |
 | Page weight | ~500 KB of Wix HTML/JS per page | — |
 | Registrar | Amazon Registrar via Wix; expires 2027-03-13; NS8/NS9.WIXDNS.NET | same registrar; expires 2027-10-29 |
 | Wayback | one snapshot 2026-05-08 (pre-expiry look) | none |
