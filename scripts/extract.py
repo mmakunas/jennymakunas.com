@@ -1176,12 +1176,14 @@ def compare(root: Path, scratch: Path) -> tuple[list[str], int]:
 
     committed_pictures = files_under(root, [PICTURES])
     fresh_pictures = files_under(scratch, [PICTURES])
-    reencoded = 0
+    counts = {"same": 0, "re-encoded": 0}
     for name in sorted(set(committed_pictures) | set(fresh_pictures)):
         if name not in fresh_pictures:
             problems.append(f"{name}: in the repository, no longer on the site")
         elif name not in committed_pictures:
             problems.append(f"{name}: on the site, missing from the repository")
+        elif committed_pictures[name] == fresh_pictures[name]:
+            counts["same"] += 1
         else:
             old_size, old_hash, old_image = read_picture(committed_pictures[name])
             new_size, new_hash, new_image = read_picture(fresh_pictures[name])
@@ -1192,21 +1194,22 @@ def compare(root: Path, scratch: Path) -> tuple[list[str], int]:
                 problems.append(f"{name}: a different picture at that URL "
                                 f"(mean pixel difference {mean_difference(old_image, new_image):.1f} of 255)")
             else:
-                reencoded += 1
-    return problems, reencoded
+                counts["re-encoded"] += 1
+    return problems, counts
 
 
 def check(root: Path) -> int:
     with tempfile.TemporaryDirectory() as scratch:
         build(Path(scratch))
-        problems, reencoded = compare(root, Path(scratch))
+        problems, counts = compare(root, Path(scratch))
     if problems:
         print("the live site no longer matches this checkout:")
         for problem in problems:
             print(f"  {problem}")
         return 1
-    print(f"ok: the live site matches content/, images/, fonts/ and public/ "
-          f"({reencoded} pictures re-encoded by Wix, otherwise unchanged)")
+    print(f"ok: the live site matches content/, images/, fonts/ and public/ — "
+          f"{counts['same']} pictures byte-identical, {counts['re-encoded']} re-encoded by Wix "
+          f"but the same picture")
     return 0
 
 
