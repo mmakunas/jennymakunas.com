@@ -17,9 +17,7 @@ Over half of MasterClass’s extensive portfolio of instructors are featured in 
 
 **Media**: Exverus, Tatari
 
-![](/images/now-you-countdown-portfolio-campaign-2.jpg)
-
-<!-- video not captured: Countdown: Broadcast Video Player -->
+<video controls preload="metadata" poster="/images/now-you-countdown-portfolio-campaign-2.jpg" src="/videos/now-you-countdown-portfolio-campaign.mp4"></video>
 
 ![Screenshot 2023-11-07 at 10.30.15 AM.png](/images/screenshot-2023-11-07-at-10-30-15-am.png)
 

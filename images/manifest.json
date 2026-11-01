@@ -145,6 +145,19 @@
       ]
     },
     {
+      "url": "https://i.ytimg.com/vi/YnRE67kwp94/maxresdefault.jpg",
+      "file": "images/animaniacs-x-masterclass-trailer.jpg",
+      "width": 1280,
+      "height": 720,
+      "bytes": 88191,
+      "format": "jpg",
+      "alt": "",
+      "caption": "",
+      "pages": [
+        "animaniacs-x-masterclass"
+      ]
+    },
+    {
       "url": "https://static.wixstatic.com/media/a8ae1a_3c785c523d1344ada7685985fd559f06~mv2.jpg/v1/crop/x_0,y_34,w_600,h_242,q_80,enc_avif,quality_auto/a8ae1a_3c785c523d1344ada7685985fd559f06~mv2.jpg",
       "file": "images/clio-awards-600x309.jpg",
       "width": 600,
@@ -178,6 +191,19 @@
       "bytes": 141082,
       "format": "jpg",
       "alt": "Screenshot 2024-01-11 at 11.35_edited.jpg",
+      "caption": "",
+      "pages": [
+        "animaniacs-x-masterclass"
+      ]
+    },
+    {
+      "url": "https://static.wixstatic.com/media/a8ae1a_f7c3b29ac4304da2965463e8455bf889~mv2.png/v1/fill/w_880,h_800,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_f7c3b29ac4304da2965463e8455bf889~mv2.png",
+      "file": "images/screenshot-2024-01-11-at-11-38-41-am.png",
+      "width": 880,
+      "height": 800,
+      "bytes": 753671,
+      "format": "png",
+      "alt": "Screenshot 2024-01-11 at 11.38.41 AM.png",
       "caption": "",
       "pages": [
         "animaniacs-x-masterclass"
@@ -366,6 +392,19 @@
       ]
     },
     {
+      "url": "https://static.wixstatic.com/media/a8ae1a_f7c3b29ac4304da2965463e8455bf889~mv2.png/v1/fill/w_1920,h_1440,q_90,enc_avif,quality_auto/a8ae1a_f7c3b29ac4304da2965463e8455bf889~mv2.png",
+      "file": "images/animaniacs-x-masterclass.png",
+      "width": 1920,
+      "height": 1440,
+      "bytes": 2148921,
+      "format": "png",
+      "alt": "",
+      "caption": "The Brain Teaches World Domination",
+      "pages": [
+        "home"
+      ]
+    },
+    {
       "url": "https://static.wixstatic.com/media/a8ae1a_35fc39d7621b440e9d6bdef7a70db951~mv2.jpg/v1/fill/w_1662,h_1246,q_90,enc_avif,quality_auto/a8ae1a_35fc39d7621b440e9d6bdef7a70db951~mv2.jpg",
       "file": "images/anna-wintour-how-to-be-a-boss.jpg",
       "width": 1662,
@@ -432,44 +471,15 @@
     },
     {
       "url": "https://static.wixstatic.com/media/a8ae1a_29a5f282680542019130e4ed768571ba~mv2.png/v1/fill/w_1920,h_1440,q_90,enc_avif,quality_auto/a8ae1a_29a5f282680542019130e4ed768571ba~mv2.png",
-      "file": "images/screen-shot-2023-08-23-at-11-17-17-am.png",
+      "file": "images/now-you.png",
       "width": 1920,
       "height": 1440,
       "bytes": 5134915,
       "format": "png",
-      "alt": "Screen Shot 2023-08-23 at 11.17.17 AM.png",
+      "alt": "",
       "caption": "MasterClass brand campaign",
       "pages": [
-        "home",
-        "now-you-brand-campaign"
-      ]
-    },
-    {
-      "url": "https://static.wixstatic.com/media/a8ae1a_17d309d3f86e4455a3eabf3df2db94b7~mv2.png/v1/fill/w_1920,h_1440,q_90,enc_avif,quality_auto/a8ae1a_17d309d3f86e4455a3eabf3df2db94b7~mv2.png",
-      "file": "images/screen-shot-2023-08-23-at-11-20-07-am.png",
-      "width": 1920,
-      "height": 1440,
-      "bytes": 4199898,
-      "format": "png",
-      "alt": "Screen Shot 2023-08-23 at 11.20.07 AM.png",
-      "caption": "MasterClass brand campaign",
-      "pages": [
-        "home",
-        "the-world-could-use-one-of-you"
-      ]
-    },
-    {
-      "url": "https://static.wixstatic.com/media/a8ae1a_f7c3b29ac4304da2965463e8455bf889~mv2.png/v1/fill/w_1920,h_1440,q_90,enc_avif,quality_auto/a8ae1a_f7c3b29ac4304da2965463e8455bf889~mv2.png",
-      "file": "images/screenshot-2024-01-11-at-11-38-41-am.png",
-      "width": 1920,
-      "height": 1440,
-      "bytes": 2148921,
-      "format": "png",
-      "alt": "Screenshot 2024-01-11 at 11.38.41 AM.png",
-      "caption": "The Brain Teaches World Domination",
-      "pages": [
-        "home",
-        "animaniacs-x-masterclass"
+        "home"
       ]
     },
     {
@@ -478,6 +488,19 @@
       "width": 1662,
       "height": 1246,
       "bytes": 2514693,
+      "format": "png",
+      "alt": "",
+      "caption": "MasterClass brand campaign",
+      "pages": [
+        "home"
+      ]
+    },
+    {
+      "url": "https://static.wixstatic.com/media/a8ae1a_17d309d3f86e4455a3eabf3df2db94b7~mv2.png/v1/fill/w_1920,h_1440,q_90,enc_avif,quality_auto/a8ae1a_17d309d3f86e4455a3eabf3df2db94b7~mv2.png",
+      "file": "images/the-world-could-use-one-of-you.png",
+      "width": 1920,
+      "height": 1440,
+      "bytes": 4199898,
       "format": "png",
       "alt": "",
       "caption": "MasterClass brand campaign",
@@ -610,6 +633,19 @@
       "bytes": 163370,
       "format": "jpg",
       "alt": "",
+      "caption": "",
+      "pages": [
+        "now-you-brand-campaign"
+      ]
+    },
+    {
+      "url": "https://static.wixstatic.com/media/a8ae1a_29a5f282680542019130e4ed768571ba~mv2.png/v1/fill/w_1089,h_1408,al_c,q_90,enc_avif,quality_auto/a8ae1a_29a5f282680542019130e4ed768571ba~mv2.png",
+      "file": "images/screen-shot-2023-08-23-at-11-17-17-am.png",
+      "width": 1089,
+      "height": 1408,
+      "bytes": 3102218,
+      "format": "png",
+      "alt": "Screen Shot 2023-08-23 at 11.17.17 AM.png",
       "caption": "",
       "pages": [
         "now-you-brand-campaign"
@@ -899,6 +935,19 @@
       "caption": "",
       "pages": [
         "so-much-new-to-know-portfolio-campaign"
+      ]
+    },
+    {
+      "url": "https://static.wixstatic.com/media/a8ae1a_17d309d3f86e4455a3eabf3df2db94b7~mv2.png/v1/fill/w_1196,h_1402,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_17d309d3f86e4455a3eabf3df2db94b7~mv2.png",
+      "file": "images/screen-shot-2023-08-23-at-11-20-07-am.png",
+      "width": 1196,
+      "height": 1402,
+      "bytes": 2717425,
+      "format": "png",
+      "alt": "Screen Shot 2023-08-23 at 11.20.07 AM.png",
+      "caption": "",
+      "pages": [
+        "the-world-could-use-one-of-you"
       ]
     },
     {

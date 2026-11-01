@@ -22,7 +22,7 @@ Watch the episodes:
 
 **Partners**: Hulu, Titmouse Studios
 
-<!-- embedded player not captured: Animaniacs x MasterClass Official Trailer | Hulu -->
+[![Animaniacs x MasterClass Official Trailer | Hulu](/images/animaniacs-x-masterclass-trailer.jpg)](https://www.youtube-nocookie.com/embed/YnRE67kwp94)
 
 ![Screenshot 2024-01-11 at 11.38.41 AM.png](/images/screenshot-2024-01-11-at-11-38-41-am.png)
 

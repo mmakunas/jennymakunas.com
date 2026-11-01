@@ -14,13 +14,13 @@ A belief that being strong in thought and kind in tone is how things \*really\* 
 
 [![Anna Wintour: How to be a Boss](/images/anna-wintour-how-to-be-a-boss.jpg)](/anna-wintour-how-to-be-a-boss-1 "MasterClass class launch campaign")
 
-[![Now You](/images/screen-shot-2023-08-23-at-11-17-17-am.png)](/now-you-brand-campaign "MasterClass brand campaign")
+[![Now You](/images/now-you.png)](/now-you-brand-campaign "MasterClass brand campaign")
 
 [![Alicia Keys: Your Words Create Your World](/images/alicia-keys-your-words-create-your-world.png)](/alicia-keys-words-create-worlds-1 "MasterClass class launch campaign")
 
 [![Mariah Carey: Pass the Mic](/images/mariah-carey-pass-the-mic.png)](/mariah-carey-pass-the-mic "MasterClass class launch campaign")
 
-[![The World Could Use One of You](/images/screen-shot-2023-08-23-at-11-20-07-am.png)](/the-world-could-use-one-of-you "MasterClass brand campaign")
+[![The World Could Use One of You](/images/the-world-could-use-one-of-you.png)](/the-world-could-use-one-of-you "MasterClass brand campaign")
 
 [![Now You: Countdown](/images/now-you-countdown.png)](/now-you-countdown-portfolio-campaign "MasterClass brand portfolio campaign")
 
@@ -28,7 +28,7 @@ A belief that being strong in thought and kind in tone is how things \*really\* 
 
 [![Today's the Day](/images/today-s-the-day.png)](/today-s-the-day-brand-campaign "MasterClass brand campaign")
 
-[![Animaniacs x MasterClass](/images/screenshot-2024-01-11-at-11-38-41-am.png)](/animaniacs-x-masterclass "The Brain Teaches World Domination")
+[![Animaniacs x MasterClass](/images/animaniacs-x-masterclass.png)](/animaniacs-x-masterclass "The Brain Teaches World Domination")
 
 [![DNA Day 2023](/images/dna-day-2023.jpg)](/23andme-dna-day-2023 "23andMe Times Square activation and brand campaign")
 

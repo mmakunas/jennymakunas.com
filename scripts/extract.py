@@ -6,12 +6,16 @@ site's content tree into this repository:
 
     content/<slug>.md          one file per page: front matter plus the page's copy
                                blocks in document order, images as ![alt](/images/<file>)
-    public/images/<file>       every image at the largest rendition the page serves
-                               to a high-density screen
-    images/manifest.json       Wix URL (verbatim) -> local file, size, bytes
+    content/_site.md           the header and footer every page shares
+    public/images/<file>       every image at the rendition the page serves to a
+                               high-density screen, including the stills films play over
+    images/manifest.json       Wix URL (verbatim) -> local file, size, bytes, pages
+    public/videos/<file>       the films the pages play, at the rendition the Wix
+                               player serves, with videos/manifest.json beside them
     public/fonts/<file>        the fonts whose licence allows self-hosting
     fonts/REPORT.md            every font family and weight, where it comes from,
                                licence verdict and Google Font substitute
+    public/files/              the About page's C.V., which Wix served from its file host
 
 The Wix free site renders most of each page client-side: the HTML the server sends
 carries only ~30-pixel blur placeholders for images and no video blocks at all. The
@@ -30,7 +34,18 @@ Usage:
 
 `--check` re-runs the whole extraction into a temporary directory and compares the
 result with the committed tree, so a clean exit proves the live Wix site still
-matches the repository.
+matches the repository. Text is compared exactly. Pictures are not: Wix re-encodes a
+rendition on every fetch, so the same URL comes back a few bytes different each time.
+They are compared by what they show — dimensions and a 64-bit difference hash of their
+luminance — and a re-encode is reported in words rather than failed.
+
+Two decisions recorded in content rather than guessed at: a film the page plays is a
+`<video>` element pointing at `public/videos/`, and the YouTube trailer on the
+Animaniacs page is a click-to-play facade (a local poster linking to the embed), so no
+third-party script loads before a visitor clicks. The Contact page keeps mailto, tel
+and the social links; its form is dropped, because a static host cannot accept it.
+
+Needs `ffprobe` on PATH (from ffmpeg) to measure the films.
 """
 
 from __future__ import annotations
@@ -41,13 +56,15 @@ import json
 import re
 import sys
 import tempfile
+import io
+import subprocess
 from dataclasses import dataclass, field
 from pathlib import Path
 from urllib.parse import urlparse
 from urllib.request import Request, urlopen
 
 from lxml import html as lxml_html
-from PIL import Image
+from PIL import Image, ImageChops
 from playwright.sync_api import sync_playwright
 
 SITE = "https://jenny6926.wixsite.com"
@@ -60,8 +77,15 @@ DPR = 2
 USER_AGENT = ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
               "(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36")
 
-GENERATED = ["content/*.md", "images/manifest.json", "fonts/REPORT.md",
-             "public/images/*", "public/fonts/*.woff2", "public/fonts/*.ttf", "public/files/*"]
+TEXT_OUTPUT = ["content/*.md", "fonts/REPORT.md", "videos/manifest.json"]
+BINARY_OUTPUT = ["public/fonts/*.woff2", "public/fonts/*.ttf", "public/files/*", "public/videos/*"]
+MANIFEST = "images/manifest.json"
+PICTURES = "public/images/*"
+
+# Wix re-encodes a rendition on every fetch, so the bytes of the same picture differ from
+# run to run. Pictures are compared by what they show: their size and a 64-bit difference
+# hash of their luminance. A re-encode scores 0-8 bits apart, a different picture 20 or more.
+STRUCTURE_SAME = 8
 
 
 @dataclass(frozen=True)
@@ -176,45 +200,50 @@ FONTS = {
 COLLECT_JS = r"""
 () => {
   const main = document.querySelector('#PAGES_CONTAINER') || document.querySelector('main');
+  const header = document.querySelector('#SITE_HEADER');
+  const footer = document.querySelector('#SITE_FOOTER');
   const box = (el) => { const r = el.getBoundingClientRect();
     return [Math.round(r.x), Math.round(r.y + window.scrollY), Math.round(r.width), Math.round(r.height)]; };
   const textOf = (el) => { try { return el.innerText || '' } catch (e) { return '' } };
-  const blocks = [];
+  const anchors = (root) => root ? [...root.querySelectorAll('a')].map((a) => ({
+    label: textOf(a).replace(/\s+/g, ' ').trim(), href: a.getAttribute('href') || ''})) : [];
 
-  main.querySelectorAll('.wixui-rich-text').forEach((el) => {
-    const parts = [...el.children].map((c) => ({tag: (c.tagName || '').toLowerCase(),
-                                                size: parseFloat(getComputedStyle(c).fontSize) || 0}));
-    blocks.push({kind: 'text', id: el.id, html: el.innerHTML, rect: box(el), parts,
-                 inForm: !!el.closest('form')});
-  });
-  main.querySelectorAll('img').forEach((el) => {
-    const link = el.closest('a');
-    blocks.push({kind: 'image', alt: el.alt || '', src: el.currentSrc || el.src || '',
-                 href: link ? (link.getAttribute('href') || '') : '', rect: box(el)});
-  });
-  main.querySelectorAll('video').forEach((el) => {
-    const holder = el.closest('[aria-label]');
-    blocks.push({kind: 'video', src: el.getAttribute('src') || '',
-                 label: (holder ? holder.getAttribute('aria-label') : '') || '',
-                 poster: el.getAttribute('poster') || '', rect: box(el)});
-  });
-  main.querySelectorAll('iframe').forEach((el) => {
-    blocks.push({kind: 'embed', src: el.getAttribute('src') || '',
-                 title: el.getAttribute('title') || '', rect: box(el)});
-  });
-  main.querySelectorAll('form').forEach((el) => {
-    const fields = [...el.querySelectorAll('input, textarea, select')].map((f) => {
-      const label = el.querySelector(`label[for="${f.id}"]`);
-      return {label: label ? label.innerText.trim() : '', name: f.getAttribute('name') || '',
-              type: (f.type || f.tagName).toLowerCase(), required: f.hasAttribute('required')};
-    });
-    const submit = el.querySelector('button, input[type=submit]');
-    blocks.push({kind: 'form', fields, submit: submit ? textOf(submit).trim() : '', rect: box(el)});
-  });
+  // One walk of the page container, so blocks keep the document's own order.
+  const blocks = [];
+  for (const el of main.querySelectorAll('*')) {
+    const tag = (el.tagName || '').toLowerCase();
+    if (el.classList.contains('wixui-rich-text')) {
+      const parts = [...el.children].map((c) => ({tag: (c.tagName || '').toLowerCase(),
+                                                  size: parseFloat(getComputedStyle(c).fontSize) || 0}));
+      blocks.push({kind: 'text', id: el.id, html: el.innerHTML, rect: box(el), parts,
+                   inForm: !!el.closest('form')});
+    } else if (tag === 'img') {
+      const link = el.closest('a');
+      blocks.push({kind: 'image', alt: el.alt || '', src: el.currentSrc || el.src || '',
+                   href: link ? (link.getAttribute('href') || '') : '', rect: box(el)});
+    } else if (tag === 'video') {
+      const holder = el.closest('[aria-label]');
+      blocks.push({kind: 'video', src: el.getAttribute('src') || '',
+                   label: (holder ? holder.getAttribute('aria-label') : '') || '',
+                   poster: el.getAttribute('poster') || '',
+                   autoplay: el.hasAttribute('autoplay'), muted: el.hasAttribute('muted'),
+                   loop: el.hasAttribute('loop'), rect: box(el)});
+    } else if (tag === 'iframe') {
+      blocks.push({kind: 'embed', src: el.getAttribute('src') || '',
+                   title: el.getAttribute('title') || '', rect: box(el)});
+    } else if (tag === 'form') {
+      const fields = [...el.querySelectorAll('input, textarea, select')].map((f) => {
+        const label = el.querySelector(`label[for="${f.id}"]`);
+        return {label: label ? label.innerText.trim() : '', name: f.getAttribute('name') || '',
+                type: (f.type || f.tagName).toLowerCase(), required: f.hasAttribute('required')};
+      });
+      const submit = el.querySelector('button, input[type=submit]');
+      blocks.push({kind: 'form', fields, submit: submit ? textOf(submit).trim() : '', rect: box(el)});
+    }
+  }
 
   const styles = {};
-  for (const [area, root] of [['content', main], ['header', document.querySelector('#SITE_HEADER')],
-                              ['footer', document.querySelector('#SITE_FOOTER')]]) {
+  for (const [area, root] of [['content', main], ['header', header], ['footer', footer]]) {
     if (!root) continue;
     for (const el of root.querySelectorAll('*')) {
       const tag = (el.tagName || '').toLowerCase();
@@ -241,18 +270,15 @@ COLLECT_JS = r"""
     }
   }
 
-  const nav = [...document.querySelectorAll('#SITE_HEADER a')].map((a) => ({
-    label: textOf(a).replace(/\s+/g, ' ').trim(), href: a.getAttribute('href') || '',
-    logo: a.getAttribute('aria-label') || ''}));
-
   const tiles = [...main.querySelectorAll('[data-hook="item-container"]')].map((c) => {
     const image = c.querySelector('img');
-    return {index: Number(c.getAttribute('data-idx')),
-            src: image ? (image.currentSrc || image.src) : ''};
+    return {index: Number(c.getAttribute('data-idx')), src: image ? (image.currentSrc || image.src) : ''};
   }).sort((a, b) => a.index - b.index);
 
-  return {title: document.title, blocks, styles, faces, nav, tiles,
-          html: document.documentElement.outerHTML};
+  return {title: document.title, blocks, styles, faces, nav: anchors(header),
+          footerLinks: anchors(footer),
+          footerBlocks: footer ? [...footer.querySelectorAll('.wixui-rich-text')].map((el) => el.innerHTML) : [],
+          tiles, html: document.documentElement.outerHTML};
 }
 """
 
@@ -275,8 +301,18 @@ def escape_md(value: str) -> str:
 
 
 def media_id(url: str) -> str:
+    """The picture a rendition URL belongs to, ignoring how it was rendered."""
     match = re.search(r"/media/([^/]+?)(?:/v1/|$)", url)
     return match.group(1) if match else url
+
+
+def rendition_key(url: str) -> str:
+    """Picture plus crop: two crops of one picture are two images, 1x and 2x are not."""
+    transform = re.search(r"/v1/([a-z]+)/", url)
+    width = rendition_width(url)
+    height = re.search(r"[hH]_(\d+)", url)
+    ratio = round(width / int(height.group(1)), 2) if width and height else 0
+    return f"{media_id(url)}|{transform.group(1) if transform else ''}|{ratio}"
 
 
 def rendition_width(url: str) -> int:
@@ -298,6 +334,38 @@ def fetch(url: str, attempts: int = 3) -> bytes:
         except Exception as error:  # network flake: retry, then fail loudly
             failure = error
     raise RuntimeError(f"cannot download {url}: {failure}")
+
+
+EMAIL = re.compile(r"^[\w.+-]+@[\w-]+(?:\.[\w-]+)+$")
+PHONE = re.compile(r"^\+?[\d][\d ()-]{6,}$")
+
+
+def overlapping(left: list[int], right: list[int], tolerance: int = 8) -> bool:
+    return (abs(left[0] - right[0]) <= tolerance and abs(left[1] - right[1]) <= tolerance
+            and abs(left[2] - right[2]) <= tolerance and abs(left[3] - right[3]) <= tolerance)
+
+
+def link_contact(block: str) -> str:
+    """The contact page's served email and phone become mailto: and tel: links."""
+    text = block.strip()
+    if EMAIL.match(text):
+        return f"[{text}](mailto:{text})"
+    if PHONE.match(text):
+        return f"[{text}](tel:{re.sub(r'[^\d+]', '', text)})"
+    return block
+
+
+def probe_film(path: Path) -> tuple[int, int, float]:
+    """Width, height and duration of a film, from ffprobe."""
+    try:
+        result = subprocess.run(
+            ["ffprobe", "-v", "error", "-select_streams", "v:0",
+             "-show_entries", "stream=width,height,duration", "-of", "json", str(path)],
+            capture_output=True, text=True, check=True)
+    except (OSError, subprocess.CalledProcessError) as error:
+        raise SystemExit(f"ffprobe could not read {path}: {error}. Install ffmpeg and retry.") from error
+    stream = json.loads(result.stdout)["streams"][0]
+    return int(stream.get("width", 0)), int(stream.get("height", 0)), float(stream.get("duration", 0) or 0)
 
 
 def strip_site(text: str) -> str:
@@ -443,7 +511,26 @@ class Picture:
     alt: str = ""
     caption: str = ""
     hint: str = ""
+    payload: bytes | None = None
     pages: list[str] = field(default_factory=list)
+
+
+@dataclass
+class Film:
+    """A film the page plays, carried at the rendition the Wix player serves."""
+
+    url: str
+    page: str
+    label: str
+    file: str = ""
+    width: int = 0
+    height: int = 0
+    duration: float = 0.0
+    size: int = 0
+    poster: str = ""
+    autoplay: bool = False
+    muted: bool = False
+    loop: bool = False
 
 
 @dataclass
@@ -461,12 +548,14 @@ class Extractor:
         self.out = out
         self.pictures: dict[str, Picture] = {}
         self.tiles: list[Tile] = []
+        self.films: dict[str, Film] = {}
         self.pages: dict[str, dict] = {}
         self.notes: list[str] = []
         self.usage: dict[tuple[str, str, str], dict] = {}
         self.faces: dict[str, set[str]] = {}
         self.font_urls: dict[str, set[str]] = {}
         self.labels: dict[str, str] = {}
+        self.nav_sequence: list[tuple[str, str]] = []
         self.order: dict[str, int] = {}
 
     # -- rendering ---------------------------------------------------------- #
@@ -502,20 +591,28 @@ class Extractor:
 
     @staticmethod
     def in_document_order(blocks: list[dict]) -> list[dict]:
-        """Top to bottom, left to right within one visual row."""
-        remaining = sorted(blocks, key=lambda b: (b["rect"][1], b["rect"][0]))
-        ordered: list[dict] = []
-        while remaining:
-            anchor = remaining[0]["rect"][1]
-            row = [b for b in remaining if abs(b["rect"][1] - anchor) <= 24]
-            remaining = [b for b in remaining if abs(b["rect"][1] - anchor) > 24]
-            ordered.extend(sorted(row, key=lambda b: b["rect"][0]))
-        return ordered
+        """Rows top to bottom; inside a row, the order the document put them in.
+
+        Blocks arrive in document order from one walk of the page, so this only lifts a
+        block the document listed below its drawn position. Wix lays pages out as
+        absolutely positioned columns, which is why the drawn position decides the row:
+        on the Hot Mess page the document lists a heading before the picture above it.
+        """
+        rows: list[dict] = []
+        for index, block in enumerate(blocks):  # already in document order
+            top = block["rect"][1]
+            row = next((row for row in rows if abs(row["top"] - top) <= 24), None)
+            if row is None:
+                rows.append({"top": top, "items": [(index, block)]})
+            else:
+                row["items"].append((index, block))
+        rows.sort(key=lambda row: row["top"])
+        return [block for row in rows for _, block in sorted(row["items"], key=lambda item: item[0])]
 
     # -- images ------------------------------------------------------------- #
 
     def register(self, url: str, alt: str, page: str, caption: str = "", hint: str = "") -> str:
-        media = media_id(url)
+        media = rendition_key(url)
         picture = self.pictures.get(media)
         if picture is None:
             picture = self.pictures[media] = Picture(media=media, url=url, width=rendition_width(url),
@@ -539,7 +636,7 @@ class Extractor:
                 stale.unlink()
         names: dict[str, str] = {}
         for picture in sorted(self.pictures.values(), key=lambda p: p.media):
-            payload = fetch(picture.url)
+            payload = picture.payload if picture.payload is not None else fetch(picture.url)
             with tempfile.NamedTemporaryFile() as handle:
                 handle.write(payload)
                 handle.flush()
@@ -558,6 +655,64 @@ class Extractor:
             names[name] = picture.media
             picture.file = name
             (directory / name).write_bytes(payload)
+
+    def register_film(self, block: dict, page: str, poster: str) -> Film:
+        film = self.films.get(block["src"])
+        if film is None:
+            film = self.films[block["src"]] = Film(
+                url=block["src"], page=page, label=collapse(block["label"]).strip(),
+                poster=poster, autoplay=bool(block.get("autoplay")),
+                muted=bool(block.get("muted")), loop=bool(block.get("loop")))
+        return film
+
+    def download_films(self) -> None:
+        directory = self.out / "public" / "videos"
+        directory.mkdir(parents=True, exist_ok=True)
+        for stale in directory.glob("*.mp4"):
+            stale.unlink()
+        counted: dict[str, int] = {}
+        for film in sorted(self.films.values(), key=lambda f: (f.page, f.url)):
+            counted[film.page] = counted.get(film.page, 0) + 1
+            suffix = "" if counted[film.page] == 1 else f"-{counted[film.page]}"
+            film.file = f"{film.page}{suffix}.mp4"
+            target = directory / film.file
+            target.write_bytes(fetch(film.url))
+            film.size = target.stat().st_size
+            film.width, film.height, film.duration = probe_film(target)
+
+    def film_manifest(self) -> dict:
+        return {
+            "source": BASE,
+            "videos": [
+                {"url": film.url, "file": f"videos/{film.file}", "width": film.width,
+                 "height": film.height, "duration": round(film.duration, 3), "bytes": film.size,
+                 "poster": f"images/{film.poster}" if film.poster else None,
+                 "label": film.label, "autoplay": film.autoplay, "muted": film.muted,
+                 "loop": film.loop, "pages": [film.page]}
+                for film in sorted(self.films.values(), key=lambda f: f.file)
+            ],
+        }
+
+    def prepare_facade(self, block: dict, page: str) -> None:
+        """A YouTube trailer becomes a poster and a link; the player loads on click."""
+        match = re.search(r"(?:youtube-nocookie|youtube)\.com/embed/([A-Za-z0-9_-]+)", block["src"])
+        if not match:
+            return
+        identifier = match.group(1)
+        for name in ("maxresdefault", "hqdefault"):
+            url = f"https://i.ytimg.com/vi/{identifier}/{name}.jpg"
+            try:
+                payload = fetch(url, attempts=1)
+            except RuntimeError:
+                continue
+            key = self.register(url, "", page, hint=f"{page}-trailer")
+            self.pictures[key].payload = payload
+            block["facade"] = key
+            block["target"] = f"https://www.youtube-nocookie.com/embed/{identifier}"
+            self.notes.append(f"{page}: YouTube trailer carried as a click-to-play facade "
+                              f"({collapse(block['title']).strip()}); the player loads on click")
+            return
+        self.notes.append(f"{page}: YouTube trailer has no reachable thumbnail ({block['src']})")
 
     def manifest(self) -> dict:
         return {
@@ -601,12 +756,12 @@ class Extractor:
             if not source:
                 self.notes.append(f"{spec.file}: grid tile {title!r} has no rendered image")
                 continue
-            media = self.register(source, "", spec.file, caption=meta.get("description", ""), hint=title)
+            key = self.register(source, "", spec.file, caption=meta.get("description", ""), hint=title)
             if page is None:
                 self.notes.append(f"{spec.file}: grid tile {meta.get('title')!r} links to {target!r}, "
                                   "which is not one of the 15 pages")
                 continue
-            tiles.append(Tile(media=media, title=title,
+            tiles.append(Tile(media=key, title=title,
                               caption=collapse(meta.get("description", "")).strip(), href=page.path))
         return tiles
 
@@ -733,8 +888,19 @@ class Extractor:
 
     # -- pages -------------------------------------------------------------- #
 
+    @staticmethod
+    def slug_for(href: str) -> str:
+        parsed = urlparse(href)
+        if href.rstrip("/") == BASE.rstrip("/"):
+            return ""
+        return (parsed.path or "").split("/mysite", 1)[-1].strip("/")
+
     def read_nav(self, home: dict) -> None:
         for anchor in home["nav"]:
+            if anchor["label"] and anchor["label"] != SITE_NAME:
+                page = next((page for page in PAGES if page.slug == self.slug_for(anchor["href"])), None)
+                if page is not None:
+                    self.nav_sequence.append((anchor["label"], page.path))
             parsed = urlparse(anchor["href"])
             slug = (parsed.path or "").split("/mysite", 1)[-1].strip("/")
             if anchor["href"].rstrip("/") == BASE.rstrip("/"):
@@ -759,8 +925,7 @@ class Extractor:
         body: list[str] = []
         tiles_written = False
         blocks = self.in_document_order(data["blocks"])
-        form_text = [plain_text(block["html"]) for block in blocks
-                     if block["kind"] == "text" and block.get("inForm")]
+        posters = {id(block) for block in self.poster_blocks(blocks)}
         for block in blocks:
             kind = block["kind"]
             if kind == "text":
@@ -768,29 +933,33 @@ class Extractor:
                     continue
                 body.extend(block_markdown(block["html"], block.get("parts")))
             elif kind == "image":
+                if id(block) in posters:
+                    continue
                 if spec.kind == "home":
                     if not tiles_written:
                         body.extend(self.tile_markdown())
                         tiles_written = True
                     continue
-                media = media_id(block["src"])
-                image = f"![{collapse(block['alt']).strip()}](/images/{self.pictures[media].file})"
+                key = rendition_key(block["src"])
+                image = f"![{collapse(block['alt']).strip()}](/images/{self.pictures[key].file})"
                 href = rewrite_href(block.get("href") or "")
                 body.append(f"[{image}]({markdown_destination(href)})" if href else image)
             elif kind == "video":
-                label = collapse(block["label"]).strip() or block["src"]
-                self.notes.append(f"{spec.file}: video not captured: {label} ({block['src']})")
-                body.append(f"<!-- video not captured: {label} -->")
+                body.append(self.video_markdown(block))
             elif kind == "embed":
-                self.notes.append(f"{spec.file}: embedded player not captured: "
-                                  f"{block['title']} ({block['src']})")
-                body.append(f"<!-- embedded player not captured: {block['title']} -->")
+                if block.get("facade"):
+                    picture = self.pictures[block["facade"]]
+                    title = escape_md(collapse(block["title"]).strip())
+                    body.append(f"[![{title}](/images/{picture.file})]({block['target']})")
+                else:
+                    self.notes.append(f"{spec.file}: embedded player not carried: "
+                                      f"{block['title']} ({block['src']})")
             elif kind == "form":
-                fields = ", ".join(f["label"] or f["name"] for f in block["fields"])
-                message = f"; then {form_text[0]!r}" if form_text else ""
-                self.notes.append(f"{spec.file}: form not captured: fields {fields}, "
-                                  f"button {block['submit']!r}{message}")
-                body.append(f"<!-- form not captured: {fields}; button {block['submit']!r}{message} -->")
+                # Michael's decision: the contact page keeps mailto, tel and the social
+                # links and drops the form, which a static host cannot accept.
+                fields = ", ".join(field["label"] or field["name"] for field in block["fields"])
+                self.notes.append(f"{spec.file}: form dropped by decision "
+                                  f"(fields {fields}, button {block['submit']!r})")
         if spec.kind == "home" and not tiles_written:
             body.extend(self.tile_markdown())
 
@@ -804,7 +973,48 @@ class Extractor:
             "---",
             "",
         ]
+        if spec.file == "contact":
+            body = [link_contact(block) for block in body]
         return "\n".join(front) + "\n\n".join(body).strip() + "\n"
+
+    @staticmethod
+    def poster_blocks(blocks: list[dict]) -> list[dict]:
+        """The image a film plays over: the still drawn at the same place."""
+        stills = []
+        videos = [block for block in blocks if block["kind"] == "video"]
+        for block in blocks:
+            if block["kind"] != "image":
+                continue
+            for video in videos:
+                if overlapping(block["rect"], video["rect"]):
+                    stills.append(block)
+                    break
+        return stills
+
+    def video_markdown(self, block: dict) -> str:
+        film = self.films[block["src"]]
+        attributes = []
+        if film.autoplay:
+            attributes += ["autoplay", "muted", "loop", "playsinline"]
+        else:
+            attributes += ['controls', 'preload="metadata"']
+        if film.poster:
+            attributes.append(f'poster="/images/{film.poster}"')
+        return f'<video {" ".join(attributes)} src="/videos/{film.file}"></video>'
+
+    def site_markdown(self) -> str:
+        """The header and footer every page shares, exactly as served."""
+        nav = [f"- [{escape_md(label)}]({markdown_destination(path)})"
+               for label, path in self.nav_sequence]
+        footer = [" · ".join(
+            f"[{escape_md(link['label'])}]({markdown_destination(rewrite_href(link['href']))})"
+            for link in self.pages["home"]["footerLinks"] if link["label"])]
+        for block_html in self.pages["home"]["footerBlocks"]:
+            footer.extend(block_markdown(block_html, None))
+        lines = ["## Header", "\n".join(nav), "## Footer", "\n\n".join(filter(None, footer))]
+        front = ["---", 'title: "Site"', "nav_label: null", "order: null", "path: null",
+                 'kind: "site"', "---", ""]
+        return "\n".join(front) + "\n\n".join(lines).strip() + "\n"
 
     def tile_markdown(self) -> list[str]:
         """One Work tile: served title as alt text, served caption as the link title."""
@@ -836,12 +1046,35 @@ class Extractor:
                     self.register(block["src"], block["alt"], spec.file,
                                   hint=f"{spec.file}-{position}")
 
+        for spec in PAGES:
+            for block in self.pages[spec.file]["blocks"]:
+                if block["kind"] == "video":
+                    self.register_film(block, spec.file, "")
+                elif block["kind"] == "embed":
+                    self.prepare_facade(block, spec.file)
+
         self.download()
+
+        for spec in PAGES:
+            blocks = self.in_document_order(self.pages[spec.file]["blocks"])
+            for block in self.poster_blocks(blocks):
+                for video in (item for item in blocks if item["kind"] == "video"):
+                    if overlapping(block["rect"], video["rect"]):
+                        film = self.films.get(video["src"])
+                        if film is not None and not film.poster:
+                            film.poster = self.pictures[rendition_key(block["src"])].file
+        self.download_films()
 
         content = self.out / "content"
         content.mkdir(parents=True, exist_ok=True)
         for spec in PAGES:
             (content / f"{spec.file}.md").write_text(self.page_markdown(spec), encoding="utf-8")
+        (content / "_site.md").write_text(self.site_markdown(), encoding="utf-8")
+
+        film_path = self.out / "videos" / "manifest.json"
+        film_path.parent.mkdir(parents=True, exist_ok=True)
+        film_path.write_text(json.dumps(self.film_manifest(), indent=2, ensure_ascii=False) + "\n",
+                             encoding="utf-8")
 
         manifest = self.out / "images" / "manifest.json"
         manifest.parent.mkdir(parents=True, exist_ok=True)
@@ -857,9 +1090,10 @@ class Extractor:
         (self.out / "fonts").mkdir(parents=True, exist_ok=True)
         (self.out / "fonts" / "REPORT.md").write_text(self.font_report(shipped), encoding="utf-8")
 
-        print(f"content files: {len(PAGES)}")
+        print(f"content files: {len(PAGES)} pages + _site.md")
         print(f"images: {len(self.pictures)}")
         print(f"manifest rows: {len(self.pictures)}")
+        print(f"videos: {len(self.films)}")
         print(f"fonts self-hosted: {len(shipped)}")
         if self.notes:
             print("not captured:")
@@ -869,34 +1103,110 @@ class Extractor:
 
 # --------------------------------------------------------------------------- #
 
-def generated(root: Path) -> dict[str, bytes]:
-    files: dict[str, bytes] = {}
-    for pattern in GENERATED:
+def picture_hash(image: Image.Image, size: int = 8) -> int:
+    """Which side of its neighbour each of 64 grey cells falls on."""
+    grey = image.convert("L").resize((size + 1, size), Image.LANCZOS)
+    pixels = list(grey.getdata())
+    bits = 0
+    for row in range(size):
+        for column in range(size):
+            offset = row * (size + 1) + column
+            bits = (bits << 1) | int(pixels[offset] > pixels[offset + 1])
+    return bits
+
+
+def read_picture(payload: bytes) -> tuple[tuple[int, int], int, Image.Image]:
+    image = Image.open(io.BytesIO(payload)).convert("RGB")
+    return image.size, picture_hash(image), image
+
+
+def mean_difference(left: Image.Image, right: Image.Image) -> float:
+    histogram = ImageChops.difference(left, right).convert("L").histogram()
+    return sum(value * count for value, count in enumerate(histogram)) / (sum(histogram) or 1)
+
+
+def files_under(root: Path, patterns: list[str]) -> dict[str, bytes]:
+    found: dict[str, bytes] = {}
+    for pattern in patterns:
         for path in sorted(root.glob(pattern)):
             if path.is_file():
-                files[str(path.relative_to(root))] = path.read_bytes()
-    return files
+                found[str(path.relative_to(root))] = path.read_bytes()
+    return found
+
+
+def normalized_manifest(payload: bytes) -> dict:
+    """The manifest without the byte counts, which a re-encode changes."""
+    manifest = json.loads(payload)
+    for row in manifest.get("images", []):
+        row.pop("bytes", None)
+    return manifest
+
+
+def compare(root: Path, scratch: Path) -> tuple[list[str], int]:
+    """Everything that differs between the committed tree and a fresh extraction."""
+    problems: list[str] = []
+    for description, patterns in (("text", TEXT_OUTPUT), ("binary", BINARY_OUTPUT)):
+        committed = files_under(root, patterns)
+        fresh = files_under(scratch, patterns)
+        for name in sorted(set(committed) | set(fresh)):
+            if name not in fresh:
+                problems.append(f"{name}: in the repository, no longer on the site")
+            elif name not in committed:
+                problems.append(f"{name}: on the site, missing from the repository")
+            elif committed[name] != fresh[name]:
+                problems.append(f"{name}: {description} changed")
+
+    committed_manifest = root / MANIFEST
+    fresh_manifest = scratch / MANIFEST
+    if not fresh_manifest.exists():
+        problems.append(f"{MANIFEST}: missing from the fresh extraction")
+    else:
+        old = {row["url"]: row for row in
+               normalized_manifest(committed_manifest.read_bytes()).get("images", [])}
+        new = {row["url"]: row for row in
+               normalized_manifest(fresh_manifest.read_bytes()).get("images", [])}
+        for url in sorted(set(old) | set(new)):
+            if url not in new:
+                problems.append(f"{MANIFEST}: {old[url]['file']} is no longer referenced")
+            elif url not in old:
+                problems.append(f"{MANIFEST}: {new[url]['file']} is newly referenced")
+            elif old[url] != new[url]:
+                changed = sorted(key for key in old[url] if old[url].get(key) != new[url].get(key))
+                problems.append(f"{MANIFEST}: {old[url]['file']} changed ({', '.join(changed)})")
+
+    committed_pictures = files_under(root, [PICTURES])
+    fresh_pictures = files_under(scratch, [PICTURES])
+    reencoded = 0
+    for name in sorted(set(committed_pictures) | set(fresh_pictures)):
+        if name not in fresh_pictures:
+            problems.append(f"{name}: in the repository, no longer on the site")
+        elif name not in committed_pictures:
+            problems.append(f"{name}: on the site, missing from the repository")
+        else:
+            old_size, old_hash, old_image = read_picture(committed_pictures[name])
+            new_size, new_hash, new_image = read_picture(fresh_pictures[name])
+            if old_size != new_size:
+                problems.append(f"{name}: {new_size[0]}x{new_size[1]} on the site, "
+                                f"{old_size[0]}x{old_size[1]} in the repository")
+            elif bin(old_hash ^ new_hash).count("1") > STRUCTURE_SAME:
+                problems.append(f"{name}: a different picture at that URL "
+                                f"(mean pixel difference {mean_difference(old_image, new_image):.1f} of 255)")
+            else:
+                reencoded += 1
+    return problems, reencoded
 
 
 def check(root: Path) -> int:
     with tempfile.TemporaryDirectory() as scratch:
         build(Path(scratch))
-        expected = generated(root)
-        actual = generated(Path(scratch))
-    differences = []
-    for name in sorted(set(expected) | set(actual)):
-        if name not in actual:
-            differences.append(f"stale in repo: {name}")
-        elif name not in expected:
-            differences.append(f"missing from repo: {name}")
-        elif expected[name] != actual[name]:
-            differences.append(f"changed: {name}")
-    if differences:
+        problems, reencoded = compare(root, Path(scratch))
+    if problems:
         print("the live site no longer matches this checkout:")
-        for difference in differences:
-            print(f"  {difference}")
+        for problem in problems:
+            print(f"  {problem}")
         return 1
-    print(f"ok: {len(actual)} generated files match the live site")
+    print(f"ok: the live site matches content/, images/, fonts/ and public/ "
+          f"({reencoded} pictures re-encoded by Wix, otherwise unchanged)")
     return 0
 
 

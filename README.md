@@ -14,18 +14,29 @@ Wix site, not the output, when the source of truth changes.
 - `public/images/<file>` — every image at the rendition a high-density screen is served, with
   `images/manifest.json` mapping the Wix URL to the file, its size and its byte count. Nothing
   in `content/` links to Wix.
+- `public/videos/` — the films the pages play, at the rendition the Wix player serves,
+  with `videos/manifest.json` giving each one's Wix URL, size, duration, still and pages.
 - `public/fonts/` — the fonts whose licence allows self-hosting, with `fonts/REPORT.md`
   recording every family, weight, source and licence verdict.
 - `public/files/` — the About page's C.V. PDF, which Wix served from its own file host.
+- `content/_site.md` — the header nav in its served order and the footer as served (the
+  social links, the email, the phone, the © line), so the shared chrome is generated too.
 
-Two conventions the generator uses, because Markdown has no other way to say them:
+Three conventions the generator uses, because Markdown has no other way to say them:
 
 - A Work grid tile is `[![<tile title>](/images/<file>)](<page path> "<tile caption>")`: the
   served title is the alt text, the served caption is the link title.
-- A block the extraction cannot carry — a video the page plays, a form — is left as an HTML
-  comment naming it, so a page never silently loses a block.
+- A film is a `<video>` element with the still frame as its `poster`; the Anna Wintour loop
+  autoplays muted and loops, as it does on Wix. The Animaniacs trailer is a click-to-play
+  facade — a local poster linking to the YouTube embed — so nothing from YouTube loads
+  until a visitor clicks.
+- The Contact page keeps the email as `mailto:`, the phone as `tel:` and the three social
+  links. Its form is dropped by Michael's decision; a static host cannot accept it.
 
 ## Regenerating
+
+Needs Python 3, `ffprobe` on `PATH` (from ffmpeg) to measure the films, and the pinned
+packages:
 
 ```
 pip install -r requirements.txt
@@ -35,4 +46,6 @@ python3 scripts/extract.py --check  # re-extracts to a temporary directory and f
 ```
 
 `--check` is how the tree proves it still matches the live site: it exits non-zero when any
-generated file would change.
+generated file would change. Text is compared exactly; pictures are compared by dimensions
+and a perceptual hash, because Wix re-encodes the same URL a few bytes differently on every
+fetch and a byte comparison would flap forever.

@@ -21,9 +21,7 @@ Today’s the Day launched in May 2020, and ran through the summer. It included 
 
 **Media**: Exverus, Tatari
 
-![](/images/today-s-the-day-brand-campaign-2.jpg)
-
-<!-- video not captured: Today's the Day: Broadcast Video Player -->
+<video controls preload="metadata" poster="/images/today-s-the-day-brand-campaign-2.jpg" src="/videos/today-s-the-day-brand-campaign.mp4"></video>
 
 ![TTD Print spread.png](/images/ttd-print-spread.png)
 

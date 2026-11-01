@@ -21,6 +21,4 @@ Filmed in Los Angeles and Sofia, Bulgaria, this was one of two unique films crea
 
 **Photography:** Josh Telles for MasterClass
 
-![](/images/mariah-carey-pass-the-mic-2.jpg)
-
-<!-- video not captured: Mariah Carey: Pass the Mic Video Player -->
+<video controls preload="metadata" poster="/images/mariah-carey-pass-the-mic-2.jpg" src="/videos/mariah-carey-pass-the-mic.mp4"></video>

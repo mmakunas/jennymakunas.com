@@ -21,9 +21,7 @@ The campaign garnered over $500M in earned media, 1200 press hits, 14B impressio
 
 **Photography**: Tyler Mitchell
 
-![](/images/anna-wintour-how-to-be-a-boss-1-2.jpg)
-
-<!-- video not captured: bottom_AWI_15.mp4 Play video -->
+<video autoplay muted loop playsinline poster="/images/anna-wintour-how-to-be-a-boss-1-2.jpg" src="/videos/anna-wintour-how-to-be-a-boss-1.mp4"></video>
 
 ![Screen Shot 2023-09-12 at 11.48.23 AM.png](/images/screen-shot-2023-09-12-at-11-48-23-am.png)
 

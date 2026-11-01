@@ -1,0 +1,149 @@
+{
+  "source": "https://jenny6926.wixsite.com/mysite",
+  "videos": [
+    {
+      "url": "https://video.wixstatic.com/video/a8ae1a_ef3e625f579d46c7a9ba72d0358c2fb6/1080p/mp4/file.mp4",
+      "file": "videos/alicia-keys-words-create-worlds-1.mp4",
+      "width": 1920,
+      "height": 1080,
+      "duration": 30.03,
+      "bytes": 19788087,
+      "poster": "images/alicia-keys-words-create-worlds-1-2.jpg",
+      "label": "Your Words Create Your World Video Player",
+      "autoplay": false,
+      "muted": false,
+      "loop": false,
+      "pages": [
+        "alicia-keys-words-create-worlds-1"
+      ]
+    },
+    {
+      "url": "https://video.wixstatic.com/video/a8ae1a_a3136107d7174c36b858354c15aa7bcf/360p/mp4/file.mp4",
+      "file": "videos/anna-wintour-how-to-be-a-boss-1.mp4",
+      "width": 360,
+      "height": 360,
+      "duration": 15.0,
+      "bytes": 784280,
+      "poster": "images/anna-wintour-how-to-be-a-boss-1-2.jpg",
+      "label": "bottom_AWI_15.mp4 Play video",
+      "autoplay": true,
+      "muted": true,
+      "loop": true,
+      "pages": [
+        "anna-wintour-how-to-be-a-boss-1"
+      ]
+    },
+    {
+      "url": "https://video.wixstatic.com/video/a8ae1a_7ad291c935604e929f532b72303f2326/1080p/mp4/file.mp4",
+      "file": "videos/mariah-carey-pass-the-mic.mp4",
+      "width": 1920,
+      "height": 1080,
+      "duration": 30.03,
+      "bytes": 20950433,
+      "poster": "images/mariah-carey-pass-the-mic-2.jpg",
+      "label": "Mariah Carey: Pass the Mic Video Player",
+      "autoplay": false,
+      "muted": false,
+      "loop": false,
+      "pages": [
+        "mariah-carey-pass-the-mic"
+      ]
+    },
+    {
+      "url": "https://video.wixstatic.com/video/a8ae1a_9264c3b6ca304ac6b48c97f372992c88/1080p/mp4/file.mp4",
+      "file": "videos/now-you-brand-campaign.mp4",
+      "width": 1920,
+      "height": 1080,
+      "duration": 60.06,
+      "bytes": 38571980,
+      "poster": "images/now-you-brand-campaign-2.jpg",
+      "label": "Now You: Broadcast Video Player",
+      "autoplay": false,
+      "muted": false,
+      "loop": false,
+      "pages": [
+        "now-you-brand-campaign"
+      ]
+    },
+    {
+      "url": "https://video.wixstatic.com/video/a8ae1a_3229a4f164b64e5db9e1ecbdbf1b5d42/1080p/mp4/file.mp4",
+      "file": "videos/now-you-countdown-portfolio-campaign.mp4",
+      "width": 1920,
+      "height": 1080,
+      "duration": 60.018,
+      "bytes": 38692029,
+      "poster": "images/now-you-countdown-portfolio-campaign-2.jpg",
+      "label": "Countdown: Broadcast Video Player",
+      "autoplay": false,
+      "muted": false,
+      "loop": false,
+      "pages": [
+        "now-you-countdown-portfolio-campaign"
+      ]
+    },
+    {
+      "url": "https://video.wixstatic.com/video/a8ae1a_0064a69d83f7476d887d090ef610ef67/1080p/mp4/file.mp4",
+      "file": "videos/so-much-new-to-know-portfolio-campaign.mp4",
+      "width": 1920,
+      "height": 1080,
+      "duration": 60.06,
+      "bytes": 30225834,
+      "poster": "images/so-much-new-to-know-portfolio-campaign-2.jpg",
+      "label": "New to Know: Broadcast Video Player",
+      "autoplay": false,
+      "muted": false,
+      "loop": false,
+      "pages": [
+        "so-much-new-to-know-portfolio-campaign"
+      ]
+    },
+    {
+      "url": "https://video.wixstatic.com/video/a8ae1a_dd36d9910d7246d08e6b4fe7f04d66c6/1080p/mp4/file.mp4",
+      "file": "videos/the-world-could-use-one-of-you-2.mp4",
+      "width": 1920,
+      "height": 1080,
+      "duration": 30.03,
+      "bytes": 20523951,
+      "poster": "images/the-world-could-use-one-of-you-3.jpg",
+      "label": "Universe: Broadcast Video Player",
+      "autoplay": false,
+      "muted": false,
+      "loop": false,
+      "pages": [
+        "the-world-could-use-one-of-you"
+      ]
+    },
+    {
+      "url": "https://video.wixstatic.com/video/a8ae1a_bf7c7745d6c8418bb554d9d018a4e110/1080p/mp4/file.mp4",
+      "file": "videos/the-world-could-use-one-of-you.mp4",
+      "width": 1920,
+      "height": 1080,
+      "duration": 60.06,
+      "bytes": 41376226,
+      "poster": "images/the-world-could-use-one-of-you-2.jpg",
+      "label": "Mirrors: Broadcast Video Player",
+      "autoplay": false,
+      "muted": false,
+      "loop": false,
+      "pages": [
+        "the-world-could-use-one-of-you"
+      ]
+    },
+    {
+      "url": "https://video.wixstatic.com/video/a8ae1a_34a6c0c439c7446fb11435273dd9dbcd/1080p/mp4/file.mp4",
+      "file": "videos/today-s-the-day-brand-campaign.mp4",
+      "width": 1920,
+      "height": 1080,
+      "duration": 67.109,
+      "bytes": 30973101,
+      "poster": "images/today-s-the-day-brand-campaign-2.jpg",
+      "label": "Today's the Day: Broadcast Video Player",
+      "autoplay": false,
+      "muted": false,
+      "loop": false,
+      "pages": [
+        "today-s-the-day-brand-campaign"
+      ]
+    }
+  ]
+}
