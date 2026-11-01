@@ -170,11 +170,22 @@ img {
   .work-menu a:hover {
     color: var(--ink);
   }
+  /* The hamburger and its overlay belong to the phone layout. */
+  .burger,
+  .menu-overlay {
+    display: none !important;
+  }
 }
 @media (max-width: 749.9px) {
   .site-header {
     height: 22.1875cqw;
     container-type: inline-size;
+  }
+  /* The nav row and its dropdown belong to the desktop header; below the
+     breakpoint the same links live in the menu overlay. */
+  .site-header .nav-item,
+  .site-header .work-menu {
+    display: none;
   }
   .site-header .nav {
     position: relative;
@@ -357,6 +368,8 @@ img {
 }
 
 /* Footer ------------------------------------------------------------------ */
+/* The footer's blocks are placed from the capture, so the band needs the
+   captured height at each breakpoint or they collapse onto each other. */
 .site-footer {
   position: relative;
   width: 100%;

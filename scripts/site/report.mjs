@@ -5,7 +5,13 @@ import { allPages } from '../../src/lib/content.js';
 
 const pages = allPages();
 for (const { slug } of pages) {
-  const c = composePage(slug);
+  let c;
+  try {
+    c = composePage(slug);
+  } catch (e) {
+    console.log(`${slug.padEnd(38)} MISMATCH — ${e.message.slice(0, 140)}`);
+    continue;
+  }
   const orphans = c.orphaned.filter((o) => !/no image left/.test(o.why));
   const flag = c.leftover.length || orphans.length ? '  <-- check' : '';
   console.log(

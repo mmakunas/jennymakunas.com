@@ -92,7 +92,7 @@ const layoutCss = (block, mode) => {
     // Vertical offsets are fixed on most pages, but a block below a grid that
     // stretches moves with it, so top interpolates like left and width.
     out.push(linCss(r.x, wide.x, 'left'), linCss(r.w, wide.w, 'width'), linCss(r.y, wide.y ?? r.y, 'top'));
-    if (block.kind !== 'text') out.push(`height:${fmt(r.h)}px`);
+    if (block.kind !== 'text') out.push(linCss(r.h, wide.h ?? r.h, 'height'));
     if (s.size) out.push(`font-size:${fmt(s.size)}px`);
     if (s.lineHeight) out.push(`line-height:${fmt(s.lineHeight)}px`);
     if (s.align) out.push(`text-align:${s.align}`);
@@ -130,7 +130,7 @@ const sameText = (a, b) => {
 // own text; media pairs in document order — every image, film and facade in the
 // Markdown against every media box on the page — with an exact media-id match
 // taking precedence, because Wix lays a film's poster above its stills.
-function zip(contentBlocks, layoutBlocks) {
+function zip(contentBlocks, layoutBlocks, { byText = false } = {}) {
   const text = [];
   const media = [];
   for (const b of contentBlocks) {
@@ -140,7 +140,8 @@ function zip(contentBlocks, layoutBlocks) {
   const placed = [];
   const orphaned = [];
   let listSlots = 0;
-  for (const lb of layoutBlocks) {
+  for (let li = 0; li < layoutBlocks.length; li++) {
+    const lb = layoutBlocks[li];
     const wantsText = lb.kind === 'text';
     // A bulleted list is one Markdown block but several boxes on the page; the
     // first box carries the list and the rest are its continuation.
@@ -150,10 +151,19 @@ function zip(contentBlocks, layoutBlocks) {
       continue;
     }
     if (wantsText) {
+      // Text pairs by position, not by wording: the Markdown is the copy's
+      // source of truth, so an edit to any part of a paragraph must land in
+      // that paragraph's box rather than fall back to the captured text.
       let content = text[0];
-      if (content && !sameText(content.text, lb.text)) {
+      if (byText && content && !sameText(content.text, lb.text)) {
         const idx = text.findIndex((c) => sameText(c.text, lb.text));
-        content = idx >= 0 ? text[idx] : null;
+        content = idx >= 0 ? text[idx] : text[0];
+      }
+      // Wix leaves empty paragraphs as spacers; they have no content peer and
+      // nothing to render.
+      if (!content && !lb.text) {
+        placed.push({ ...lb, empty: true, html: '' });
+        continue;
       }
       if (!content) {
         orphaned.push({ block: lb, why: 'no text left in content' });
@@ -161,6 +171,19 @@ function zip(contentBlocks, layoutBlocks) {
         continue;
       }
       text.splice(text.indexOf(content), 1);
+      // One Markdown paragraph can be several boxes on the page (a run of
+      // attribution lines, for one): the paragraph renders in the first box and
+      // the boxes it covers keep their space without repeating it.
+      let absorb = 0;
+      while (
+        layoutBlocks[li + 1 + absorb] &&
+        layoutBlocks[li + 1 + absorb].kind === 'text' &&
+        layoutBlocks[li + 1 + absorb].text &&
+        norm(content.text).includes(norm(layoutBlocks[li + 1 + absorb].text))
+      ) {
+        absorb += 1;
+      }
+      if (absorb) listSlots = absorb;
       if (content.type === 'list' && content.items > 1) listSlots = content.items - 1;
       placed.push({ ...lb, content, html: withBase(content.html), list: content.type === 'list' });
       continue;
@@ -233,7 +256,13 @@ function headerData(currentPath) {
     mobileLogo: s.mobile.header.nav.find((n) => n.text === logo.text),
     mobileBurger: s.mobile.header.burger,
     studies: studies.map((p) => ({ text: p.text, href: p.href, active: p.href === currentPath })),
-    menu: s.mobileMenu,
+    menu: (() => {
+      const top = ['Work', 'Thoughts', 'About', 'Contact', 'Jenny Makunas'];
+      const children = (s.mobile.header.nav || []).filter(
+        (n) => !top.includes(n.text) && !siteNav.nav.some((v) => v.text === n.text && studies.some((st) => st.text === n.text)),
+      );
+      return { items: children.map((n) => ({ text: n.text, href: n.href })) };
+    })(),
   };
 }
 
@@ -283,6 +312,9 @@ function footerData() {
       style: { font: 'cormorantgaramond-semibold', size: 14, color: 'rgb(217, 75, 149)' },
     },
   ];
+  // On the phone layout Wix drops the social row: only the contact line and the
+  // © line remain, so the row is hidden below the breakpoint.
+  rows[0].hideMobile = mLinks.length === 0;
   const decorate = (row) => ({
     ...row,
     shared: sharedCss({ style: row.style }),
@@ -292,6 +324,8 @@ function footerData() {
   return {
     height: s.desktop.footer.rect.h,
     mobileHeight: s.mobile.footer.rect.h,
+    heightCss: `${fmt(s.desktop.footer.rect.h)}px`,
+    mobileHeightCss: mq(s.mobile.footer.rect.h),
     blocks: rows.map(decorate),
   };
 }
@@ -299,7 +333,7 @@ function footerData() {
 // The Work grid is a Wix gallery: its cells are divs, not page content, and the
 // capture lists them in a different order than they appear. Each cell is paired
 // with the Markdown image that is the same picture, by media id.
-function tileData(slug, images) {
+function tileData(slug, images, headerH) {
   const l = layoutOf(slug);
   // Both captures list the cells in the same order, including a duplicate box
   // Wix keeps for the hover layer; dedupe each list the same way so an index
@@ -318,6 +352,9 @@ function tileData(slug, images) {
   const desk = unique(l.desktop.gallery);
   const wide = unique(l.desktop.galleryWide);
   const mob = unique(l.mobile.gallery);
+  // Gallery cells are measured from the page top; the canvas starts below the
+  // header, so every cell and its row offset move up by the header height.
+  const shift = (r) => ({ ...r, y: r.y - headerH });
   return images
     .map((image, i) => {
       const id = fileToMedia.get(image.src);
@@ -333,8 +370,8 @@ function tileData(slug, images) {
         href: image.href || null,
         fit: cell.fit || 'cover',
         shared: 'font-family:inherit',
-        desktopCss: layoutCss({ kind: 'image', rect: cell.rect, wide: wideCell.rect, style: {} }, 'desktop'),
-        mobileCss: m ? layoutCss({ ...m, kind: 'image', style: {} }, 'mobile') : '',
+        desktopCss: layoutCss({ kind: 'image', rect: shift(cell.rect), wide: shift(wideCell.rect), style: {} }, 'desktop'),
+        mobileCss: m ? layoutCss({ ...m, rect: shift(m.rect), kind: 'image', style: {} }, 'mobile') : '',
       };
     })
     .filter(Boolean);
@@ -355,9 +392,14 @@ export function composePage(slug) {
   const split = (bp) => {
     const headerH = bp.header?.rect.h ?? 0;
     const footerTop = bp.footer?.rect.y ?? bp.docHeight;
+    // Reading order: blocks that sit on the same line (within a few pixels, as
+    // Wix's three-column contact row does) read left to right, not by the y
+    // jitter between them.
+    const order = (a, b) => Math.round(a.rect.y / 8) - Math.round(b.rect.y / 8) || a.rect.x - b.rect.x;
     const body = bp.blocks
       .filter((b) => b.rect.y >= headerH - 1 && b.rect.y < footerTop - 1)
-      .map((b) => ({ ...b, rect: { ...b.rect, y: b.rect.y - headerH }, wide: b.wide ? { ...b.wide, y: b.wide.y - headerH } : undefined }));
+      .map((b) => ({ ...b, rect: { ...b.rect, y: b.rect.y - headerH }, wide: b.wide ? { ...b.wide, y: b.wide.y - headerH } : undefined }))
+      .sort(order);
     return { headerH, height: footerTop - headerH, body };
   };
 
@@ -365,12 +407,28 @@ export function composePage(slug) {
   const mob = split(l.mobile);
   const withoutGallery = (body) => body.filter((b) => !(b.kind === 'image' && galleryIds.has(mediaId(b.src))));
   const zipped = zip(contentBlocks, withoutGallery(desk.body));
-  const mobZipped = zip(contentBlocks, withoutGallery(mob.body));
+  // The phone page orders blocks differently from the desktop one, so the phone
+  // capture is matched by wording; the desktop one by position, because there
+  // the Markdown order and the page order are the same thing.
+  const mobZipped = zip(contentBlocks, withoutGallery(mob.body), { byText: true });
 
-  // One DOM, two stylesheets: each desktop block borrows the geometry of the
-  // mobile block that occupies the same slot in the phone layout.
+  // One DOM, two stylesheets: each block borrows the geometry of the phone
+  // layout's block that carries the same thing. Index does not work here — Wix
+  // reorders the phone page (the phone/email rows swap, for one).
+  const mobKey = (b) =>
+    b.kind === 'text'
+      ? `t:${(b.content?.text || b.text || '').replace(/\s+/g, ' ').trim().toLowerCase().slice(0, 60)}`
+      : `m:${mediaId(b.src || b.content?.src || '')}`;
+  const mobileByKey = new Map();
+  for (const m of mobZipped.placed) {
+    const k = mobKey(m);
+    if (k !== 'm:') mobileByKey.set(k, m);
+  }
+  const mediaPool = mobZipped.placed.filter((m) => m.kind !== 'text');
+  let mediaTaken = 0;
   const blocks = zipped.placed.map((b, i) => {
-    const m = mobZipped.placed[i];
+    let m = mobileByKey.get(mobKey(b));
+    if (!m && b.kind !== 'text') m = mediaPool[mediaTaken++] || mobZipped.placed[i];
     return {
       ...b,
       cls: `b${i}`,
@@ -381,7 +439,16 @@ export function composePage(slug) {
     };
   });
 
-  const tiles = homeImages.length ? tileData(slug, homeImages) : [];
+  const tiles = homeImages.length ? tileData(slug, homeImages, desk.headerH) : [];
+
+  // Content that has nowhere to go is a hard error: silently publishing the
+  // captured text would make an edit to the Markdown look applied when it is not.
+  const stray = zipped.leftover.filter((b) => (b.text || b.src || b.label || '').trim());
+  const homeless = zipped.orphaned.filter((o) => (o.block.text || '').trim());
+  if (stray.length || homeless.length) {
+    const detail = [...stray.map((b) => `content block with no box: "${(b.text || b.src || b.label).slice(0, 60)}"`), ...homeless.map((o) => `box with no content: "${o.block.text.slice(0, 60)}"`)].join('; ');
+    throw new Error(`${slug}: the Markdown does not line up with the captured page — ${detail}`);
+  }
 
   // On the Work page the grid stretches vertically too, which moves the footer
   // down with the page: the canvas height follows the same interpolation.
@@ -413,7 +480,16 @@ export function pageCss(composed) {
   };
   for (const b of composed.blocks) emit(b.cls, b.shared, b.desktopCss, b.mobileCss);
   for (const t of composed.tiles || []) emit(t.cls, t.shared, t.desktopCss, t.mobileCss);
-  for (const b of composed.footer.blocks) emit(b.cls, b.shared, b.desktopCss, b.mobileCss);
+  for (const b of composed.footer.blocks) {
+    if (b.hideMobile) {
+      rules.push(`@media (min-width:750px){.${b.cls}{${b.shared};${b.desktopCss}}}`);
+      rules.push(`@media (max-width:749.9px){.${b.cls}{display:none}}`);
+    } else {
+      emit(b.cls, b.shared, b.desktopCss, b.mobileCss);
+    }
+  }
+  rules.push(`@media (min-width:750px){.site-footer{height:${composed.footer.heightCss}}}`);
+  rules.push(`@media (max-width:749.9px){.site-footer{height:${composed.footer.mobileHeightCss}}}`);
   return rules.join('\n');
 }
 
