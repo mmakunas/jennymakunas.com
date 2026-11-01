@@ -216,13 +216,28 @@ const browser = await chromium.launch();
     await page.waitForTimeout(400);
     const results = await page.evaluate(() => [...document.querySelectorAll('picture')].map((pic) => {
       const phone = pic.querySelector('source[media*="749.9"]');
+      const crop1440 = pic.querySelector('source[media*="1449.9"]');
       const img = pic.querySelector('img');
-      if (!phone || !img || !img.currentSrc) return null;
-      const wanted = phone.getAttribute('srcset').split('/').pop();
-      return { wanted, used: img.currentSrc.split('/').pop() };
+      if (!img || !img.currentSrc) return null;
+      const used = img.currentSrc.split('/').pop();
+      return {
+        wanted: phone ? phone.getAttribute('srcset').split('/').pop() : null,
+        // A 1440 crop must never reach a phone: the extractor records no phone
+        // rendition when that crop is the widest one's, and the widest one is
+        // what a phone is owed then.
+        crop1440: crop1440 ? crop1440.getAttribute('srcset').split('/').pop() : null,
+        crop1440Media: crop1440 ? crop1440.getAttribute('media') : null,
+        widest: img.getAttribute('src').split('/').pop(),
+        used,
+      };
     }).filter(Boolean));
     checked += results.length;
-    for (const r of results) if (r.used !== r.wanted) wrong.push(`${slug}: ${r.used} instead of ${r.wanted}`);
+    for (const r of results) {
+      if (r.crop1440Media && !/min-width:\s*750px/.test(r.crop1440Media)) wrong.push(`${slug}: the 1440 crop applies below 750px (${r.crop1440Media})`);
+      if (r.used === r.crop1440) wrong.push(`${slug}: a phone renders the 1440 crop ${r.used}`);
+      if (!r.wanted) continue;
+      if (r.used !== r.wanted) wrong.push(`${slug}: ${r.used} instead of ${r.wanted}`);
+    }
   }
   check('a picture with a phone rendering uses it on a phone', checked > 0 && wrong.length === 0, `${checked} checked, ${wrong.slice(0, 2).join(' ')}`);
   await ctx.close();
