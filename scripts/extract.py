@@ -467,6 +467,13 @@ def plain_text(block_html: str) -> str:
     return collapse(fragment.text_content()).strip()
 
 
+def attribute(value: str) -> str:
+    """Escape a value that goes into a double-quoted HTML attribute in Markdown."""
+    for character, entity in (("&", "&amp;"), ('"', "&quot;"), ("<", "&lt;"), (">", "&gt;")):
+        value = value.replace(character, entity)
+    return value
+
+
 def markdown_destination(href: str) -> str:
     """Encode what CommonMark refuses inside a bare link destination."""
     for character, encoded in ((" ", "%20"), ("(", "%28"), (")", "%29"), ("<", "%3C"), (">", "%3E")):
@@ -1050,7 +1057,7 @@ class Extractor:
         else:
             attributes += ['controls', 'preload="metadata"']
         if film.title:
-            attributes.append(f'title="{film.title}"')
+            attributes.append(f'title="{attribute(film.title)}"')
         if film.poster:
             attributes.append(f'poster="/images/{film.poster}"')
         return f'<video {" ".join(attributes)} src="/videos/{film.file}"></video>'
@@ -1253,8 +1260,12 @@ def compare(root: Path, scratch: Path) -> tuple[list[str], dict[str, int]]:
                 problems.append(f"{name}: {new_size[0]}x{new_size[1]} on the site, "
                                 f"{old_size[0]}x{old_size[1]} in the repository")
             else:
-                difference = (mean_difference(old_image, new_image)
-                              if old_size == new_size else 0.0)
+                # Compare on one shape: a rendition that jitters by a pixel or two still
+                # has to match pixel for pixel, or the hash alone would call a newly
+                # swapped flat picture the same.
+                comparable = (new_image if old_size == new_size
+                              else new_image.resize(old_size, Image.LANCZOS))
+                difference = mean_difference(old_image, comparable)
                 if (bin(old_hash ^ new_hash).count("1") > STRUCTURE_SAME
                         or difference > PIXEL_SAME):
                     problems.append(f"{name}: a different picture at that URL "
