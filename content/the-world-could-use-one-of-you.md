@@ -24,9 +24,9 @@ The campaign also included OOH, print, and digital media.
 
 **Media**: Exverus, Tatari
 
-<video controls preload="metadata" poster="/images/the-world-could-use-one-of-you-2.jpg" src="/videos/the-world-could-use-one-of-you.mp4"></video>
+<video controls preload="metadata" title="Mirrors: Broadcast" poster="/images/the-world-could-use-one-of-you-2.jpg" src="/videos/the-world-could-use-one-of-you.mp4"></video>
 
-<video controls preload="metadata" poster="/images/the-world-could-use-one-of-you-3.jpg" src="/videos/the-world-could-use-one-of-you-2.mp4"></video>
+<video controls preload="metadata" title="Universe: Broadcast" poster="/images/the-world-could-use-one-of-you-3.jpg" src="/videos/the-world-could-use-one-of-you-2.mp4"></video>
 
 ![twcu1oy headefr.jpeg](/images/twcu1oy-headefr.jpg)
 

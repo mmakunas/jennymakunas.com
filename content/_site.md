@@ -25,7 +25,7 @@ kind: "site"
 
 ## Footer
 
-[Instagram](https://www.instagram.com/a_live_one/) · [Linkedin](https://www.linkedin.com/in/jennymakunas/) · [jenny@makunas.com](mailto:jenny@makunas.com)
+[Instagram](https://www.instagram.com/a_live_one/) · [Linkedin](https://www.linkedin.com/in/jennymakunas/)
 
 [jenny@makunas.com](mailto:jenny@makunas.com) | 415-609-1504
 

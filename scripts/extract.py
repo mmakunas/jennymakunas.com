@@ -87,6 +87,24 @@ PICTURES = "public/images/*"
 # hash of their luminance. A re-encode scores 0-8 bits apart, a different picture 20 or more.
 STRUCTURE_SAME = 8
 
+# The resizer also rounds a rendition's height by a pixel or two from one fetch to the
+# next (1196x1180 became 1196x1182), so a size within this many pixels is the same
+# rendition, and the requested w_/h_ values are not part of a rendition's identity.
+SIZE_TOLERANCE = 2
+
+# A difference hash cannot tell two flat pictures apart (a blank white frame and a blank
+# black one hash alike), so a matching hash only counts with the pixels close too.
+PIXEL_SAME = 24.0
+
+
+def same_size(left: tuple[int, int], right: tuple[int, int]) -> bool:
+    return (abs(left[0] - right[0]) <= SIZE_TOLERANCE
+            and abs(left[1] - right[1]) <= SIZE_TOLERANCE)
+
+
+def without_requested_size(url: str) -> str:
+    return re.sub(r"[,]?[wWhH]_\d+", "", url)
+
 
 @dataclass(frozen=True)
 class Page:
@@ -206,7 +224,8 @@ COLLECT_JS = r"""
     return [Math.round(r.x), Math.round(r.y + window.scrollY), Math.round(r.width), Math.round(r.height)]; };
   const textOf = (el) => { try { return el.innerText || '' } catch (e) { return '' } };
   const anchors = (root) => root ? [...root.querySelectorAll('a')].map((a) => ({
-    label: textOf(a).replace(/\s+/g, ' ').trim(), href: a.getAttribute('href') || ''})) : [];
+    label: textOf(a).replace(/\s+/g, ' ').trim(), href: a.getAttribute('href') || '',
+    inText: !!a.closest('.wixui-rich-text')})) : [];
 
   // One walk of the page container, so blocks keep the document's own order.
   const blocks = [];
@@ -272,7 +291,8 @@ COLLECT_JS = r"""
 
   const tiles = [...main.querySelectorAll('[data-hook="item-container"]')].map((c) => {
     const image = c.querySelector('img');
-    return {index: Number(c.getAttribute('data-idx')), src: image ? (image.currentSrc || image.src) : ''};
+    return {id: c.getAttribute('data-id') || '', index: Number(c.getAttribute('data-idx')),
+            src: image ? (image.currentSrc || image.src) : ''};
   }).sort((a, b) => a.index - b.index);
 
   return {title: document.title, blocks, styles, faces, nav: anchors(header),
@@ -309,10 +329,12 @@ def media_id(url: str) -> str:
 def rendition_key(url: str) -> str:
     """Picture plus crop: two crops of one picture are two images, 1x and 2x are not."""
     transform = re.search(r"/v1/([a-z]+)/", url)
+    alignment = re.search(r"al_[a-z]+", url)
     width = rendition_width(url)
     height = re.search(r"[hH]_(\d+)", url)
     ratio = round(width / int(height.group(1)), 2) if width and height else 0
-    return f"{media_id(url)}|{transform.group(1) if transform else ''}|{ratio}"
+    return (f"{media_id(url)}|{transform.group(1) if transform else ''}"
+            f"|{alignment.group(0) if alignment else ''}|{ratio}")
 
 
 def rendition_width(url: str) -> int:
@@ -351,7 +373,8 @@ def link_contact(block: str) -> str:
     if EMAIL.match(text):
         return f"[{text}](mailto:{text})"
     if PHONE.match(text):
-        return f"[{text}](tel:{re.sub(r'[^\d+]', '', text)})"
+        digits = re.sub(r"[^\d+]", "", text)
+        return f"[{text}](tel:{digits})"
     return block
 
 
@@ -424,6 +447,19 @@ def finish_inline(value: str) -> str:
     """Clean an inline fragment: one line, no stray break markers, no double bold."""
     value = collapse(value.replace(BREAK, " ")).strip()
     return "" if value in ("**", "****") else value
+
+
+def served_paragraphs(block_html: str) -> int:
+    """How many paragraphs and headings the box serves, ignoring Wix's empty spacers."""
+    fragment = lxml_html.fragment_fromstring(block_html, create_parent="div")
+    counted = 0
+    for element in fragment:
+        tag = element.tag.lower() if isinstance(element.tag, str) else ""
+        if tag in ("ul", "ol"):  # one Markdown block, whatever its item count
+            counted += 1 if collapse(element.text_content()).strip() else 0
+        elif collapse(element.text_content()).strip():
+            counted += 1
+    return counted
 
 
 def plain_text(block_html: str) -> str:
@@ -522,6 +558,7 @@ class Film:
     url: str
     page: str
     label: str
+    title: str = ""
     file: str = ""
     width: int = 0
     height: int = 0
@@ -631,9 +668,7 @@ class Extractor:
     def download(self) -> None:
         directory = self.out / "public" / "images"
         directory.mkdir(parents=True, exist_ok=True)
-        for stale in directory.iterdir():
-            if stale.suffix.lower() in (".jpg", ".jpeg", ".png", ".gif", ".webp", ".avif"):
-                stale.unlink()
+        written: set[str] = set()
         names: dict[str, str] = {}
         for picture in sorted(self.pictures.values(), key=lambda p: p.media):
             payload = picture.payload if picture.payload is not None else fetch(picture.url)
@@ -655,12 +690,19 @@ class Extractor:
             names[name] = picture.media
             picture.file = name
             (directory / name).write_bytes(payload)
+            written.add(name)
+        for stale in directory.iterdir():
+            if stale.suffix.lower() in (".jpg", ".jpeg", ".png", ".gif", ".webp", ".avif"):
+                if stale.name not in written:
+                    stale.unlink()
 
     def register_film(self, block: dict, page: str, poster: str) -> Film:
         film = self.films.get(block["src"])
         if film is None:
+            label = collapse(block["label"]).strip()
+            title = re.sub(r"\s*(?:Video Player|Play video)\s*$", "", label).strip()
             film = self.films[block["src"]] = Film(
-                url=block["src"], page=page, label=collapse(block["label"]).strip(),
+                url=block["src"], page=page, label=label, title=title,
                 poster=poster, autoplay=bool(block.get("autoplay")),
                 muted=bool(block.get("muted")), loop=bool(block.get("loop")))
         return film
@@ -668,8 +710,7 @@ class Extractor:
     def download_films(self) -> None:
         directory = self.out / "public" / "videos"
         directory.mkdir(parents=True, exist_ok=True)
-        for stale in directory.glob("*.mp4"):
-            stale.unlink()
+        written: set[str] = set()
         counted: dict[str, int] = {}
         for film in sorted(self.films.values(), key=lambda f: (f.page, f.url)):
             counted[film.page] = counted.get(film.page, 0) + 1
@@ -677,8 +718,12 @@ class Extractor:
             film.file = f"{film.page}{suffix}.mp4"
             target = directory / film.file
             target.write_bytes(fetch(film.url))
+            written.add(film.file)
             film.size = target.stat().st_size
             film.width, film.height, film.duration = probe_film(target)
+        for stale in directory.glob("*.mp4"):
+            if stale.name not in written:
+                stale.unlink()
 
     def film_manifest(self) -> dict:
         return {
@@ -687,7 +732,7 @@ class Extractor:
                 {"url": film.url, "file": f"videos/{film.file}", "width": film.width,
                  "height": film.height, "duration": round(film.duration, 3), "bytes": film.size,
                  "poster": f"images/{film.poster}" if film.poster else None,
-                 "label": film.label, "autoplay": film.autoplay, "muted": film.muted,
+                 "title": film.title, "autoplay": film.autoplay, "muted": film.muted,
                  "loop": film.loop, "pages": [film.page]}
                 for film in sorted(self.films.values(), key=lambda f: f.file)
             ],
@@ -743,7 +788,7 @@ class Extractor:
 
     def read_tiles(self, spec: Page, data: dict) -> list[Tile]:
         by_label = {label.lower(): slug for slug, label in self.labels.items()}
-        rendered = data["tiles"]
+        rendered = {tile["id"]: tile for tile in data["tiles"]}
         tiles: list[Tile] = []
         for position, item in enumerate(self.read_gallery(data)):
             meta = item.get("metaData", {})
@@ -752,7 +797,7 @@ class Extractor:
             slug = by_label.get(target.lower())
             page: Page | None = next((page for page in PAGES if page.slug == slug), None) if slug else None
             title = collapse(meta.get("title", "")).strip()
-            source = rendered[position]["src"] if position < len(rendered) else ""
+            source = (rendered.get(item.get("itemId", "")) or {}).get("src", "")
             if not source:
                 self.notes.append(f"{spec.file}: grid tile {title!r} has no rendered image")
                 continue
@@ -931,7 +976,12 @@ class Extractor:
             if kind == "text":
                 if block.get("inForm"):  # shown only after the form is submitted
                     continue
-                body.extend(block_markdown(block["html"], block.get("parts")))
+                pieces = block_markdown(block["html"], block.get("parts"))
+                served = served_paragraphs(block["html"])
+                if len(pieces) != served:
+                    self.notes.append(f"{spec.file}: box {block['id']} wrote {len(pieces)} "
+                                      f"Markdown blocks for {served} served paragraphs")
+                body.extend(pieces)
             elif kind == "image":
                 if id(block) in posters:
                     continue
@@ -941,7 +991,8 @@ class Extractor:
                         tiles_written = True
                     continue
                 key = rendition_key(block["src"])
-                image = f"![{collapse(block['alt']).strip()}](/images/{self.pictures[key].file})"
+                alt = escape_md(collapse(block["alt"]).strip())
+                image = f"![{alt}](/images/{self.pictures[key].file})"
                 href = rewrite_href(block.get("href") or "")
                 body.append(f"[{image}]({markdown_destination(href)})" if href else image)
             elif kind == "video":
@@ -998,6 +1049,8 @@ class Extractor:
             attributes += ["autoplay", "muted", "loop", "playsinline"]
         else:
             attributes += ['controls', 'preload="metadata"']
+        if film.title:
+            attributes.append(f'title="{film.title}"')
         if film.poster:
             attributes.append(f'poster="/images/{film.poster}"')
         return f'<video {" ".join(attributes)} src="/videos/{film.file}"></video>'
@@ -1008,7 +1061,8 @@ class Extractor:
                for label, path in self.nav_sequence]
         footer = [" · ".join(
             f"[{escape_md(link['label'])}]({markdown_destination(rewrite_href(link['href']))})"
-            for link in self.pages["home"]["footerLinks"] if link["label"])]
+            for link in self.pages["home"]["footerLinks"]
+            if link["label"] and not link.get("inText"))]
         for block_html in self.pages["home"]["footerBlocks"]:
             footer.extend(block_markdown(block_html, None))
         lines = ["## Header", "\n".join(nav), "## Footer", "\n\n".join(filter(None, footer))]
@@ -1021,7 +1075,7 @@ class Extractor:
         lines = []
         for tile in self.tiles:
             file = self.pictures[tile.media].file
-            title = f' "{tile.caption}"' if tile.caption else ""
+            title = f' "{escape_md(tile.caption).replace(chr(34), "")}"' if tile.caption else ""
             lines.append(f"[![{escape_md(tile.title)}](/images/{file})]({markdown_destination(tile.href)}{title})")
         return lines
 
@@ -1161,18 +1215,26 @@ def compare(root: Path, scratch: Path) -> tuple[list[str], dict[str, int]]:
     if not fresh_manifest.exists():
         problems.append(f"{MANIFEST}: missing from the fresh extraction")
     else:
-        old = {row["url"]: row for row in
+        old = {row["file"]: row for row in
                normalized_manifest(committed_manifest.read_bytes()).get("images", [])}
-        new = {row["url"]: row for row in
+        new = {row["file"]: row for row in
                normalized_manifest(fresh_manifest.read_bytes()).get("images", [])}
-        for url in sorted(set(old) | set(new)):
-            if url not in new:
-                problems.append(f"{MANIFEST}: {old[url]['file']} is no longer referenced")
-            elif url not in old:
-                problems.append(f"{MANIFEST}: {new[url]['file']} is newly referenced")
-            elif old[url] != new[url]:
-                changed = sorted(key for key in old[url] if old[url].get(key) != new[url].get(key))
-                problems.append(f"{MANIFEST}: {old[url]['file']} changed ({', '.join(changed)})")
+        for name in sorted(set(old) | set(new)):
+            if name not in new:
+                problems.append(f"{MANIFEST}: {name} is no longer referenced")
+                continue
+            if name not in old:
+                problems.append(f"{MANIFEST}: {name} is newly referenced")
+                continue
+            changed = [field for field in ("pages", "alt", "caption", "format")
+                       if old[name].get(field) != new[name].get(field)]
+            if (not same_size((old[name]["width"], old[name]["height"]),
+                              (new[name]["width"], new[name]["height"]))):
+                changed.append("size")
+            if without_requested_size(old[name]["url"]) != without_requested_size(new[name]["url"]):
+                changed.append("url")
+            if changed:
+                problems.append(f"{MANIFEST}: {name} changed ({', '.join(sorted(changed))})")
 
     committed_pictures = files_under(root, [PICTURES])
     fresh_pictures = files_under(scratch, [PICTURES])
@@ -1187,14 +1249,18 @@ def compare(root: Path, scratch: Path) -> tuple[list[str], dict[str, int]]:
         else:
             old_size, old_hash, old_image = read_picture(committed_pictures[name])
             new_size, new_hash, new_image = read_picture(fresh_pictures[name])
-            if old_size != new_size:
+            if not same_size(old_size, new_size):
                 problems.append(f"{name}: {new_size[0]}x{new_size[1]} on the site, "
                                 f"{old_size[0]}x{old_size[1]} in the repository")
-            elif bin(old_hash ^ new_hash).count("1") > STRUCTURE_SAME:
-                problems.append(f"{name}: a different picture at that URL "
-                                f"(mean pixel difference {mean_difference(old_image, new_image):.1f} of 255)")
             else:
-                counts["re-encoded"] += 1
+                difference = (mean_difference(old_image, new_image)
+                              if old_size == new_size else 0.0)
+                if (bin(old_hash ^ new_hash).count("1") > STRUCTURE_SAME
+                        or difference > PIXEL_SAME):
+                    problems.append(f"{name}: a different picture at that URL "
+                                    f"(mean pixel difference {difference:.1f} of 255)")
+                else:
+                    counts["re-encoded"] += 1
     return problems, counts
 
 
@@ -1219,6 +1285,9 @@ def build(root: Path) -> None:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    if sys.version_info < (3, 12):
+        raise SystemExit(f"scripts/extract.py needs Python 3.12 or newer, this is "
+                         f"{sys.version_info.major}.{sys.version_info.minor}")
     parser.add_argument("--check", action="store_true",
                         help="re-extract into a temporary directory and fail on any difference")
     arguments = parser.parse_args()

@@ -22,7 +22,7 @@ Filmed in Los Angeles, the campaign also included OOH and digital media.
 
 **Photography:** Drew Gurian for MasterClass
 
-<video controls preload="metadata" poster="/images/alicia-keys-words-create-worlds-1-2.jpg" src="/videos/alicia-keys-words-create-worlds-1.mp4"></video>
+<video controls preload="metadata" title="Your Words Create Your World" poster="/images/alicia-keys-words-create-worlds-1-2.jpg" src="/videos/alicia-keys-words-create-worlds-1.mp4"></video>
 
 ![AK billboard_edited.jpg](/images/ak-billboard-edited.jpg)
 

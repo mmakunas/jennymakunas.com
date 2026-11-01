@@ -18,7 +18,7 @@ Featuring a cheeky voiceover from fan-favorite Gordon Ramsay, the campaign inclu
 
 **Media**: Exverus, Tatari
 
-<video controls preload="metadata" poster="/images/so-much-new-to-know-portfolio-campaign-2.jpg" src="/videos/so-much-new-to-know-portfolio-campaign.mp4"></video>
+<video controls preload="metadata" title="New to Know: Broadcast" poster="/images/so-much-new-to-know-portfolio-campaign-2.jpg" src="/videos/so-much-new-to-know-portfolio-campaign.mp4"></video>
 
 ![N2K ooh_edited.jpg](/images/n2k-ooh-edited.jpg)
 

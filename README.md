@@ -35,8 +35,8 @@ Three conventions the generator uses, because Markdown has no other way to say t
 
 ## Regenerating
 
-Needs Python 3, `ffprobe` on `PATH` (from ffmpeg) to measure the films, and the pinned
-packages:
+Needs Python 3.12 or newer, `ffprobe` on `PATH` (from ffmpeg) to measure the films, and the
+pinned packages:
 
 ```
 pip install -r requirements.txt

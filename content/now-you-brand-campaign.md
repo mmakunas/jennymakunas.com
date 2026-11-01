@@ -21,7 +21,7 @@ Filmed primarily in Sofia, Bulgaria using a combination of live action, class fo
 
 **Media**: Exverus, Tatari
 
-<video controls preload="metadata" poster="/images/now-you-brand-campaign-2.jpg" src="/videos/now-you-brand-campaign.mp4"></video>
+<video controls preload="metadata" title="Now You: Broadcast" poster="/images/now-you-brand-campaign-2.jpg" src="/videos/now-you-brand-campaign.mp4"></video>
 
 ![](/images/now-you-brand-campaign-3.jpg)
 
