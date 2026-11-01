@@ -1142,7 +1142,7 @@ def normalized_manifest(payload: bytes) -> dict:
     return manifest
 
 
-def compare(root: Path, scratch: Path) -> tuple[list[str], int]:
+def compare(root: Path, scratch: Path) -> tuple[list[str], dict[str, int]]:
     """Everything that differs between the committed tree and a fresh extraction."""
     problems: list[str] = []
     for description, patterns in (("text", TEXT_OUTPUT), ("binary", BINARY_OUTPUT)):
