@@ -1,0 +1,908 @@
+#!/usr/bin/env python3
+"""Extract jennymakunas.com from the live Wix site.
+
+Reads the 15 public pages of https://jenny6926.wixsite.com/mysite and writes the
+site's content tree into this repository:
+
+    content/<slug>.md          one file per page: front matter plus the page's copy
+                               blocks in document order, images as ![alt](/images/<file>)
+    public/images/<file>       every image at the largest rendition the page serves
+                               to a high-density screen
+    images/manifest.json       Wix URL (verbatim) -> local file, size, bytes
+    public/fonts/<file>        the fonts whose licence allows self-hosting
+    fonts/REPORT.md            every font family and weight, where it comes from,
+                               licence verdict and Google Font substitute
+
+The Wix free site renders most of each page client-side: the HTML the server sends
+carries only ~30-pixel blur placeholders for images and no video blocks at all. The
+extractor therefore renders every page in headless Chromium and reads the rendered
+DOM, which is what a visitor's browser sees.
+
+Rendition rule: each page is rendered at a 2x device pixel ratio and each image's
+`currentSrc` is taken. That is the rendition Wix serves to a high-density screen,
+the largest one a browser asks for. Images are re-downloaded from the manifest URL
+itself, so the file on disk is the same rendition the page referenced.
+
+Usage:
+    python3 -m playwright install chromium      # once per machine
+    python3 scripts/extract.py                  # write the tree
+    python3 scripts/extract.py --check          # re-extract and fail on any diff
+
+`--check` re-runs the whole extraction into a temporary directory and compares the
+result with the committed tree, so a clean exit proves the live Wix site still
+matches the repository.
+"""
+
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import re
+import sys
+import tempfile
+from dataclasses import dataclass, field
+from pathlib import Path
+from urllib.parse import urlparse
+from urllib.request import Request, urlopen
+
+from lxml import html as lxml_html
+from PIL import Image
+from playwright.sync_api import sync_playwright
+
+SITE = "https://jenny6926.wixsite.com"
+BASE = f"{SITE}/mysite"
+SITE_NAME = "Jenny Makunas"
+ROOT = Path(__file__).resolve().parent.parent
+
+VIEWPORT = {"width": 1920, "height": 1080}
+DPR = 2
+USER_AGENT = ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
+              "(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36")
+
+GENERATED = ["content/*.md", "images/manifest.json", "fonts/REPORT.md",
+             "public/images/*", "public/fonts/*.woff2", "public/fonts/*.ttf"]
+
+
+@dataclass(frozen=True)
+class Page:
+    slug: str  # Wix slug, "" for the home page
+    file: str  # content file stem
+    path: str  # canonical path on jennymakunas.com
+    kind: str  # home | case_study | page
+
+
+PAGES = [
+    Page("", "home", "/", "home"),
+    Page("23andme-dna-day-2023", "23andme-dna-day-2023", "/23andme-dna-day-2023", "case_study"),
+    Page("alicia-keys-words-create-worlds-1", "alicia-keys-words-create-worlds-1",
+         "/alicia-keys-words-create-worlds-1", "case_study"),
+    Page("animaniacs-x-masterclass", "animaniacs-x-masterclass", "/animaniacs-x-masterclass", "case_study"),
+    Page("anna-wintour-how-to-be-a-boss-1", "anna-wintour-how-to-be-a-boss-1",
+         "/anna-wintour-how-to-be-a-boss-1", "case_study"),
+    Page("hot-mess-creative-collective", "hot-mess-creative-collective",
+         "/hot-mess-creative-collective", "case_study"),
+    Page("mariah-carey-pass-the-mic", "mariah-carey-pass-the-mic", "/mariah-carey-pass-the-mic", "case_study"),
+    Page("now-you-brand-campaign", "now-you-brand-campaign", "/now-you-brand-campaign", "case_study"),
+    Page("now-you-countdown-portfolio-campaign", "now-you-countdown-portfolio-campaign",
+         "/now-you-countdown-portfolio-campaign", "case_study"),
+    Page("so-much-new-to-know-portfolio-campaign", "so-much-new-to-know-portfolio-campaign",
+         "/so-much-new-to-know-portfolio-campaign", "case_study"),
+    Page("the-world-could-use-one-of-you", "the-world-could-use-one-of-you",
+         "/the-world-could-use-one-of-you", "case_study"),
+    Page("today-s-the-day-brand-campaign", "today-s-the-day-brand-campaign",
+         "/today-s-the-day-brand-campaign", "case_study"),
+    Page("thoughts", "thoughts", "/thoughts", "page"),
+    Page("about", "about", "/about", "page"),
+    Page("contact-8", "contact", "/contact-8", "page"),
+]
+
+HOME_LABEL = "Work"
+
+# Files the pages link to that are not images: served URL -> (path in the repo, path on the site).
+FILES = {
+    "https://a10fc383-a875-4479-9fe7-aec9649c6135.filesusr.com/ugd/"
+    "a8ae1a_6411c59e61744402bb98f21e4f1b8586.pdf": ("files/jenny-makunas-cv.pdf", "/files/jenny-makunas-cv.pdf"),
+}
+
+# What each font family is and what to do about it. The verdicts are the point of
+# fonts/REPORT.md: only the open-licence families may be copied into this repo.
+FONTS = {
+    "cormorant garamond": {
+        "name": "Cormorant Garamond",
+        "licence": "SIL Open Font License 1.1",
+        "verdict": "self-host",
+        "note": "The OFL permits redistribution, so the files Wix serves are copied into public/fonts/.",
+        "substitute": None,
+    },
+    "raleway": {
+        "name": "Raleway",
+        "licence": "SIL Open Font License 1.1",
+        "verdict": "self-host",
+        "note": "The OFL permits redistribution, so the files Wix serves are copied into public/fonts/.",
+        "substitute": None,
+    },
+    "futura-lt": {
+        "name": "Futura LT Book",
+        "licence": "Monotype commercial licence, sublicensed to Wix and not transferable",
+        "verdict": "substitute",
+        "note": "Wix serves it from its own font CDN under its Monotype licence, so the files cannot be copied into this repository.",
+        "substitute": "Jost",
+    },
+    "din-next": {
+        "name": "DIN Next LT Light",
+        "licence": "Monotype commercial licence, sublicensed to Wix and not transferable",
+        "verdict": "substitute",
+        "note": "Wix serves it from its own font CDN under its Monotype licence, so the files cannot be copied into this repository.",
+        "substitute": "Barlow",
+    },
+    "avenir-lt": {
+        "name": "Avenir LT Light",
+        "licence": "Monotype commercial licence, sublicensed to Wix and not transferable",
+        "verdict": "substitute",
+        "note": "Wix serves it from its own font CDN under its Monotype licence, so the files cannot be copied into this repository.",
+        "substitute": "Mulish",
+    },
+    "arial": {
+        "name": "Arial",
+        "licence": "System font",
+        "verdict": "system",
+        "note": "A stack that falls back to the visitor's own system font; nothing to ship.",
+        "substitute": None,
+    },
+    "helvetica": {
+        "name": "Helvetica",
+        "licence": "System font",
+        "verdict": "system",
+        "note": "A stack that falls back to the visitor's own system font; nothing to ship.",
+        "substitute": None,
+    },
+    "helveticaneuew01": {
+        "name": "Helvetica Neue W01 (Wix player)",
+        "licence": "Wix web font, served only inside Wix's video player",
+        "verdict": "wix-chrome",
+        "note": "It styles the controls of Wix's own video player, which the rebuild does not carry.",
+        "substitute": None,
+    },
+    "madefor": {
+        "name": "Wix Madefor Text",
+        "licence": "Wix platform font",
+        "verdict": "wix-chrome",
+        "note": "Wix's own interface font; it belongs to the free-site banner the rebuild drops.",
+        "substitute": None,
+    },
+}
+
+COLLECT_JS = r"""
+() => {
+  const main = document.querySelector('#PAGES_CONTAINER') || document.querySelector('main');
+  const box = (el) => { const r = el.getBoundingClientRect();
+    return [Math.round(r.x), Math.round(r.y + window.scrollY), Math.round(r.width), Math.round(r.height)]; };
+  const textOf = (el) => { try { return el.innerText || '' } catch (e) { return '' } };
+  const blocks = [];
+
+  main.querySelectorAll('.wixui-rich-text').forEach((el) => {
+    const parts = [...el.children].map((c) => ({tag: (c.tagName || '').toLowerCase(),
+                                                size: parseFloat(getComputedStyle(c).fontSize) || 0}));
+    blocks.push({kind: 'text', id: el.id, html: el.innerHTML, rect: box(el), parts,
+                 inForm: !!el.closest('form')});
+  });
+  main.querySelectorAll('img').forEach((el) => {
+    blocks.push({kind: 'image', alt: el.alt || '', src: el.currentSrc || el.src || '', rect: box(el)});
+  });
+  main.querySelectorAll('video').forEach((el) => {
+    const holder = el.closest('[aria-label]');
+    blocks.push({kind: 'video', src: el.getAttribute('src') || '',
+                 label: (holder ? holder.getAttribute('aria-label') : '') || '',
+                 poster: el.getAttribute('poster') || '', rect: box(el)});
+  });
+  main.querySelectorAll('iframe').forEach((el) => {
+    blocks.push({kind: 'embed', src: el.getAttribute('src') || '',
+                 title: el.getAttribute('title') || '', rect: box(el)});
+  });
+  main.querySelectorAll('form').forEach((el) => {
+    const fields = [...el.querySelectorAll('input, textarea, select')].map((f) => {
+      const label = el.querySelector(`label[for="${f.id}"]`);
+      return {label: label ? label.innerText.trim() : '', name: f.getAttribute('name') || '',
+              type: (f.type || f.tagName).toLowerCase(), required: f.hasAttribute('required')};
+    });
+    const submit = el.querySelector('button, input[type=submit]');
+    blocks.push({kind: 'form', fields, submit: submit ? textOf(submit).trim() : '', rect: box(el)});
+  });
+
+  const styles = {};
+  for (const [area, root] of [['content', main], ['header', document.querySelector('#SITE_HEADER')],
+                              ['footer', document.querySelector('#SITE_FOOTER')]]) {
+    if (!root) continue;
+    for (const el of root.querySelectorAll('*')) {
+      const tag = (el.tagName || '').toLowerCase();
+      if (['style', 'script', 'noscript', 'template'].includes(tag)) continue;
+      if (el.closest('style, script, noscript, template')) continue;
+      const own = [...el.childNodes].some((n) => n.nodeType === 3 && n.textContent.trim() !== '');
+      if (!own) continue;
+      const cs = getComputedStyle(el);
+      const key = [cs.fontFamily, cs.fontWeight, cs.fontStyle, cs.fontSize].join('||');
+      styles[area] = styles[area] || {};
+      const row = styles[area][key] || (styles[area][key] = {count: 0, sample: textOf(el).trim().slice(0, 40)});
+      row.count += 1;
+    }
+  }
+
+  const faces = [];
+  for (const sheet of document.styleSheets) {
+    let rules;
+    try { rules = sheet.cssRules } catch (e) { continue }
+    for (const rule of rules) {
+      if (rule.constructor.name !== 'CSSFontFaceRule') continue;
+      faces.push({family: rule.style.fontFamily, weight: rule.style.fontWeight,
+                  style: rule.style.fontStyle, src: rule.style.src});
+    }
+  }
+
+  const nav = [...document.querySelectorAll('#SITE_HEADER a')].map((a) => ({
+    label: textOf(a).replace(/\s+/g, ' ').trim(), href: a.getAttribute('href') || '',
+    logo: a.getAttribute('aria-label') || ''}));
+
+  const tiles = [...main.querySelectorAll('[data-hook="item-container"]')].map((c) => {
+    const image = c.querySelector('img');
+    return {index: Number(c.getAttribute('data-idx')),
+            src: image ? (image.currentSrc || image.src) : ''};
+  }).sort((a, b) => a.index - b.index);
+
+  return {title: document.title, blocks, styles, faces, nav, tiles,
+          html: document.documentElement.outerHTML};
+}
+"""
+
+
+# --------------------------------------------------------------------------- #
+# helpers
+# --------------------------------------------------------------------------- #
+
+def collapse(value: str) -> str:
+    """Normalise whitespace and drop the zero-width characters Wix sprinkles in."""
+    value = value.replace("\u200b", "").replace("\ufeff", "").replace("\xa0", " ")
+    return re.sub(r"\s+", " ", value)
+
+
+MD_SPECIALS = re.compile(r"([\\`*\[\]<>])")
+
+
+def escape_md(value: str) -> str:
+    return MD_SPECIALS.sub(r"\\\1", value)
+
+
+def media_id(url: str) -> str:
+    match = re.search(r"/media/([^/]+?)(?:/v1/|$)", url)
+    return match.group(1) if match else url
+
+
+def rendition_width(url: str) -> int:
+    match = re.search(r"[wW]_(\d+)", url)
+    return int(match.group(1)) if match else 0
+
+
+def slugify(value: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "-", value.lower()).strip("-")
+
+
+def fetch(url: str, attempts: int = 3) -> bytes:
+    failure = None
+    for _ in range(attempts):
+        try:
+            request = Request(url, headers={"User-Agent": USER_AGENT})
+            with urlopen(request, timeout=90) as response:
+                return response.read()
+        except Exception as error:  # network flake: retry, then fail loudly
+            failure = error
+    raise RuntimeError(f"cannot download {url}: {failure}")
+
+
+def strip_site(text: str) -> str:
+    return re.sub(r"\s*\|\s*" + re.escape(SITE_NAME) + r"\s*$", "", text).strip()
+
+
+# --------------------------------------------------------------------------- #
+# HTML -> Markdown
+# --------------------------------------------------------------------------- #
+
+BREAK = "\x00"
+
+
+def inline_markdown(node) -> str:
+    """Flatten one element into inline Markdown, keeping bold and links."""
+    parts = [escape_md(node.text) if node.text else ""]
+    for child in node:
+        tag = child.tag.lower() if isinstance(child.tag, str) else ""
+        if tag == "br":
+            parts.append(BREAK)
+        elif tag == "a":
+            label = collapse("".join(child.itertext())).replace(BREAK, " ").strip()
+            href = (child.get("href") or "").strip()
+            parts.append(f"[{escape_md(label)}]({rewrite_href(href)})" if href and label
+                         else escape_md(label))
+        elif tag in ("strong", "b"):
+            parts.append(wrap_bold(inline_markdown(child)))
+        elif tag in ("em", "i"):
+            inner = finish_inline(inline_markdown(child))
+            parts.append(f"*{inner}*" if inner else "")
+        elif tag == "span":
+            inner = inline_markdown(child)
+            style = (child.get("style") or "").replace(" ", "").lower()
+            if "font-weight:bold" in style and inner.strip():
+                parts.append(wrap_bold(inner))
+            else:
+                parts.append(inner)
+        else:
+            parts.append(inline_markdown(child))
+        if child.tail:
+            parts.append(escape_md(child.tail))
+    return "".join(parts)
+
+
+def wrap_bold(value: str) -> str:
+    """Bold a run while keeping the spaces that sat outside its words."""
+    inner = finish_inline(value)
+    if not inner:
+        return value if value.strip() == "" else ""
+    lead = " " if value[:1].isspace() else ""
+    trail = " " if value[-1:].isspace() else ""
+    return f"{lead}**{inner}**{trail}"
+
+
+def finish_inline(value: str) -> str:
+    """Clean an inline fragment: one line, no stray break markers, no double bold."""
+    value = collapse(value.replace(BREAK, " ")).strip()
+    return "" if value in ("**", "****") else value
+
+
+def plain_text(block_html: str) -> str:
+    fragment = lxml_html.fragment_fromstring(block_html, create_parent="div")
+    return collapse(fragment.text_content()).strip()
+
+
+def rewrite_href(href: str) -> str:
+    """Point internal Wix links at the paths the new site serves."""
+    if href in FILES:
+        return FILES[href][1]
+    parsed = urlparse(href)
+    if "wixsite.com" not in (parsed.netloc or ""):
+        return href
+    slug = (parsed.path or "").split("/mysite", 1)[-1].strip("/")
+    page = next((page for page in PAGES if page.slug == slug), None)
+    return page.path if page else "/"
+
+
+BODY_SIZE = 20.0
+
+
+def block_markdown(block_html: str, parts: list[dict] | None = None) -> list[str]:
+    """Convert one rich-text component into Markdown blocks.
+
+    Heading level comes from the tag Wix served. Wix also tags ordinary paragraphs
+    as headings — the Thoughts essay is an <h1> at 18px — so a heading the page
+    renders at body size is written as a paragraph, which is what a visitor sees.
+    """
+    fragment = lxml_html.fragment_fromstring(block_html, create_parent="div")
+    out: list[str] = []
+    for index, element in enumerate(fragment):
+        tag = element.tag.lower() if isinstance(element.tag, str) else ""
+        size = parts[index]["size"] if parts and index < len(parts) else None
+        if tag in ("h1", "h2", "h3", "h4", "h5", "h6") and (size is None or size > BODY_SIZE):
+            heading = finish(inline_markdown(element))
+            if heading:
+                out.append(f"{'#' * int(tag[1])} {heading}")
+        elif tag in ("ul", "ol"):
+            items = []
+            for index, item in enumerate(element.iter("li"), start=1):
+                body = finish(inline_markdown(item))
+                if body:
+                    items.append(("- " if tag == "ul" else f"{index}. ") + body)
+            if items:
+                out.append("\n".join(items))
+        else:
+            body = finish(inline_markdown(element))
+            if body:
+                out.append(body)
+    return out
+
+
+def finish(value: str) -> str:
+    """Normalise one Markdown block, keeping hard line breaks from <br>."""
+    value = collapse(value)
+    segments = [segment.strip(" \t") for segment in value.split(BREAK)]
+    segments = [segment for segment in segments if segment.strip()]
+    joined = "  \n".join(segments)
+    if joined[:1] in ("#", "-", ">"):
+        joined = "\\" + joined
+    return joined
+
+
+# --------------------------------------------------------------------------- #
+# extraction
+# --------------------------------------------------------------------------- #
+
+@dataclass
+class Picture:
+    media: str
+    url: str
+    width: int
+    height: int = 0
+    size: int = 0
+    file: str = ""
+    format: str = ""
+    alt: str = ""
+    caption: str = ""
+    hint: str = ""
+    pages: list[str] = field(default_factory=list)
+
+
+@dataclass
+class Tile:
+    """One square of the home page's Work grid."""
+
+    media: str
+    title: str
+    caption: str
+    href: str
+
+
+class Extractor:
+    def __init__(self, out: Path):
+        self.out = out
+        self.pictures: dict[str, Picture] = {}
+        self.tiles: list[Tile] = []
+        self.pages: dict[str, dict] = {}
+        self.notes: list[str] = []
+        self.usage: dict[tuple[str, str, str], dict] = {}
+        self.faces: dict[str, set[str]] = {}
+        self.font_urls: dict[str, set[str]] = {}
+        self.labels: dict[str, str] = {}
+        self.order: dict[str, int] = {}
+
+    # -- rendering ---------------------------------------------------------- #
+
+    def render(self, browser, spec: Page) -> dict:
+        context = browser.new_context(viewport=VIEWPORT, device_scale_factor=DPR, user_agent=USER_AGENT)
+        page = context.new_page()
+        fonts: set[str] = set()
+        page.on("response", lambda r: fonts.add(r.url)
+                if any(token in r.url for token in (".woff2", ".woff", ".ttf", ".otf")) else None)
+        url = f"{BASE}/{spec.slug}" if spec.slug else BASE
+        page.goto(url, wait_until="domcontentloaded", timeout=120000)
+        try:
+            page.wait_for_selector(".wixui-rich-text, main img", timeout=45000)
+        except Exception:
+            self.notes.append(f"{spec.file}: content did not appear in the render")
+        page.wait_for_timeout(2500)
+        height = page.evaluate("document.body.scrollHeight")
+        offset = 0
+        while offset < height:
+            page.evaluate(f"window.scrollTo(0, {offset})")
+            page.wait_for_timeout(250)
+            offset += 600
+            height = page.evaluate("document.body.scrollHeight")
+        page.evaluate("window.scrollTo(0, 0)")
+        page.wait_for_timeout(1500)
+        data = page.evaluate(COLLECT_JS)
+        data["font_files"] = sorted(fonts)
+        context.close()
+        return data
+
+    # -- order -------------------------------------------------------------- #
+
+    @staticmethod
+    def in_document_order(blocks: list[dict]) -> list[dict]:
+        """Top to bottom, left to right within one visual row."""
+        remaining = sorted(blocks, key=lambda b: (b["rect"][1], b["rect"][0]))
+        ordered: list[dict] = []
+        while remaining:
+            anchor = remaining[0]["rect"][1]
+            row = [b for b in remaining if abs(b["rect"][1] - anchor) <= 24]
+            remaining = [b for b in remaining if abs(b["rect"][1] - anchor) > 24]
+            ordered.extend(sorted(row, key=lambda b: b["rect"][0]))
+        return ordered
+
+    # -- images ------------------------------------------------------------- #
+
+    def register(self, url: str, alt: str, page: str, caption: str = "", hint: str = "") -> str:
+        media = media_id(url)
+        picture = self.pictures.get(media)
+        if picture is None:
+            picture = self.pictures[media] = Picture(media=media, url=url, width=rendition_width(url),
+                                                     hint=hint)
+        elif rendition_width(url) > picture.width:
+            picture.url = url
+            picture.width = rendition_width(url)
+        if not picture.alt and alt:
+            picture.alt = collapse(alt).strip()
+        if not picture.caption and caption:
+            picture.caption = collapse(caption).strip()
+        if page not in picture.pages:
+            picture.pages.append(page)
+        return media
+
+    def download(self) -> None:
+        directory = self.out / "public" / "images"
+        directory.mkdir(parents=True, exist_ok=True)
+        for stale in directory.iterdir():
+            if stale.suffix.lower() in (".jpg", ".jpeg", ".png", ".gif", ".webp", ".avif"):
+                stale.unlink()
+        names: dict[str, str] = {}
+        for picture in sorted(self.pictures.values(), key=lambda p: p.media):
+            payload = fetch(picture.url)
+            with tempfile.NamedTemporaryFile() as handle:
+                handle.write(payload)
+                handle.flush()
+                with Image.open(handle.name) as probe:
+                    picture.width, picture.height = probe.size
+                    picture.format = {"JPEG": "jpg", "PNG": "png", "WEBP": "webp", "GIF": "gif",
+                                      "AVIF": "avif"}.get((probe.format or "").upper(),
+                                                          (probe.format or "jpg").lower())
+            picture.size = len(payload)
+            hint = picture.alt or picture.hint
+            stem = (slugify(hint.rsplit(".", 1)[0]) if hint else slugify(picture.media.split("~")[0]))
+            stem = (stem or "image")[:60].strip("-")
+            name = f"{stem}.{picture.format}"
+            if name in names:
+                name = f"{stem}-{hashlib.sha1(picture.media.encode()).hexdigest()[:6]}.{picture.format}"
+            names[name] = picture.media
+            picture.file = name
+            (directory / name).write_bytes(payload)
+
+    def manifest(self) -> dict:
+        return {
+            "source": BASE,
+            "images": [
+                {"url": picture.url, "file": f"images/{picture.file}",
+                 "width": picture.width, "height": picture.height, "bytes": picture.size,
+                 "format": picture.format, "alt": picture.alt, "caption": picture.caption,
+                 "pages": picture.pages}
+                for picture in sorted(self.pictures.values(), key=lambda p: (p.pages[0], p.file))
+            ],
+        }
+
+    # -- gallery ------------------------------------------------------------ #
+
+    def read_gallery(self, data: dict) -> list[dict]:
+        match = re.search(r'<script type="application/json" id="wix-warmup-data">(.*?)</script>',
+                          data["html"], re.S)
+        if not match:
+            return []
+        warmup = json.loads(match.group(1))
+        items: list[dict] = []
+        for app in warmup.get("appsWarmupData", {}).values():
+            for key, value in app.items():
+                if key.endswith("_galleryData"):
+                    items.extend(value.get("items", []))
+        return sorted(items, key=lambda item: item.get("orderIndex", 0))
+
+    def read_tiles(self, spec: Page, data: dict) -> list[Tile]:
+        by_label = {label.lower(): slug for slug, label in self.labels.items()}
+        rendered = data["tiles"]
+        tiles: list[Tile] = []
+        for position, item in enumerate(self.read_gallery(data)):
+            meta = item.get("metaData", {})
+            target = collapse((meta.get("link") or {}).get("text", ""))
+            target = re.sub(r"^Go to Page\s*", "", target).strip()
+            slug = by_label.get(target.lower())
+            page: Page | None = next((page for page in PAGES if page.slug == slug), None) if slug else None
+            title = collapse(meta.get("title", "")).strip()
+            source = rendered[position]["src"] if position < len(rendered) else ""
+            if not source:
+                self.notes.append(f"{spec.file}: grid tile {title!r} has no rendered image")
+                continue
+            media = self.register(source, "", spec.file, caption=meta.get("description", ""), hint=title)
+            if page is None:
+                self.notes.append(f"{spec.file}: grid tile {meta.get('title')!r} links to {target!r}, "
+                                  "which is not one of the 15 pages")
+                continue
+            tiles.append(Tile(media=media, title=title,
+                              caption=collapse(meta.get("description", "")).strip(), href=page.path))
+        return tiles
+
+    # -- fonts -------------------------------------------------------------- #
+
+    def font_key(self, family: str) -> str:
+        primary = family.split(",")[0].strip().strip("'\"").lower()
+        for key in sorted(FONTS, key=len, reverse=True):  # longest match wins
+            if primary.startswith(key):
+                return key
+        if primary.startswith("cormorant"):
+            return "cormorant garamond"
+        return primary
+
+    def collect_fonts(self, spec: Page, data: dict) -> None:
+        for area, rows in data["styles"].items():
+            for key, row in rows.items():
+                family, weight, style, size = key.split("||")
+                variant = family.split(",")[0].strip().strip("'\"").lower()
+                bucket = self.usage.setdefault((self.font_key(family), variant, weight),
+                                               {"count": 0, "pages": set(), "areas": set(),
+                                                "sizes": set(), "sample": ""})
+                bucket["count"] += row["count"]
+                if not bucket["sample"] and row.get("sample"):
+                    bucket["sample"] = row["sample"]
+                bucket["pages"].add(spec.file)
+                bucket["areas"].add(area)
+                bucket["sizes"].add(size)
+        for face in data["faces"]:
+            family = collapse(face.get("family") or "").strip("'\"")
+            if not family:
+                continue
+            self.faces.setdefault(self.font_key(family), set()).add(face.get("weight") or "400")
+        for url in data["font_files"]:
+            flat = re.sub(r"[^a-z0-9]", "", url.lower())
+            for key in FONTS:
+                if re.sub(r"[^a-z0-9]", "", key) in flat:
+                    self.font_urls.setdefault(key, set()).add(url)
+
+    def font_family(self, key: str) -> str:
+        if key in self.usage_keys():
+            pass
+        return FONTS[key]["name"] if key in FONTS else key
+
+    def usage_keys(self) -> set[str]:
+        return {key for key, _, _ in self.usage}
+
+    def ship_fonts(self) -> list[dict]:
+        directory = self.out / "public" / "fonts"
+        directory.mkdir(parents=True, exist_ok=True)
+        for stale in directory.glob("*.woff*"):
+            stale.unlink()
+        shipped: list[dict] = []
+        for key, info in FONTS.items():
+            if info["verdict"] != "self-host" or key not in self.usage_keys():
+                continue
+            urls = sorted(self.font_urls.get(key, set()))
+            woff2 = [url for url in urls if url.endswith(".woff2")]
+            for index, url in enumerate(woff2 or urls, start=1):
+                payload = fetch(url)
+                name = f"{slugify(key)}-{index}.woff2"
+                (directory / name).write_bytes(payload)
+                shipped.append({"family": key, "file": name, "url": url, "size": len(payload)})
+        return shipped
+
+    def font_report(self, shipped: list[dict]) -> str:
+        lines = [
+            "# Fonts",
+            "",
+            "Every font family and weight the live Wix site loads, where it comes from, and",
+            "what this repository does about it. Generated by `scripts/extract.py`; do not edit",
+            "by hand, and `--check` fails if it stops matching the live site.",
+            "",
+            "## Summary",
+            "",
+            "| Family | Wix face | Weight | Licence | Decision |",
+            "| --- | --- | --- | --- | --- |",
+        ]
+        rows = []
+        for (key, variant, weight) in sorted(self.usage, key=lambda k: (k[0], k[1], k[2])):
+            info = FONTS.get(key)
+            decision = {
+                "self-host": "self-hosted in `public/fonts/`",
+                "substitute": f"not self-hostable, nearest Google Font **{info['substitute'] if info else '?'}**",
+                "system": "system stack, nothing to ship",
+                "wix-chrome": "Wix platform chrome, not part of the site's own type",
+            }.get(info["verdict"] if info else "", "unclassified, check by hand")
+            rows.append(f"| {info['name'] if info else key} | `{variant}` | {weight} | "
+                        f"{info['licence'] if info else 'unknown'} | {decision} |")
+        lines.extend(rows)
+
+        lines += ["", "## Families", ""]
+        for key in sorted(self.usage_keys()):
+            info = FONTS.get(key)
+            lines += [f"### {info['name'] if info else key}", ""]
+            if info:
+                lines.append(f"- licence: {info['licence']}. {info['note']}")
+            for (family_key, variant, weight) in sorted(k for k in self.usage if k[0] == key):
+                entry = self.usage[(family_key, variant, weight)]
+                sizes = ", ".join(sorted(entry["sizes"],
+                                          key=lambda s: float(re.sub(r"[^0-9.]", "", s) or 0)))
+                sample = f", e.g. \"{entry['sample']}\"" if entry["sample"] else ""
+                elements = "element" if entry["count"] == 1 else "elements"
+                lines.append(f"- `{variant}` weight {weight}, {sizes}: {entry['count']} text {elements} "
+                             f"in {', '.join(sorted(entry['areas']))} on {', '.join(sorted(entry['pages']))}"
+                             f"{sample}")
+            if self.faces.get(key):
+                lines.append(f"- declared weights: {', '.join(sorted(self.faces[key]))}")
+            for url in sorted(self.font_urls.get(key, set())):
+                lines.append(f"- file: `{url}`")
+            if info and info["substitute"]:
+                lines.append(f"- substitute: {info['substitute']} (Google Fonts, SIL Open Font License 1.1)")
+            lines.append("")
+        if shipped:
+            families = sorted({FONTS[entry["family"]]["name"] for entry in shipped})
+            lines += ["## Self-hosted files", "",
+                      f"{' and '.join(families)} {'are' if len(families) > 1 else 'is'} under the SIL Open "
+                      "Font License 1.1, which permits redistribution. Keep `public/fonts/OFL.txt` beside "
+                      "the files.", ""]
+            for entry in sorted(shipped, key=lambda s: s["file"]):
+                lines.append(f"- `public/fonts/{entry['file']}` ({entry['size']} bytes) from `{entry['url']}`")
+            lines.append("")
+        return "\n".join(lines)
+
+    # -- pages -------------------------------------------------------------- #
+
+    def read_nav(self, home: dict) -> None:
+        for anchor in home["nav"]:
+            parsed = urlparse(anchor["href"])
+            slug = (parsed.path or "").split("/mysite", 1)[-1].strip("/")
+            if anchor["href"].rstrip("/") == BASE.rstrip("/"):
+                slug = ""
+            page = next((page for page in PAGES if page.slug == slug), None)
+            if page is None or slug in self.labels or not anchor["label"]:
+                continue
+            if anchor["label"] == SITE_NAME:  # the logo links home too
+                continue
+            self.labels[slug] = anchor["label"]
+            if page.kind == "case_study":
+                self.order[slug] = len(self.order) + 1
+        missing = [page.slug for page in PAGES if page.slug not in self.labels]
+        if missing:
+            raise SystemExit(f"nav does not link these pages: {missing}")
+        if self.labels.get("") != HOME_LABEL:
+            raise SystemExit(f"home nav label is {self.labels.get('')!r}, expected {HOME_LABEL!r}")
+
+
+    def page_markdown(self, spec: Page) -> str:
+        data = self.pages[spec.file]
+        body: list[str] = []
+        tiles_written = False
+        blocks = self.in_document_order(data["blocks"])
+        form_text = [plain_text(block["html"]) for block in blocks
+                     if block["kind"] == "text" and block.get("inForm")]
+        for block in blocks:
+            kind = block["kind"]
+            if kind == "text":
+                if block.get("inForm"):  # shown only after the form is submitted
+                    continue
+                body.extend(block_markdown(block["html"], block.get("parts")))
+            elif kind == "image":
+                if spec.kind == "home":
+                    if not tiles_written:
+                        body.extend(self.tile_markdown())
+                        tiles_written = True
+                    continue
+                media = media_id(block["src"])
+                body.append(f"![{collapse(block['alt']).strip()}](/images/{self.pictures[media].file})")
+            elif kind == "video":
+                label = collapse(block["label"]).strip() or block["src"]
+                self.notes.append(f"{spec.file}: video not captured: {label} ({block['src']})")
+                body.append(f"<!-- video not captured: {label} -->")
+            elif kind == "embed":
+                self.notes.append(f"{spec.file}: embedded player not captured: "
+                                  f"{block['title']} ({block['src']})")
+                body.append(f"<!-- embedded player not captured: {block['title']} -->")
+            elif kind == "form":
+                fields = ", ".join(f["label"] or f["name"] for f in block["fields"])
+                message = f"; then {form_text[0]!r}" if form_text else ""
+                self.notes.append(f"{spec.file}: form not captured: fields {fields}, "
+                                  f"button {block['submit']!r}{message}")
+                body.append(f"<!-- form not captured: {fields}; button {block['submit']!r}{message} -->")
+        if spec.kind == "home" and not tiles_written:
+            body.extend(self.tile_markdown())
+
+        front = [
+            "---",
+            f"title: {json.dumps(strip_site(collapse(data['title'])), ensure_ascii=False)}",
+            f"nav_label: {json.dumps(self.labels[spec.slug], ensure_ascii=False)}",
+            f"order: {self.order[spec.slug] if spec.kind == 'case_study' else 'null'}",
+            f"path: {json.dumps(spec.path)}",
+            f"kind: {spec.kind}",
+            "---",
+            "",
+        ]
+        return "\n".join(front) + "\n\n".join(body).strip() + "\n"
+
+    def tile_markdown(self) -> list[str]:
+        """One Work tile: served title as alt text, served caption as the link title."""
+        lines = []
+        for tile in self.tiles:
+            file = self.pictures[tile.media].file
+            title = f' "{tile.caption}"' if tile.caption else ""
+            lines.append(f"[![{escape_md(tile.title)}](/images/{file})]({tile.href}{title})")
+        return lines
+
+    # -- driver ------------------------------------------------------------- #
+
+    def run(self) -> None:
+        with sync_playwright() as playwright:
+            browser = playwright.chromium.launch()
+            for spec in PAGES:
+                data = self.render(browser, spec)
+                self.pages[spec.file] = data
+                self.collect_fonts(spec, data)
+            browser.close()
+
+        self.read_nav(self.pages["home"])
+        self.tiles = self.read_tiles(PAGES[0], self.pages["home"])
+        for spec in PAGES:
+            position = 0
+            for block in self.in_document_order(self.pages[spec.file]["blocks"]):
+                if block["kind"] == "image":
+                    position += 1
+                    self.register(block["src"], block["alt"], spec.file,
+                                  hint=f"{spec.file}-{position}")
+
+        self.download()
+
+        content = self.out / "content"
+        content.mkdir(parents=True, exist_ok=True)
+        for spec in PAGES:
+            (content / f"{spec.file}.md").write_text(self.page_markdown(spec), encoding="utf-8")
+
+        manifest = self.out / "images" / "manifest.json"
+        manifest.parent.mkdir(parents=True, exist_ok=True)
+        manifest.write_text(json.dumps(self.manifest(), indent=2, ensure_ascii=False) + "\n",
+                            encoding="utf-8")
+
+        for url, (path, _) in FILES.items():
+            target = self.out / "public" / path
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(fetch(url))
+
+        shipped = self.ship_fonts()
+        (self.out / "fonts").mkdir(parents=True, exist_ok=True)
+        (self.out / "fonts" / "REPORT.md").write_text(self.font_report(shipped), encoding="utf-8")
+
+        print(f"content files: {len(PAGES)}")
+        print(f"images: {len(self.pictures)}")
+        print(f"manifest rows: {len(self.pictures)}")
+        print(f"fonts self-hosted: {len(shipped)}")
+        if self.notes:
+            print("not captured:")
+            for note in self.notes:
+                print(f"  - {note}")
+
+
+# --------------------------------------------------------------------------- #
+
+def generated(root: Path) -> dict[str, bytes]:
+    files: dict[str, bytes] = {}
+    for pattern in GENERATED:
+        for path in sorted(root.glob(pattern)):
+            if path.is_file():
+                files[str(path.relative_to(root))] = path.read_bytes()
+    return files
+
+
+def check(root: Path) -> int:
+    with tempfile.TemporaryDirectory() as scratch:
+        build(Path(scratch))
+        expected = generated(root)
+        actual = generated(Path(scratch))
+    differences = []
+    for name in sorted(set(expected) | set(actual)):
+        if name not in actual:
+            differences.append(f"stale in repo: {name}")
+        elif name not in expected:
+            differences.append(f"missing from repo: {name}")
+        elif expected[name] != actual[name]:
+            differences.append(f"changed: {name}")
+    if differences:
+        print("the live site no longer matches this checkout:")
+        for difference in differences:
+            print(f"  {difference}")
+        return 1
+    print(f"ok: {len(actual)} generated files match the live site")
+    return 0
+
+
+def build(root: Path) -> None:
+    Extractor(root).run()
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    parser.add_argument("--check", action="store_true",
+                        help="re-extract into a temporary directory and fail on any difference")
+    arguments = parser.parse_args()
+    if arguments.check:
+        return check(ROOT)
+    build(ROOT)
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
