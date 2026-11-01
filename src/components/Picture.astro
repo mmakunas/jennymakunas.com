@@ -3,10 +3,10 @@
 // box's for everything under it, and the phone box's own below the phone breakpoint.
 // Each is the crop Wix serves at those widths; one file cannot be.
 import { url } from '../lib/url.js';
-const { src, wide, phone, alt, fit } = Astro.props;
+const { src, crop1440, phone, alt, fit } = Astro.props;
 ---
 <picture>
   {phone && <source media="(max-width: 749.9px)" srcset={url(phone)} />}
-  {wide && <source media="(max-width: 1449.9px)" srcset={url(wide)} />}
+  {crop1440 && <source media="(max-width: 1449.9px)" srcset={url(crop1440)} />}
   <img src={url(src)} alt={alt || ''} loading="lazy" style={`object-fit:${fit || 'cover'}`} />
 </picture>

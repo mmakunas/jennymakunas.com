@@ -228,7 +228,55 @@ const browser = await chromium.launch();
   await ctx.close();
 }
 
-// 8. The desktop Work dropdown reveals the 11 case studies.
+// 8. Picture boxes sit where the layout says at 1440 — the geometry interpolates from
+// the block's 983 rect to its 1440 rect, and a picture prop that shadowed that rect once
+// collapsed every image box to the left edge while every other check stayed green.
+{
+  const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 } });
+  const page = await ctx.newPage();
+  const problems = [];
+  for (const slug of ['23andme-dna-day-2023', 'now-you-brand-campaign']) {
+    const layout = JSON.parse(await readFile(path.join(root, 'src/layout', `${slug}.json`), 'utf8'));
+    const expected = layout.desktop.blocks.filter((b) => b.kind === 'image' || b.kind === 'video');
+    await page.goto(`${local}${slug}/`, { waitUntil: 'domcontentloaded' });
+    await page.waitForTimeout(400);
+    const measured = await page.evaluate(() => {
+      const canvas = document.querySelector('.canvas');
+      // A container query width is the viewport minus the scrollbar, which is what the
+      // calc()s interpolate against.
+      const width = document.documentElement.clientWidth;
+      return {
+        width,
+        boxes: [...canvas.querySelectorAll('.blk.image, .blk.video')].map((el) => {
+          const r = el.getBoundingClientRect();
+          return { x: +(r.x - canvas.getBoundingClientRect().x).toFixed(1), w: +r.width.toFixed(1) };
+        }),
+      };
+    });
+    // The canvas stretches with the viewport, so the interpolation is evaluated at the
+    // width the canvas was actually given rather than at 1440 exactly.
+    const t = (Math.max(983, measured.width) - 983) / (1440 - 983);
+    for (const box of measured.boxes) {
+      const near = expected
+        .map((b) => {
+          const wide = b.wide || b.rect;
+          return { x: b.rect.x + (wide.x - b.rect.x) * t, w: b.rect.w + (wide.w - b.rect.w) * t };
+        })
+        // A picture box must land on one of the captured 1440 rects, near enough that a
+        // lost or collapsed box cannot hide inside the tolerance.
+        .find((e) => Math.abs(e.x - box.x) <= 8 && Math.abs(e.w - box.w) <= 8);
+      if (!near) problems.push(`${slug}: a box at x=${box.x} w=${box.w} is not in the capture`);
+    }
+    const html = await page.content();
+    if (html.includes('NaNpx')) {
+      problems.push(`${slug}: a box computed NaN geometry`);
+    }
+  }
+  check('picture boxes keep their captured 1440 geometry', problems.length === 0, problems.slice(0, 3).join(' '));
+  await ctx.close();
+}
+
+// 9. The desktop Work dropdown reveals the 11 case studies.
 {
   const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 } });
   const page = await ctx.newPage();

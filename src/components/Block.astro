@@ -19,11 +19,11 @@ const facade = block.content && block.content.type === 'facade' ? block.content 
 {block.kind === 'image' && block.src && (
   href ? (
     <a class={cls} style={block.shared} href={href}>
-      <Picture src={block.src} wide={block.wide} phone={block.phone} alt={block.alt} fit={block.fit} />
+      <Picture src={block.src} crop1440={block.crop1440} phone={block.phone} alt={block.alt} fit={block.fit} />
     </a>
   ) : (
     <div class={cls} style={block.shared}>
-      <Picture src={block.src} wide={block.wide} phone={block.phone} alt={block.alt} fit={block.fit} />
+      <Picture src={block.src} crop1440={block.crop1440} phone={block.phone} alt={block.alt} fit={block.fit} />
     </div>
   )
 )}

@@ -47,7 +47,7 @@ const wideImages = crops('wide');
 const phoneImages = crops('mobile');
 // The reverse join: a Markdown image path back to the media id Wix serves it as.
 const fileToMedia = new Map(manifest.images.map((i) => [`/${i.file}`, mediaId(i.url)]));
-const wideImage = (src) => wideImages.get(src) || null;
+const crop1440Image = (src) => wideImages.get(src) || null;
 const phoneImage = (src) => phoneImages.get(src) || null;
 
 // Markdown links are written as site paths; in the built page they carry the
@@ -299,7 +299,7 @@ function zip(contentBlocks, layoutBlocks, { byText = false } = {}) {
     }
     media.splice(media.indexOf(content), 1);
     if (content.type === 'image') {
-      placed.push({ ...lb, content, src: content.src, wide: wideImage(content.src),
+      placed.push({ ...lb, content, src: content.src, crop1440: crop1440Image(content.src),
                     phone: phoneImage(content.src),
                     alt: content.alt || lb.alt, href: content.href || lb.href });
     } else {
@@ -459,7 +459,7 @@ function tileData(slug, images, headerH, mobileHeaderH) {
       return {
         cls: `t${i}`,
         src: image.src,
-        wide: wideImage(image.src),
+        crop1440: crop1440Image(image.src),
         phone: phoneImage(image.src),
         alt: image.alt || '',
         href: image.href || null,
