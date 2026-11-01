@@ -19,6 +19,8 @@ const WIX = 'https://jenny6926.wixsite.com/mysite';
 
 const pages = JSON.parse(await readFile(path.join(root, 'src/layout/pages.json'), 'utf8'));
 const only = process.argv.indexOf('--only');
+const bpOnly = process.argv.indexOf('--bp');
+const wantedBps = bpOnly > -1 ? process.argv[bpOnly + 1].split(',') : ['desktop', 'mobile'];
 const wanted = only > -1 ? pages.filter((p) => p.slug === process.argv[only + 1]) : pages;
 
 const TYPES = { '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript', '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.gif': 'image/gif', '.svg': 'image/svg+xml', '.woff2': 'font/woff2', '.pdf': 'application/pdf', '.ico': 'image/x-icon' };
@@ -65,7 +67,10 @@ const shot = async ({ url, width, device, file, blockWix }) => {
 };
 
 const W = 760;
-const compare = async (buildFile, wixFile, outFile) => {
+// The Wix phone capture renders at its 320px layout width while the build
+// renders at the device width, so the Wix panel is scaled to the build's width
+// before they are put side by side: same physical scale, honest comparison.
+const compare = async (buildFile, wixFile, outFile, normalizeTo) => {
   const scale = async (f) => {
     const img = sharp(f);
     const meta = await img.metadata();
@@ -74,6 +79,14 @@ const compare = async (buildFile, wixFile, outFile) => {
     const { height } = await sharp(buf).metadata();
     return { buf, width, height };
   };
+  if (normalizeTo) {
+    const meta = await sharp(wixFile).metadata();
+    if (meta.width !== normalizeTo) {
+      const scaled = await sharp(wixFile).resize({ width: normalizeTo }).toBuffer();
+      await sharp(scaled).toFile(`${wixFile}.scaled.png`);
+      wixFile = `${wixFile}.scaled.png`;
+    }
+  }
   const a = await scale(buildFile);
   const b = await scale(wixFile);
   const gap = 24;
@@ -93,13 +106,14 @@ for (const page of wanted) {
   for (const [bp, width, device] of [
     ['desktop', 1440, null],
     ['mobile', 390, devices['iPhone 12']],
-  ]) {
+  ].filter(([bp]) => wantedBps.includes(bp))) {
     const buildFile = path.join(out, `${page.slug}-${bp}-build.png`);
     const wixFile = path.join(out, `${page.slug}-${bp}-wix.png`);
     const cmpFile = path.join(out, `${page.slug}-${bp}.png`);
     await shot({ url: `${local}${page.path.replace(/^\//, '')}`, width, device, file: buildFile, blockWix: true });
     await shot({ url: page.url, width, device, file: wixFile, blockWix: false });
-    await compare(buildFile, wixFile, cmpFile);
+    const buildMeta = await sharp(buildFile).metadata();
+    await compare(buildFile, wixFile, cmpFile, bp === 'mobile' ? buildMeta.width : null);
     rows.push({ slug: page.slug, bp, file: cmpFile });
     console.log(`shot ${page.slug} ${bp}`);
   }
