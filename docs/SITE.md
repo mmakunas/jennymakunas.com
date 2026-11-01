@@ -70,12 +70,14 @@ two links, then About and Contact.
   film autoplays muted and loops, as it does on Wix, and Wix gives that loop no
   control either.
 - **Pictures are cropped to their box, as Wix crops them.** Wix serves a `fill`
-  rendition sized to the shape of each box, and the same picture has a different box
-  shape on a phone. The extractor therefore reads every page at 1440 and again at
-  390 and downloads the rendition each box is served at each breakpoint; the
-  manifest keeps the phone one inside the same row, and the build swaps to it below
-  the breakpoint with `<picture>`. A phone rendition is only stored when its crop
-  differs from the desktop one.
+  rendition sized to the shape of each box. The desktop canvas keeps stretching past
+  1440, so on the desktop the box only ever gets wider: the extractor reads each page
+  at 1920, where a box crops its picture the least, and a narrower box then crops that
+  picture on the sides only — the crop Wix serves it. The phone layout's box is a
+  different shape altogether, so the extractor reads every page again at 390 with a
+  phone user agent and downloads that rendition too; the manifest keeps it inside the
+  same row, and the build swaps to it below the breakpoint with `<picture>`. A phone
+  rendition is only stored when its crop differs from the desktop one.
 - **The Animaniacs trailer** is a click-to-play facade: the local thumbnail and a
   play button, and the `youtube-nocookie.com` iframe is only inserted on click.
   Nothing is fetched from YouTube before that.
