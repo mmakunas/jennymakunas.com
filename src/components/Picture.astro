@@ -2,7 +2,7 @@
 // A still at the crop Wix gives its box: the desktop rendition, and the phone's
 // own rendition where the phone box is a different shape.
 import { url } from '../lib/url.js';
-const { block, src = block.src, phone = block.phone, alt = block.alt, fit = block.fit } = Astro.props;
+const { src, phone, alt, fit } = Astro.props;
 ---
 <picture>
   {phone && <source media="(max-width: 749.9px)" srcset={url(phone)} />}
