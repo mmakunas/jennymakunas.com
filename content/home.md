@@ -34,4 +34,4 @@ A belief that being strong in thought and kind in tone is how things \*really\* 
 
 [![Hot Mess](/images/hot-mess.jpg)](/hot-mess-creative-collective "Creative Collective")
 
-[Get in Touch!](mailto:jenny@makunas.com?subject=Let's work together!)
+[Get in Touch!](mailto:jenny@makunas.com?subject=Let's%20work%20together!)

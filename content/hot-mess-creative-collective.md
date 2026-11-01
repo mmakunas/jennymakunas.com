@@ -9,7 +9,7 @@ kind: case_study
 
 A collective of musicians, DJs, producers, writers, multi-media artists, engineers, and friends, the Hot Mess world encompasses live and streaming performances, album releases, parties and events, and the occasional advertising undertaking. We’ve worked together - officially and unofficially - for over a decade, collaborating on work that brings us collective joy and brings our creative talents to the forefront.
 
-We’re available for projects large and small! [Hit us up via email.](mailto:jenny@wearehotmess.com?subject=Who are Hot Mess?)
+We’re available for projects large and small! [Hit us up via email.](mailto:jenny@wearehotmess.com?subject=Who%20are%20Hot%20Mess?)
 
 ![96290604_276405033391674_1154317344059505500_n.jpg](/images/96290604-276405033391674-1154317344059505500-n.jpg)
 

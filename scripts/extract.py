@@ -61,7 +61,7 @@ USER_AGENT = ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
               "(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36")
 
 GENERATED = ["content/*.md", "images/manifest.json", "fonts/REPORT.md",
-             "public/images/*", "public/fonts/*.woff2", "public/fonts/*.ttf"]
+             "public/images/*", "public/fonts/*.woff2", "public/fonts/*.ttf", "public/files/*"]
 
 
 @dataclass(frozen=True)
@@ -188,7 +188,9 @@ COLLECT_JS = r"""
                  inForm: !!el.closest('form')});
   });
   main.querySelectorAll('img').forEach((el) => {
-    blocks.push({kind: 'image', alt: el.alt || '', src: el.currentSrc || el.src || '', rect: box(el)});
+    const link = el.closest('a');
+    blocks.push({kind: 'image', alt: el.alt || '', src: el.currentSrc || el.src || '',
+                 href: link ? (link.getAttribute('href') || '') : '', rect: box(el)});
   });
   main.querySelectorAll('video').forEach((el) => {
     const holder = el.closest('[aria-label]');
@@ -319,7 +321,7 @@ def inline_markdown(node) -> str:
         elif tag == "a":
             label = collapse("".join(child.itertext())).replace(BREAK, " ").strip()
             href = (child.get("href") or "").strip()
-            parts.append(f"[{escape_md(label)}]({rewrite_href(href)})" if href and label
+            parts.append(f"[{escape_md(label)}]({markdown_destination(rewrite_href(href))})" if href and label
                          else escape_md(label))
         elif tag in ("strong", "b"):
             parts.append(wrap_bold(inline_markdown(child)))
@@ -359,6 +361,13 @@ def finish_inline(value: str) -> str:
 def plain_text(block_html: str) -> str:
     fragment = lxml_html.fragment_fromstring(block_html, create_parent="div")
     return collapse(fragment.text_content()).strip()
+
+
+def markdown_destination(href: str) -> str:
+    """Encode what CommonMark refuses inside a bare link destination."""
+    for character, encoded in ((" ", "%20"), ("(", "%28"), (")", "%29"), ("<", "%3C"), (">", "%3E")):
+        href = href.replace(character, encoded)
+    return href
 
 
 def rewrite_href(href: str) -> str:
@@ -765,7 +774,9 @@ class Extractor:
                         tiles_written = True
                     continue
                 media = media_id(block["src"])
-                body.append(f"![{collapse(block['alt']).strip()}](/images/{self.pictures[media].file})")
+                image = f"![{collapse(block['alt']).strip()}](/images/{self.pictures[media].file})"
+                href = rewrite_href(block.get("href") or "")
+                body.append(f"[{image}]({markdown_destination(href)})" if href else image)
             elif kind == "video":
                 label = collapse(block["label"]).strip() or block["src"]
                 self.notes.append(f"{spec.file}: video not captured: {label} ({block['src']})")
@@ -801,7 +812,7 @@ class Extractor:
         for tile in self.tiles:
             file = self.pictures[tile.media].file
             title = f' "{tile.caption}"' if tile.caption else ""
-            lines.append(f"[![{escape_md(tile.title)}](/images/{file})]({tile.href}{title})")
+            lines.append(f"[![{escape_md(tile.title)}](/images/{file})]({markdown_destination(tile.href)}{title})")
         return lines
 
     # -- driver ------------------------------------------------------------- #

@@ -17,10 +17,10 @@ Social Media
 
 jenny@makunas.com
 
-![Twitter](/images/twitter.png)
+[![Twitter](/images/twitter.png)](https://twitter.com/A_Live_One)
 
-![Linkedin](/images/linkedin.png)
+[![Linkedin](/images/linkedin.png)](https://www.linkedin.com/in/jennymakunas/)
 
-![Instagram](/images/instagram.png)
+[![Instagram](/images/instagram.png)](https://www.instagram.com/a_live_one/)
 
 <!-- form not captured: First Name, Last Name, Email, Message; button 'Send'; then 'Thank you!' -->
