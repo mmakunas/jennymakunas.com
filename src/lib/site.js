@@ -296,30 +296,48 @@ function footerData() {
   };
 }
 
-// The Work grid is a Wix gallery, so its tiles never appear as block content:
-// they are paired with the Markdown's linked images in order.
+// The Work grid is a Wix gallery: its cells are divs, not page content, and the
+// capture lists them in a different order than they appear. Each cell is paired
+// with the Markdown image that is the same picture, by media id.
 function tileData(slug, images) {
   const l = layoutOf(slug);
-  const desk = l.desktop.gallery || [];
-  const wide = l.desktop.galleryWide || [];
-  const mob = l.mobile.gallery || [];
-  return images.map((image, i) => {
-    const d = desk[i];
-    const m = mob[i];
-    if (!d) return null;
-    return {
-      cls: `t${i}`,
-      src: image.src,
-      alt: image.alt || '',
-      href: image.href || (d.href ? new URL(d.href).pathname.replace(/^\/mysite/, '') : null),
-      fit: d.fit || 'cover',
-      shared: 'font-family:inherit',
-      // The grid stretches with the page, rows included, so its cells need the
-      // wide measurement as much as its columns do.
-      desktopCss: layoutCss({ ...d, wide: (wide[i] || d).rect, kind: 'image', style: {} }, 'desktop'),
-      mobileCss: m ? layoutCss({ ...m, kind: 'image', style: {} }, 'mobile') : '',
-    };
-  }).filter(Boolean);
+  // Both captures list the cells in the same order, including a duplicate box
+  // Wix keeps for the hover layer; dedupe each list the same way so an index
+  // means the same cell at each width.
+  const unique = (list) => {
+    const out = [];
+    const seen = new Set();
+    for (const t of list || []) {
+      const k = `${t.rect.y}:${Math.round(t.rect.x / 10)}`;
+      if (seen.has(k) || !t.src) continue;
+      seen.add(k);
+      out.push({ ...t, id: mediaId(t.src) });
+    }
+    return out;
+  };
+  const desk = unique(l.desktop.gallery);
+  const wide = unique(l.desktop.galleryWide);
+  const mob = unique(l.mobile.gallery);
+  return images
+    .map((image, i) => {
+      const id = fileToMedia.get(image.src);
+      const at = desk.findIndex((c) => c.id === id);
+      if (at < 0) return null;
+      const cell = desk[at];
+      const wideCell = wide[at] || cell;
+      const m = mob.find((c) => c.id === id);
+      return {
+        cls: `t${i}`,
+        src: image.src,
+        alt: image.alt || '',
+        href: image.href || null,
+        fit: cell.fit || 'cover',
+        shared: 'font-family:inherit',
+        desktopCss: layoutCss({ kind: 'image', rect: cell.rect, wide: wideCell.rect, style: {} }, 'desktop'),
+        mobileCss: m ? layoutCss({ ...m, kind: 'image', style: {} }, 'mobile') : '',
+      };
+    })
+    .filter(Boolean);
 }
 
 export function composePage(slug) {
