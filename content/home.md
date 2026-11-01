@@ -5,10 +5,13 @@ order: null
 path: "/"
 kind: home
 ---
-# A global brand leader who thrives on creating order from chaos.  
-A history of building award-winning, breakthrough campaigns that launch brands, transform products, and define companies.  
-A passion for sharp strategies that build brand equity, drive awareness, create demand, and convert prospects into engaged advocates.  
-A belief that being strong in thought and kind in tone is how things \*really\* get done.
+# A global brand leader who thrives on creating order from chaos.
+
+# A history of building award-winning, breakthrough campaigns that launch brands, transform products, and define companies.
+
+# A passion for sharp strategies that build brand equity, drive awareness, create demand, and convert prospects into engaged advocates.
+
+# A belief that being strong in thought and kind in tone is how things \*really\* get done.
 
 **Scroll down to see recent work**
 

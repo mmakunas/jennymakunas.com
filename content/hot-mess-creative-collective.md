@@ -31,5 +31,6 @@ A series of streaming afterparties following the weekly pandemic "Dinner and a M
 &  
 Screaming Through Space
 
-Small series of parties at The Peacock Lounge in San Francisco featuring DJs spinning psychedelic house, disco, funk, and soul.  
+Small series of parties at The Peacock Lounge in San Francisco featuring DJs spinning psychedelic house, disco, funk, and soul.
+
 We believe dancing is good for your soul. It's easier to find music to dance to at 2am than it is at 8pm. That shouldn't be the case.

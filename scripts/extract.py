@@ -458,7 +458,7 @@ def served_paragraphs(block_html: str) -> int:
         if tag in ("ul", "ol"):  # one Markdown block, whatever its item count
             counted += 1 if collapse(element.text_content()).strip() else 0
         elif collapse(element.text_content()).strip():
-            counted += 1
+            counted += 1 + paragraph_breaks(element)
     return counted
 
 
@@ -496,6 +496,15 @@ def rewrite_href(href: str) -> str:
 BODY_SIZE = 20.0
 
 
+DOUBLE_BREAK = re.compile(r"(?:\x00\s*){2,}")
+
+
+def paragraph_breaks(element) -> int:
+    """How many blank lines a box draws with two or more <br> in a row."""
+    markup = lxml_html.tostring(element, encoding="unicode")
+    return len(re.findall(r"(?:<br[^>]*>\s*){2,}", markup))
+
+
 def block_markdown(block_html: str, parts: list[dict] | None = None) -> list[str]:
     """Convert one rich-text component into Markdown blocks.
 
@@ -509,8 +518,7 @@ def block_markdown(block_html: str, parts: list[dict] | None = None) -> list[str
         tag = element.tag.lower() if isinstance(element.tag, str) else ""
         size = parts[index]["size"] if parts and index < len(parts) else None
         if tag in ("h1", "h2", "h3", "h4", "h5", "h6") and (size is None or size > BODY_SIZE):
-            heading = finish(inline_markdown(element))
-            if heading:
+            for heading in finish_groups(inline_markdown(element)):
                 out.append(f"{'#' * int(tag[1])} {heading}")
         elif tag in ("ul", "ol"):
             items = []
@@ -521,21 +529,33 @@ def block_markdown(block_html: str, parts: list[dict] | None = None) -> list[str
             if items:
                 out.append("\n".join(items))
         else:
-            body = finish(inline_markdown(element))
-            if body:
-                out.append(body)
+            out.extend(finish_groups(inline_markdown(element), escape_leading=True))
     return out
 
 
-def finish(value: str) -> str:
-    """Normalise one Markdown block, keeping hard line breaks from <br>."""
+def finish_groups(value: str, escape_leading: bool = False) -> list[str]:
+    """Split one element's text into Markdown blocks.
+
+    A single <br> is a line break inside a paragraph. Two or more in a row are the gap
+    Wix draws between paragraphs, so they become a blank line: a new Markdown block.
+    """
     value = collapse(value)
-    segments = [segment.strip(" \t") for segment in value.split(BREAK)]
-    segments = [segment for segment in segments if segment.strip()]
-    joined = "  \n".join(segments)
-    if joined[:1] in ("#", "-", ">"):
-        joined = "\\" + joined
-    return joined
+    blocks = []
+    for paragraph in DOUBLE_BREAK.split(value):
+        lines = [line.strip(" \t") for line in paragraph.split(BREAK)]
+        lines = [line for line in lines if line.strip()]
+        if not lines:
+            continue
+        joined = "  \n".join(lines)
+        if escape_leading and joined[:1] in ("#", "-", ">"):
+            joined = "\\" + joined
+        blocks.append(joined)
+    return blocks
+
+
+def finish(value: str) -> str:
+    """One Markdown block from an element, its paragraphs joined."""
+    return "\n\n".join(finish_groups(value, escape_leading=True))
 
 
 # --------------------------------------------------------------------------- #
