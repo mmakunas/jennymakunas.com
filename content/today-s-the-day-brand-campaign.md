@@ -23,6 +23,10 @@ Today’s the Day launched in May 2020, and ran through the summer. It included 
 
 <video controls preload="metadata" title="Today's the Day: Broadcast" poster="/images/today-s-the-day-brand-campaign-2.jpg" src="/videos/today-s-the-day-brand-campaign.mp4"></video>
 
+![](/images/today-s-the-day-brand-campaign-3.png)
+
 ![TTD Print spread.png](/images/ttd-print-spread.png)
+
+![](/images/today-s-the-day-brand-campaign-5.jpg)
 
 ![TTD Print.png](/images/ttd-print.png)

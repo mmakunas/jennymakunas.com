@@ -264,6 +264,15 @@ COLLECT_JS = r"""
       const link = el.closest('a');
       blocks.push({kind: 'image', alt: el.alt || '', src: el.currentSrc || el.src || '',
                    href: link ? (link.getAttribute('href') || '') : '', rect: box(el)});
+    } else if (tag === 'wix-bg-image') {
+      // A picture drawn as a CSS background layer rather than an <img> — two on
+      // the Today's the Day page. It is a box on the page like any other.
+      const ground = /url\("?([^")]+)"?\)/.exec(getComputedStyle(el).backgroundImage);
+      const r = el.getBoundingClientRect();
+      if (!ground || !/wixstatic/.test(ground[1]) || r.width < 40 || r.height < 40) continue;
+      const link = el.closest('a');
+      blocks.push({kind: 'image', alt: '', src: ground[1],
+                   href: link ? (link.getAttribute('href') || '') : '', rect: box(el)});
     } else if (tag === 'video') {
       const holder = el.closest('[aria-label]');
       blocks.push({kind: 'video', src: el.getAttribute('src') || '',
@@ -351,15 +360,39 @@ def media_id(url: str) -> str:
 
 
 def picture_key(url: str) -> str:
-    """The picture plus the shape it was cropped to: two boxes, two renditions."""
-    return f"{media_id(url)}|{rendition_aspect(url):.2f}"
+    """The picture plus the crop it was rendered as: two boxes, two renditions."""
+    transform = re.search(r"/v1/([a-z]+)/", url)
+    alignment = re.search(r"al_[a-z]+", url)
+    return (f"{media_id(url)}|{transform.group(1) if transform else ''}"
+            f"|{alignment.group(0) if alignment else ''}|{rendition_aspect(url):.2f}")
+
+
+def requested_size(url: str) -> tuple[int, int]:
+    """The size Wix was asked for, which is the box's shape rather than the file's."""
+    width = rendition_width(url)
+    height = re.search(r"[hH]_(\d+)", url)
+    return (width, int(height.group(1)) if height else 0)
 
 
 def rendition_aspect(url: str) -> float:
     """The shape Wix cropped this rendition to: its requested w_ over h_."""
-    width = rendition_width(url)
-    height = re.search(r"[hH]_(\d+)", url)
-    return width / int(height.group(1)) if width and height else 0.0
+    width, height = requested_size(url)
+    return width / height if width and height else 0.0
+
+
+def same_crop(left: str, right: str) -> bool:
+    """One crop, allowing for the resizer's jitter.
+
+    The two renditions are compared at a common height, so a pixel or two of rounding
+    on the requested size does not flip the decision — the same tolerance the picture
+    comparison uses.
+    """
+    left_w, left_h = requested_size(left)
+    right_w, right_h = requested_size(right)
+    if not (left_w and left_h and right_w and right_h):
+        return False
+    height = max(left_h, right_h)
+    return abs(left_w * height / left_h - right_w * height / right_h) <= SIZE_TOLERANCE
 
 
 def rendition_width(url: str) -> int:
@@ -742,13 +775,26 @@ class Extractor:
             picture.pages.append(page)
         return media
 
-    def phone_sources(self, page: str) -> dict[str, str]:
-        """The rendition each picture is served in on a phone, by media id."""
-        sources: dict[str, str] = {}
+    def phone_sources(self, page: str) -> dict[str, list[str]]:
+        """The renditions a page's pictures are served in on a phone, per picture.
+
+        A picture drawn in two places appears twice, so the list is in document order
+        and the desktop walk takes the same occurrence.
+        """
+        sources: dict[str, list[str]] = {}
         for block in self.phone.get(page, {}).get("blocks", []):
             if block["kind"] == "image" and block.get("src"):
-                sources.setdefault(media_id(block["src"]), block["src"])
+                sources.setdefault(media_id(block["src"]), []).append(block["src"])
         return sources
+
+    @staticmethod
+    def nth_rendition(sources: dict[str, list[str]], url: str, seen: dict[str, int]) -> str:
+        """The phone rendition of this occurrence of the picture, if the phone has one."""
+        media = media_id(url)
+        sources_for = sources.get(media, [])
+        index = seen.get(media, 0)
+        seen[media] = index + 1
+        return sources_for[index] if index < len(sources_for) else ""
 
     def download(self) -> None:
         directory = self.out / "public" / "images"
@@ -782,9 +828,7 @@ class Extractor:
             written.add(name)
             # A phone box has its own shape, and Wix crops the picture to it; only
             # carry that rendition when it is a different crop from the desktop one.
-            desktop_aspect = rendition_aspect(picture.url)
-            phone_aspect = rendition_aspect(picture.mobile_url)
-            if picture.mobile_url and abs(phone_aspect - desktop_aspect) > 0.02 * desktop_aspect:
+            if picture.mobile_url and not same_crop(picture.url, picture.mobile_url):
                 mobile = (picture.mobile_payload if picture.mobile_payload is not None
                           else fetch(picture.mobile_url))
                 picture.mobile_width, picture.mobile_height, picture.mobile_format = read(mobile)
@@ -911,8 +955,9 @@ class Extractor:
             if not source:
                 self.notes.append(f"{spec.file}: grid tile {title!r} has no rendered image")
                 continue
+            phone = self.phone_sources(spec.file).get(media_id(source), [])
             key = self.register(source, "", spec.file, caption=meta.get("description", ""), hint=title,
-                                mobile_url=self.phone_sources(spec.file).get(media_id(source), ""))
+                                mobile_url=phone[0] if phone else "")
             if page is None:
                 self.notes.append(f"{spec.file}: grid tile {meta.get('title')!r} links to {target!r}, "
                                   "which is not one of the 15 pages")
@@ -1213,12 +1258,13 @@ class Extractor:
         for spec in PAGES:
             position = 0
             phone = self.phone_sources(spec.file)
+            seen: dict[str, int] = {}
             for block in self.in_document_order(self.pages[spec.file]["blocks"]):
                 if block["kind"] == "image":
                     position += 1
                     self.register(block["src"], block["alt"], spec.file,
                                   hint=f"{spec.file}-{position}",
-                                  mobile_url=phone.get(media_id(block["src"]), ""))
+                                  mobile_url=self.nth_rendition(phone, block["src"], seen))
 
         for spec in PAGES:
             for block in self.pages[spec.file]["blocks"]:

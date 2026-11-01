@@ -25,10 +25,12 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      # BASE is the path Pages serves the site from: '/jennymakunas.com/' while
-      # this repo is a project site under www.makunas.com, '/' once the
-      # www.jennymakunas.com custom domain is set. Set the repository variable
-      # PAGES_BASE to '/' at that point; nothing else changes.
+      # Two repository variables describe where the site is published, and both
+      # change together at the DNS step: PAGES_BASE is the path Pages serves it
+      # from ('/jennymakunas.com/' while this repo is a project site under
+      # www.makunas.com, '/' on the custom domain), and PAGES_SITE is the origin
+      # the pages are canonical at ('https://www.makunas.com' today,
+      # 'https://www.jennymakunas.com' on the custom domain). Set both.
       - name: Build
         run: npm run build
         env:

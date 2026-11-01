@@ -95,6 +95,27 @@ const PAGE_JS = ({ offset, wantMenu }) => {
       alt: el.getAttribute('alt') || '',
     });
   }
+  // Some pictures are a CSS background layer rather than an <img> — two on the
+  // Today's the Day page. They are boxes on the page like any other.
+  for (const el of document.querySelectorAll('wix-bg-image')) {
+    const background = getComputedStyle(el).backgroundImage;
+    const url = /url\("?([^")]+)"?\)/.exec(background);
+    const r = rect(el);
+    if (!url || !/wixstatic/.test(url[1]) || r.w < 40 || r.h < 40) continue;
+    const anchor = el.closest('a');
+    blocks.push({
+      kind: 'image',
+      src: url[1],
+      iframe: null,
+      playable: false,
+      rect: r,
+      box: r,
+      fit: 'cover',
+      radius: getComputedStyle(el).borderRadius,
+      href: anchor ? anchor.getAttribute('href') : null,
+      alt: '',
+    });
+  }
   // Wix paints each image twice (a sizing layer and the img) and gives a video
   // player both a poster image and a player element. Keep one block per box,
   // preferring the one that carries a still frame.

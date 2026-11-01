@@ -569,8 +569,6 @@ export function composePage(slug) {
     const k = mobKey(m);
     if (k !== 'm:') mobileByKey.set(k, m);
   }
-  const mediaPool = mobZipped.placed.filter((m) => m.kind !== 'text');
-  let mediaTaken = 0;
   const unplaced = [];
   const tiles = homeImages.length ? tileData(slug, homeImages, desk.headerH, mob.headerH) : [];
   // The Work grid pairs each Markdown picture with its captured cell; a picture
@@ -580,11 +578,10 @@ export function composePage(slug) {
     throw new Error(`${slug}: ${missing.length} Markdown picture(s) have no cell in the Work grid — ${missing.join(', ')}`);
   }
   const entries = zipped.placed.map((b, i) => {
-    let m = mobileByKey.get(mobKey(b));
     // A phone page draws the same blocks, so a block with no phone twin means the
     // join broke; borrowing another block's rectangle would hide it.
-    if (!m && b.kind !== 'text') m = mediaPool[mediaTaken++];
-    if (!m && (b.content || b.html)) unplaced.push(`"${(b.text || b.src || '').slice(0, 40)}"`);
+    const m = mobileByKey.get(mobKey(b));
+    if (!m && (b.content || b.html)) unplaced.push(`"${(b.text || b.src || b.iframe || '').slice(0, 40)}"`);
     return { b, m, cls: `b${i}` };
   });
   if (unplaced.length) {
@@ -672,9 +669,9 @@ export function composePage(slug) {
   // Content that has nowhere to go is a hard error: silently publishing the
   // captured text would make an edit to the Markdown look applied when it is not.
   const stray = zipped.leftover.filter((b) => (b.text || b.src || b.label || '').trim());
-  const homeless = zipped.orphaned.filter((o) => (o.block.text || o.block.src || '').trim());
+  const homeless = zipped.orphaned.filter((o) => (o.block.text || o.block.src || o.block.iframe || '').trim());
   if (stray.length || homeless.length) {
-    const detail = [...stray.map((b) => `content block with no box: "${(b.text || b.src || b.label).slice(0, 60)}"`), ...homeless.map((o) => `box with no content: "${(o.block.text || o.block.src || '').slice(0, 60)}"`)].join('; ');
+    const detail = [...stray.map((b) => `content block with no box: "${(b.text || b.src || b.label).slice(0, 60)}"`), ...homeless.map((o) => `box with no content: "${(o.block.text || o.block.src || o.block.iframe || '').slice(0, 60)}"`)].join('; ');
     throw new Error(`${slug}: the Markdown does not line up with the captured page — ${detail}`);
   }
 

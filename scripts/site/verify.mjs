@@ -86,7 +86,7 @@ const browser = await chromium.launch();
       if (v.controls) earlyControls.push(`${p.slug}: control bar before play`);
     }
     const canonical = await page.getAttribute('link[rel="canonical"]', 'href');
-    const wanted = `${process.env.SITE || 'https://www.jennymakunas.com'}${BASE === '/' ? '' : BASE.replace(/\/$/, '')}${p.path}`;
+    const wanted = `${(process.env.SITE || 'https://www.jennymakunas.com').replace(/\/$/, '')}${BASE === '/' ? '' : BASE.replace(/\/$/, '')}${p.path}`;
     if (canonical !== wanted) badCanonicals.push(`${p.slug}: ${canonical} (wanted ${wanted})`);
     const remoteImgs = info.imgs.filter((s) => s && !s.startsWith(BASE));
     check(`${p.slug}: all images local (${info.imgs.length})`, remoteImgs.length === 0, remoteImgs.slice(0, 2).join(' '));
