@@ -37,10 +37,18 @@ const mediaId = (url) => {
   const m = /([0-9a-f]{6}_[0-9a-f]{32}~mv2\.[a-z]+)/i.exec(url || '');
   return m ? m[1].toLowerCase() : (url || '').split('/').pop().split('?')[0].toLowerCase();
 };
-const localImages = new Map(manifest.images.map((i) => [mediaId(i.url), `/${i.file}`]));
+// Wix crops a picture to the shape of its box, and the box changes shape with the
+// width: the 1440 crop for everything below the widest desktop width, the phone's own
+// crop below the phone breakpoint.
+const crops = (field) => new Map(manifest.images
+  .filter((i) => i[field] && i[field].file)
+  .map((i) => [`/${i.file}`, `/${i[field].file}`]));
+const wideImages = crops('wide');
+const phoneImages = crops('mobile');
 // The reverse join: a Markdown image path back to the media id Wix serves it as.
 const fileToMedia = new Map(manifest.images.map((i) => [`/${i.file}`, mediaId(i.url)]));
-export const localImage = (wixUrl) => localImages.get(mediaId(wixUrl)) || null;
+const crop1440Image = (src) => wideImages.get(src) || null;
+const phoneImage = (src) => phoneImages.get(src) || null;
 
 // Markdown links are written as site paths; in the built page they carry the
 // deploy base like every other internal URL.
@@ -116,7 +124,6 @@ const layoutCss = (block, mode) => {
 // Replaces the top of a block's declarations with a computed one.
 const withTop = (css, top) => String(css).replace(/(^|;)top:[^;]*/, `$1${top}`);
 
-const isWixUrl = (u) => /wixstatic|parastorage/.test(u || '');
 // A player URL carries Wix's own origin in its query string; the rebuild links
 // to the film itself, so reduce an embed URL to the video it plays.
 const cleanEmbed = (u) => {
@@ -202,6 +209,12 @@ function zip(contentBlocks, layoutBlocks, { byText = false } = {}) {
       continue;
     }
     if (wantsText) {
+      // Wix draws the gap between two paragraphs as an empty paragraph of its
+      // own; it holds nothing, so it must not take the next paragraph's words.
+      if (!norm(lb.text)) {
+        placed.push({ ...lb, empty: true, html: '' });
+        continue;
+      }
       // Text pairs by position, not by wording: the Markdown is the copy's
       // source of truth, so an edit to any part of a paragraph must land in
       // that paragraph's box rather than fall back to the captured text.
@@ -209,12 +222,6 @@ function zip(contentBlocks, layoutBlocks, { byText = false } = {}) {
       if (byText && content && !sameText(content.text, lb.text)) {
         const idx = text.findIndex((c) => sameText(c.text, lb.text));
         content = idx >= 0 ? text[idx] : text[0];
-      }
-      // Wix leaves empty paragraphs as spacers; they have no content peer and
-      // nothing to render.
-      if (!content && !lb.text) {
-        placed.push({ ...lb, empty: true, html: '' });
-        continue;
       }
       if (!content) {
         orphaned.push({ block: lb, why: 'no text left in content' });
@@ -266,27 +273,35 @@ function zip(contentBlocks, layoutBlocks, { byText = false } = {}) {
     }
 
     let content = null;
+    // An embedded player (the trailer) pairs with the facade the Markdown carries
+    // for it; there is one on the site, so order is enough here.
+    if (lb.iframe) {
+      const idx = media.findIndex((c) => c.type === 'facade' || c.type === 'embed');
+      if (idx >= 0) content = media[idx];
+    }
     if (lb.src) {
       const id = mediaId(lb.src);
       const idx = media.findIndex((c) => c.type === 'image' && fileToMedia.get(c.src) === id);
       if (idx >= 0) content = media[idx];
       // A film's poster frame is a media box too.
       if (!content) {
-        const filmIdx = media.findIndex((c) => c.type === 'video' && c.poster && mediaId(c.poster) === id);
+        const filmIdx = media.findIndex((c) => c.type === 'video' && c.poster
+          && fileToMedia.get(c.poster) === id);
         if (filmIdx >= 0) content = media[filmIdx];
       }
     }
-    if (!content) content = media[0] || null;
     if (!content) {
+      // No picture in the Markdown is left for this box. Rendering the captured
+      // one would make a deleted image look applied, so the build refuses instead.
       orphaned.push({ block: lb, why: 'no media left in content' });
-      const local = isWixUrl(lb.src) ? localImage(lb.src) : lb.src;
-      // Never hot-link Wix: a box with no local image simply does not render.
-      placed.push({ ...lb, orphan: true, src: local, drop: !local });
+      placed.push({ ...lb, orphan: true, drop: true });
       continue;
     }
     media.splice(media.indexOf(content), 1);
     if (content.type === 'image') {
-      placed.push({ ...lb, content, src: content.src, alt: content.alt || lb.alt, href: content.href || lb.href });
+      placed.push({ ...lb, content, src: content.src, crop1440: crop1440Image(content.src),
+                    phone: phoneImage(content.src),
+                    alt: content.alt || lb.alt, href: content.href || lb.href });
     } else {
       // The box now carries a film or a facade: drop the captured still URL so
       // nothing can fall back to a hot-linked Wix image.
@@ -444,6 +459,8 @@ function tileData(slug, images, headerH, mobileHeaderH) {
       return {
         cls: `t${i}`,
         src: image.src,
+        crop1440: crop1440Image(image.src),
+        phone: phoneImage(image.src),
         alt: image.alt || '',
         href: image.href || null,
         fit: cell.fit || 'cover',
@@ -547,23 +564,35 @@ export function composePage(slug) {
   // One DOM, two stylesheets: each block borrows the geometry of the phone
   // layout's block that carries the same thing. Index does not work here — Wix
   // reorders the phone page (the phone/email rows swap, for one).
+  // Both sides of the join come from the capture, not from the Markdown, so editing
+  // a word cannot re-pair the phone layout's boxes onto the wrong rectangles.
   const mobKey = (b) =>
     b.kind === 'text'
-      ? `t:${(b.content?.text || b.text || '').replace(/\s+/g, ' ').trim().toLowerCase().slice(0, 60)}`
+      ? `t:${norm(b.text).slice(0, 60)}`
       : `m:${mediaId(b.src || b.content?.src || '')}`;
   const mobileByKey = new Map();
   for (const m of mobZipped.placed) {
     const k = mobKey(m);
     if (k !== 'm:') mobileByKey.set(k, m);
   }
-  const mediaPool = mobZipped.placed.filter((m) => m.kind !== 'text');
-  let mediaTaken = 0;
+  const unplaced = [];
   const tiles = homeImages.length ? tileData(slug, homeImages, desk.headerH, mob.headerH) : [];
+  // The Work grid pairs each Markdown picture with its captured cell; a picture
+  // with no cell would simply vanish from the page.
+  if (homeImages.length && tiles.length !== homeImages.length) {
+    const missing = homeImages.filter((i) => !tiles.some((t) => t.src === i.src)).map((i) => i.src);
+    throw new Error(`${slug}: ${missing.length} Markdown picture(s) have no cell in the Work grid — ${missing.join(', ')}`);
+  }
   const entries = zipped.placed.map((b, i) => {
-    let m = mobileByKey.get(mobKey(b));
-    if (!m && b.kind !== 'text') m = mediaPool[mediaTaken++] || mobZipped.placed[i];
+    // A phone page draws the same blocks, so a block with no phone twin means the
+    // join broke; borrowing another block's rectangle would hide it.
+    const m = mobileByKey.get(mobKey(b));
+    if (!m && (b.content || b.html)) unplaced.push(`"${(b.text || b.src || b.iframe || '').slice(0, 40)}"`);
     return { b, m, cls: `b${i}` };
   });
+  if (unplaced.length) {
+    throw new Error(`${slug}: no phone-layout box for ${unplaced.length} block(s) — ${unplaced.join(', ')}`);
+  }
 
   // Wix's gallery finishes laying out its last row after the page was measured,
   // so a block the capture found inside the grid belongs under it: everything
@@ -646,9 +675,9 @@ export function composePage(slug) {
   // Content that has nowhere to go is a hard error: silently publishing the
   // captured text would make an edit to the Markdown look applied when it is not.
   const stray = zipped.leftover.filter((b) => (b.text || b.src || b.label || '').trim());
-  const homeless = zipped.orphaned.filter((o) => (o.block.text || '').trim());
+  const homeless = zipped.orphaned.filter((o) => (o.block.text || o.block.src || o.block.iframe || '').trim());
   if (stray.length || homeless.length) {
-    const detail = [...stray.map((b) => `content block with no box: "${(b.text || b.src || b.label).slice(0, 60)}"`), ...homeless.map((o) => `box with no content: "${o.block.text.slice(0, 60)}"`)].join('; ');
+    const detail = [...stray.map((b) => `content block with no box: "${(b.text || b.src || b.label).slice(0, 60)}"`), ...homeless.map((o) => `box with no content: "${(o.block.text || o.block.src || o.block.iframe || '').slice(0, 60)}"`)].join('; ');
     throw new Error(`${slug}: the Markdown does not line up with the captured page — ${detail}`);
   }
 

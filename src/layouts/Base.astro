@@ -7,6 +7,8 @@ import { url } from '../lib/url.js';
 const { composed, css, chrome } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const current = composed.page.path.replace(/(.)\/$/, '$1');
+// The address the page is published at: the deploy site plus the base path.
+const canonical = `${import.meta.env.SITE.replace(/\/$/, '')}${base}${current}`;
 
 const fontFaces = `
 @font-face{font-family:'Cormorant Garamond';src:url('${base}/fonts/cormorant-garamond-1.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
@@ -24,6 +26,7 @@ const fontFaces = `
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{composed.page.title} | Jenny Makunas</title>
     <link rel="icon" href={`${base}/favicon.ico`} />
+    <link rel="canonical" href={canonical} />
     <style is:inline set:html={fontFaces} />
     <style is:inline set:html={chrome} />
     <style is:inline set:html={css} />

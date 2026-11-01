@@ -71,11 +71,19 @@ const isActive = (path) => current === path;
   const overlay = document.getElementById('mobile-menu');
   const toggle = document.querySelector('.burger');
   const close = document.querySelector('.menu-close');
+  // The overlay covers the page, so it holds the keyboard while it is open: focus
+  // moves in on the way, stays inside, and goes back to the menu button on the way
+  // out.
+  const focusable = () =>
+    [...(overlay?.querySelectorAll<HTMLElement>('a[href], button') || [])]
+      .filter((el) => el.offsetParent !== null);
   const setOpen = (on: boolean) => {
     if (!overlay || !toggle) return;
     overlay.hidden = !on;
     toggle.setAttribute('aria-expanded', String(on));
     document.body.style.overflow = on ? 'hidden' : '';
+    if (on) (close || focusable()[0])?.focus();
+    else if (document.activeElement === document.body || overlay.contains(document.activeElement)) toggle.focus();
   };
   toggle?.addEventListener('click', () => overlay && setOpen(overlay.hidden));
   close?.addEventListener('click', () => setOpen(false));
@@ -95,6 +103,22 @@ const isActive = (path) => current === path;
     }
   });
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') setOpen(false);
+    if (!overlay || overlay.hidden) return;
+    if (e.key === 'Escape') {
+      setOpen(false);
+      return;
+    }
+    if (e.key !== 'Tab') return;
+    const items = focusable();
+    if (!items.length) return;
+    const first = items[0];
+    const last = items[items.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
   });
 </script>

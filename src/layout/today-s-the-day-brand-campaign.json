@@ -1,11 +1,12 @@
 {
  "slug": "today-s-the-day-brand-campaign",
  "url": "https://jenny6926.wixsite.com/mysite/today-s-the-day-brand-campaign",
- "captured": "2026-11-01T00:52:47.536Z",
+ "captured": "2026-11-01T06:11:00.795Z",
  "desktop": {
   "width": 983,
   "wideWidth": 1440,
   "docHeight": 2456,
+  "docHeightWide": 2456,
   "header": {
    "rect": {
     "x": 0,
@@ -382,6 +383,15 @@
    },
    "bg": "rgba(0, 0, 0, 0)"
   },
+  "footerWide": {
+   "rect": {
+    "x": 0,
+    "y": 2299.1,
+    "w": 1440,
+    "h": 156.6
+   },
+   "bg": "rgba(0, 0, 0, 0)"
+  },
   "bands": [
    {
     "bg": "rgb(50, 87, 164)",
@@ -435,6 +445,9 @@
    }
   ],
   "gallery": [],
+  "galleryWide": [],
+  "rules": [],
+  "rulesWide": [],
   "blocks": [
    {
     "kind": "image",
@@ -760,6 +773,34 @@
    },
    {
     "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_3aba90576fca43ba9e1a9377d4f500af~mv2.png/v1/crop/x_44,y_0,w_206,h_299,q_85,enc_auto/a8ae1a_3aba90576fca43ba9e1a9377d4f500af~mv2.png",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 40,
+     "y": 1358.1,
+     "w": 205.8,
+     "h": 400
+    },
+    "box": {
+     "x": 40,
+     "y": 1358.1,
+     "w": 205.8,
+     "h": 400
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": "",
+    "wide": {
+     "x": 40,
+     "y": 1358.1,
+     "w": 320,
+     "h": 400
+    }
+   },
+   {
+    "kind": "image",
     "src": "https://static.wixstatic.com/media/a8ae1a_bf919be30b4745989014754f4089c8ff~mv2.png/v1/fill/w_412,h_400,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_bf919be30b4745989014754f4089c8ff~mv2.png",
     "iframe": null,
     "playable": false,
@@ -783,6 +824,34 @@
      "x": 400,
      "y": 1358.1,
      "w": 640,
+     "h": 400
+    }
+   },
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_ea6db4967b504325b38841a3b5b08fdd~mv2.jpg/v1/crop/x_50,y_0,w_206,h_335,q_80,enc_auto/a8ae1a_ea6db4967b504325b38841a3b5b08fdd~mv2.jpg",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 737.3,
+     "y": 1358.1,
+     "w": 205.8,
+     "h": 400
+    },
+    "box": {
+     "x": 737.3,
+     "y": 1358.1,
+     "w": 205.8,
+     "h": 400
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": "",
+    "wide": {
+     "x": 1080,
+     "y": 1358.1,
+     "w": 320,
      "h": 400
     }
    },
@@ -1649,6 +1718,28 @@
    },
    {
     "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_3aba90576fca43ba9e1a9377d4f500af~mv2.png/v1/crop/x_0,y_0,w_293,h_299,q_85,enc_auto/a8ae1a_3aba90576fca43ba9e1a9377d4f500af~mv2.png",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 0,
+     "y": 1795.3,
+     "w": 320,
+     "h": 357
+    },
+    "box": {
+     "x": 0,
+     "y": 1795.3,
+     "w": 320,
+     "h": 357
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": ""
+   },
+   {
+    "kind": "image",
     "src": "https://static.wixstatic.com/media/a8ae1a_bf919be30b4745989014754f4089c8ff~mv2.png/v1/fill/w_320,h_200,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_bf919be30b4745989014754f4089c8ff~mv2.png",
     "iframe": null,
     "playable": false,
@@ -1668,6 +1759,28 @@
     "radius": "0px",
     "href": null,
     "alt": "TTD Print spread.png"
+   },
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_ea6db4967b504325b38841a3b5b08fdd~mv2.jpg/v1/crop/x_0,y_0,w_305,h_335,q_80,enc_auto/a8ae1a_ea6db4967b504325b38841a3b5b08fdd~mv2.jpg",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 0,
+     "y": 2432.3,
+     "w": 320,
+     "h": 390
+    },
+    "box": {
+     "x": 0,
+     "y": 2432.3,
+     "w": 320,
+     "h": 390
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": ""
    },
    {
     "kind": "image",

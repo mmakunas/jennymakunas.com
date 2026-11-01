@@ -301,6 +301,11 @@ img {
 .canvas .blk.text {
   height: auto;
 }
+.canvas .blk picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
 .canvas .blk img {
   width: 100%;
   height: 100%;

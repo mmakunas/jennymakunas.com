@@ -33,11 +33,17 @@ minutes for 15 pages, three loads each). It needs the network; the build does no
 `src/lib/content.js` parses `content/<slug>.md`. `src/lib/site.js` decides where
 each Markdown block goes:
 
-- **Text** pairs with the captured text box that carries the same text, so a
-  paragraph Wix wrapped differently still finds its own box.
-- **Media** (images, films, the trailer facade) pairs in document order against
-  every media box on the page, with an exact media-id match first, because Wix
-  lays a film's poster frame above its stills.
+- **Text** pairs with the captured box in the same order, so a paragraph Wix
+  wrapped differently still finds its own box. An empty captured paragraph is the
+  space Wix draws between two paragraphs, not a paragraph of its own: it keeps its
+  place and takes none of the Markdown.
+- **Media** (images, films, the trailer facade) pairs by identity — the same
+  picture, the same film's poster, the one embedded player — never by lucky
+  position. A picture in the Markdown with no box on the page, or a box with no
+  picture, fails the build instead of falling back to the captured content.
+- **The phone layout** pairs against the desktop one on the *captured* wording, so
+  editing a word of copy cannot re-pair its boxes; a block with no phone twin fails
+  the build the same way.
 - **A bulleted list** is one Markdown block but several boxes: the first box
   carries the list and the rest are its continuation.
 - A box with nothing in `content/` is an orphan and is reported by
@@ -58,8 +64,20 @@ two links, then About and Contact.
 ## Media decisions (Michael, 2026-10-31)
 
 - **Films** play in a native `<video>` at the player's captured box, with the
-  still as `poster` and `preload="metadata"`; the Anna Wintour background film
-  autoplays muted and loops, as it does on Wix.
+  still as `poster` and `preload="metadata"`. No control bar shows until the visitor
+  starts the film, which is what Wix does: the still carries the player's title and a
+  play circle, and the click hands the film its controls. The Anna Wintour background
+  film autoplays muted and loops, as it does on Wix, and Wix gives that loop no
+  control either.
+- **Pictures are cropped to their box, as Wix crops them.** Wix serves a `fill`
+  rendition sized to the shape of each box. The desktop canvas keeps stretching past
+  1440, so on the desktop the box only ever gets wider: the extractor reads each page
+  at 1920, where a box crops its picture the least, and a narrower box then crops that
+  picture on the sides only — the crop Wix serves it. The phone layout's box is a
+  different shape altogether, so the extractor reads every page again at 390 with a
+  phone user agent and downloads that rendition too; the manifest keeps it inside the
+  same row, and the build swaps to it below the breakpoint with `<picture>`. A phone
+  rendition is only stored when its crop differs from the desktop one.
 - **The Animaniacs trailer** is a click-to-play facade: the local thumbnail and a
   play button, and the `youtube-nocookie.com` iframe is only inserted on click.
   Nothing is fetched from YouTube before that.
@@ -73,15 +91,20 @@ Cormorant Garamond is self-hosted from the files Wix served (SIL OFL, see
 `fonts/REPORT.md`). Futura LT Book and Avenir LT Light are Monotype licences Wix
 sublicenses and cannot be copied, so the build uses the nearest Google Fonts
 equivalents **Jost** and **Mulish**, self-hosted from `public/fonts/` with their
-OFL licences. No font request leaves the site.
+OFL licences. No font request leaves the site. `scripts/extract.py` fetches those
+two families at a pinned version (`SUBSTITUTES`), so a fresh extraction reproduces
+`public/fonts/` byte for byte and `--check` can prove it.
 
 ## Checks
 
 - `npm run build` — Astro build, then `lint:paths`, which fails on an absolute
   `href`/`src` that skips the base and on any request to a Wix domain.
-- `npm run verify` — 44 behaviour checks on the built site: every route 200, no
-  third-party requests, nine films with posters, the mailto and social links, the
-  mobile menu opening and navigating, the trailer's facade, the Work dropdown.
+- `npm run lint:paths` also covers `srcset`, `poster` and CSS `url()`, so a
+  protocol-relative or base-skipping URL fails wherever it hides.
+- `npm run verify` — 50 behaviour checks on the built site: every route 200, no
+  third-party requests, nine films with posters and no control bar before play, the
+  mailto and social links, every page's canonical address, the mobile menu opening,
+  holding the keyboard and navigating, the trailer's facade, the Work dropdown.
 - `npm run shots` — the 30-pair fidelity pass into `shots/`: every page at 1440
   and 390, with Wix blocked, beside the live Wix page.
 - `npm run measure` — the same comparison as numbers: block positions against the

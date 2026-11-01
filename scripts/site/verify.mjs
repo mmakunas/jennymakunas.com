@@ -65,6 +65,8 @@ const browser = await chromium.launch();
   const page = await ctx.newPage();
   let videos = 0;
   const badPosters = [];
+  const earlyControls = [];
+  const badCanonicals = [];
   for (const p of pages) {
     await page.goto(`${local}${p.path.replace(/^\//, '')}`, { waitUntil: 'domcontentloaded' });
     const info = await page.evaluate(() => ({
@@ -78,12 +80,21 @@ const browser = await chromium.launch();
       imgs: [...document.querySelectorAll('img')].map((i) => i.getAttribute('src')),
     }));
     videos += info.vids.length;
-    for (const v of info.vids) if (!v.poster) badPosters.push(`${p.slug}: no poster`);
+    for (const v of info.vids) {
+      if (!v.poster) badPosters.push(`${p.slug}: no poster`);
+      // Wix shows a still and a play circle, and no control bar until the film starts.
+      if (v.controls) earlyControls.push(`${p.slug}: control bar before play`);
+    }
+    const canonical = await page.getAttribute('link[rel="canonical"]', 'href');
+    const wanted = `${(process.env.SITE || 'https://www.jennymakunas.com').replace(/\/$/, '')}${BASE === '/' ? '' : BASE.replace(/\/$/, '')}${p.path}`;
+    if (canonical !== wanted) badCanonicals.push(`${p.slug}: ${canonical} (wanted ${wanted})`);
     const remoteImgs = info.imgs.filter((s) => s && !s.startsWith(BASE));
     check(`${p.slug}: all images local (${info.imgs.length})`, remoteImgs.length === 0, remoteImgs.slice(0, 2).join(' '));
   }
   check('nine films render as <video>', videos === 9, `found ${videos}`);
   check('every film has a poster', badPosters.length === 0, badPosters.join(' '));
+  check('no control bar before a film is played', earlyControls.length === 0, earlyControls.join(' '));
+  check('every page carries its canonical address', badCanonicals.length === 0, badCanonicals.slice(0, 2).join(' '));
   await ctx.close();
 }
 
@@ -100,7 +111,7 @@ const browser = await chromium.launch();
   await ctx.close();
 }
 
-// 4. The mobile menu opens, expands Work, and navigates.
+// 4. The mobile menu opens, holds the keyboard, expands Work, and navigates.
 {
   const ctx = await browser.newContext({ ...devices['iPhone 12'], viewport: { width: 390, height: 844 }, deviceScaleFactor: 1 });
   const page = await ctx.newPage();
@@ -116,6 +127,31 @@ const browser = await chromium.launch();
   await page.waitForTimeout(200);
   const studies = await page.evaluate(() => document.querySelectorAll('#menu-work a').length);
   check('Work expands to the 11 case studies', studies === 11, `${studies}`);
+  const trapped = await page.evaluate(async () => {
+    const overlay = document.getElementById('mobile-menu');
+    const items = [...overlay.querySelectorAll('a[href], button')].filter((el) => el.offsetParent !== null);
+    const last = items[items.length - 1];
+    last.focus();
+    return { last: document.activeElement === last, inside: overlay.contains(document.activeElement) };
+  });
+  await page.keyboard.press('Tab');
+  const wrapped = await page.evaluate(() => {
+    const overlay = document.getElementById('mobile-menu');
+    const first = [...overlay.querySelectorAll('a[href], button')].filter((el) => el.offsetParent !== null)[0];
+    return overlay.contains(document.activeElement) && document.activeElement === first;
+  });
+  check('the open menu keeps the keyboard inside it', trapped.inside && wrapped, `${JSON.stringify(trapped)} ${wrapped}`);
+  const restored = await page.evaluate(async () => {
+    document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+    return { className: document.activeElement?.className || '', closed: document.getElementById('mobile-menu').hidden };
+  });
+  check('closing the menu returns the keyboard to the menu button', restored.className === 'burger' && restored.closed, JSON.stringify(restored));
+  await page.click('.burger');
+  await page.waitForTimeout(200);
+  if (!(await page.evaluate(() => document.getElementById('menu-work').classList.contains('open')))) {
+    await page.click('#mobile-menu .sub-toggle');
+    await page.waitForTimeout(200);
+  }
   await page.click('#menu-work a:nth-child(2) a, #menu-work a');
   await page.waitForTimeout(500);
   check('menu navigates', page.url().includes('/now-you-brand-campaign') || page.url().includes('/anna-wintour'), page.url());
@@ -141,7 +177,121 @@ const browser = await chromium.launch();
   await ctx.close();
 }
 
-// 6. The desktop Work dropdown reveals the 11 case studies.
+// 6. A film starts from its still: the play circle is the only thing shown, and the
+// control bar arrives with the click, as Wix's does.
+{
+  const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 } });
+  const page = await ctx.newPage();
+  await page.goto(`${local}now-you-brand-campaign/`, { waitUntil: 'domcontentloaded' });
+  const before = await page.evaluate(() => {
+    const v = document.querySelector('video');
+    return { controls: v.hasAttribute('controls'), title: !!document.querySelector('.filmtitle') };
+  });
+  check('a film shows its still and play circle, no controls', before.title && !before.controls, JSON.stringify(before));
+  await page.locator('.filmtitle').scrollIntoViewIfNeeded();
+  await page.click('.filmtitle');
+  await page.waitForTimeout(300);
+  const after = await page.evaluate(() => {
+    const v = document.querySelector('video');
+    return { controls: v.controls, facade: !!document.querySelector('.filmtitle') };
+  });
+  check('clicking the still gives the film its controls', after.controls && !after.facade, JSON.stringify(after));
+  await ctx.close();
+}
+
+// 7. A picture that has its own phone rendering uses it on a phone.
+{
+  const ctx = await browser.newContext({ ...devices['iPhone 12'], viewport: { width: 390, height: 844 }, deviceScaleFactor: 1 });
+  const page = await ctx.newPage();
+  const wrong = [];
+  let checked = 0;
+  for (const slug of ['today-s-the-day-brand-campaign', 'now-you-brand-campaign', '23andme-dna-day-2023']) {
+    await page.goto(`${local}${slug}/`, { waitUntil: 'domcontentloaded' });
+    await page.evaluate(async () => {
+      for (let y = 0; y < document.documentElement.scrollHeight; y += window.innerHeight * 0.8) {
+        window.scrollTo(0, y);
+        await new Promise((r) => setTimeout(r, 150));
+      }
+    });
+    await page.waitForTimeout(400);
+    const results = await page.evaluate(() => [...document.querySelectorAll('picture')].map((pic) => {
+      const phone = pic.querySelector('source[media*="749.9"]');
+      const crop1440 = pic.querySelector('source[media*="1449.9"]');
+      const img = pic.querySelector('img');
+      if (!img || !img.currentSrc) return null;
+      const used = img.currentSrc.split('/').pop();
+      return {
+        wanted: phone ? phone.getAttribute('srcset').split('/').pop() : null,
+        // A 1440 crop must never reach a phone: the extractor records no phone
+        // rendition when that crop is the widest one's, and the widest one is
+        // what a phone is owed then.
+        crop1440: crop1440 ? crop1440.getAttribute('srcset').split('/').pop() : null,
+        crop1440Media: crop1440 ? crop1440.getAttribute('media') : null,
+        widest: img.getAttribute('src').split('/').pop(),
+        used,
+      };
+    }).filter(Boolean));
+    checked += results.length;
+    for (const r of results) {
+      if (r.crop1440Media && !/min-width:\s*750px/.test(r.crop1440Media)) wrong.push(`${slug}: the 1440 crop applies below 750px (${r.crop1440Media})`);
+      if (r.used === r.crop1440) wrong.push(`${slug}: a phone renders the 1440 crop ${r.used}`);
+      if (!r.wanted) continue;
+      if (r.used !== r.wanted) wrong.push(`${slug}: ${r.used} instead of ${r.wanted}`);
+    }
+  }
+  check('a picture with a phone rendering uses it on a phone', checked > 0 && wrong.length === 0, `${checked} checked, ${wrong.slice(0, 2).join(' ')}`);
+  await ctx.close();
+}
+
+// 8. Picture boxes sit where the layout says at 1440 — the geometry interpolates from
+// the block's 983 rect to its 1440 rect, and a picture prop that shadowed that rect once
+// collapsed every image box to the left edge while every other check stayed green.
+{
+  const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 } });
+  const page = await ctx.newPage();
+  const problems = [];
+  for (const slug of ['23andme-dna-day-2023', 'now-you-brand-campaign']) {
+    const layout = JSON.parse(await readFile(path.join(root, 'src/layout', `${slug}.json`), 'utf8'));
+    const expected = layout.desktop.blocks.filter((b) => b.kind === 'image' || b.kind === 'video');
+    await page.goto(`${local}${slug}/`, { waitUntil: 'domcontentloaded' });
+    await page.waitForTimeout(400);
+    const measured = await page.evaluate(() => {
+      const canvas = document.querySelector('.canvas');
+      // A container query width is the viewport minus the scrollbar, which is what the
+      // calc()s interpolate against.
+      const width = document.documentElement.clientWidth;
+      return {
+        width,
+        boxes: [...canvas.querySelectorAll('.blk.image, .blk.video')].map((el) => {
+          const r = el.getBoundingClientRect();
+          return { x: +(r.x - canvas.getBoundingClientRect().x).toFixed(1), w: +r.width.toFixed(1) };
+        }),
+      };
+    });
+    // The canvas stretches with the viewport, so the interpolation is evaluated at the
+    // width the canvas was actually given rather than at 1440 exactly.
+    const t = (Math.max(983, measured.width) - 983) / (1440 - 983);
+    for (const box of measured.boxes) {
+      const near = expected
+        .map((b) => {
+          const wide = b.wide || b.rect;
+          return { x: b.rect.x + (wide.x - b.rect.x) * t, w: b.rect.w + (wide.w - b.rect.w) * t };
+        })
+        // A picture box must land on one of the captured 1440 rects, near enough that a
+        // lost or collapsed box cannot hide inside the tolerance.
+        .find((e) => Math.abs(e.x - box.x) <= 8 && Math.abs(e.w - box.w) <= 8);
+      if (!near) problems.push(`${slug}: a box at x=${box.x} w=${box.w} is not in the capture`);
+    }
+    const html = await page.content();
+    if (html.includes('NaNpx')) {
+      problems.push(`${slug}: a box computed NaN geometry`);
+    }
+  }
+  check('picture boxes keep their captured 1440 geometry', problems.length === 0, problems.slice(0, 3).join(' '));
+  await ctx.close();
+}
+
+// 9. The desktop Work dropdown reveals the 11 case studies.
 {
   const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 } });
   const page = await ctx.newPage();
