@@ -13,6 +13,7 @@ import { readFileSync } from 'node:fs';
 import { inline } from './content.js';
 import path from 'node:path';
 import { allPages, siteContent } from './content.js';
+import { textHeight, fitSize } from './metrics.js';
 
 const root = process.cwd();
 const read = (rel) => JSON.parse(readFileSync(path.join(root, rel), 'utf8'));
@@ -93,8 +94,8 @@ const layoutCss = (block, mode) => {
     // stretches moves with it, so top interpolates like left and width.
     out.push(linCss(r.x, wide.x, 'left'), linCss(r.w, wide.w, 'width'), linCss(r.y, wide.y ?? r.y, 'top'));
     if (block.kind !== 'text') out.push(linCss(r.h, wide.h ?? r.h, 'height'));
-    if (s.size) out.push(`font-size:${fmt(s.size)}px`);
-    if (s.lineHeight) out.push(`line-height:${fmt(s.lineHeight)}px`);
+    if (s.size) out.push(`font-size:${fmt(block.fit || s.size)}px`);
+    if (s.lineHeight) out.push(`line-height:${fmt(s.lineHeight * ((block.fit || s.size) / s.size))}px`);
     if (s.align) out.push(`text-align:${s.align}`);
     if (s.spacing) out.push(`letter-spacing:${fmt(s.spacing)}px`);
   } else {
@@ -107,6 +108,9 @@ const layoutCss = (block, mode) => {
   }
   return out.join(';');
 };
+
+// Replaces the top of a block's declarations with a computed one.
+const withTop = (css, top) => String(css).replace(/(^|;)top:[^;]*/, `$1${top}`);
 
 const isWixUrl = (u) => /wixstatic|parastorage/.test(u || '');
 // A player URL carries Wix's own origin in its query string; the rebuild links
@@ -171,6 +175,16 @@ function zip(contentBlocks, layoutBlocks, { byText = false } = {}) {
         continue;
       }
       text.splice(text.indexOf(content), 1);
+      // One captured box can hold several Markdown paragraphs: the Markdown
+      // keeps a blank line between them and they render as paragraphs in the
+      // one box, with the captured gap between them.
+      while (text.length) {
+        const next = text[0];
+        const nt = norm(next.text);
+        if (nt.length < 8 || !norm(lb.text).includes(nt.slice(0, 40))) break;
+        content = { ...content, html: `${content.html}<br /><br />${next.html}`, text: `${content.text} ${next.text}` };
+        text.shift();
+      }
       // One Markdown paragraph can be several boxes on the page (a run of
       // attribution lines, for one): the paragraph renders in the first box and
       // the boxes it covers keep their space without repeating it.
@@ -333,7 +347,7 @@ function footerData() {
 // The Work grid is a Wix gallery: its cells are divs, not page content, and the
 // capture lists them in a different order than they appear. Each cell is paired
 // with the Markdown image that is the same picture, by media id.
-function tileData(slug, images, headerH) {
+function tileData(slug, images, headerH, mobileHeaderH) {
   const l = layoutOf(slug);
   // Both captures list the cells in the same order, including a duplicate box
   // Wix keeps for the hover layer; dedupe each list the same way so an index
@@ -355,6 +369,8 @@ function tileData(slug, images, headerH) {
   // Gallery cells are measured from the page top; the canvas starts below the
   // header, so every cell and its row offset move up by the header height.
   const shift = (r) => ({ ...r, y: r.y - headerH });
+  // The phone layout has its own header height, 71px rather than 88.
+  const shiftMobile = (r) => ({ ...r, y: r.y - mobileHeaderH });
   return images
     .map((image, i) => {
       const id = fileToMedia.get(image.src);
@@ -371,10 +387,58 @@ function tileData(slug, images, headerH) {
         fit: cell.fit || 'cover',
         shared: 'font-family:inherit',
         desktopCss: layoutCss({ kind: 'image', rect: shift(cell.rect), wide: shift(wideCell.rect), style: {} }, 'desktop'),
-        mobileCss: m ? layoutCss({ ...m, rect: shift(m.rect), kind: 'image', style: {} }, 'mobile') : '',
+        mobileCss: m ? layoutCss({ ...m, rect: shiftMobile(m.rect), kind: 'image', style: {} }, 'mobile') : '',
       };
     })
     .filter(Boolean);
+}
+
+// The page is positioned absolutely, so a text box that wraps to more lines than
+// the capture saw would overlap the block beneath it. This walks the blocks in
+// reading order at one width, sizes every text box from its real line count, and
+// pushes the blocks that follow down by the overflow, keeping the captured gap
+// between neighbours.
+function flowTops(blocks, width) {
+  const t = (width - REF) / (WIDE - REF);
+  const geo = blocks.map((b) => {
+    const r = b.rect;
+    const w = b.wide || r;
+    return {
+      b,
+      x: r.x + ((w.x ?? r.x) - r.x) * t,
+      w: r.w + ((w.w ?? r.w) - r.w) * t,
+      y: r.y + ((w.y ?? r.y) - r.y) * t,
+      h: b.kind === 'text' ? 0 : r.h + ((w.h ?? r.h) - r.h) * t,
+    };
+  });
+  const placed = [];
+  for (const g of geo) {
+    if (g.b.kind === 'text' && g.b.html) {
+      const style = g.b.style || {};
+      const measured = textHeight(g.b.html, {
+        width: g.w,
+        family: family(style.font),
+        size: g.b.fit || style.size || 16,
+        weight: style.weight || 400,
+        lineHeight: style.lineHeight
+          ? style.lineHeight * ((g.b.fit || style.size) / style.size)
+          : style.lineHeight,
+        spacing: style.spacing,
+      });
+      g.h = measured.height;
+    }
+    let top = g.y;
+    for (const p of placed) {
+      const overlap = g.x < p.x + p.w - 2 && p.x < g.x + g.w - 2;
+      if (!overlap) continue;
+      const capturedGap = Math.max(0, g.y - (p.capturedY + (p.capturedH || 0)));
+      const candidate = p.top + p.h + capturedGap;
+      if (candidate > top + 0.5) top = candidate;
+    }
+    placed.push({ ...g, top, capturedY: g.y, capturedH: g.b.kind === 'text' ? (g.b.rect.h) : g.h });
+  }
+  const bottom = placed.reduce((m, p) => Math.max(m, p.top + p.h), 0);
+  return { tops: placed.map((p) => ({ top: p.top, bottom: p.top + p.h })), bottom };
 }
 
 export function composePage(slug) {
@@ -426,20 +490,45 @@ export function composePage(slug) {
   }
   const mediaPool = mobZipped.placed.filter((m) => m.kind !== 'text');
   let mediaTaken = 0;
-  const blocks = zipped.placed.map((b, i) => {
+  const tiles = homeImages.length ? tileData(slug, homeImages, desk.headerH, mob.headerH) : [];
+  const entries = zipped.placed.map((b, i) => {
     let m = mobileByKey.get(mobKey(b));
     if (!m && b.kind !== 'text') m = mediaPool[mediaTaken++] || mobZipped.placed[i];
-    return {
-      ...b,
-      cls: `b${i}`,
-      shared: sharedCss(b),
-      desktopCss: layoutCss(b, 'desktop'),
-      // The phone layout sets its own type sizes; only geometry is borrowed.
-      mobileCss: m ? layoutCss(m, 'mobile') : '',
-    };
+    return { b, m, cls: `b${i}` };
   });
 
-  const tiles = homeImages.length ? tileData(slug, homeImages, desk.headerH) : [];
+  // A capture that shows a single line of type keeps a single line: Jost runs a
+  // few percent wider than Futura, so the size gives way instead of the line.
+  for (const { b } of entries) {
+    const style = b.style || {};
+    if (b.kind !== 'text' || !b.html || !style.size) continue;
+    if (b.rect.h > (style.lineHeight || style.size * 1.2) * 1.35) continue;
+    const size = fitSize(b.html, {
+      width: b.rect.w,
+      family: family(style.font),
+      size: style.size,
+      weight: style.weight || 400,
+      spacing: style.spacing,
+    });
+    if (size < style.size - 0.5) b.fit = size;
+  }
+
+  // Every text box is sized from its real line count at each width, and the
+  // blocks under it move down by any overflow rather than overlapping it.
+  const deskFlow = flowTops(entries.map((e) => e.b), REF);
+  const wideFlow = flowTops(entries.map((e) => e.b), WIDE);
+  const mobFlow = flowTops(
+    entries.map((e) => (e.m ? { ...e.b, rect: e.m.rect, wide: e.m.rect } : e.b)),
+    MOBILE_DESIGN,
+  );
+
+  const blocks = entries.map(({ b, m, cls }, i) => ({
+    ...b,
+    cls,
+    shared: sharedCss(b),
+    desktopCss: withTop(layoutCss(b, 'desktop'), linCss(deskFlow.tops[i].top, wideFlow.tops[i].top, 'top')),
+    mobileCss: withTop(m ? layoutCss(m, 'mobile') : '', `top:${mq(mobFlow.tops[i].top)}`),
+  }));
 
   // Content that has nowhere to go is a hard error: silently publishing the
   // captured text would make an edit to the Markdown look applied when it is not.
@@ -454,6 +543,11 @@ export function composePage(slug) {
   // down with the page: the canvas height follows the same interpolation.
   const footerWideY = l.desktop.footerWide ? l.desktop.footerWide.rect.y - desk.headerH : desk.height;
   const h = lin(desk.height, footerWideY);
+  // The canvas is as tall as the flowed content, never shorter than the capture.
+  const grownRef = Math.max(desk.height, deskFlow.bottom + (desk.height - (desk.height - 0)));
+  const growRef = Math.max(desk.height, deskFlow.bottom);
+  const growWide = Math.max(footerWideY, wideFlow.bottom);
+  const hg = lin(growRef, growWide);
   return {
     page,
     header,
@@ -461,7 +555,8 @@ export function composePage(slug) {
     tiles,
     blocks,
     height: desk.height,
-    heightCss: `calc(${fmt(h.c)}px + ${fmt(h.m * 100)}cqw)`,
+    heightCss: `calc(${fmt(hg.c)}px + ${fmt(hg.m * 100)}cqw)`,
+    mobileHeightCss: mq(Math.max(mob.height, mobFlow.bottom)),
     mobileHeight: mob.height,
     headerHeight: desk.headerH,
     mobileHeaderHeight: mob.headerH,

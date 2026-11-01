@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "jennymakunas.com \u2014 static site (Astro) on GitHub Pages",
+  "description": "jennymakunas.com — static site (Astro) on GitHub Pages",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build && node scripts/site/lint-paths.mjs",
@@ -15,7 +15,8 @@
     "measure": "node scripts/site/measure.mjs"
   },
   "dependencies": {
-    "astro": "^5.18.2"
+    "astro": "^5.18.2",
+    "fontkit": "^2.0.4"
   },
   "devDependencies": {
     "playwright": "1.49.1"
