@@ -76,10 +76,9 @@ const plain = (html) =>
     .replace(/&#39;/g, "'")
     .replace(/&quot;/g, '"');
 
-// The size a capture's single line of type needs to stay on one line in the
-// substitute face. Jost runs a few percent wider than Futura, so a heading that
-// fitted its Wix box would otherwise wrap and shove the page below it down.
-export function fitSize(html, { width, family, size, weight, spacing, lines = 1, minRatio = 0.86 }) {
+// The size a box needs to keep the number of lines its capture shows in the
+// substitute face, down to a limit; past that the box grows instead.
+export function fitSize(html, { width, family, size, weight, spacing, lines = 1, minRatio = 0.92 }) {
   const fits = (s) => textHeight(html, { width, family, size: s, weight, spacing }).lines <= lines;
   if (fits(size)) return size;
   const floor = size * minRatio;

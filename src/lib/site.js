@@ -562,18 +562,20 @@ export function composePage(slug) {
     return { b, m, cls: `b${i}` };
   });
 
-  // A capture that shows a single line of type keeps a single line: Jost runs a
-  // few percent wider than Futura, so the size gives way instead of the line.
+  // A box keeps the number of lines the capture shows: Jost runs wider than
+  // Futura, so where the substitute face would break a line early the size gives
+  // way, and only a box that still cannot fit grows and pushes the page down.
   for (const { b } of entries) {
     const style = b.style || {};
     if (b.kind !== 'text' || !b.html || !style.size) continue;
-    if (b.rect.h > (style.lineHeight || style.size * 1.2) * 1.35) continue;
+    const line = style.lineHeight || style.size * 1.2;
     const size = fitSize(b.html, {
       width: b.rect.w,
       family: family(style.font),
       size: style.size,
       weight: style.weight || 400,
       spacing: style.spacing,
+      lines: Math.max(1, Math.round(b.rect.h / line)),
     });
     if (size < style.size - 0.5) b.fit = size;
   }
@@ -583,7 +585,7 @@ export function composePage(slug) {
   const deskFlow = flowTops(entries.map((e) => e.b), REF);
   const wideFlow = flowTops(entries.map((e) => e.b), WIDE);
   const mobFlow = flowTops(
-    entries.map((e) => (e.m ? { ...e.b, rect: e.m.rect, wide: e.m.rect, style: e.m.style } : e.b)),
+    entries.map((e) => (e.m ? { ...e.b, fit: undefined, rect: e.m.rect, wide: e.m.rect, style: e.m.style } : e.b)),
     MOBILE_DESIGN,
   );
 
