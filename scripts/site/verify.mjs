@@ -65,6 +65,8 @@ const browser = await chromium.launch();
   const page = await ctx.newPage();
   let videos = 0;
   const badPosters = [];
+  const earlyControls = [];
+  const badCanonicals = [];
   for (const p of pages) {
     await page.goto(`${local}${p.path.replace(/^\//, '')}`, { waitUntil: 'domcontentloaded' });
     const info = await page.evaluate(() => ({
@@ -78,12 +80,21 @@ const browser = await chromium.launch();
       imgs: [...document.querySelectorAll('img')].map((i) => i.getAttribute('src')),
     }));
     videos += info.vids.length;
-    for (const v of info.vids) if (!v.poster) badPosters.push(`${p.slug}: no poster`);
+    for (const v of info.vids) {
+      if (!v.poster) badPosters.push(`${p.slug}: no poster`);
+      // Wix shows a still and a play circle, and no control bar until the film starts.
+      if (v.controls) earlyControls.push(`${p.slug}: control bar before play`);
+    }
+    const canonical = await page.getAttribute('link[rel="canonical"]', 'href');
+    const wanted = `${process.env.SITE || 'https://www.jennymakunas.com'}${BASE === '/' ? '' : BASE.replace(/\/$/, '')}${p.path}`;
+    if (canonical !== wanted) badCanonicals.push(`${p.slug}: ${canonical} (wanted ${wanted})`);
     const remoteImgs = info.imgs.filter((s) => s && !s.startsWith(BASE));
     check(`${p.slug}: all images local (${info.imgs.length})`, remoteImgs.length === 0, remoteImgs.slice(0, 2).join(' '));
   }
   check('nine films render as <video>', videos === 9, `found ${videos}`);
   check('every film has a poster', badPosters.length === 0, badPosters.join(' '));
+  check('no control bar before a film is played', earlyControls.length === 0, earlyControls.join(' '));
+  check('every page carries its canonical address', badCanonicals.length === 0, badCanonicals.slice(0, 2).join(' '));
   await ctx.close();
 }
 
@@ -100,7 +111,7 @@ const browser = await chromium.launch();
   await ctx.close();
 }
 
-// 4. The mobile menu opens, expands Work, and navigates.
+// 4. The mobile menu opens, holds the keyboard, expands Work, and navigates.
 {
   const ctx = await browser.newContext({ ...devices['iPhone 12'], viewport: { width: 390, height: 844 }, deviceScaleFactor: 1 });
   const page = await ctx.newPage();
@@ -116,6 +127,31 @@ const browser = await chromium.launch();
   await page.waitForTimeout(200);
   const studies = await page.evaluate(() => document.querySelectorAll('#menu-work a').length);
   check('Work expands to the 11 case studies', studies === 11, `${studies}`);
+  const trapped = await page.evaluate(async () => {
+    const overlay = document.getElementById('mobile-menu');
+    const items = [...overlay.querySelectorAll('a[href], button')].filter((el) => el.offsetParent !== null);
+    const last = items[items.length - 1];
+    last.focus();
+    return { last: document.activeElement === last, inside: overlay.contains(document.activeElement) };
+  });
+  await page.keyboard.press('Tab');
+  const wrapped = await page.evaluate(() => {
+    const overlay = document.getElementById('mobile-menu');
+    const first = [...overlay.querySelectorAll('a[href], button')].filter((el) => el.offsetParent !== null)[0];
+    return overlay.contains(document.activeElement) && document.activeElement === first;
+  });
+  check('the open menu keeps the keyboard inside it', trapped.inside && wrapped, `${JSON.stringify(trapped)} ${wrapped}`);
+  const restored = await page.evaluate(async () => {
+    document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+    return { className: document.activeElement?.className || '', closed: document.getElementById('mobile-menu').hidden };
+  });
+  check('closing the menu returns the keyboard to the menu button', restored.className === 'burger' && restored.closed, JSON.stringify(restored));
+  await page.click('.burger');
+  await page.waitForTimeout(200);
+  if (!(await page.evaluate(() => document.getElementById('menu-work').classList.contains('open')))) {
+    await page.click('#mobile-menu .sub-toggle');
+    await page.waitForTimeout(200);
+  }
   await page.click('#menu-work a:nth-child(2) a, #menu-work a');
   await page.waitForTimeout(500);
   check('menu navigates', page.url().includes('/now-you-brand-campaign') || page.url().includes('/anna-wintour'), page.url());
@@ -141,7 +177,29 @@ const browser = await chromium.launch();
   await ctx.close();
 }
 
-// 6. The desktop Work dropdown reveals the 11 case studies.
+// 6. A film starts from its still: the play circle is the only thing shown, and the
+// control bar arrives with the click, as Wix's does.
+{
+  const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 } });
+  const page = await ctx.newPage();
+  await page.goto(`${local}now-you-brand-campaign/`, { waitUntil: 'domcontentloaded' });
+  const before = await page.evaluate(() => {
+    const v = document.querySelector('video');
+    return { controls: v.hasAttribute('controls'), title: !!document.querySelector('.filmtitle') };
+  });
+  check('a film shows its still and play circle, no controls', before.title && !before.controls, JSON.stringify(before));
+  await page.locator('.filmtitle').scrollIntoViewIfNeeded();
+  await page.click('.filmtitle');
+  await page.waitForTimeout(300);
+  const after = await page.evaluate(() => {
+    const v = document.querySelector('video');
+    return { controls: v.controls, facade: !!document.querySelector('.filmtitle') };
+  });
+  check('clicking the still gives the film its controls', after.controls && !after.facade, JSON.stringify(after));
+  await ctx.close();
+}
+
+// 7. The desktop Work dropdown reveals the 11 case studies.
 {
   const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 } });
   const page = await ctx.newPage();

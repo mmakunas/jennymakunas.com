@@ -4,6 +4,7 @@
 // stills keep the captured box exactly. On the Work page the grid tiles are
 // the captured gallery's, not block content.
 import Block from './Block.astro';
+import Picture from './Picture.astro';
 import { url } from '../lib/url.js';
 
 const { composed } = Astro.props;
@@ -14,7 +15,7 @@ const style = `--h-d:${composed.heightCss || `${composed.height}px`};--h-m:${com
   {(composed.rules || []).map((r) => <div class={r.cls} />)}
   {(composed.tiles || []).map((t) => (
     <a class={`blk ${t.cls}`} href={url(t.href)}>
-      <img src={url(t.src)} alt={t.alt} loading="lazy" style={`object-fit:${t.fit}`} />
+      <Picture src={t.src} phone={t.phone} alt={t.alt} fit={t.fit} />
     </a>
   ))}
 </div>

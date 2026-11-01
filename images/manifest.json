@@ -12,7 +12,8 @@
       "caption": "",
       "pages": [
         "23andme-dna-day-2023"
-      ]
+      ],
+      "mobile": null
     },
     {
       "url": "https://static.wixstatic.com/media/a8ae1a_230278373bfa47618e3687214d4ddcfb~mv2.jpg/v1/fill/w_1200,h_800,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_230278373bfa47618e3687214d4ddcfb~mv2.jpg",
@@ -25,7 +26,8 @@
       "caption": "",
       "pages": [
         "23andme-dna-day-2023"
-      ]
+      ],
+      "mobile": null
     },
     {
       "url": "https://static.wixstatic.com/media/a8ae1a_168036ba003a481082e8726f3cfc652f~mv2.jpg/v1/fill/w_658,h_800,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_168036ba003a481082e8726f3cfc652f~mv2.jpg",
@@ -38,98 +40,148 @@
       "caption": "",
       "pages": [
         "23andme-dna-day-2023"
-      ]
+      ],
+      "mobile": null
     },
     {
-      "url": "https://static.wixstatic.com/media/a8ae1a_f757ad3f94e04e2d99f95c20a43e97f5~mv2.jpg/v1/fill/w_1196,h_1180,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_f757ad3f94e04e2d99f95c20a43e97f5~mv2.jpg",
+      "url": "https://static.wixstatic.com/media/a8ae1a_f757ad3f94e04e2d99f95c20a43e97f5~mv2.jpg/v1/fill/w_870,h_1180,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_f757ad3f94e04e2d99f95c20a43e97f5~mv2.jpg",
       "file": "images/kro09749.jpg",
-      "width": 1196,
+      "width": 870,
       "height": 1180,
-      "bytes": 341536,
+      "bytes": 267380,
       "format": "jpg",
       "alt": "KRO09749.jpg",
       "caption": "",
       "pages": [
         "23andme-dna-day-2023"
-      ]
+      ],
+      "mobile": {
+        "url": "https://static.wixstatic.com/media/a8ae1a_f757ad3f94e04e2d99f95c20a43e97f5~mv2.jpg/v1/fill/w_640,h_300,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_f757ad3f94e04e2d99f95c20a43e97f5~mv2.jpg",
+        "file": "images/kro09749-mobile.jpg",
+        "width": 640,
+        "height": 300,
+        "bytes": 60304
+      }
     },
     {
-      "url": "https://static.wixstatic.com/media/a8ae1a_2918318f212e4769bb7e6434707b3eb2~mv2.jpg/v1/fill/w_1760,h_756,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_2918318f212e4769bb7e6434707b3eb2~mv2.jpg",
+      "url": "https://static.wixstatic.com/media/a8ae1a_2918318f212e4769bb7e6434707b3eb2~mv2.jpg/v1/fill/w_1280,h_756,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_2918318f212e4769bb7e6434707b3eb2~mv2.jpg",
       "file": "images/kro09752.jpg",
-      "width": 1760,
+      "width": 1280,
       "height": 756,
-      "bytes": 358446,
+      "bytes": 277610,
       "format": "jpg",
       "alt": "KRO09752.jpg",
       "caption": "",
       "pages": [
         "23andme-dna-day-2023"
-      ]
+      ],
+      "mobile": {
+        "url": "https://static.wixstatic.com/media/a8ae1a_2918318f212e4769bb7e6434707b3eb2~mv2.jpg/v1/fill/w_640,h_400,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_2918318f212e4769bb7e6434707b3eb2~mv2.jpg",
+        "file": "images/kro09752-mobile.jpg",
+        "width": 640,
+        "height": 400,
+        "bytes": 91741
+      }
     },
     {
-      "url": "https://static.wixstatic.com/media/a8ae1a_fe1d5f03630c4d68bec74e1be30da9f9~mv2.jpg/v1/fill/w_880,h_756,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_fe1d5f03630c4d68bec74e1be30da9f9~mv2.jpg",
+      "url": "https://static.wixstatic.com/media/a8ae1a_fe1d5f03630c4d68bec74e1be30da9f9~mv2.jpg/v1/fill/w_640,h_756,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_fe1d5f03630c4d68bec74e1be30da9f9~mv2.jpg",
       "file": "images/unit-1-1.jpg",
-      "width": 880,
+      "width": 640,
       "height": 756,
-      "bytes": 183624,
+      "bytes": 128577,
       "format": "jpg",
       "alt": "Unit #1 (1).jpg",
       "caption": "",
       "pages": [
         "23andme-dna-day-2023"
-      ]
+      ],
+      "mobile": {
+        "url": "https://static.wixstatic.com/media/a8ae1a_fe1d5f03630c4d68bec74e1be30da9f9~mv2.jpg/v1/fill/w_640,h_714,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_fe1d5f03630c4d68bec74e1be30da9f9~mv2.jpg",
+        "file": "images/unit-1-1-mobile.jpg",
+        "width": 640,
+        "height": 714,
+        "bytes": 121916
+      }
     },
     {
-      "url": "https://static.wixstatic.com/media/a8ae1a_a7c36ff442ea487c9a4ebb0ef7ddb19a~mv2.jpeg/v1/fill/w_598,h_514,al_c,q_80,enc_avif,quality_auto/a8ae1a_a7c36ff442ea487c9a4ebb0ef7ddb19a~mv2.jpeg",
+      "url": "https://static.wixstatic.com/media/a8ae1a_a7c36ff442ea487c9a4ebb0ef7ddb19a~mv2.jpeg/v1/fill/w_598,h_706,al_c,q_85,enc_avif,quality_auto/a8ae1a_a7c36ff442ea487c9a4ebb0ef7ddb19a~mv2.jpeg",
       "file": "images/unit-3-1.jpg",
       "width": 598,
-      "height": 514,
-      "bytes": 69470,
+      "height": 706,
+      "bytes": 93550,
       "format": "jpg",
       "alt": "Unit 3 (1).jpeg",
       "caption": "",
       "pages": [
         "23andme-dna-day-2023"
-      ]
+      ],
+      "mobile": {
+        "url": "https://static.wixstatic.com/media/a8ae1a_a7c36ff442ea487c9a4ebb0ef7ddb19a~mv2.jpeg/v1/fill/w_598,h_729,al_c,q_85,enc_avif,quality_auto/a8ae1a_a7c36ff442ea487c9a4ebb0ef7ddb19a~mv2.jpeg",
+        "file": "images/unit-3-1-mobile.jpg",
+        "width": 598,
+        "height": 729,
+        "bytes": 96838
+      }
     },
     {
-      "url": "https://static.wixstatic.com/media/a8ae1a_9b38abd07b444d92a64c8e692e8cdb2a~mv2.jpg/v1/fill/w_1554,h_891,al_c,q_85,enc_avif,quality_auto/a8ae1a_9b38abd07b444d92a64c8e692e8cdb2a~mv2.jpg",
+      "url": "https://static.wixstatic.com/media/a8ae1a_9b38abd07b444d92a64c8e692e8cdb2a~mv2.jpg/v1/fill/w_1160,h_940,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_9b38abd07b444d92a64c8e692e8cdb2a~mv2.jpg",
       "file": "images/ak-billboard-edited.jpg",
-      "width": 1554,
-      "height": 891,
-      "bytes": 255473,
+      "width": 1160,
+      "height": 940,
+      "bytes": 212253,
       "format": "jpg",
       "alt": "AK billboard_edited.jpg",
       "caption": "",
       "pages": [
         "alicia-keys-words-create-worlds-1"
-      ]
+      ],
+      "mobile": {
+        "url": "https://static.wixstatic.com/media/a8ae1a_9b38abd07b444d92a64c8e692e8cdb2a~mv2.jpg/v1/fill/w_640,h_426,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_9b38abd07b444d92a64c8e692e8cdb2a~mv2.jpg",
+        "file": "images/ak-billboard-edited-mobile.jpg",
+        "width": 640,
+        "height": 426,
+        "bytes": 65801
+      }
     },
     {
-      "url": "https://static.wixstatic.com/media/a8ae1a_5ff92ccdee2248d49fe11a379f0bb43b~mv2.jpeg/v1/fill/w_1196,h_1026,al_l,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_5ff92ccdee2248d49fe11a379f0bb43b~mv2.jpeg",
+      "url": "https://static.wixstatic.com/media/a8ae1a_5ff92ccdee2248d49fe11a379f0bb43b~mv2.jpeg/v1/fill/w_870,h_1026,al_l,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_5ff92ccdee2248d49fe11a379f0bb43b~mv2.jpeg",
       "file": "images/ak-launch.jpg",
-      "width": 1196,
+      "width": 870,
       "height": 1026,
-      "bytes": 79895,
+      "bytes": 73533,
       "format": "jpg",
       "alt": "AK launch.jpeg",
       "caption": "",
       "pages": [
         "alicia-keys-words-create-worlds-1"
-      ]
+      ],
+      "mobile": {
+        "url": "https://static.wixstatic.com/media/a8ae1a_5ff92ccdee2248d49fe11a379f0bb43b~mv2.jpeg/v1/fill/w_640,h_300,al_l,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_5ff92ccdee2248d49fe11a379f0bb43b~mv2.jpeg",
+        "file": "images/ak-launch-mobile.jpg",
+        "width": 640,
+        "height": 300,
+        "bytes": 18779
+      }
     },
     {
-      "url": "https://static.wixstatic.com/media/a8ae1a_3116d9e44731436588f4874117d8f641~mv2.png/v1/fill/w_786,h_451,al_c,q_85,enc_avif,quality_auto/a8ae1a_3116d9e44731436588f4874117d8f641~mv2.png",
+      "url": "https://static.wixstatic.com/media/a8ae1a_3116d9e44731436588f4874117d8f641~mv2.png/v1/fill/w_786,h_637,al_c,q_90,enc_avif,quality_auto/a8ae1a_3116d9e44731436588f4874117d8f641~mv2.png",
       "file": "images/ak-portrait.png",
       "width": 786,
-      "height": 451,
-      "bytes": 304801,
+      "height": 637,
+      "bytes": 427507,
       "format": "png",
       "alt": "AK portrait.png",
       "caption": "",
       "pages": [
         "alicia-keys-words-create-worlds-1"
-      ]
+      ],
+      "mobile": {
+        "url": "https://static.wixstatic.com/media/a8ae1a_3116d9e44731436588f4874117d8f641~mv2.png/v1/fill/w_640,h_426,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_3116d9e44731436588f4874117d8f641~mv2.png",
+        "file": "images/ak-portrait-mobile.png",
+        "width": 640,
+        "height": 426,
+        "bytes": 266109
+      }
     },
     {
       "url": "https://static.wixstatic.com/media/a8ae1a_ef3e625f579d46c7a9ba72d0358c2fb6f000.jpg/v1/fill/w_1150,h_646,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/a8ae1a_ef3e625f579d46c7a9ba72d0358c2fb6f000.jpg",
@@ -142,7 +194,8 @@
       "caption": "",
       "pages": [
         "alicia-keys-words-create-worlds-1"
-      ]
+      ],
+      "mobile": null
     },
     {
       "url": "https://i.ytimg.com/vi/YnRE67kwp94/maxresdefault.jpg",
@@ -155,7 +208,8 @@
       "caption": "",
       "pages": [
         "animaniacs-x-masterclass"
-      ]
+      ],
+      "mobile": null
     },
     {
       "url": "https://static.wixstatic.com/media/a8ae1a_3c785c523d1344ada7685985fd559f06~mv2.jpg/v1/crop/x_0,y_34,w_600,h_242,q_80,enc_avif,quality_auto/a8ae1a_3c785c523d1344ada7685985fd559f06~mv2.jpg",
@@ -168,124 +222,188 @@
       "caption": "",
       "pages": [
         "animaniacs-x-masterclass"
-      ]
+      ],
+      "mobile": {
+        "url": "https://static.wixstatic.com/media/a8ae1a_3c785c523d1344ada7685985fd559f06~mv2.jpg/v1/crop/x_140,y_48,w_320,h_213,q_80,enc_avif,quality_auto/a8ae1a_3c785c523d1344ada7685985fd559f06~mv2.jpg",
+        "file": "images/clio-awards-600x309-mobile.jpg",
+        "width": 320,
+        "height": 213,
+        "bytes": 8857
+      }
     },
     {
-      "url": "https://static.wixstatic.com/media/a8ae1a_e9a2aba7ac7d4fb6a24404a4566020e9~mv2.png/v1/fill/w_880,h_800,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_e9a2aba7ac7d4fb6a24404a4566020e9~mv2.png",
+      "url": "https://static.wixstatic.com/media/a8ae1a_e9a2aba7ac7d4fb6a24404a4566020e9~mv2.png/v1/fill/w_640,h_800,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_e9a2aba7ac7d4fb6a24404a4566020e9~mv2.png",
       "file": "images/screenshot-2024-01-11-at-1-00-49-pm.png",
-      "width": 880,
+      "width": 640,
       "height": 800,
-      "bytes": 1175733,
+      "bytes": 834837,
       "format": "png",
       "alt": "Screenshot 2024-01-11 at 1.00.49 PM.png",
       "caption": "",
       "pages": [
         "animaniacs-x-masterclass"
-      ]
+      ],
+      "mobile": {
+        "url": "https://static.wixstatic.com/media/a8ae1a_e9a2aba7ac7d4fb6a24404a4566020e9~mv2.png/v1/fill/w_640,h_780,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_e9a2aba7ac7d4fb6a24404a4566020e9~mv2.png",
+        "file": "images/screenshot-2024-01-11-at-1-00-49-pm-mobile.png",
+        "width": 640,
+        "height": 780,
+        "bytes": 820279
+      }
     },
     {
-      "url": "https://static.wixstatic.com/media/a8ae1a_4bb76f7ef548410198ce9e6c6985a6b8~mv2.jpg/v1/fill/w_1196,h_1180,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_4bb76f7ef548410198ce9e6c6985a6b8~mv2.jpg",
+      "url": "https://static.wixstatic.com/media/a8ae1a_4bb76f7ef548410198ce9e6c6985a6b8~mv2.jpg/v1/fill/w_870,h_1180,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_4bb76f7ef548410198ce9e6c6985a6b8~mv2.jpg",
       "file": "images/screenshot-2024-01-11-at-11-35-edited.jpg",
-      "width": 1196,
+      "width": 870,
       "height": 1180,
-      "bytes": 141082,
+      "bytes": 113035,
       "format": "jpg",
       "alt": "Screenshot 2024-01-11 at 11.35_edited.jpg",
       "caption": "",
       "pages": [
         "animaniacs-x-masterclass"
-      ]
+      ],
+      "mobile": {
+        "url": "https://static.wixstatic.com/media/a8ae1a_4bb76f7ef548410198ce9e6c6985a6b8~mv2.jpg/v1/fill/w_640,h_300,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_4bb76f7ef548410198ce9e6c6985a6b8~mv2.jpg",
+        "file": "images/screenshot-2024-01-11-at-11-35-edited-mobile.jpg",
+        "width": 640,
+        "height": 300,
+        "bytes": 33122
+      }
     },
     {
-      "url": "https://static.wixstatic.com/media/a8ae1a_f7c3b29ac4304da2965463e8455bf889~mv2.png/v1/fill/w_880,h_800,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_f7c3b29ac4304da2965463e8455bf889~mv2.png",
+      "url": "https://static.wixstatic.com/media/a8ae1a_f7c3b29ac4304da2965463e8455bf889~mv2.png/v1/fill/w_640,h_800,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_f7c3b29ac4304da2965463e8455bf889~mv2.png",
       "file": "images/screenshot-2024-01-11-at-11-38-41-am.png",
-      "width": 880,
+      "width": 640,
       "height": 800,
-      "bytes": 753671,
+      "bytes": 589813,
       "format": "png",
       "alt": "Screenshot 2024-01-11 at 11.38.41 AM.png",
       "caption": "",
       "pages": [
         "animaniacs-x-masterclass"
-      ]
+      ],
+      "mobile": {
+        "url": "https://static.wixstatic.com/media/a8ae1a_f7c3b29ac4304da2965463e8455bf889~mv2.png/v1/fill/w_640,h_714,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_f7c3b29ac4304da2965463e8455bf889~mv2.png",
+        "file": "images/screenshot-2024-01-11-at-11-38-41-am-mobile.png",
+        "width": 640,
+        "height": 714,
+        "bytes": 534555
+      }
     },
     {
-      "url": "https://static.wixstatic.com/media/a8ae1a_255a9ab23b734e7795cadc99130819d5~mv2.png/v1/fill/w_1760,h_800,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_255a9ab23b734e7795cadc99130819d5~mv2.png",
+      "url": "https://static.wixstatic.com/media/a8ae1a_255a9ab23b734e7795cadc99130819d5~mv2.png/v1/fill/w_1280,h_800,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_255a9ab23b734e7795cadc99130819d5~mv2.png",
       "file": "images/screenshot-2024-01-11-at-11-40-36-am.png",
-      "width": 1760,
+      "width": 1280,
       "height": 800,
-      "bytes": 1640796,
+      "bytes": 1220185,
       "format": "png",
       "alt": "Screenshot 2024-01-11 at 11.40.36 AM.png",
       "caption": "",
       "pages": [
         "animaniacs-x-masterclass"
-      ]
+      ],
+      "mobile": null
     },
     {
-      "url": "https://static.wixstatic.com/media/a8ae1a_7b03f6240d334a5a814aa24791470586~mv2.jpg/v1/fill/w_1084,h_530,al_l,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_7b03f6240d334a5a814aa24791470586~mv2.jpg",
+      "url": "https://static.wixstatic.com/media/a8ae1a_7b03f6240d334a5a814aa24791470586~mv2.jpg/v1/fill/w_766,h_530,al_l,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_7b03f6240d334a5a814aa24791470586~mv2.jpg",
       "file": "images/20190918-masterclass-ad-campaign-0040.jpg",
-      "width": 1084,
+      "width": 766,
       "height": 530,
-      "bytes": 135607,
+      "bytes": 89841,
       "format": "jpg",
       "alt": "20190918_MasterClass_Ad_Campaign_0040.jpg",
       "caption": "",
       "pages": [
         "anna-wintour-how-to-be-a-boss-1"
-      ]
+      ],
+      "mobile": {
+        "url": "https://static.wixstatic.com/media/a8ae1a_7b03f6240d334a5a814aa24791470586~mv2.jpg/v1/fill/w_640,h_426,al_l,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_7b03f6240d334a5a814aa24791470586~mv2.jpg",
+        "file": "images/20190918-masterclass-ad-campaign-0040-mobile.jpg",
+        "width": 640,
+        "height": 426,
+        "bytes": 65628
+      }
     },
     {
-      "url": "https://static.wixstatic.com/media/a8ae1a_583ba059ea0442bc947fb2d85752594f~mv2.jpg/v1/fill/w_2000,h_483,al_c,q_85,enc_avif,quality_auto/a8ae1a_583ba059ea0442bc947fb2d85752594f~mv2.jpg",
+      "url": "https://static.wixstatic.com/media/a8ae1a_583ba059ea0442bc947fb2d85752594f~mv2.jpg/v1/fill/w_1554,h_530,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_583ba059ea0442bc947fb2d85752594f~mv2.jpg",
       "file": "images/20190918-masterclass-ad-campaign-0072.jpg",
-      "width": 2000,
-      "height": 483,
-      "bytes": 199515,
+      "width": 1554,
+      "height": 530,
+      "bytes": 168898,
       "format": "jpg",
       "alt": "20190918_MasterClass_Ad_Campaign_0072.jpg",
       "caption": "",
       "pages": [
         "anna-wintour-how-to-be-a-boss-1"
-      ]
+      ],
+      "mobile": {
+        "url": "https://static.wixstatic.com/media/a8ae1a_583ba059ea0442bc947fb2d85752594f~mv2.jpg/v1/fill/w_640,h_426,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_583ba059ea0442bc947fb2d85752594f~mv2.jpg",
+        "file": "images/20190918-masterclass-ad-campaign-0072-mobile.jpg",
+        "width": 640,
+        "height": 426,
+        "bytes": 57912
+      }
     },
     {
-      "url": "https://static.wixstatic.com/media/a8ae1a_d49a5cd09af74b82a6cb3498f998e7f4~mv2.jpg/v1/fill/w_1054,h_940,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_d49a5cd09af74b82a6cb3498f998e7f4~mv2.jpg",
+      "url": "https://static.wixstatic.com/media/a8ae1a_d49a5cd09af74b82a6cb3498f998e7f4~mv2.jpg/v1/fill/w_738,h_940,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_d49a5cd09af74b82a6cb3498f998e7f4~mv2.jpg",
       "file": "images/a4-red.jpg",
-      "width": 1054,
+      "width": 738,
       "height": 940,
-      "bytes": 131919,
+      "bytes": 115743,
       "format": "jpg",
       "alt": "A4-RED.jpg",
       "caption": "",
       "pages": [
         "anna-wintour-how-to-be-a-boss-1"
-      ]
+      ],
+      "mobile": {
+        "url": "https://static.wixstatic.com/media/a8ae1a_d49a5cd09af74b82a6cb3498f998e7f4~mv2.jpg/v1/fill/w_640,h_426,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_d49a5cd09af74b82a6cb3498f998e7f4~mv2.jpg",
+        "file": "images/a4-red-mobile.jpg",
+        "width": 640,
+        "height": 426,
+        "bytes": 54091
+      }
     },
     {
-      "url": "https://static.wixstatic.com/media/a8ae1a_2880a4836846400894b1cb806790dc71~mv2.jpg/v1/fill/w_1058,h_940,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_2880a4836846400894b1cb806790dc71~mv2.jpg",
+      "url": "https://static.wixstatic.com/media/a8ae1a_2880a4836846400894b1cb806790dc71~mv2.jpg/v1/fill/w_740,h_940,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_2880a4836846400894b1cb806790dc71~mv2.jpg",
       "file": "images/a7.jpg",
-      "width": 1058,
+      "width": 740,
       "height": 940,
-      "bytes": 137390,
+      "bytes": 116025,
       "format": "jpg",
       "alt": "A7.jpg",
       "caption": "",
       "pages": [
         "anna-wintour-how-to-be-a-boss-1"
-      ]
+      ],
+      "mobile": {
+        "url": "https://static.wixstatic.com/media/a8ae1a_2880a4836846400894b1cb806790dc71~mv2.jpg/v1/fill/w_640,h_400,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_2880a4836846400894b1cb806790dc71~mv2.jpg",
+        "file": "images/a7-mobile.jpg",
+        "width": 640,
+        "height": 400,
+        "bytes": 46201
+      }
     },
     {
-      "url": "https://static.wixstatic.com/media/a8ae1a_dd0c7faed7d243d29fad6e631098cc7e~mv2.jpg/v1/fill/w_1196,h_1028,al_l,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_dd0c7faed7d243d29fad6e631098cc7e~mv2.jpg",
+      "url": "https://static.wixstatic.com/media/a8ae1a_dd0c7faed7d243d29fad6e631098cc7e~mv2.jpg/v1/fill/w_870,h_1028,al_l,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_dd0c7faed7d243d29fad6e631098cc7e~mv2.jpg",
       "file": "images/anna-wintour-how-to-be-a-boss-1-1.jpg",
-      "width": 1196,
+      "width": 870,
       "height": 1028,
-      "bytes": 194643,
+      "bytes": 159593,
       "format": "jpg",
       "alt": "",
       "caption": "",
       "pages": [
         "anna-wintour-how-to-be-a-boss-1"
-      ]
+      ],
+      "mobile": {
+        "url": "https://static.wixstatic.com/media/a8ae1a_dd0c7faed7d243d29fad6e631098cc7e~mv2.jpg/v1/fill/w_640,h_300,al_l,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_dd0c7faed7d243d29fad6e631098cc7e~mv2.jpg",
+        "file": "images/anna-wintour-how-to-be-a-boss-1-1-mobile.jpg",
+        "width": 640,
+        "height": 300,
+        "bytes": 37708
+      }
     },
     {
       "url": "https://static.wixstatic.com/media/a8ae1a_a3136107d7174c36b858354c15aa7bcff002.jpg/v1/fill/w_676,h_658,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_a3136107d7174c36b858354c15aa7bcff002.jpg",
@@ -298,7 +416,8 @@
       "caption": "",
       "pages": [
         "anna-wintour-how-to-be-a-boss-1"
-      ]
+      ],
+      "mobile": null
     },
     {
       "url": "https://static.wixstatic.com/media/a8ae1a_dae958e1121149cba85d96afd94e06a3~mv2.gif",
@@ -311,20 +430,28 @@
       "caption": "",
       "pages": [
         "anna-wintour-how-to-be-a-boss-1"
-      ]
+      ],
+      "mobile": null
     },
     {
-      "url": "https://static.wixstatic.com/media/a8ae1a_5a8548205bb14607b44e3b235f10e3dc~mv2.jpg/v1/fill/w_1088,h_940,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_5a8548205bb14607b44e3b235f10e3dc~mv2.jpg",
+      "url": "https://static.wixstatic.com/media/a8ae1a_5a8548205bb14607b44e3b235f10e3dc~mv2.jpg/v1/fill/w_762,h_940,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_5a8548205bb14607b44e3b235f10e3dc~mv2.jpg",
       "file": "images/g.jpg",
-      "width": 1088,
+      "width": 762,
       "height": 940,
-      "bytes": 105093,
+      "bytes": 90379,
       "format": "jpg",
       "alt": "G.jpg",
       "caption": "",
       "pages": [
         "anna-wintour-how-to-be-a-boss-1"
-      ]
+      ],
+      "mobile": {
+        "url": "https://static.wixstatic.com/media/a8ae1a_5a8548205bb14607b44e3b235f10e3dc~mv2.jpg/v1/fill/w_640,h_478,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_5a8548205bb14607b44e3b235f10e3dc~mv2.jpg",
+        "file": "images/g-mobile.jpg",
+        "width": 640,
+        "height": 478,
+        "bytes": 49457
+      }
     },
     {
       "url": "https://static.wixstatic.com/media/a8ae1a_cefa6fb679734e57993f6cb92548be60~mv2.png/v1/fill/w_1960,h_940,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_cefa6fb679734e57993f6cb92548be60~mv2.png",
@@ -337,7 +464,14 @@
       "caption": "",
       "pages": [
         "anna-wintour-how-to-be-a-boss-1"
-      ]
+      ],
+      "mobile": {
+        "url": "https://static.wixstatic.com/media/a8ae1a_cefa6fb679734e57993f6cb92548be60~mv2.png/v1/fill/w_640,h_426,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_cefa6fb679734e57993f6cb92548be60~mv2.png",
+        "file": "images/screen-shot-2023-09-12-at-11-48-23-am-mobile.png",
+        "width": 640,
+        "height": 426,
+        "bytes": 281452
+      }
     },
     {
       "url": "https://static.wixstatic.com/media/11062b_55e4be1e75564866b6c28290f9a9d271~mv2.png/v1/fill/w_46,h_46,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_55e4be1e75564866b6c28290f9a9d271~mv2.png",
@@ -350,7 +484,8 @@
       "caption": "",
       "pages": [
         "contact"
-      ]
+      ],
+      "mobile": null
     },
     {
       "url": "https://static.wixstatic.com/media/11062b_7cf73902d06c4f3685c379a21c6c8285~mv2.png/v1/fill/w_46,h_46,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_7cf73902d06c4f3685c379a21c6c8285~mv2.png",
@@ -363,7 +498,8 @@
       "caption": "",
       "pages": [
         "contact"
-      ]
+      ],
+      "mobile": null
     },
     {
       "url": "https://static.wixstatic.com/media/11062b_e9b4e9522d3c4de3a8a652c7f13af3ef~mv2.png/v1/fill/w_46,h_46,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_e9b4e9522d3c4de3a8a652c7f13af3ef~mv2.png",
@@ -376,150 +512,162 @@
       "caption": "",
       "pages": [
         "contact"
-      ]
+      ],
+      "mobile": null
     },
     {
-      "url": "https://static.wixstatic.com/media/a8ae1a_9392128bf8474c649706c8e02f029474~mv2.png/v1/fill/w_1920,h_1440,q_90,enc_avif,quality_auto/a8ae1a_9392128bf8474c649706c8e02f029474~mv2.png",
+      "url": "https://static.wixstatic.com/media/a8ae1a_9392128bf8474c649706c8e02f029474~mv2.png/v1/fill/w_1440,h_1080,q_90,enc_avif,quality_auto/a8ae1a_9392128bf8474c649706c8e02f029474~mv2.png",
       "file": "images/alicia-keys-your-words-create-your-world.png",
-      "width": 1920,
-      "height": 1440,
-      "bytes": 5519921,
+      "width": 1440,
+      "height": 1080,
+      "bytes": 3246395,
       "format": "png",
       "alt": "",
       "caption": "MasterClass class launch campaign",
       "pages": [
         "home"
-      ]
+      ],
+      "mobile": null
     },
     {
-      "url": "https://static.wixstatic.com/media/a8ae1a_f7c3b29ac4304da2965463e8455bf889~mv2.png/v1/fill/w_1920,h_1440,q_90,enc_avif,quality_auto/a8ae1a_f7c3b29ac4304da2965463e8455bf889~mv2.png",
+      "url": "https://static.wixstatic.com/media/a8ae1a_f7c3b29ac4304da2965463e8455bf889~mv2.png/v1/fill/w_1440,h_1080,q_90,enc_avif,quality_auto/a8ae1a_f7c3b29ac4304da2965463e8455bf889~mv2.png",
       "file": "images/animaniacs-x-masterclass.png",
-      "width": 1920,
-      "height": 1440,
-      "bytes": 2148921,
+      "width": 1440,
+      "height": 1080,
+      "bytes": 1440843,
       "format": "png",
       "alt": "",
       "caption": "The Brain Teaches World Domination",
       "pages": [
         "home"
-      ]
+      ],
+      "mobile": null
     },
     {
-      "url": "https://static.wixstatic.com/media/a8ae1a_35fc39d7621b440e9d6bdef7a70db951~mv2.jpg/v1/fill/w_1662,h_1246,q_90,enc_avif,quality_auto/a8ae1a_35fc39d7621b440e9d6bdef7a70db951~mv2.jpg",
+      "url": "https://static.wixstatic.com/media/a8ae1a_35fc39d7621b440e9d6bdef7a70db951~mv2.jpg/v1/fill/w_1440,h_1080,q_90,enc_avif,quality_auto/a8ae1a_35fc39d7621b440e9d6bdef7a70db951~mv2.jpg",
       "file": "images/anna-wintour-how-to-be-a-boss.jpg",
-      "width": 1662,
-      "height": 1246,
-      "bytes": 147275,
+      "width": 1440,
+      "height": 1080,
+      "bytes": 123751,
       "format": "jpg",
       "alt": "",
       "caption": "MasterClass class launch campaign",
       "pages": [
         "home"
-      ]
+      ],
+      "mobile": null
     },
     {
-      "url": "https://static.wixstatic.com/media/a8ae1a_d761d01ac6654361b351656183a0fc8a~mv2.jpg/v1/fill/w_1920,h_1440,q_90,enc_avif,quality_auto/a8ae1a_d761d01ac6654361b351656183a0fc8a~mv2.jpg",
+      "url": "https://static.wixstatic.com/media/a8ae1a_d761d01ac6654361b351656183a0fc8a~mv2.jpg/v1/fill/w_1440,h_1080,q_90,enc_avif,quality_auto/a8ae1a_d761d01ac6654361b351656183a0fc8a~mv2.jpg",
       "file": "images/dna-day-2023.jpg",
-      "width": 1920,
-      "height": 1440,
-      "bytes": 514629,
+      "width": 1440,
+      "height": 1080,
+      "bytes": 336571,
       "format": "jpg",
       "alt": "",
       "caption": "23andMe Times Square activation and brand campaign",
       "pages": [
         "home"
-      ]
+      ],
+      "mobile": null
     },
     {
-      "url": "https://static.wixstatic.com/media/a8ae1a_d822261807174cf29b6ff64473837f15~mv2.jpg/v1/fill/w_1920,h_1440,q_90,enc_avif,quality_auto/a8ae1a_d822261807174cf29b6ff64473837f15~mv2.jpg",
+      "url": "https://static.wixstatic.com/media/a8ae1a_d822261807174cf29b6ff64473837f15~mv2.jpg/v1/fill/w_1440,h_1080,q_90,enc_avif,quality_auto/a8ae1a_d822261807174cf29b6ff64473837f15~mv2.jpg",
       "file": "images/hot-mess.jpg",
-      "width": 1920,
-      "height": 1440,
-      "bytes": 292647,
+      "width": 1440,
+      "height": 1080,
+      "bytes": 206239,
       "format": "jpg",
       "alt": "",
       "caption": "Creative Collective",
       "pages": [
         "home"
-      ]
+      ],
+      "mobile": null
     },
     {
-      "url": "https://static.wixstatic.com/media/a8ae1a_2a2d9c827bb941c79eb40aaf12d88bef~mv2.png/v1/fill/w_1826,h_1369,q_90,enc_avif,quality_auto/a8ae1a_2a2d9c827bb941c79eb40aaf12d88bef~mv2.png",
+      "url": "https://static.wixstatic.com/media/a8ae1a_2a2d9c827bb941c79eb40aaf12d88bef~mv2.png/v1/fill/w_1440,h_1080,q_90,enc_avif,quality_auto/a8ae1a_2a2d9c827bb941c79eb40aaf12d88bef~mv2.png",
       "file": "images/mariah-carey-pass-the-mic.png",
-      "width": 1826,
-      "height": 1369,
-      "bytes": 4691494,
+      "width": 1440,
+      "height": 1080,
+      "bytes": 3180591,
       "format": "png",
       "alt": "",
       "caption": "MasterClass class launch campaign",
       "pages": [
         "home"
-      ]
+      ],
+      "mobile": null
     },
     {
-      "url": "https://static.wixstatic.com/media/a8ae1a_84c17c6cb54e45b78525d89b36565964~mv2.png/v1/fill/w_1920,h_1440,q_90,enc_avif,quality_auto/a8ae1a_84c17c6cb54e45b78525d89b36565964~mv2.png",
+      "url": "https://static.wixstatic.com/media/a8ae1a_84c17c6cb54e45b78525d89b36565964~mv2.png/v1/fill/w_1440,h_1080,q_90,enc_avif,quality_auto/a8ae1a_84c17c6cb54e45b78525d89b36565964~mv2.png",
       "file": "images/now-you-countdown.png",
-      "width": 1920,
-      "height": 1440,
-      "bytes": 5581933,
+      "width": 1440,
+      "height": 1080,
+      "bytes": 3318871,
       "format": "png",
       "alt": "",
       "caption": "MasterClass brand portfolio campaign",
       "pages": [
         "home"
-      ]
+      ],
+      "mobile": null
     },
     {
-      "url": "https://static.wixstatic.com/media/a8ae1a_29a5f282680542019130e4ed768571ba~mv2.png/v1/fill/w_1920,h_1440,q_90,enc_avif,quality_auto/a8ae1a_29a5f282680542019130e4ed768571ba~mv2.png",
+      "url": "https://static.wixstatic.com/media/a8ae1a_29a5f282680542019130e4ed768571ba~mv2.png/v1/fill/w_1440,h_1080,q_90,enc_avif,quality_auto/a8ae1a_29a5f282680542019130e4ed768571ba~mv2.png",
       "file": "images/now-you.png",
-      "width": 1920,
-      "height": 1440,
-      "bytes": 5134915,
+      "width": 1440,
+      "height": 1080,
+      "bytes": 3161627,
       "format": "png",
       "alt": "",
       "caption": "MasterClass brand campaign",
       "pages": [
         "home"
-      ]
+      ],
+      "mobile": null
     },
     {
-      "url": "https://static.wixstatic.com/media/a8ae1a_e95f7fc7551b48e39c03e203fe9aae66~mv2.png/v1/fill/w_1662,h_1246,q_90,enc_avif,quality_auto/a8ae1a_e95f7fc7551b48e39c03e203fe9aae66~mv2.png",
+      "url": "https://static.wixstatic.com/media/a8ae1a_e95f7fc7551b48e39c03e203fe9aae66~mv2.png/v1/fill/w_1440,h_1080,q_90,enc_avif,quality_auto/a8ae1a_e95f7fc7551b48e39c03e203fe9aae66~mv2.png",
       "file": "images/so-much-new-to-know.png",
-      "width": 1662,
-      "height": 1246,
-      "bytes": 2514693,
+      "width": 1440,
+      "height": 1080,
+      "bytes": 1964445,
       "format": "png",
       "alt": "",
       "caption": "MasterClass brand campaign",
       "pages": [
         "home"
-      ]
+      ],
+      "mobile": null
     },
     {
-      "url": "https://static.wixstatic.com/media/a8ae1a_17d309d3f86e4455a3eabf3df2db94b7~mv2.png/v1/fill/w_1920,h_1440,q_90,enc_avif,quality_auto/a8ae1a_17d309d3f86e4455a3eabf3df2db94b7~mv2.png",
+      "url": "https://static.wixstatic.com/media/a8ae1a_17d309d3f86e4455a3eabf3df2db94b7~mv2.png/v1/fill/w_1440,h_1080,q_90,enc_avif,quality_auto/a8ae1a_17d309d3f86e4455a3eabf3df2db94b7~mv2.png",
       "file": "images/the-world-could-use-one-of-you.png",
-      "width": 1920,
-      "height": 1440,
-      "bytes": 4199898,
+      "width": 1440,
+      "height": 1080,
+      "bytes": 2639670,
       "format": "png",
       "alt": "",
       "caption": "MasterClass brand campaign",
       "pages": [
         "home"
-      ]
+      ],
+      "mobile": null
     },
     {
-      "url": "https://static.wixstatic.com/media/a8ae1a_3a28c94c42d249a085e90505c1434973~mv2.png/v1/fill/w_1848,h_1386,q_90,enc_avif,quality_auto/a8ae1a_3a28c94c42d249a085e90505c1434973~mv2.png",
+      "url": "https://static.wixstatic.com/media/a8ae1a_3a28c94c42d249a085e90505c1434973~mv2.png/v1/fill/w_1440,h_1080,q_90,enc_avif,quality_auto/a8ae1a_3a28c94c42d249a085e90505c1434973~mv2.png",
       "file": "images/today-s-the-day.png",
-      "width": 1848,
-      "height": 1386,
-      "bytes": 152936,
+      "width": 1440,
+      "height": 1080,
+      "bytes": 104497,
       "format": "png",
       "alt": "",
       "caption": "MasterClass brand campaign",
       "pages": [
         "home"
-      ]
+      ],
+      "mobile": null
     },
     {
       "url": "https://static.wixstatic.com/media/a8ae1a_722249fae2994c7b81466a0489948f96~mv2.jpg/v1/fill/w_710,h_710,al_c,q_85,enc_avif,quality_auto/96290604_276405033391674_1154317344059505500_n.jpg",
@@ -532,7 +680,14 @@
       "caption": "",
       "pages": [
         "hot-mess-creative-collective"
-      ]
+      ],
+      "mobile": {
+        "url": "https://static.wixstatic.com/media/a8ae1a_722249fae2994c7b81466a0489948f96~mv2.jpg/v1/fill/w_560,h_340,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/96290604_276405033391674_1154317344059505500_n.jpg",
+        "file": "images/96290604-276405033391674-1154317344059505500-n-mobile.jpg",
+        "width": 560,
+        "height": 340,
+        "bytes": 30490
+      }
     },
     {
       "url": "https://static.wixstatic.com/media/a8ae1a_00c43922859c40688b71c846a4f47468~mv2.jpg/v1/fill/w_756,h_756,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/HM%20Pink.jpg",
@@ -545,20 +700,34 @@
       "caption": "",
       "pages": [
         "hot-mess-creative-collective"
-      ]
+      ],
+      "mobile": {
+        "url": "https://static.wixstatic.com/media/a8ae1a_00c43922859c40688b71c846a4f47468~mv2.jpg/v1/fill/w_560,h_340,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/HM%20Pink.jpg",
+        "file": "images/hm-pink-mobile.jpg",
+        "width": 560,
+        "height": 340,
+        "bytes": 23941
+      }
     },
     {
-      "url": "https://static.wixstatic.com/media/a8ae1a_8b1fac877a92419ebda79f5854c61e81~mv2.jpg/v1/fill/w_983,h_446,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_8b1fac877a92419ebda79f5854c61e81~mv2.jpg",
+      "url": "https://static.wixstatic.com/media/a8ae1a_8b1fac877a92419ebda79f5854c61e81~mv2.jpg/v1/fill/w_1366,h_423,al_c,q_85,enc_avif,quality_auto/a8ae1a_8b1fac877a92419ebda79f5854c61e81~mv2.jpg",
       "file": "images/img-0850.jpg",
-      "width": 983,
-      "height": 446,
-      "bytes": 146290,
+      "width": 1366,
+      "height": 423,
+      "bytes": 160031,
       "format": "jpg",
       "alt": "IMG_0850.jpg",
       "caption": "",
       "pages": [
         "hot-mess-creative-collective"
-      ]
+      ],
+      "mobile": {
+        "url": "https://static.wixstatic.com/media/a8ae1a_8b1fac877a92419ebda79f5854c61e81~mv2.jpg/v1/fill/w_640,h_400,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_8b1fac877a92419ebda79f5854c61e81~mv2.jpg",
+        "file": "images/img-0850-mobile.jpg",
+        "width": 640,
+        "height": 400,
+        "bytes": 92903
+      }
     },
     {
       "url": "https://static.wixstatic.com/media/a8ae1a_aa2c9c2044d1462d9054a4aae0bf732e~mv2.png/v1/fill/w_756,h_756,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/SANTOS-Patch-A.png",
@@ -571,7 +740,14 @@
       "caption": "",
       "pages": [
         "hot-mess-creative-collective"
-      ]
+      ],
+      "mobile": {
+        "url": "https://static.wixstatic.com/media/a8ae1a_aa2c9c2044d1462d9054a4aae0bf732e~mv2.png/v1/fill/w_560,h_340,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/SANTOS-Patch-A.png",
+        "file": "images/santos-patch-a-mobile.png",
+        "width": 560,
+        "height": 340,
+        "bytes": 98815
+      }
     },
     {
       "url": "https://static.wixstatic.com/media/a8ae1a_7ad291c935604e929f532b72303f2326f000.jpg/v1/fill/w_1150,h_646,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/a8ae1a_7ad291c935604e929f532b72303f2326f000.jpg",
@@ -584,20 +760,28 @@
       "caption": "",
       "pages": [
         "mariah-carey-pass-the-mic"
-      ]
+      ],
+      "mobile": null
     },
     {
-      "url": "https://static.wixstatic.com/media/a8ae1a_ef161c77b65440e79dd21fe832eee8cc~mv2.jpeg/v1/fill/w_1196,h_1046,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_ef161c77b65440e79dd21fe832eee8cc~mv2.jpeg",
+      "url": "https://static.wixstatic.com/media/a8ae1a_ef161c77b65440e79dd21fe832eee8cc~mv2.jpeg/v1/fill/w_870,h_1046,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_ef161c77b65440e79dd21fe832eee8cc~mv2.jpeg",
       "file": "images/mc2.jpg",
-      "width": 1196,
+      "width": 870,
       "height": 1046,
-      "bytes": 171603,
+      "bytes": 128883,
       "format": "jpg",
       "alt": "MC2.jpeg",
       "caption": "",
       "pages": [
         "mariah-carey-pass-the-mic"
-      ]
+      ],
+      "mobile": {
+        "url": "https://static.wixstatic.com/media/a8ae1a_ef161c77b65440e79dd21fe832eee8cc~mv2.jpeg/v1/fill/w_640,h_300,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_ef161c77b65440e79dd21fe832eee8cc~mv2.jpeg",
+        "file": "images/mc2-mobile.jpg",
+        "width": 640,
+        "height": 300,
+        "bytes": 46918
+      }
     },
     {
       "url": "https://static.wixstatic.com/media/a8ae1a_9264c3b6ca304ac6b48c97f372992c88f000.jpg/v1/fill/w_1150,h_646,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/a8ae1a_9264c3b6ca304ac6b48c97f372992c88f000.jpg",
@@ -610,46 +794,62 @@
       "caption": "",
       "pages": [
         "now-you-brand-campaign"
-      ]
+      ],
+      "mobile": null
     },
     {
-      "url": "https://static.wixstatic.com/media/a8ae1a_92c89c20f0f24d8d8e79d6bf45005ca3~mv2.jpg/v1/fill/w_880,h_800,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_92c89c20f0f24d8d8e79d6bf45005ca3~mv2.jpg",
+      "url": "https://static.wixstatic.com/media/a8ae1a_92c89c20f0f24d8d8e79d6bf45005ca3~mv2.jpg/v1/fill/w_640,h_800,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_92c89c20f0f24d8d8e79d6bf45005ca3~mv2.jpg",
       "file": "images/now-you-brand-campaign-3.jpg",
-      "width": 880,
+      "width": 640,
       "height": 800,
-      "bytes": 111321,
+      "bytes": 87869,
       "format": "jpg",
       "alt": "",
       "caption": "",
       "pages": [
         "now-you-brand-campaign"
-      ]
+      ],
+      "mobile": {
+        "url": "https://static.wixstatic.com/media/a8ae1a_92c89c20f0f24d8d8e79d6bf45005ca3~mv2.jpg/v1/fill/w_640,h_714,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_92c89c20f0f24d8d8e79d6bf45005ca3~mv2.jpg",
+        "file": "images/now-you-brand-campaign-3-mobile.jpg",
+        "width": 640,
+        "height": 714,
+        "bytes": 83376
+      }
     },
     {
-      "url": "https://static.wixstatic.com/media/a8ae1a_8e1973c0ad1f4143bb1f2b1a95409fe2~mv2.jpg/v1/fill/w_1760,h_800,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_8e1973c0ad1f4143bb1f2b1a95409fe2~mv2.jpg",
+      "url": "https://static.wixstatic.com/media/a8ae1a_8e1973c0ad1f4143bb1f2b1a95409fe2~mv2.jpg/v1/fill/w_1280,h_800,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_8e1973c0ad1f4143bb1f2b1a95409fe2~mv2.jpg",
       "file": "images/now-you-brand-campaign-4.jpg",
-      "width": 1760,
+      "width": 1280,
       "height": 800,
-      "bytes": 163370,
+      "bytes": 127212,
       "format": "jpg",
       "alt": "",
       "caption": "",
       "pages": [
         "now-you-brand-campaign"
-      ]
+      ],
+      "mobile": null
     },
     {
-      "url": "https://static.wixstatic.com/media/a8ae1a_29a5f282680542019130e4ed768571ba~mv2.png/v1/fill/w_1089,h_1408,al_c,q_90,enc_avif,quality_auto/a8ae1a_29a5f282680542019130e4ed768571ba~mv2.png",
+      "url": "https://static.wixstatic.com/media/a8ae1a_29a5f282680542019130e4ed768571ba~mv2.png/v1/fill/w_792,h_1408,al_c,q_90,enc_avif,quality_auto/a8ae1a_29a5f282680542019130e4ed768571ba~mv2.png",
       "file": "images/screen-shot-2023-08-23-at-11-17-17-am.png",
-      "width": 1089,
+      "width": 792,
       "height": 1408,
-      "bytes": 3102218,
+      "bytes": 2260839,
       "format": "png",
       "alt": "Screen Shot 2023-08-23 at 11.17.17 AM.png",
       "caption": "",
       "pages": [
         "now-you-brand-campaign"
-      ]
+      ],
+      "mobile": {
+        "url": "https://static.wixstatic.com/media/a8ae1a_29a5f282680542019130e4ed768571ba~mv2.png/v1/fill/w_640,h_300,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_29a5f282680542019130e4ed768571ba~mv2.png",
+        "file": "images/screen-shot-2023-08-23-at-11-17-17-am-mobile.png",
+        "width": 640,
+        "height": 300,
+        "bytes": 391451
+      }
     },
     {
       "url": "https://static.wixstatic.com/media/a8ae1a_8f6b67eda2654cc48f63d28d8e35f4bc~mv2.png/v1/fill/w_1592,h_764,al_c,q_90,enc_avif,quality_auto/a8ae1a_8f6b67eda2654cc48f63d28d8e35f4bc~mv2.png",
@@ -662,59 +862,94 @@
       "caption": "",
       "pages": [
         "now-you-brand-campaign"
-      ]
+      ],
+      "mobile": {
+        "url": "https://static.wixstatic.com/media/a8ae1a_8f6b67eda2654cc48f63d28d8e35f4bc~mv2.png/v1/fill/w_640,h_426,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_8f6b67eda2654cc48f63d28d8e35f4bc~mv2.png",
+        "file": "images/screen-shot-2023-09-12-at-11-05-31-am-mobile.png",
+        "width": 640,
+        "height": 426,
+        "bytes": 410236
+      }
     },
     {
-      "url": "https://static.wixstatic.com/media/a8ae1a_34d3011dba95439a807493fced997935~mv2.png/v1/fill/w_1590,h_589,al_c,q_90,enc_avif,quality_auto/a8ae1a_34d3011dba95439a807493fced997935~mv2.png",
+      "url": "https://static.wixstatic.com/media/a8ae1a_34d3011dba95439a807493fced997935~mv2.png/v1/fill/w_1584,h_800,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_34d3011dba95439a807493fced997935~mv2.png",
       "file": "images/screen-shot-2023-09-12-at-11-06-35-am.png",
-      "width": 1590,
-      "height": 589,
-      "bytes": 1912707,
+      "width": 1584,
+      "height": 800,
+      "bytes": 2561554,
       "format": "png",
       "alt": "Screen Shot 2023-09-12 at 11.06.35 AM.png",
       "caption": "",
       "pages": [
         "now-you-brand-campaign"
-      ]
+      ],
+      "mobile": {
+        "url": "https://static.wixstatic.com/media/a8ae1a_34d3011dba95439a807493fced997935~mv2.png/v1/fill/w_640,h_422,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_34d3011dba95439a807493fced997935~mv2.png",
+        "file": "images/screen-shot-2023-09-12-at-11-06-35-am-mobile.png",
+        "width": 640,
+        "height": 422,
+        "bytes": 562470
+      }
     },
     {
-      "url": "https://static.wixstatic.com/media/a8ae1a_1a1529dfee4b4fdc8aa6a9a1a420e202~mv2.png/v1/fill/w_1426,h_792,al_c,q_90,enc_avif,quality_auto/a8ae1a_1a1529dfee4b4fdc8aa6a9a1a420e202~mv2.png",
+      "url": "https://static.wixstatic.com/media/a8ae1a_1a1529dfee4b4fdc8aa6a9a1a420e202~mv2.png/v1/fill/w_1056,h_800,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_1a1529dfee4b4fdc8aa6a9a1a420e202~mv2.png",
       "file": "images/screen-shot-2023-09-12-at-11-07-06-am.png",
-      "width": 1426,
-      "height": 792,
-      "bytes": 2549299,
+      "width": 1056,
+      "height": 800,
+      "bytes": 1886502,
       "format": "png",
       "alt": "Screen Shot 2023-09-12 at 11.07.06 AM.png",
       "caption": "",
       "pages": [
         "now-you-brand-campaign"
-      ]
+      ],
+      "mobile": {
+        "url": "https://static.wixstatic.com/media/a8ae1a_1a1529dfee4b4fdc8aa6a9a1a420e202~mv2.png/v1/fill/w_640,h_470,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_1a1529dfee4b4fdc8aa6a9a1a420e202~mv2.png",
+        "file": "images/screen-shot-2023-09-12-at-11-07-06-am-mobile.png",
+        "width": 640,
+        "height": 470,
+        "bytes": 692010
+      }
     },
     {
-      "url": "https://static.wixstatic.com/media/a8ae1a_a112643c71b44988a95e51e7e4ff8c1a~mv2.png/v1/fill/w_1586,h_705,al_c,q_90,enc_avif,quality_auto/a8ae1a_a112643c71b44988a95e51e7e4ff8c1a~mv2.png",
+      "url": "https://static.wixstatic.com/media/a8ae1a_a112643c71b44988a95e51e7e4ff8c1a~mv2.png/v1/fill/w_1320,h_800,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_a112643c71b44988a95e51e7e4ff8c1a~mv2.png",
       "file": "images/screen-shot-2023-09-12-at-11-07-57-am.png",
-      "width": 1586,
-      "height": 705,
-      "bytes": 2398601,
+      "width": 1320,
+      "height": 800,
+      "bytes": 2233639,
       "format": "png",
       "alt": "Screen Shot 2023-09-12 at 11.07.57 AM.png",
       "caption": "",
       "pages": [
         "now-you-brand-campaign"
-      ]
+      ],
+      "mobile": {
+        "url": "https://static.wixstatic.com/media/a8ae1a_a112643c71b44988a95e51e7e4ff8c1a~mv2.png/v1/fill/w_640,h_800,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_a112643c71b44988a95e51e7e4ff8c1a~mv2.png",
+        "file": "images/screen-shot-2023-09-12-at-11-07-57-am-mobile.png",
+        "width": 640,
+        "height": 800,
+        "bytes": 1066551
+      }
     },
     {
-      "url": "https://static.wixstatic.com/media/a8ae1a_ca768051697442e7959286db393cf06a~mv2.png/v1/fill/w_1584,h_704,al_c,q_90,enc_avif,quality_auto/a8ae1a_ca768051697442e7959286db393cf06a~mv2.png",
+      "url": "https://static.wixstatic.com/media/a8ae1a_ca768051697442e7959286db393cf06a~mv2.png/v1/fill/w_1320,h_800,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_ca768051697442e7959286db393cf06a~mv2.png",
       "file": "images/screen-shot-2023-09-12-at-11-08-22-am.png",
-      "width": 1584,
-      "height": 704,
-      "bytes": 1188927,
+      "width": 1320,
+      "height": 800,
+      "bytes": 1209379,
       "format": "png",
       "alt": "Screen Shot 2023-09-12 at 11.08.22 AM.png",
       "caption": "",
       "pages": [
         "now-you-brand-campaign"
-      ]
+      ],
+      "mobile": {
+        "url": "https://static.wixstatic.com/media/a8ae1a_ca768051697442e7959286db393cf06a~mv2.png/v1/fill/w_640,h_800,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_ca768051697442e7959286db393cf06a~mv2.png",
+        "file": "images/screen-shot-2023-09-12-at-11-08-22-am-mobile.png",
+        "width": 640,
+        "height": 800,
+        "bytes": 580056
+      }
     },
     {
       "url": "https://static.wixstatic.com/media/a8ae1a_130a3545c935470d929cbe037091138b~mv2.png/v1/fill/w_1576,h_643,al_c,q_90,enc_avif,quality_auto/a8ae1a_130a3545c935470d929cbe037091138b~mv2.png",
@@ -727,20 +962,34 @@
       "caption": "",
       "pages": [
         "now-you-brand-campaign"
-      ]
+      ],
+      "mobile": {
+        "url": "https://static.wixstatic.com/media/a8ae1a_130a3545c935470d929cbe037091138b~mv2.png/v1/fill/w_640,h_800,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_130a3545c935470d929cbe037091138b~mv2.png",
+        "file": "images/screen-shot-2023-09-12-at-11-08-41-am-mobile.png",
+        "width": 640,
+        "height": 800,
+        "bytes": 776714
+      }
     },
     {
-      "url": "https://static.wixstatic.com/media/a8ae1a_086e9bf0c1ac4e9d97d3216ef4aff1f9~mv2.png/v1/fill/w_880,h_800,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_086e9bf0c1ac4e9d97d3216ef4aff1f9~mv2.png",
+      "url": "https://static.wixstatic.com/media/a8ae1a_086e9bf0c1ac4e9d97d3216ef4aff1f9~mv2.png/v1/fill/w_640,h_800,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_086e9bf0c1ac4e9d97d3216ef4aff1f9~mv2.png",
       "file": "images/screen-shot-2023-09-14-at-10-40-01-am.png",
-      "width": 880,
+      "width": 640,
       "height": 800,
-      "bytes": 1504478,
+      "bytes": 1068105,
       "format": "png",
       "alt": "Screen Shot 2023-09-14 at 10.40.01 AM.png",
       "caption": "",
       "pages": [
         "now-you-brand-campaign"
-      ]
+      ],
+      "mobile": {
+        "url": "https://static.wixstatic.com/media/a8ae1a_086e9bf0c1ac4e9d97d3216ef4aff1f9~mv2.png/v1/fill/w_640,h_780,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_086e9bf0c1ac4e9d97d3216ef4aff1f9~mv2.png",
+        "file": "images/screen-shot-2023-09-14-at-10-40-01-am-mobile.png",
+        "width": 640,
+        "height": 780,
+        "bytes": 1045487
+      }
     },
     {
       "url": "https://static.wixstatic.com/media/a8ae1a_3229a4f164b64e5db9e1ecbdbf1b5d42f000.jpg/v1/fill/w_1150,h_646,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/a8ae1a_3229a4f164b64e5db9e1ecbdbf1b5d42f000.jpg",
@@ -753,20 +1002,28 @@
       "caption": "",
       "pages": [
         "now-you-countdown-portfolio-campaign"
-      ]
+      ],
+      "mobile": null
     },
     {
-      "url": "https://static.wixstatic.com/media/a8ae1a_b4feace18b104f48936043cff32982f6~mv2.png/v1/fill/w_1196,h_1120,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_b4feace18b104f48936043cff32982f6~mv2.png",
+      "url": "https://static.wixstatic.com/media/a8ae1a_b4feace18b104f48936043cff32982f6~mv2.png/v1/fill/w_870,h_1120,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_b4feace18b104f48936043cff32982f6~mv2.png",
       "file": "images/screen-shot-2023-08-22-at-12-07-57-pm.png",
-      "width": 1196,
+      "width": 870,
       "height": 1120,
-      "bytes": 3259069,
+      "bytes": 2323175,
       "format": "png",
       "alt": "Screen Shot 2023-08-22 at 12.07.57 PM.png",
       "caption": "",
       "pages": [
         "now-you-countdown-portfolio-campaign"
-      ]
+      ],
+      "mobile": {
+        "url": "https://static.wixstatic.com/media/a8ae1a_b4feace18b104f48936043cff32982f6~mv2.png/v1/fill/w_640,h_300,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_b4feace18b104f48936043cff32982f6~mv2.png",
+        "file": "images/screen-shot-2023-08-22-at-12-07-57-pm-mobile.png",
+        "width": 640,
+        "height": 300,
+        "bytes": 504928
+      }
     },
     {
       "url": "https://static.wixstatic.com/media/a8ae1a_1a97d039f520424f80d5f43267096a11~mv2.png/v1/fill/w_1960,h_940,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_1a97d039f520424f80d5f43267096a11~mv2.png",
@@ -779,7 +1036,14 @@
       "caption": "",
       "pages": [
         "now-you-countdown-portfolio-campaign"
-      ]
+      ],
+      "mobile": {
+        "url": "https://static.wixstatic.com/media/a8ae1a_1a97d039f520424f80d5f43267096a11~mv2.png/v1/fill/w_640,h_426,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_1a97d039f520424f80d5f43267096a11~mv2.png",
+        "file": "images/screen-shot-2023-08-23-at-11-40-07-am-mobile.png",
+        "width": 640,
+        "height": 426,
+        "bytes": 597941
+      }
     },
     {
       "url": "https://static.wixstatic.com/media/a8ae1a_1b76d0e6ccae49b9bc6f4b75351eddb3~mv2.png/v1/fill/w_1960,h_800,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_1b76d0e6ccae49b9bc6f4b75351eddb3~mv2.png",
@@ -792,72 +1056,108 @@
       "caption": "",
       "pages": [
         "now-you-countdown-portfolio-campaign"
-      ]
+      ],
+      "mobile": {
+        "url": "https://static.wixstatic.com/media/a8ae1a_1b76d0e6ccae49b9bc6f4b75351eddb3~mv2.png/v1/fill/w_640,h_800,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_1b76d0e6ccae49b9bc6f4b75351eddb3~mv2.png",
+        "file": "images/screenshot-2023-11-07-at-10-29-46-am-mobile.png",
+        "width": 640,
+        "height": 800,
+        "bytes": 1115781
+      }
     },
     {
-      "url": "https://static.wixstatic.com/media/a8ae1a_8ff9cdea5e2d412388d6a9a9159ac758~mv2.jpg/v1/fill/w_1800,h_800,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_8ff9cdea5e2d412388d6a9a9159ac758~mv2.jpg",
+      "url": "https://static.wixstatic.com/media/a8ae1a_8ff9cdea5e2d412388d6a9a9159ac758~mv2.jpg/v1/fill/w_1320,h_800,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_8ff9cdea5e2d412388d6a9a9159ac758~mv2.jpg",
       "file": "images/screenshot-2023-11-07-at-10-29-edited.jpg",
-      "width": 1800,
+      "width": 1320,
       "height": 800,
-      "bytes": 108685,
+      "bytes": 95551,
       "format": "jpg",
       "alt": "Screenshot 2023-11-07 at 10.29_edited.jpg",
       "caption": "",
       "pages": [
         "now-you-countdown-portfolio-campaign"
-      ]
+      ],
+      "mobile": {
+        "url": "https://static.wixstatic.com/media/a8ae1a_8ff9cdea5e2d412388d6a9a9159ac758~mv2.jpg/v1/fill/w_640,h_800,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_8ff9cdea5e2d412388d6a9a9159ac758~mv2.jpg",
+        "file": "images/screenshot-2023-11-07-at-10-29-edited-mobile.jpg",
+        "width": 640,
+        "height": 800,
+        "bytes": 61307
+      }
     },
     {
-      "url": "https://static.wixstatic.com/media/a8ae1a_58d12888cd6f47ce9ad4b119354759be~mv2.png/v1/fill/w_880,h_800,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_58d12888cd6f47ce9ad4b119354759be~mv2.png",
+      "url": "https://static.wixstatic.com/media/a8ae1a_58d12888cd6f47ce9ad4b119354759be~mv2.png/v1/fill/w_640,h_800,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_58d12888cd6f47ce9ad4b119354759be~mv2.png",
       "file": "images/screenshot-2023-11-07-at-10-30-15-am.png",
-      "width": 880,
+      "width": 640,
       "height": 800,
-      "bytes": 2045334,
+      "bytes": 1309250,
       "format": "png",
       "alt": "Screenshot 2023-11-07 at 10.30.15 AM.png",
       "caption": "",
       "pages": [
         "now-you-countdown-portfolio-campaign"
-      ]
+      ],
+      "mobile": {
+        "url": "https://static.wixstatic.com/media/a8ae1a_58d12888cd6f47ce9ad4b119354759be~mv2.png/v1/fill/w_640,h_714,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_58d12888cd6f47ce9ad4b119354759be~mv2.png",
+        "file": "images/screenshot-2023-11-07-at-10-30-15-am-mobile.png",
+        "width": 640,
+        "height": 714,
+        "bytes": 1175334
+      }
     },
     {
-      "url": "https://static.wixstatic.com/media/a8ae1a_ed44b59e609d4f5f93d45553a73fb931~mv2.png/v1/fill/w_880,h_800,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_ed44b59e609d4f5f93d45553a73fb931~mv2.png",
+      "url": "https://static.wixstatic.com/media/a8ae1a_ed44b59e609d4f5f93d45553a73fb931~mv2.png/v1/fill/w_640,h_800,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_ed44b59e609d4f5f93d45553a73fb931~mv2.png",
       "file": "images/screenshot-2023-11-07-at-10-30-35-am.png",
-      "width": 880,
+      "width": 640,
       "height": 800,
-      "bytes": 1749888,
+      "bytes": 1257367,
       "format": "png",
       "alt": "Screenshot 2023-11-07 at 10.30.35 AM.png",
       "caption": "",
       "pages": [
         "now-you-countdown-portfolio-campaign"
-      ]
+      ],
+      "mobile": {
+        "url": "https://static.wixstatic.com/media/a8ae1a_ed44b59e609d4f5f93d45553a73fb931~mv2.png/v1/fill/w_640,h_780,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_ed44b59e609d4f5f93d45553a73fb931~mv2.png",
+        "file": "images/screenshot-2023-11-07-at-10-30-35-am-mobile.png",
+        "width": 640,
+        "height": 780,
+        "bytes": 1227654
+      }
     },
     {
-      "url": "https://static.wixstatic.com/media/a8ae1a_010a61336ffb4d058a29779bbf053ced~mv2.png/v1/fill/w_1760,h_800,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_010a61336ffb4d058a29779bbf053ced~mv2.png",
+      "url": "https://static.wixstatic.com/media/a8ae1a_010a61336ffb4d058a29779bbf053ced~mv2.png/v1/fill/w_1280,h_800,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_010a61336ffb4d058a29779bbf053ced~mv2.png",
       "file": "images/screenshot-2023-11-07-at-10-31-09-am.png",
-      "width": 1760,
+      "width": 1280,
       "height": 800,
-      "bytes": 3302640,
+      "bytes": 2261430,
       "format": "png",
       "alt": "Screenshot 2023-11-07 at 10.31.09 AM.png",
       "caption": "",
       "pages": [
         "now-you-countdown-portfolio-campaign"
-      ]
+      ],
+      "mobile": null
     },
     {
-      "url": "https://static.wixstatic.com/media/a8ae1a_61138db79b344469a0e7f5e15c870c54~mv2.png/v1/fill/w_1800,h_800,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_61138db79b344469a0e7f5e15c870c54~mv2.png",
+      "url": "https://static.wixstatic.com/media/a8ae1a_61138db79b344469a0e7f5e15c870c54~mv2.png/v1/fill/w_1320,h_800,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_61138db79b344469a0e7f5e15c870c54~mv2.png",
       "file": "images/screenshot-2023-11-07-at-10-31-33-am.png",
-      "width": 1800,
+      "width": 1320,
       "height": 800,
-      "bytes": 3589293,
+      "bytes": 2608421,
       "format": "png",
       "alt": "Screenshot 2023-11-07 at 10.31.33 AM.png",
       "caption": "",
       "pages": [
         "now-you-countdown-portfolio-campaign"
-      ]
+      ],
+      "mobile": {
+        "url": "https://static.wixstatic.com/media/a8ae1a_61138db79b344469a0e7f5e15c870c54~mv2.png/v1/fill/w_640,h_800,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_61138db79b344469a0e7f5e15c870c54~mv2.png",
+        "file": "images/screenshot-2023-11-07-at-10-31-33-am-mobile.png",
+        "width": 640,
+        "height": 800,
+        "bytes": 1270369
+      }
     },
     {
       "url": "https://static.wixstatic.com/media/a8ae1a_41f53f7e8ea14ec58adc8efe79b039d8~mv2.png/v1/fill/w_1600,h_767,al_c,q_90,enc_avif,quality_auto/a8ae1a_41f53f7e8ea14ec58adc8efe79b039d8~mv2.png",
@@ -870,59 +1170,88 @@
       "caption": "",
       "pages": [
         "so-much-new-to-know-portfolio-campaign"
-      ]
+      ],
+      "mobile": {
+        "url": "https://static.wixstatic.com/media/a8ae1a_41f53f7e8ea14ec58adc8efe79b039d8~mv2.png/v1/fill/w_640,h_426,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_41f53f7e8ea14ec58adc8efe79b039d8~mv2.png",
+        "file": "images/n2k-nyc-mobile.png",
+        "width": 640,
+        "height": 426,
+        "bytes": 643123
+      }
     },
     {
-      "url": "https://static.wixstatic.com/media/a8ae1a_1c7038dd0b2843bb89b3767f24cd99e7~mv2.jpg/v1/fill/w_730,h_664,al_c,q_85,enc_avif,quality_auto/a8ae1a_1c7038dd0b2843bb89b3767f24cd99e7~mv2.jpg",
+      "url": "https://static.wixstatic.com/media/a8ae1a_1c7038dd0b2843bb89b3767f24cd99e7~mv2.jpg/v1/fill/w_640,h_800,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_1c7038dd0b2843bb89b3767f24cd99e7~mv2.jpg",
       "file": "images/n2k-ooh-2-edited.jpg",
-      "width": 730,
-      "height": 664,
-      "bytes": 95055,
+      "width": 640,
+      "height": 800,
+      "bytes": 117085,
       "format": "jpg",
       "alt": "N2K ooh 2_edited.jpg",
       "caption": "",
       "pages": [
         "so-much-new-to-know-portfolio-campaign"
-      ]
+      ],
+      "mobile": {
+        "url": "https://static.wixstatic.com/media/a8ae1a_1c7038dd0b2843bb89b3767f24cd99e7~mv2.jpg/v1/fill/w_640,h_780,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_1c7038dd0b2843bb89b3767f24cd99e7~mv2.jpg",
+        "file": "images/n2k-ooh-2-edited-mobile.jpg",
+        "width": 640,
+        "height": 780,
+        "bytes": 114460
+      }
     },
     {
-      "url": "https://static.wixstatic.com/media/a8ae1a_0feec5572986404dbe5167043944474d~mv2.jpg/v1/fill/w_676,h_615,al_c,q_85,enc_avif,quality_auto/a8ae1a_0feec5572986404dbe5167043944474d~mv2.jpg",
+      "url": "https://static.wixstatic.com/media/a8ae1a_0feec5572986404dbe5167043944474d~mv2.jpg/v1/fill/w_640,h_800,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_0feec5572986404dbe5167043944474d~mv2.jpg",
       "file": "images/n2k-ooh-edited.jpg",
-      "width": 676,
-      "height": 615,
-      "bytes": 89080,
+      "width": 640,
+      "height": 800,
+      "bytes": 110589,
       "format": "jpg",
       "alt": "N2K ooh_edited.jpg",
       "caption": "",
       "pages": [
         "so-much-new-to-know-portfolio-campaign"
-      ]
+      ],
+      "mobile": {
+        "url": "https://static.wixstatic.com/media/a8ae1a_0feec5572986404dbe5167043944474d~mv2.jpg/v1/fill/w_640,h_714,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_0feec5572986404dbe5167043944474d~mv2.jpg",
+        "file": "images/n2k-ooh-edited-mobile.jpg",
+        "width": 640,
+        "height": 714,
+        "bytes": 102503
+      }
     },
     {
-      "url": "https://static.wixstatic.com/media/a8ae1a_98b384ee4f434cd1ae252dc171354a90~mv2.png/v1/fill/w_1760,h_800,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_98b384ee4f434cd1ae252dc171354a90~mv2.png",
+      "url": "https://static.wixstatic.com/media/a8ae1a_98b384ee4f434cd1ae252dc171354a90~mv2.png/v1/fill/w_1280,h_800,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_98b384ee4f434cd1ae252dc171354a90~mv2.png",
       "file": "images/screenshot-2023-11-07-at-11-57-12-am.png",
-      "width": 1760,
+      "width": 1280,
       "height": 800,
-      "bytes": 1898670,
+      "bytes": 1456072,
       "format": "png",
       "alt": "Screenshot 2023-11-07 at 11.57.12 AM.png",
       "caption": "",
       "pages": [
         "so-much-new-to-know-portfolio-campaign"
-      ]
+      ],
+      "mobile": null
     },
     {
-      "url": "https://static.wixstatic.com/media/a8ae1a_9616df7620214259a41630a882eacc86~mv2.png/v1/fill/w_1154,h_1090,al_l,q_90,enc_avif,quality_auto/a8ae1a_9616df7620214259a41630a882eacc86~mv2.png",
+      "url": "https://static.wixstatic.com/media/a8ae1a_9616df7620214259a41630a882eacc86~mv2.png/v1/fill/w_870,h_1130,al_l,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_9616df7620214259a41630a882eacc86~mv2.png",
       "file": "images/screenshot-2023-11-07-at-12-20-30-pm.png",
-      "width": 1154,
-      "height": 1090,
-      "bytes": 1429769,
+      "width": 870,
+      "height": 1130,
+      "bytes": 1196532,
       "format": "png",
       "alt": "Screenshot 2023-11-07 at 12.20.30 PM.png",
       "caption": "",
       "pages": [
         "so-much-new-to-know-portfolio-campaign"
-      ]
+      ],
+      "mobile": {
+        "url": "https://static.wixstatic.com/media/a8ae1a_9616df7620214259a41630a882eacc86~mv2.png/v1/fill/w_640,h_300,al_l,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_9616df7620214259a41630a882eacc86~mv2.png",
+        "file": "images/screenshot-2023-11-07-at-12-20-30-pm-mobile.png",
+        "width": 640,
+        "height": 300,
+        "bytes": 258462
+      }
     },
     {
       "url": "https://static.wixstatic.com/media/a8ae1a_0064a69d83f7476d887d090ef610ef67f000.jpg/v1/fill/w_1150,h_646,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/a8ae1a_0064a69d83f7476d887d090ef610ef67f000.jpg",
@@ -935,20 +1264,28 @@
       "caption": "",
       "pages": [
         "so-much-new-to-know-portfolio-campaign"
-      ]
+      ],
+      "mobile": null
     },
     {
-      "url": "https://static.wixstatic.com/media/a8ae1a_17d309d3f86e4455a3eabf3df2db94b7~mv2.png/v1/fill/w_1196,h_1402,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_17d309d3f86e4455a3eabf3df2db94b7~mv2.png",
+      "url": "https://static.wixstatic.com/media/a8ae1a_17d309d3f86e4455a3eabf3df2db94b7~mv2.png/v1/fill/w_870,h_1402,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_17d309d3f86e4455a3eabf3df2db94b7~mv2.png",
       "file": "images/screen-shot-2023-08-23-at-11-20-07-am.png",
-      "width": 1196,
+      "width": 870,
       "height": 1402,
-      "bytes": 2717425,
+      "bytes": 2043228,
       "format": "png",
       "alt": "Screen Shot 2023-08-23 at 11.20.07 AM.png",
       "caption": "",
       "pages": [
         "the-world-could-use-one-of-you"
-      ]
+      ],
+      "mobile": {
+        "url": "https://static.wixstatic.com/media/a8ae1a_17d309d3f86e4455a3eabf3df2db94b7~mv2.png/v1/fill/w_640,h_300,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_17d309d3f86e4455a3eabf3df2db94b7~mv2.png",
+        "file": "images/screen-shot-2023-08-23-at-11-20-07-am-mobile.png",
+        "width": 640,
+        "height": 300,
+        "bytes": 302140
+      }
     },
     {
       "url": "https://static.wixstatic.com/media/a8ae1a_bf7c7745d6c8418bb554d9d018a4e110f000.jpg/v1/fill/w_1150,h_646,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/a8ae1a_bf7c7745d6c8418bb554d9d018a4e110f000.jpg",
@@ -961,7 +1298,8 @@
       "caption": "",
       "pages": [
         "the-world-could-use-one-of-you"
-      ]
+      ],
+      "mobile": null
     },
     {
       "url": "https://static.wixstatic.com/media/a8ae1a_dd36d9910d7246d08e6b4fe7f04d66c6f000.jpg/v1/fill/w_1150,h_646,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/a8ae1a_dd36d9910d7246d08e6b4fe7f04d66c6f000.jpg",
@@ -974,7 +1312,8 @@
       "caption": "",
       "pages": [
         "the-world-could-use-one-of-you"
-      ]
+      ],
+      "mobile": null
     },
     {
       "url": "https://static.wixstatic.com/media/a8ae1a_75e47f029d3840f1b5c66b1460643bd0~mv2.jpeg/v1/fill/w_1200,h_576,al_c,q_85,enc_avif,quality_auto/a8ae1a_75e47f029d3840f1b5c66b1460643bd0~mv2.jpeg",
@@ -987,59 +1326,94 @@
       "caption": "",
       "pages": [
         "the-world-could-use-one-of-you"
-      ]
+      ],
+      "mobile": {
+        "url": "https://static.wixstatic.com/media/a8ae1a_75e47f029d3840f1b5c66b1460643bd0~mv2.jpeg/v1/fill/w_640,h_426,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_75e47f029d3840f1b5c66b1460643bd0~mv2.jpeg",
+        "file": "images/twcu1oy-headefr-mobile.jpg",
+        "width": 640,
+        "height": 426,
+        "bytes": 38620
+      }
     },
     {
-      "url": "https://static.wixstatic.com/media/a8ae1a_d953d2fc169b45b28d57d2c68bf9df1d~mv2.png/v1/fill/w_1800,h_800,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_d953d2fc169b45b28d57d2c68bf9df1d~mv2.png",
+      "url": "https://static.wixstatic.com/media/a8ae1a_d953d2fc169b45b28d57d2c68bf9df1d~mv2.png/v1/fill/w_1320,h_800,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_d953d2fc169b45b28d57d2c68bf9df1d~mv2.png",
       "file": "images/wcu1oy-nyt-mag-3.png",
-      "width": 1800,
+      "width": 1320,
       "height": 800,
-      "bytes": 1615851,
+      "bytes": 1133198,
       "format": "png",
       "alt": "WCU1oy NYT mag 3.png",
       "caption": "",
       "pages": [
         "the-world-could-use-one-of-you"
-      ]
+      ],
+      "mobile": {
+        "url": "https://static.wixstatic.com/media/a8ae1a_d953d2fc169b45b28d57d2c68bf9df1d~mv2.png/v1/fill/w_640,h_800,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_d953d2fc169b45b28d57d2c68bf9df1d~mv2.png",
+        "file": "images/wcu1oy-nyt-mag-3-mobile.png",
+        "width": 640,
+        "height": 800,
+        "bytes": 657645
+      }
     },
     {
-      "url": "https://static.wixstatic.com/media/a8ae1a_93bc9dcab8884d4d929945227b42dc63~mv2.png/v1/fill/w_1600,h_711,al_c,q_90,enc_avif,quality_auto/a8ae1a_93bc9dcab8884d4d929945227b42dc63~mv2.png",
+      "url": "https://static.wixstatic.com/media/a8ae1a_93bc9dcab8884d4d929945227b42dc63~mv2.png/v1/fill/w_1320,h_800,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_93bc9dcab8884d4d929945227b42dc63~mv2.png",
       "file": "images/wcu1oy-nyt-mag.png",
-      "width": 1600,
-      "height": 711,
-      "bytes": 1334356,
+      "width": 1320,
+      "height": 800,
+      "bytes": 1190755,
       "format": "png",
       "alt": "WCU1oy NYT mag.png",
       "caption": "",
       "pages": [
         "the-world-could-use-one-of-you"
-      ]
+      ],
+      "mobile": {
+        "url": "https://static.wixstatic.com/media/a8ae1a_93bc9dcab8884d4d929945227b42dc63~mv2.png/v1/fill/w_640,h_800,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_93bc9dcab8884d4d929945227b42dc63~mv2.png",
+        "file": "images/wcu1oy-nyt-mag-mobile.png",
+        "width": 640,
+        "height": 800,
+        "bytes": 663441
+      }
     },
     {
-      "url": "https://static.wixstatic.com/media/a8ae1a_78417485d0894c729ec36c4729190f15~mv2.jpeg/v1/fill/w_1440,h_800,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_78417485d0894c729ec36c4729190f15~mv2.jpeg",
+      "url": "https://static.wixstatic.com/media/a8ae1a_78417485d0894c729ec36c4729190f15~mv2.jpeg/v1/fill/w_1056,h_800,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_78417485d0894c729ec36c4729190f15~mv2.jpeg",
       "file": "images/wcu1oy-ooh-la.jpg",
-      "width": 1440,
+      "width": 1056,
       "height": 800,
-      "bytes": 116604,
+      "bytes": 91194,
       "format": "jpg",
       "alt": "WCU1OY OOH LA.jpeg",
       "caption": "",
       "pages": [
         "the-world-could-use-one-of-you"
-      ]
+      ],
+      "mobile": {
+        "url": "https://static.wixstatic.com/media/a8ae1a_78417485d0894c729ec36c4729190f15~mv2.jpeg/v1/fill/w_640,h_470,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_78417485d0894c729ec36c4729190f15~mv2.jpeg",
+        "file": "images/wcu1oy-ooh-la-mobile.jpg",
+        "width": 640,
+        "height": 470,
+        "bytes": 45880
+      }
     },
     {
-      "url": "https://static.wixstatic.com/media/a8ae1a_098ce922fdc449f1b9d72649d3ba5c60~mv2.png/v1/fill/w_1600,h_593,al_c,q_90,enc_avif,quality_auto/a8ae1a_098ce922fdc449f1b9d72649d3ba5c60~mv2.png",
+      "url": "https://static.wixstatic.com/media/a8ae1a_098ce922fdc449f1b9d72649d3ba5c60~mv2.png/v1/fill/w_1584,h_800,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_098ce922fdc449f1b9d72649d3ba5c60~mv2.png",
       "file": "images/wcu1oy-ooh.png",
-      "width": 1600,
-      "height": 593,
-      "bytes": 1757856,
+      "width": 1584,
+      "height": 800,
+      "bytes": 2364163,
       "format": "png",
       "alt": "WCU1OY OOH.png",
       "caption": "",
       "pages": [
         "the-world-could-use-one-of-you"
-      ]
+      ],
+      "mobile": {
+        "url": "https://static.wixstatic.com/media/a8ae1a_098ce922fdc449f1b9d72649d3ba5c60~mv2.png/v1/fill/w_640,h_422,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_098ce922fdc449f1b9d72649d3ba5c60~mv2.png",
+        "file": "images/wcu1oy-ooh-mobile.png",
+        "width": 640,
+        "height": 422,
+        "bytes": 558452
+      }
     },
     {
       "url": "https://static.wixstatic.com/media/a8ae1a_34a6c0c439c7446fb11435273dd9dbcdf002.jpg/v1/fill/w_1150,h_646,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/a8ae1a_34a6c0c439c7446fb11435273dd9dbcdf002.jpg",
@@ -1052,33 +1426,42 @@
       "caption": "",
       "pages": [
         "today-s-the-day-brand-campaign"
-      ]
+      ],
+      "mobile": null
     },
     {
-      "url": "https://static.wixstatic.com/media/a8ae1a_d04386cab56245d4a11ac127ced4c08f~mv2.png/v1/fill/w_912,h_900,al_c,q_90,enc_avif,quality_auto/a8ae1a_d04386cab56245d4a11ac127ced4c08f~mv2.png",
+      "url": "https://static.wixstatic.com/media/a8ae1a_d04386cab56245d4a11ac127ced4c08f~mv2.png/v1/fill/w_664,h_900,al_c,q_90,enc_avif,quality_auto/a8ae1a_d04386cab56245d4a11ac127ced4c08f~mv2.png",
       "file": "images/ttd-header.png",
-      "width": 912,
+      "width": 664,
       "height": 900,
-      "bytes": 1797584,
+      "bytes": 1243850,
       "format": "png",
       "alt": "TTD Header.png",
       "caption": "",
       "pages": [
         "today-s-the-day-brand-campaign"
-      ]
+      ],
+      "mobile": {
+        "url": "https://static.wixstatic.com/media/a8ae1a_d04386cab56245d4a11ac127ced4c08f~mv2.png/v1/fill/w_640,h_300,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_d04386cab56245d4a11ac127ced4c08f~mv2.png",
+        "file": "images/ttd-header-mobile.png",
+        "width": 640,
+        "height": 300,
+        "bytes": 501164
+      }
     },
     {
-      "url": "https://static.wixstatic.com/media/a8ae1a_bf919be30b4745989014754f4089c8ff~mv2.png/v1/fill/w_1600,h_727,al_c,q_90,enc_avif,quality_auto/a8ae1a_bf919be30b4745989014754f4089c8ff~mv2.png",
+      "url": "https://static.wixstatic.com/media/a8ae1a_bf919be30b4745989014754f4089c8ff~mv2.png/v1/fill/w_1280,h_800,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_bf919be30b4745989014754f4089c8ff~mv2.png",
       "file": "images/ttd-print-spread.png",
-      "width": 1600,
-      "height": 727,
-      "bytes": 472238,
+      "width": 1280,
+      "height": 800,
+      "bytes": 435364,
       "format": "png",
       "alt": "TTD Print spread.png",
       "caption": "",
       "pages": [
         "today-s-the-day-brand-campaign"
-      ]
+      ],
+      "mobile": null
     },
     {
       "url": "https://static.wixstatic.com/media/a8ae1a_20094fdd2dcc428b99d28802a8f1649f~mv2.png/v1/fill/w_1600,h_767,al_c,q_90,enc_avif,quality_auto/a8ae1a_20094fdd2dcc428b99d28802a8f1649f~mv2.png",
@@ -1091,7 +1474,14 @@
       "caption": "",
       "pages": [
         "today-s-the-day-brand-campaign"
-      ]
+      ],
+      "mobile": {
+        "url": "https://static.wixstatic.com/media/a8ae1a_20094fdd2dcc428b99d28802a8f1649f~mv2.png/v1/fill/w_640,h_426,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_20094fdd2dcc428b99d28802a8f1649f~mv2.png",
+        "file": "images/ttd-print-mobile.png",
+        "width": 640,
+        "height": 426,
+        "bytes": 231584
+      }
     }
   ]
 }

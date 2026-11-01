@@ -22,10 +22,13 @@ carries only ~30-pixel blur placeholders for images and no video blocks at all. 
 extractor therefore renders every page in headless Chromium and reads the rendered
 DOM, which is what a visitor's browser sees.
 
-Rendition rule: each page is rendered at a 2x device pixel ratio and each image's
-`currentSrc` is taken. That is the rendition Wix serves to a high-density screen,
-the largest one a browser asks for. Images are re-downloaded from the manifest URL
-itself, so the file on disk is the same rendition the page referenced.
+Rendition rule: each page is rendered twice, at a 1440-wide desktop and at a 390-wide
+phone, both at a 2x device pixel ratio, and each image's `currentSrc` is taken. Wix
+crops a `fill` rendition to the shape of the box it sits in, and the same box has a
+different shape on a phone, so a picture carries the rendition each breakpoint's box
+asks for; the phone one is only kept when its crop differs from the desktop crop.
+Images are re-downloaded from the manifest URL itself, so the file on disk is the same
+rendition the page referenced.
 
 Usage:
     python3 -m playwright install chromium      # once per machine
@@ -72,10 +75,13 @@ BASE = f"{SITE}/mysite"
 SITE_NAME = "Jenny Makunas"
 ROOT = Path(__file__).resolve().parent.parent
 
-VIEWPORT = {"width": 1920, "height": 1080}
+VIEWPORT = {"width": 1440, "height": 900}
+MOBILE_VIEWPORT = {"width": 390, "height": 844}
 DPR = 2
 USER_AGENT = ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
               "(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36")
+MOBILE_UA = ("Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 "
+             "(KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1")
 
 TEXT_OUTPUT = ["content/*.md", "fonts/REPORT.md", "videos/manifest.json"]
 BINARY_OUTPUT = ["public/fonts/*.woff2", "public/fonts/*.ttf", "public/files/*", "public/videos/*"]
@@ -215,6 +221,21 @@ FONTS = {
     },
 }
 
+# The two substituted families are not Wix's: Futura LT Book and Avenir LT Light are
+# Monotype licences Wix sublicenses, so the build ships the nearest Google Fonts
+# equivalents instead. The URLs pin the version, so a fresh run writes the same bytes
+# and `--check` can prove the tree.
+SUBSTITUTES = {
+    "Jost": {
+        "latin": "https://fonts.gstatic.com/s/jost/v20/92zatBhPNqw73oTd4g.woff2",
+        "latin-ext": "https://fonts.gstatic.com/s/jost/v20/92zatBhPNqw73ord4iYl.woff2",
+    },
+    "Mulish": {
+        "latin": "https://fonts.gstatic.com/s/mulish/v18/1Ptvg83HX_SGhgqk3wot.woff2",
+        "latin-ext": "https://fonts.gstatic.com/s/mulish/v18/1Ptvg83HX_SGhgqk0QotcqA.woff2",
+    },
+}
+
 COLLECT_JS = r"""
 () => {
   const main = document.querySelector('#PAGES_CONTAINER') || document.querySelector('main');
@@ -326,15 +347,16 @@ def media_id(url: str) -> str:
     return match.group(1) if match else url
 
 
-def rendition_key(url: str) -> str:
-    """Picture plus crop: two crops of one picture are two images, 1x and 2x are not."""
-    transform = re.search(r"/v1/([a-z]+)/", url)
-    alignment = re.search(r"al_[a-z]+", url)
+def picture_key(url: str) -> str:
+    """The picture plus the shape it was cropped to: two boxes, two renditions."""
+    return f"{media_id(url)}|{rendition_aspect(url):.2f}"
+
+
+def rendition_aspect(url: str) -> float:
+    """The shape Wix cropped this rendition to: its requested w_ over h_."""
     width = rendition_width(url)
     height = re.search(r"[hH]_(\d+)", url)
-    ratio = round(width / int(height.group(1)), 2) if width and height else 0
-    return (f"{media_id(url)}|{transform.group(1) if transform else ''}"
-            f"|{alignment.group(0) if alignment else ''}|{ratio}")
+    return width / int(height.group(1)) if width and height else 0.0
 
 
 def rendition_width(url: str) -> int:
@@ -564,6 +586,13 @@ def finish(value: str) -> str:
 
 @dataclass
 class Picture:
+    """One picture, at the rendition each breakpoint's box actually serves.
+
+    Wix crops a `fill` rendition to the shape of the box it sits in, and the box has a
+    different shape on a phone than on the desktop, so a picture keeps two renditions:
+    the desktop one (taken at the widest desktop width) and the phone one.
+    """
+
     media: str
     url: str
     width: int
@@ -575,6 +604,13 @@ class Picture:
     caption: str = ""
     hint: str = ""
     payload: bytes | None = None
+    mobile_url: str = ""
+    mobile_width: int = 0
+    mobile_height: int = 0
+    mobile_size: int = 0
+    mobile_file: str = ""
+    mobile_format: str = ""
+    mobile_payload: bytes | None = None
     pages: list[str] = field(default_factory=list)
 
 
@@ -610,6 +646,7 @@ class Tile:
 class Extractor:
     def __init__(self, out: Path):
         self.out = out
+        self.phone: dict[str, dict] = {}
         self.pictures: dict[str, Picture] = {}
         self.tiles: list[Tile] = []
         self.films: dict[str, Film] = {}
@@ -624,8 +661,13 @@ class Extractor:
 
     # -- rendering ---------------------------------------------------------- #
 
-    def render(self, browser, spec: Page) -> dict:
-        context = browser.new_context(viewport=VIEWPORT, device_scale_factor=DPR, user_agent=USER_AGENT)
+    def render(self, browser, spec: Page, mobile: bool = False) -> dict:
+        if mobile:
+            context = browser.new_context(viewport=MOBILE_VIEWPORT, device_scale_factor=DPR,
+                                          user_agent=MOBILE_UA, is_mobile=True, has_touch=True)
+        else:
+            context = browser.new_context(viewport=VIEWPORT, device_scale_factor=DPR,
+                                          user_agent=USER_AGENT)
         page = context.new_page()
         fonts: set[str] = set()
         page.on("response", lambda r: fonts.add(r.url)
@@ -675,8 +717,10 @@ class Extractor:
 
     # -- images ------------------------------------------------------------- #
 
-    def register(self, url: str, alt: str, page: str, caption: str = "", hint: str = "") -> str:
-        media = rendition_key(url)
+    def register(self, url: str, alt: str, page: str, caption: str = "", hint: str = "",
+                 mobile_url: str = "") -> str:
+        """One picture, carrying the rendition its box serves at each breakpoint."""
+        media = picture_key(url)
         picture = self.pictures.get(media)
         if picture is None:
             picture = self.pictures[media] = Picture(media=media, url=url, width=rendition_width(url),
@@ -684,6 +728,9 @@ class Extractor:
         elif rendition_width(url) > picture.width:
             picture.url = url
             picture.width = rendition_width(url)
+        if mobile_url and rendition_width(mobile_url) > picture.mobile_width:
+            picture.mobile_url = mobile_url
+            picture.mobile_width = rendition_width(mobile_url)
         if not picture.alt and alt:
             picture.alt = collapse(alt).strip()
         if not picture.caption and caption:
@@ -692,21 +739,33 @@ class Extractor:
             picture.pages.append(page)
         return media
 
+    def phone_sources(self, page: str) -> dict[str, str]:
+        """The rendition each picture is served in on a phone, by media id."""
+        sources: dict[str, str] = {}
+        for block in self.phone.get(page, {}).get("blocks", []):
+            if block["kind"] == "image" and block.get("src"):
+                sources.setdefault(media_id(block["src"]), block["src"])
+        return sources
+
     def download(self) -> None:
         directory = self.out / "public" / "images"
         directory.mkdir(parents=True, exist_ok=True)
         written: set[str] = set()
         names: dict[str, str] = {}
-        for picture in sorted(self.pictures.values(), key=lambda p: p.media):
-            payload = picture.payload if picture.payload is not None else fetch(picture.url)
+
+        def read(payload: bytes) -> tuple[int, int, str]:
             with tempfile.NamedTemporaryFile() as handle:
                 handle.write(payload)
                 handle.flush()
                 with Image.open(handle.name) as probe:
-                    picture.width, picture.height = probe.size
-                    picture.format = {"JPEG": "jpg", "PNG": "png", "WEBP": "webp", "GIF": "gif",
-                                      "AVIF": "avif"}.get((probe.format or "").upper(),
-                                                          (probe.format or "jpg").lower())
+                    return (*probe.size,
+                            {"JPEG": "jpg", "PNG": "png", "WEBP": "webp", "GIF": "gif",
+                             "AVIF": "avif"}.get((probe.format or "").upper(),
+                                                 (probe.format or "jpg").lower()))
+
+        for picture in sorted(self.pictures.values(), key=lambda p: p.media):
+            payload = picture.payload if picture.payload is not None else fetch(picture.url)
+            picture.width, picture.height, picture.format = read(payload)
             picture.size = len(payload)
             hint = picture.alt or picture.hint
             stem = (slugify(hint.rsplit(".", 1)[0]) if hint else slugify(picture.media.split("~")[0]))
@@ -718,6 +777,24 @@ class Extractor:
             picture.file = name
             (directory / name).write_bytes(payload)
             written.add(name)
+            # A phone box has its own shape, and Wix crops the picture to it; only
+            # carry that rendition when it is a different crop from the desktop one.
+            desktop_aspect = rendition_aspect(picture.url)
+            phone_aspect = rendition_aspect(picture.mobile_url)
+            if picture.mobile_url and abs(phone_aspect - desktop_aspect) > 0.02 * desktop_aspect:
+                mobile = (picture.mobile_payload if picture.mobile_payload is not None
+                          else fetch(picture.mobile_url))
+                picture.mobile_width, picture.mobile_height, picture.mobile_format = read(mobile)
+                picture.mobile_size = len(mobile)
+                mobile_name = f"{stem}-mobile.{picture.mobile_format}"
+                if mobile_name in names:
+                    mobile_name = (f"{stem}-mobile-"
+                                   f"{hashlib.sha1(picture.media.encode()).hexdigest()[:6]}"
+                                   f".{picture.mobile_format}")
+                names[mobile_name] = f"{picture.media}|mobile"
+                picture.mobile_file = mobile_name
+                (directory / mobile_name).write_bytes(mobile)
+                written.add(mobile_name)
         for stale in directory.iterdir():
             if stale.suffix.lower() in (".jpg", ".jpeg", ".png", ".gif", ".webp", ".avif"):
                 if stale.name not in written:
@@ -793,7 +870,10 @@ class Extractor:
                 {"url": picture.url, "file": f"images/{picture.file}",
                  "width": picture.width, "height": picture.height, "bytes": picture.size,
                  "format": picture.format, "alt": picture.alt, "caption": picture.caption,
-                 "pages": picture.pages}
+                 "pages": picture.pages,
+                 "mobile": ({"url": picture.mobile_url, "file": f"images/{picture.mobile_file}",
+                             "width": picture.mobile_width, "height": picture.mobile_height,
+                             "bytes": picture.mobile_size} if picture.mobile_file else None)}
                 for picture in sorted(self.pictures.values(), key=lambda p: (p.pages[0], p.file))
             ],
         }
@@ -828,7 +908,8 @@ class Extractor:
             if not source:
                 self.notes.append(f"{spec.file}: grid tile {title!r} has no rendered image")
                 continue
-            key = self.register(source, "", spec.file, caption=meta.get("description", ""), hint=title)
+            key = self.register(source, "", spec.file, caption=meta.get("description", ""), hint=title,
+                                mobile_url=self.phone_sources(spec.file).get(media_id(source), ""))
             if page is None:
                 self.notes.append(f"{spec.file}: grid tile {meta.get('title')!r} links to {target!r}, "
                                   "which is not one of the 15 pages")
@@ -897,6 +978,9 @@ class Extractor:
                 name = f"{slugify(key)}-{index}.woff2"
                 (directory / name).write_bytes(payload)
                 shipped.append({"family": key, "file": name, "url": url, "size": len(payload)})
+        for family, subsets in SUBSTITUTES.items():
+            for subset, url in subsets.items():
+                (directory / f"{slugify(family)}-{subset}.woff2").write_bytes(fetch(url))
         return shipped
 
     def font_report(self, shipped: list[dict]) -> str:
@@ -1017,7 +1101,7 @@ class Extractor:
                         body.extend(self.tile_markdown())
                         tiles_written = True
                     continue
-                key = rendition_key(block["src"])
+                key = picture_key(block["src"])
                 alt = escape_md(collapse(block["alt"]).strip())
                 image = f"![{alt}](/images/{self.pictures[key].file})"
                 href = rewrite_href(block.get("href") or "")
@@ -1114,6 +1198,10 @@ class Extractor:
             for spec in PAGES:
                 data = self.render(browser, spec)
                 self.pages[spec.file] = data
+                # Every page is read a second time on a phone: Wix crops a picture to
+                # the shape of the box it sits in, and the phone layout's boxes have
+                # their own shape.
+                self.phone[spec.file] = self.render(browser, spec, mobile=True)
                 self.collect_fonts(spec, data)
             browser.close()
 
@@ -1121,11 +1209,13 @@ class Extractor:
         self.tiles = self.read_tiles(PAGES[0], self.pages["home"])
         for spec in PAGES:
             position = 0
+            phone = self.phone_sources(spec.file)
             for block in self.in_document_order(self.pages[spec.file]["blocks"]):
                 if block["kind"] == "image":
                     position += 1
                     self.register(block["src"], block["alt"], spec.file,
-                                  hint=f"{spec.file}-{position}")
+                                  hint=f"{spec.file}-{position}",
+                                  mobile_url=phone.get(media_id(block["src"]), ""))
 
         for spec in PAGES:
             for block in self.pages[spec.file]["blocks"]:
@@ -1143,7 +1233,7 @@ class Extractor:
                     if overlapping(block["rect"], video["rect"]):
                         film = self.films.get(video["src"])
                         if film is not None and not film.poster:
-                            film.poster = self.pictures[rendition_key(block["src"])].file
+                            film.poster = self.pictures[picture_key(block["src"])].file
         self.download_films()
 
         content = self.out / "content"
@@ -1220,6 +1310,8 @@ def normalized_manifest(payload: bytes) -> dict:
     manifest = json.loads(payload)
     for row in manifest.get("images", []):
         row.pop("bytes", None)
+        if row.get("mobile"):
+            row["mobile"].pop("bytes", None)
     return manifest
 
 
@@ -1260,6 +1352,13 @@ def compare(root: Path, scratch: Path) -> tuple[list[str], dict[str, int]]:
                 changed.append("size")
             if without_requested_size(old[name]["url"]) != without_requested_size(new[name]["url"]):
                 changed.append("url")
+            old_phone, new_phone = old[name].get("mobile") or {}, new[name].get("mobile") or {}
+            if (old_phone.get("file") != new_phone.get("file")
+                    or without_requested_size(old_phone.get("url") or "")
+                    != without_requested_size(new_phone.get("url") or "")
+                    or not same_size((old_phone.get("width") or 0, old_phone.get("height") or 0),
+                                     (new_phone.get("width") or 0, new_phone.get("height") or 0))):
+                changed.append("phone rendition")
             if changed:
                 problems.append(f"{MANIFEST}: {name} changed ({', '.join(sorted(changed))})")
 

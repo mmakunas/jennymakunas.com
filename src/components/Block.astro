@@ -2,6 +2,7 @@
 // Renders one placed block: geometry comes from the capture, words and media
 // from `content/<slug>.md`.
 import { url } from '../lib/url.js';
+import Picture from './Picture.astro';
 const { block } = Astro.props;
 const cls = `blk ${block.kind === 'text' ? 'text' : block.kind} ${block.cls || ''}`;
 const Tag = block.tag && /^h[1-6]$/.test(block.tag) ? block.tag : 'p';
@@ -18,11 +19,11 @@ const facade = block.content && block.content.type === 'facade' ? block.content 
 {block.kind === 'image' && block.src && (
   href ? (
     <a class={cls} style={block.shared} href={href}>
-      <img src={url(block.src)} alt={block.alt || ''} loading="lazy" style={`object-fit:${block.fit || 'cover'}`} />
+      <Picture block={block} />
     </a>
   ) : (
     <div class={cls} style={block.shared}>
-      <img src={url(block.src)} alt={block.alt || ''} loading="lazy" style={`object-fit:${block.fit || 'cover'}`} />
+      <Picture block={block} />
     </div>
   )
 )}
@@ -32,7 +33,7 @@ const facade = block.content && block.content.type === 'facade' ? block.content 
     style={block.shared}
     src={url(film.src)}
     poster={film.poster ? url(film.poster) : undefined}
-    controls={film.controls}
+    controls={film.controls && !film.title}
     autoplay={film.autoplay}
     muted={film.muted}
     loop={film.loop}
@@ -49,12 +50,14 @@ const facade = block.content && block.content.type === 'facade' ? block.content 
 )}
 {film && film.title && !film.autoplay && (
   <script is:inline>
-    // The still carries the film's name the way Wix's player did; the button
-    // starts the film and gets out of the way.
+    // Wix shows a still with its name and a play circle, and no control bar
+    // until the visitor starts the film; ours waits the same way.
     document.currentScript.previousElementSibling?.addEventListener('click', function () {
       const film = this.previousElementSibling;
       this.remove();
-      film?.play?.();
+      if (!film) return;
+      film.controls = true;
+      film.play?.();
     });
   </script>
 )}
