@@ -1,0 +1,100 @@
+---
+// The site header: the logo, the Work dropdown of the 11 case studies, then
+// Thoughts, About and Contact. Positions come from the capture of the live site
+// so the row sits where Wix puts it at any width above the breakpoint; below it
+// the same links collapse into the menu Wix serves to phones.
+import { url } from '../lib/url.js';
+const { header, current } = Astro.props;
+const { desktopNav, logo, studies, menu } = header;
+const thoughts = (menu?.items || []).filter((i) => !studies.some((s) => s.text === i.text) && i.text !== 'Jenny Makunas' && !['Work', 'About', 'Contact', 'Thoughts'].includes(i.text));
+const isActive = (path) => current === path;
+---
+<div class="site-header">
+  <nav class="nav" aria-label="Main">
+    {logo && (
+      <a class="logo" href={url('/')} aria-current={current === '/' ? 'page' : undefined}>
+        {logo.text}
+      </a>
+    )}
+    {desktopNav.map((item, i) =>
+      item.text === 'Work' ? (
+        <div class={`nav-item nav-work nav-${i}${item.isActive ? ' is-active' : ''}`}>
+          <a href={url(item.href)} class="nav-label">{item.text}</a>
+          <div class="work-menu">
+            {studies.map((s) => (
+              <a href={url(s.href)} aria-current={s.active ? 'page' : undefined}>{s.text}</a>
+            ))}
+          </div>
+        </div>
+      ) : (
+        <a class={`nav-item nav-${i}${item.isActive ? ' is-active' : ''}`} href={url(item.href)}>
+          {item.text}
+        </a>
+      ),
+    )}
+
+    <button class="burger" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</div>
+
+<div class="menu-overlay" id="mobile-menu" hidden>
+  <button class="menu-close" type="button" aria-label="Close navigation menu">×</button>
+  <ul class="top">
+    <li>
+      <button class={`sub-toggle${isActive('/') || studies.some((s) => s.active) ? ' is-active' : ''}`} type="button" aria-expanded="false" aria-controls="menu-work">
+        Work <i class="chev"></i>
+      </button>
+      <ul class="sub" id="menu-work">
+        {studies.map((s) => (
+          <li><a href={url(s.href)}>{s.text}</a></li>
+        ))}
+      </ul>
+    </li>
+    <li>
+      <button class={`sub-toggle${isActive('/thoughts') ? ' is-active' : ''}`} type="button" aria-expanded="false" aria-controls="menu-thoughts">
+        Thoughts <i class="chev"></i>
+      </button>
+      <ul class="sub" id="menu-thoughts">
+        {thoughts.map((t) => (
+          <li><a href={url('/thoughts')}>{t.text}</a></li>
+        ))}
+      </ul>
+    </li>
+    <li><a href={url('/about')} class={isActive('/about') ? 'is-active' : ''}>About</a></li>
+    <li><a href={url('/contact-8')} class={isActive('/contact-8') ? 'is-active' : ''}>Contact</a></li>
+  </ul>
+</div>
+
+<script>
+  const overlay = document.getElementById('mobile-menu');
+  const toggle = document.querySelector('.burger');
+  const close = document.querySelector('.menu-close');
+  const setOpen = (on: boolean) => {
+    if (!overlay || !toggle) return;
+    overlay.hidden = !on;
+    toggle.setAttribute('aria-expanded', String(on));
+    document.body.style.overflow = on ? 'hidden' : '';
+  };
+  toggle?.addEventListener('click', () => overlay && setOpen(overlay.hidden));
+  close?.addEventListener('click', () => setOpen(false));
+  overlay?.addEventListener('click', (e) => {
+    const target = e.target as HTMLElement;
+    if (target instanceof HTMLAnchorElement) {
+      setOpen(false);
+      return;
+    }
+    const button = target.closest('.sub-toggle');
+    if (button) {
+      const sub = document.getElementById(button.getAttribute('aria-controls') || '');
+      if (sub) {
+        sub.classList.toggle('open');
+        button.setAttribute('aria-expanded', String(sub.classList.contains('open')));
+      }
+    }
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') setOpen(false);
+  });
+</script>

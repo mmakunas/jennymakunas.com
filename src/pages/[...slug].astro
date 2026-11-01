@@ -1,0 +1,19 @@
+---
+import Base from '../layouts/Base.astro';
+import Canvas from '../components/Canvas.astro';
+import { composePage, pageCss, chromeCss } from '../lib/site.js';
+import { allPages } from '../lib/content.js';
+
+export function getStaticPaths() {
+  return allPages()
+    .filter((p) => p.path !== '/')
+    .map((p) => ({ params: { slug: p.path.replace(/^\//, '') }, props: { contentSlug: p.slug } }));
+}
+
+// The route is the path Wix serves (/contact-8), the layout file is keyed by
+// the content slug (contact).
+const composed = composePage(Astro.props.contentSlug);
+---
+<Base composed={composed} css={pageCss(composed)} chrome={chromeCss(composed)}>
+  <Canvas composed={composed} />
+</Base>

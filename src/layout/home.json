@@ -1,0 +1,2084 @@
+{
+ "slug": "home",
+ "url": "https://jenny6926.wixsite.com/mysite",
+ "captured": "2026-11-01T00:48:21.571Z",
+ "desktop": {
+  "width": 983,
+  "wideWidth": 1440,
+  "docHeight": 3034,
+  "header": {
+   "rect": {
+    "x": 0,
+    "y": 0,
+    "w": 983,
+    "h": 88
+   },
+   "bg": "rgba(0, 0, 0, 0)",
+   "shadow": "none",
+   "border": "0px none rgb(0, 0, 0)",
+   "position": "sticky",
+   "nav": [
+    {
+     "text": "Jenny Makunas",
+     "href": "https://jenny6926.wixsite.com/mysite",
+     "rect": {
+      "x": 20.5,
+      "y": 20,
+      "w": 165,
+      "h": 40
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 25,
+      "weight": 700,
+      "lineHeight": 35,
+      "color": "rgb(217, 75, 149)",
+      "align": "start",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Work",
+     "href": "https://jenny6926.wixsite.com/mysite",
+     "rect": {
+      "x": 372.5,
+      "y": 14,
+      "w": 129.5,
+      "h": 52
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 25,
+      "weight": 700,
+      "lineHeight": null,
+      "color": "rgb(228, 162, 128)",
+      "align": "left",
+      "spacing": 1.25,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Now You: Brand Campaign",
+     "href": "https://jenny6926.wixsite.com/mysite/now-you-brand-campaign",
+     "rect": {
+      "x": 0,
+      "y": -50,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": null,
+      "color": "rgb(0, 0, 0)",
+      "align": "left",
+      "spacing": 0.8,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Anna Wintour: How to Be a Boss",
+     "href": "https://jenny6926.wixsite.com/mysite/anna-wintour-how-to-be-a-boss-1",
+     "rect": {
+      "x": 0,
+      "y": -50,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": null,
+      "color": "rgb(0, 0, 0)",
+      "align": "left",
+      "spacing": 0.8,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Alicia Keys: Words Create Worlds",
+     "href": "https://jenny6926.wixsite.com/mysite/alicia-keys-words-create-worlds-1",
+     "rect": {
+      "x": 0,
+      "y": -50,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": null,
+      "color": "rgb(0, 0, 0)",
+      "align": "left",
+      "spacing": 0.8,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Mariah Carey: Pass the Mic",
+     "href": "https://jenny6926.wixsite.com/mysite/mariah-carey-pass-the-mic",
+     "rect": {
+      "x": 0,
+      "y": -50,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": null,
+      "color": "rgb(0, 0, 0)",
+      "align": "left",
+      "spacing": 0.8,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "The World Could Use One of You",
+     "href": "https://jenny6926.wixsite.com/mysite/the-world-could-use-one-of-you",
+     "rect": {
+      "x": 0,
+      "y": -50,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": null,
+      "color": "rgb(0, 0, 0)",
+      "align": "left",
+      "spacing": 0.8,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Now You Countdown: Portfolio Campaign",
+     "href": "https://jenny6926.wixsite.com/mysite/now-you-countdown-portfolio-campaign",
+     "rect": {
+      "x": 0,
+      "y": -50,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": null,
+      "color": "rgb(0, 0, 0)",
+      "align": "left",
+      "spacing": 0.8,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "So Much New To Know: Portfolio Campaign",
+     "href": "https://jenny6926.wixsite.com/mysite/so-much-new-to-know-portfolio-campaign",
+     "rect": {
+      "x": 0,
+      "y": -50,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": null,
+      "color": "rgb(0, 0, 0)",
+      "align": "left",
+      "spacing": 0.8,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Today's the Day: Brand Campaign",
+     "href": "https://jenny6926.wixsite.com/mysite/today-s-the-day-brand-campaign",
+     "rect": {
+      "x": 0,
+      "y": -50,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": null,
+      "color": "rgb(0, 0, 0)",
+      "align": "left",
+      "spacing": 0.8,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Animaniacs x MasterClass",
+     "href": "https://jenny6926.wixsite.com/mysite/animaniacs-x-masterclass",
+     "rect": {
+      "x": 0,
+      "y": -50,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": null,
+      "color": "rgb(0, 0, 0)",
+      "align": "left",
+      "spacing": 0.8,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "23andMe: DNA Day 2023",
+     "href": "https://jenny6926.wixsite.com/mysite/23andme-dna-day-2023",
+     "rect": {
+      "x": 0,
+      "y": -50,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": null,
+      "color": "rgb(0, 0, 0)",
+      "align": "left",
+      "spacing": 0.8,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Hot Mess: Creative Collective",
+     "href": "https://jenny6926.wixsite.com/mysite/hot-mess-creative-collective",
+     "rect": {
+      "x": 0,
+      "y": -50,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": null,
+      "color": "rgb(0, 0, 0)",
+      "align": "left",
+      "spacing": 0.8,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Thoughts",
+     "href": "https://jenny6926.wixsite.com/mysite/thoughts",
+     "rect": {
+      "x": 508,
+      "y": 14,
+      "w": 170.5,
+      "h": 52
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 25,
+      "weight": 700,
+      "lineHeight": null,
+      "color": "rgb(160, 161, 173)",
+      "align": "left",
+      "spacing": 1.25,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "About",
+     "href": "https://jenny6926.wixsite.com/mysite/about",
+     "rect": {
+      "x": 684.5,
+      "y": 14,
+      "w": 134.8,
+      "h": 52
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 25,
+      "weight": 700,
+      "lineHeight": null,
+      "color": "rgb(160, 161, 173)",
+      "align": "left",
+      "spacing": 1.25,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Contact",
+     "href": "https://jenny6926.wixsite.com/mysite/contact-8",
+     "rect": {
+      "x": 825.3,
+      "y": 14,
+      "w": 156.3,
+      "h": 52
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 25,
+      "weight": 700,
+      "lineHeight": null,
+      "color": "rgb(160, 161, 173)",
+      "align": "left",
+      "spacing": 1.25,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    }
+   ],
+   "burger": null
+  },
+  "footer": {
+   "rect": {
+    "x": 0,
+    "y": 2877,
+    "w": 983,
+    "h": 156.6
+   },
+   "bg": "rgba(0, 0, 0, 0)"
+  },
+  "bands": [
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 3034,
+    "y": 0
+   },
+   {
+    "bg": "rgb(50, 87, 164)",
+    "h": 555,
+    "y": 88
+   },
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 639,
+    "y": 5
+   },
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 81,
+    "y": 2796
+   }
+  ],
+  "gallery": [
+   {
+    "kind": "tile",
+    "rect": {
+     "x": 0,
+     "y": 644.5,
+     "w": 492,
+     "h": 368.3
+    },
+    "src": "https://static.wixstatic.com/media/a8ae1a_35fc39d7621b440e9d6bdef7a70db951~mv2.jpg/v1/fill/w_492,h_369,q_90,enc_avif,quality_auto/a8ae1a_35fc39d7621b440e9d6bdef7a70db951~mv2.jpg",
+    "fit": "cover",
+    "href": null,
+    "alt": ""
+   },
+   {
+    "kind": "tile",
+    "rect": {
+     "x": 492,
+     "y": 644.5,
+     "w": 491,
+     "h": 368.3
+    },
+    "src": "https://static.wixstatic.com/media/a8ae1a_29a5f282680542019130e4ed768571ba~mv2.png/v1/fill/w_491,h_369,q_90,enc_avif,quality_auto/a8ae1a_29a5f282680542019130e4ed768571ba~mv2.png",
+    "fit": "cover",
+    "href": null,
+    "alt": ""
+   },
+   {
+    "kind": "tile",
+    "rect": {
+     "x": 0,
+     "y": 1012.7,
+     "w": 492,
+     "h": 368.3
+    },
+    "src": "https://static.wixstatic.com/media/a8ae1a_9392128bf8474c649706c8e02f029474~mv2.png/v1/fill/w_492,h_369,q_90,enc_avif,quality_auto/a8ae1a_9392128bf8474c649706c8e02f029474~mv2.png",
+    "fit": "cover",
+    "href": null,
+    "alt": ""
+   },
+   {
+    "kind": "tile",
+    "rect": {
+     "x": 492,
+     "y": 1012.7,
+     "w": 491,
+     "h": 368.3
+    },
+    "src": "https://static.wixstatic.com/media/a8ae1a_2a2d9c827bb941c79eb40aaf12d88bef~mv2.png/v1/fill/w_491,h_369,q_90,enc_avif,quality_auto/a8ae1a_2a2d9c827bb941c79eb40aaf12d88bef~mv2.png",
+    "fit": "cover",
+    "href": null,
+    "alt": ""
+   },
+   {
+    "kind": "tile",
+    "rect": {
+     "x": 0,
+     "y": 1381,
+     "w": 492,
+     "h": 368.3
+    },
+    "src": "https://static.wixstatic.com/media/a8ae1a_17d309d3f86e4455a3eabf3df2db94b7~mv2.png/v1/fill/w_492,h_369,q_90,enc_avif,quality_auto/a8ae1a_17d309d3f86e4455a3eabf3df2db94b7~mv2.png",
+    "fit": "cover",
+    "href": null,
+    "alt": ""
+   },
+   {
+    "kind": "tile",
+    "rect": {
+     "x": 492,
+     "y": 1381,
+     "w": 491,
+     "h": 368.3
+    },
+    "src": "https://static.wixstatic.com/media/a8ae1a_84c17c6cb54e45b78525d89b36565964~mv2.png/v1/fill/w_491,h_369,q_90,enc_avif,quality_auto/a8ae1a_84c17c6cb54e45b78525d89b36565964~mv2.png",
+    "fit": "cover",
+    "href": null,
+    "alt": ""
+   },
+   {
+    "kind": "tile",
+    "rect": {
+     "x": 0,
+     "y": 1749.2,
+     "w": 492,
+     "h": 368.3
+    },
+    "src": null,
+    "fit": null,
+    "href": null,
+    "alt": ""
+   },
+   {
+    "kind": "tile",
+    "rect": {
+     "x": 0,
+     "y": 1749.2,
+     "w": 492,
+     "h": 368.3
+    },
+    "src": "https://static.wixstatic.com/media/a8ae1a_e95f7fc7551b48e39c03e203fe9aae66~mv2.png/v1/fill/w_492,h_369,q_90,enc_avif,quality_auto/a8ae1a_e95f7fc7551b48e39c03e203fe9aae66~mv2.png",
+    "fit": "cover",
+    "href": null,
+    "alt": ""
+   },
+   {
+    "kind": "tile",
+    "rect": {
+     "x": 492,
+     "y": 1749.2,
+     "w": 491,
+     "h": 368.3
+    },
+    "src": "https://static.wixstatic.com/media/a8ae1a_3a28c94c42d249a085e90505c1434973~mv2.png/v1/fill/w_491,h_369,q_90,enc_avif,quality_auto/a8ae1a_3a28c94c42d249a085e90505c1434973~mv2.png",
+    "fit": "cover",
+    "href": null,
+    "alt": ""
+   },
+   {
+    "kind": "tile",
+    "rect": {
+     "x": 0,
+     "y": 2117.5,
+     "w": 492,
+     "h": 368.3
+    },
+    "src": "https://static.wixstatic.com/media/a8ae1a_f7c3b29ac4304da2965463e8455bf889~mv2.png/v1/fill/w_492,h_369,q_90,enc_avif,quality_auto/a8ae1a_f7c3b29ac4304da2965463e8455bf889~mv2.png",
+    "fit": "cover",
+    "href": null,
+    "alt": ""
+   },
+   {
+    "kind": "tile",
+    "rect": {
+     "x": 492,
+     "y": 2117.5,
+     "w": 491,
+     "h": 368.3
+    },
+    "src": "https://static.wixstatic.com/media/a8ae1a_d761d01ac6654361b351656183a0fc8a~mv2.jpg/v1/fill/w_491,h_369,q_90,enc_avif,quality_auto/a8ae1a_d761d01ac6654361b351656183a0fc8a~mv2.jpg",
+    "fit": "cover",
+    "href": null,
+    "alt": ""
+   },
+   {
+    "kind": "tile",
+    "rect": {
+     "x": 0,
+     "y": 2485.7,
+     "w": 492,
+     "h": 368.3
+    },
+    "src": "https://static.wixstatic.com/media/a8ae1a_d822261807174cf29b6ff64473837f15~mv2.jpg/v1/fill/w_492,h_369,q_90,enc_avif,quality_auto/a8ae1a_d822261807174cf29b6ff64473837f15~mv2.jpg",
+    "fit": "cover",
+    "href": null,
+    "alt": ""
+   }
+  ],
+  "blocks": [
+   {
+    "kind": "text",
+    "tag": "h1",
+    "html": "<span style=\"font-size:32px;\" class=\"wixui-rich-text__text\"><span class=\"color_41 wixui-rich-text__text\"><span style=\"letter-spacing:normal;\" class=\"wixui-rich-text__text\">A global brand leader who thrives on creating order from chaos.<br class=\"wixui-rich-text__text\">\n<br class=\"wixui-rich-text__text\">\nA history of building award-winning, breakthrough campaigns that launch brands, transform products, and define companies.<br class=\"wixui-rich-text__text\">\n<br class=\"wixui-rich-text__text\">\nA passion for sharp strategies that build brand equity, drive awareness, create demand, and convert prospects into engaged advocates.&nbsp;<br class=\"wixui-rich-text__text\">\n<br class=\"wixui-rich-text__text\">\nA belief that being strong in thought and kind in tone is how things *really* get done.</span></span></span>",
+    "text": "A global brand leader who thrives on creating order from chaos.\n\nA history of building award-winning, breakthrough campaigns that launch brands, transform products, and define companies.\n\nA passion for sharp strategies that build brand equity, drive awareness, create demand, and convert prospects into engaged advocates. \n\nA belief that being strong in thought and kind in tone is how things *really* get done.",
+    "rect": {
+     "x": 31.5,
+     "y": 122,
+     "w": 919,
+     "h": 422.5
+    },
+    "box": {
+     "x": 31.5,
+     "y": 122,
+     "w": 919,
+     "h": 422.5
+    },
+    "style": {
+     "font": "futura-lt-w01-book",
+     "size": 32,
+     "weight": 700,
+     "lineHeight": 38.4,
+     "color": "rgb(217, 75, 149)",
+     "align": "start",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null,
+    "wide": {
+     "x": 260,
+     "y": 122,
+     "w": 919,
+     "h": 422.5
+    }
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span class=\"color_37 wixui-rich-text__text\"><span style=\"font-weight:bold;\" class=\"wixui-rich-text__text\"><span style=\"font-size:20px;\" class=\"wixui-rich-text__text\"><span style=\"letter-spacing:normal;\" class=\"wixui-rich-text__text\">Scroll down to see recent work</span></span></span></span>",
+    "text": "Scroll down to see recent work",
+    "rect": {
+     "x": 26.5,
+     "y": 592.5,
+     "w": 894,
+     "h": 24
+    },
+    "box": {
+     "x": 26.5,
+     "y": 592.5,
+     "w": 894,
+     "h": 24
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 20,
+     "weight": 400,
+     "lineHeight": null,
+     "color": "rgb(217, 75, 149)",
+     "align": "center",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null,
+    "wide": {
+     "x": 255,
+     "y": 592.5,
+     "w": 894,
+     "h": 24
+    }
+   },
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_35fc39d7621b440e9d6bdef7a70db951~mv2.jpg/v1/fill/w_492,h_369,q_90,enc_avif,quality_auto/a8ae1a_35fc39d7621b440e9d6bdef7a70db951~mv2.jpg",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 0,
+     "y": 644.5,
+     "w": 492,
+     "h": 368.3
+    },
+    "box": {
+     "x": 0,
+     "y": 644.5,
+     "w": 983,
+     "h": 2209.5
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": "",
+    "wide": {
+     "x": 0,
+     "y": 644.5,
+     "w": 720,
+     "h": 540
+    }
+   },
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_29a5f282680542019130e4ed768571ba~mv2.png/v1/fill/w_491,h_369,q_90,enc_avif,quality_auto/a8ae1a_29a5f282680542019130e4ed768571ba~mv2.png",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 492,
+     "y": 644.5,
+     "w": 491,
+     "h": 368.3
+    },
+    "box": {
+     "x": 0,
+     "y": 644.5,
+     "w": 983,
+     "h": 2209.5
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": "",
+    "wide": {
+     "x": 720,
+     "y": 644.5,
+     "w": 720,
+     "h": 540
+    }
+   },
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_9392128bf8474c649706c8e02f029474~mv2.png/v1/fill/w_492,h_369,q_90,enc_avif,quality_auto/a8ae1a_9392128bf8474c649706c8e02f029474~mv2.png",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 0,
+     "y": 1012.7,
+     "w": 492,
+     "h": 368.3
+    },
+    "box": {
+     "x": 0,
+     "y": 644.5,
+     "w": 983,
+     "h": 2209.5
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": "",
+    "wide": {
+     "x": 0,
+     "y": 1012.7,
+     "w": 492,
+     "h": 368.3
+    }
+   },
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_2a2d9c827bb941c79eb40aaf12d88bef~mv2.png/v1/fill/w_491,h_369,q_90,enc_avif,quality_auto/a8ae1a_2a2d9c827bb941c79eb40aaf12d88bef~mv2.png",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 492,
+     "y": 1012.7,
+     "w": 491,
+     "h": 368.3
+    },
+    "box": {
+     "x": 0,
+     "y": 644.5,
+     "w": 983,
+     "h": 2209.5
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": "",
+    "wide": {
+     "x": 492,
+     "y": 1012.7,
+     "w": 491,
+     "h": 368.3
+    }
+   },
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_17d309d3f86e4455a3eabf3df2db94b7~mv2.png/v1/fill/w_492,h_369,q_90,enc_avif,quality_auto/a8ae1a_17d309d3f86e4455a3eabf3df2db94b7~mv2.png",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 0,
+     "y": 1381,
+     "w": 492,
+     "h": 368.3
+    },
+    "box": {
+     "x": 0,
+     "y": 644.5,
+     "w": 983,
+     "h": 2209.5
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": "",
+    "wide": {
+     "x": 0,
+     "y": 1381,
+     "w": 492,
+     "h": 368.3
+    }
+   },
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_84c17c6cb54e45b78525d89b36565964~mv2.png/v1/fill/w_491,h_369,q_90,enc_avif,quality_auto/a8ae1a_84c17c6cb54e45b78525d89b36565964~mv2.png",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 492,
+     "y": 1381,
+     "w": 491,
+     "h": 368.3
+    },
+    "box": {
+     "x": 0,
+     "y": 644.5,
+     "w": 983,
+     "h": 2209.5
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": "",
+    "wide": {
+     "x": 492,
+     "y": 1381,
+     "w": 491,
+     "h": 368.3
+    }
+   },
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_e95f7fc7551b48e39c03e203fe9aae66~mv2.png/v1/fill/w_492,h_369,q_90,enc_avif,quality_auto/a8ae1a_e95f7fc7551b48e39c03e203fe9aae66~mv2.png",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 0,
+     "y": 1749.2,
+     "w": 492,
+     "h": 368.3
+    },
+    "box": {
+     "x": 0,
+     "y": 644.5,
+     "w": 983,
+     "h": 2209.5
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": "",
+    "wide": {
+     "x": 0,
+     "y": 1749.2,
+     "w": 492,
+     "h": 368.3
+    }
+   },
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_3a28c94c42d249a085e90505c1434973~mv2.png/v1/fill/w_491,h_369,q_90,enc_avif,quality_auto/a8ae1a_3a28c94c42d249a085e90505c1434973~mv2.png",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 492,
+     "y": 1749.2,
+     "w": 491,
+     "h": 368.3
+    },
+    "box": {
+     "x": 0,
+     "y": 644.5,
+     "w": 983,
+     "h": 2209.5
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": "",
+    "wide": {
+     "x": 492,
+     "y": 1749.2,
+     "w": 491,
+     "h": 368.3
+    }
+   },
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_f7c3b29ac4304da2965463e8455bf889~mv2.png/v1/fill/w_492,h_369,q_90,enc_avif,quality_auto/a8ae1a_f7c3b29ac4304da2965463e8455bf889~mv2.png",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 0,
+     "y": 2117.5,
+     "w": 492,
+     "h": 368.3
+    },
+    "box": {
+     "x": 0,
+     "y": 644.5,
+     "w": 983,
+     "h": 2209.5
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": "",
+    "wide": {
+     "x": 0,
+     "y": 2117.5,
+     "w": 492,
+     "h": 368.3
+    }
+   },
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_d761d01ac6654361b351656183a0fc8a~mv2.jpg/v1/fill/w_491,h_369,q_90,enc_avif,quality_auto/a8ae1a_d761d01ac6654361b351656183a0fc8a~mv2.jpg",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 492,
+     "y": 2117.5,
+     "w": 491,
+     "h": 368.3
+    },
+    "box": {
+     "x": 0,
+     "y": 644.5,
+     "w": 983,
+     "h": 2209.5
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": "",
+    "wide": {
+     "x": 492,
+     "y": 2117.5,
+     "w": 491,
+     "h": 368.3
+    }
+   },
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_d822261807174cf29b6ff64473837f15~mv2.jpg/v1/fill/w_492,h_369,q_90,enc_avif,quality_auto/a8ae1a_d822261807174cf29b6ff64473837f15~mv2.jpg",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 0,
+     "y": 2485.7,
+     "w": 492,
+     "h": 368.3
+    },
+    "box": {
+     "x": 0,
+     "y": 644.5,
+     "w": 983,
+     "h": 2209.5
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": "",
+    "wide": {
+     "x": 0,
+     "y": 2485.7,
+     "w": 492,
+     "h": 368.3
+    }
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span class=\"color_41 wixui-rich-text__text\"><span style=\"text-decoration:underline;\" class=\"wixui-rich-text__text\"><a href=\"mailto:jenny@makunas.com?subject=Let's work together!\" target=\"_self\" class=\"wixui-rich-text__text\"><span style=\"letter-spacing:normal;\" class=\"wixui-rich-text__text\">Get in Touch!</span></a></span></span>",
+    "text": "Get in Touch!",
+    "rect": {
+     "x": 323.5,
+     "y": 2820,
+     "w": 336,
+     "h": 32
+    },
+    "box": {
+     "x": 323.5,
+     "y": 2820,
+     "w": 336,
+     "h": 32
+    },
+    "style": {
+     "font": "futura-lt-w01-book",
+     "size": 25,
+     "weight": 700,
+     "lineHeight": null,
+     "color": "rgb(217, 75, 149)",
+     "align": "center",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null,
+    "wide": {
+     "x": 552,
+     "y": 3850.5,
+     "w": 336,
+     "h": 32
+    }
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span class=\"color_37 wixui-rich-text__text\"><span style=\"letter-spacing:normal;\" class=\"wixui-rich-text__text\"><a data-auto-recognition=\"true\" href=\"mailto:jenny@makunas.com\" class=\"wixui-rich-text__text\">jenny@makunas.com</a>​ &nbsp;|&nbsp; 415-609-1504</span></span>",
+    "text": "jenny@makunas.com  |  415-609-1504",
+    "rect": {
+     "x": 211.5,
+     "y": 2968,
+     "w": 560,
+     "h": 21
+    },
+    "box": {
+     "x": 211.5,
+     "y": 2968,
+     "w": 560,
+     "h": 21
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 17,
+     "weight": 400,
+     "lineHeight": null,
+     "color": "rgb(217, 75, 149)",
+     "align": "center",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null,
+    "wide": {
+     "x": 440,
+     "y": 3998.5,
+     "w": 560,
+     "h": 21
+    }
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span style=\"letter-spacing:normal;\" class=\"wixui-rich-text__text\">© 2024 by Jenny Makunas</span>",
+    "text": "© 2024 by Jenny Makunas",
+    "rect": {
+     "x": 181.5,
+     "y": 2998,
+     "w": 619,
+     "h": 19.6
+    },
+    "box": {
+     "x": 181.5,
+     "y": 2998,
+     "w": 619,
+     "h": 19.6
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 14,
+     "weight": 400,
+     "lineHeight": 19.6,
+     "color": "rgb(217, 75, 149)",
+     "align": "center",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null,
+    "wide": {
+     "x": 410,
+     "y": 4028.5,
+     "w": 619,
+     "h": 19.6
+    }
+   }
+  ]
+ },
+ "mobile": {
+  "width": 320,
+  "docHeight": 3862,
+  "header": {
+   "rect": {
+    "x": 0,
+    "y": 0,
+    "w": 320,
+    "h": 71
+   },
+   "bg": "rgba(0, 0, 0, 0)",
+   "shadow": "none",
+   "border": "0px none rgb(0, 0, 0)",
+   "position": "sticky",
+   "nav": [
+    {
+     "text": "Jenny Makunas",
+     "href": "https://jenny6926.wixsite.com/mysite",
+     "rect": {
+      "x": 18,
+      "y": 13,
+      "w": 155,
+      "h": 44
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 20,
+      "weight": 700,
+      "lineHeight": 28,
+      "color": "rgb(217, 75, 149)",
+      "align": "start",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Work",
+     "href": "https://jenny6926.wixsite.com/mysite",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Now You: Brand Campaign",
+     "href": "https://jenny6926.wixsite.com/mysite/now-you-brand-campaign",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Anna Wintour: How to Be a Boss",
+     "href": "https://jenny6926.wixsite.com/mysite/anna-wintour-how-to-be-a-boss-1",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Alicia Keys: Words Create Worlds",
+     "href": "https://jenny6926.wixsite.com/mysite/alicia-keys-words-create-worlds-1",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Mariah Carey: Pass the Mic",
+     "href": "https://jenny6926.wixsite.com/mysite/mariah-carey-pass-the-mic",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "The World Could Use One of You",
+     "href": "https://jenny6926.wixsite.com/mysite/the-world-could-use-one-of-you",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Now You Countdown: Portfolio Campaign",
+     "href": "https://jenny6926.wixsite.com/mysite/now-you-countdown-portfolio-campaign",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "So Much New To Know: Portfolio Campaign",
+     "href": "https://jenny6926.wixsite.com/mysite/so-much-new-to-know-portfolio-campaign",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Today's the Day: Brand Campaign",
+     "href": "https://jenny6926.wixsite.com/mysite/today-s-the-day-brand-campaign",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Animaniacs x MasterClass",
+     "href": "https://jenny6926.wixsite.com/mysite/animaniacs-x-masterclass",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "23andMe: DNA Day 2023",
+     "href": "https://jenny6926.wixsite.com/mysite/23andme-dna-day-2023",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Hot Mess: Creative Collective",
+     "href": "https://jenny6926.wixsite.com/mysite/hot-mess-creative-collective",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Thoughts",
+     "href": "https://jenny6926.wixsite.com/mysite/thoughts",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(193, 198, 209)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Hot Mess Creative",
+     "href": "https://jenny6926.wixsite.com/mysite/thoughts",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "SuperBowl 2024",
+     "href": "https://jenny6926.wixsite.com/mysite/thoughts",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "About",
+     "href": "https://jenny6926.wixsite.com/mysite/about",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(193, 198, 209)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Contact",
+     "href": "https://jenny6926.wixsite.com/mysite/contact-8",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(193, 198, 209)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    }
+   ],
+   "burger": {
+    "x": 251,
+    "y": 10,
+    "w": 50,
+    "h": 50
+   }
+  },
+  "footer": {
+   "rect": {
+    "x": 0,
+    "y": 3556.5,
+    "w": 320,
+    "h": 305
+   },
+   "bg": "rgba(0, 0, 0, 0)"
+  },
+  "bands": [
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 3862,
+    "y": 0
+   },
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 0,
+    "y": -38
+   },
+   {
+    "bg": "rgb(50, 87, 164)",
+    "h": 749,
+    "y": 71
+   },
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 739,
+    "y": 71
+   },
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 82,
+    "y": 3475
+   }
+  ],
+  "gallery": [
+   {
+    "kind": "tile",
+    "rect": {
+     "x": 0,
+     "y": 819.5,
+     "w": 320,
+     "h": 240
+    },
+    "src": "https://static.wixstatic.com/media/a8ae1a_35fc39d7621b440e9d6bdef7a70db951~mv2.jpg/v1/fill/w_320,h_240,q_90,enc_avif,quality_auto/a8ae1a_35fc39d7621b440e9d6bdef7a70db951~mv2.jpg",
+    "fit": "cover",
+    "href": null,
+    "alt": ""
+   },
+   {
+    "kind": "tile",
+    "rect": {
+     "x": 0,
+     "y": 1059.5,
+     "w": 320,
+     "h": 240
+    },
+    "src": "https://static.wixstatic.com/media/a8ae1a_29a5f282680542019130e4ed768571ba~mv2.png/v1/fill/w_320,h_240,q_90,enc_avif,quality_auto/a8ae1a_29a5f282680542019130e4ed768571ba~mv2.png",
+    "fit": "cover",
+    "href": null,
+    "alt": ""
+   },
+   {
+    "kind": "tile",
+    "rect": {
+     "x": 0,
+     "y": 1299.5,
+     "w": 320,
+     "h": 240
+    },
+    "src": "https://static.wixstatic.com/media/a8ae1a_9392128bf8474c649706c8e02f029474~mv2.png/v1/fill/w_320,h_240,q_90,enc_avif,quality_auto/a8ae1a_9392128bf8474c649706c8e02f029474~mv2.png",
+    "fit": "cover",
+    "href": null,
+    "alt": ""
+   },
+   {
+    "kind": "tile",
+    "rect": {
+     "x": 0,
+     "y": 1539.5,
+     "w": 320,
+     "h": 240
+    },
+    "src": "https://static.wixstatic.com/media/a8ae1a_2a2d9c827bb941c79eb40aaf12d88bef~mv2.png/v1/fill/w_320,h_240,q_90,enc_avif,quality_auto/a8ae1a_2a2d9c827bb941c79eb40aaf12d88bef~mv2.png",
+    "fit": "cover",
+    "href": null,
+    "alt": ""
+   },
+   {
+    "kind": "tile",
+    "rect": {
+     "x": 0,
+     "y": 1779.5,
+     "w": 320,
+     "h": 240
+    },
+    "src": "https://static.wixstatic.com/media/a8ae1a_17d309d3f86e4455a3eabf3df2db94b7~mv2.png/v1/fill/w_320,h_240,q_90,enc_avif,quality_auto/a8ae1a_17d309d3f86e4455a3eabf3df2db94b7~mv2.png",
+    "fit": "cover",
+    "href": null,
+    "alt": ""
+   },
+   {
+    "kind": "tile",
+    "rect": {
+     "x": 0,
+     "y": 2019.5,
+     "w": 320,
+     "h": 240
+    },
+    "src": "https://static.wixstatic.com/media/a8ae1a_84c17c6cb54e45b78525d89b36565964~mv2.png/v1/fill/w_320,h_240,q_90,enc_avif,quality_auto/a8ae1a_84c17c6cb54e45b78525d89b36565964~mv2.png",
+    "fit": "cover",
+    "href": null,
+    "alt": ""
+   },
+   {
+    "kind": "tile",
+    "rect": {
+     "x": 0,
+     "y": 2259.5,
+     "w": 320,
+     "h": 240
+    },
+    "src": null,
+    "fit": null,
+    "href": null,
+    "alt": ""
+   },
+   {
+    "kind": "tile",
+    "rect": {
+     "x": 0,
+     "y": 2259.5,
+     "w": 320,
+     "h": 240
+    },
+    "src": "https://static.wixstatic.com/media/a8ae1a_e95f7fc7551b48e39c03e203fe9aae66~mv2.png/v1/fill/w_390,h_293,q_90,enc_avif,quality_auto/a8ae1a_e95f7fc7551b48e39c03e203fe9aae66~mv2.png",
+    "fit": "cover",
+    "href": null,
+    "alt": ""
+   },
+   {
+    "kind": "tile",
+    "rect": {
+     "x": 0,
+     "y": 2499.5,
+     "w": 320,
+     "h": 240
+    },
+    "src": "https://static.wixstatic.com/media/a8ae1a_3a28c94c42d249a085e90505c1434973~mv2.png/v1/fill/w_390,h_293,q_90,enc_avif,quality_auto/a8ae1a_3a28c94c42d249a085e90505c1434973~mv2.png",
+    "fit": "cover",
+    "href": null,
+    "alt": ""
+   },
+   {
+    "kind": "tile",
+    "rect": {
+     "x": 0,
+     "y": 2739.5,
+     "w": 320,
+     "h": 240
+    },
+    "src": "https://static.wixstatic.com/media/a8ae1a_f7c3b29ac4304da2965463e8455bf889~mv2.png/v1/fill/w_390,h_293,q_90,enc_avif,quality_auto/a8ae1a_f7c3b29ac4304da2965463e8455bf889~mv2.png",
+    "fit": "cover",
+    "href": null,
+    "alt": ""
+   },
+   {
+    "kind": "tile",
+    "rect": {
+     "x": 0,
+     "y": 2979.5,
+     "w": 320,
+     "h": 240
+    },
+    "src": "https://static.wixstatic.com/media/a8ae1a_d761d01ac6654361b351656183a0fc8a~mv2.jpg/v1/fill/w_390,h_293,q_90,enc_avif,quality_auto/a8ae1a_d761d01ac6654361b351656183a0fc8a~mv2.jpg",
+    "fit": "cover",
+    "href": null,
+    "alt": ""
+   },
+   {
+    "kind": "tile",
+    "rect": {
+     "x": 0,
+     "y": 3219.5,
+     "w": 320,
+     "h": 240
+    },
+    "src": "https://static.wixstatic.com/media/a8ae1a_d822261807174cf29b6ff64473837f15~mv2.jpg/v1/fill/w_390,h_293,q_90,enc_avif,quality_auto/a8ae1a_d822261807174cf29b6ff64473837f15~mv2.jpg",
+    "fit": "cover",
+    "href": null,
+    "alt": ""
+   }
+  ],
+  "blocks": [
+   {
+    "kind": "text",
+    "tag": "h1",
+    "html": "<span style=\"font-size:24px;\" class=\"wixui-rich-text__text\"><span class=\"color_41 wixui-rich-text__text\"><span style=\"letter-spacing:normal;\" class=\"wixui-rich-text__text\">A global brand leader who thrives on creating order from chaos.<br class=\"wixui-rich-text__text\">\n<br class=\"wixui-rich-text__text\">\nA history of building award-winning, breakthrough campaigns that launch brands, transform products, and define companies.<br class=\"wixui-rich-text__text\">\n<br class=\"wixui-rich-text__text\">\nA passion for sharp strategies that build brand equity, drive awareness, create demand, and convert prospects into engaged advocates.&nbsp;<br class=\"wixui-rich-text__text\">\n<br class=\"wixui-rich-text__text\">\nA belief that being strong in thought and kind in tone is how things *really* get done.</span></span></span>",
+    "text": "A global brand leader who thrives on creating order from chaos.\n\nA history of building award-winning, breakthrough campaigns that launch brands, transform products, and define companies.\n\nA passion for sharp strategies that build brand equity, drive awareness, create demand, and convert prospects into engaged advocates. \n\nA belief that being strong in thought and kind in tone is how things *really* get done.",
+    "rect": {
+     "x": 19,
+     "y": 91,
+     "w": 282,
+     "h": 633.5
+    },
+    "box": {
+     "x": 19,
+     "y": 91,
+     "w": 282,
+     "h": 633.5
+    },
+    "style": {
+     "font": "futura-lt-w01-book",
+     "size": 24,
+     "weight": 700,
+     "lineHeight": 28.8,
+     "color": "rgb(217, 75, 149)",
+     "align": "start",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span class=\"color_37 wixui-rich-text__text\"><span style=\"font-weight:bold;\" class=\"wixui-rich-text__text\"><span style=\"font-size:19px;\" class=\"wixui-rich-text__text\"><span style=\"letter-spacing:normal;\" class=\"wixui-rich-text__text\">Scroll down to see recent work</span></span></span></span>",
+    "text": "Scroll down to see recent work",
+    "rect": {
+     "x": 19,
+     "y": 760.5,
+     "w": 282,
+     "h": 23
+    },
+    "box": {
+     "x": 19,
+     "y": 760.5,
+     "w": 282,
+     "h": 23
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 19,
+     "weight": 400,
+     "lineHeight": null,
+     "color": "rgb(217, 75, 149)",
+     "align": "center",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null
+   },
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_35fc39d7621b440e9d6bdef7a70db951~mv2.jpg/v1/fill/w_320,h_240,q_90,enc_avif,quality_auto/a8ae1a_35fc39d7621b440e9d6bdef7a70db951~mv2.jpg",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 0,
+     "y": 819.5,
+     "w": 320,
+     "h": 240
+    },
+    "box": {
+     "x": 0,
+     "y": 819.5,
+     "w": 320,
+     "h": 2640
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": ""
+   },
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_29a5f282680542019130e4ed768571ba~mv2.png/v1/fill/w_320,h_240,q_90,enc_avif,quality_auto/a8ae1a_29a5f282680542019130e4ed768571ba~mv2.png",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 0,
+     "y": 1059.5,
+     "w": 320,
+     "h": 240
+    },
+    "box": {
+     "x": 0,
+     "y": 819.5,
+     "w": 320,
+     "h": 2640
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": ""
+   },
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_9392128bf8474c649706c8e02f029474~mv2.png/v1/fill/w_320,h_240,q_90,enc_avif,quality_auto/a8ae1a_9392128bf8474c649706c8e02f029474~mv2.png",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 0,
+     "y": 1299.5,
+     "w": 320,
+     "h": 240
+    },
+    "box": {
+     "x": 0,
+     "y": 819.5,
+     "w": 320,
+     "h": 2640
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": ""
+   },
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_2a2d9c827bb941c79eb40aaf12d88bef~mv2.png/v1/fill/w_320,h_240,q_90,enc_avif,quality_auto/a8ae1a_2a2d9c827bb941c79eb40aaf12d88bef~mv2.png",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 0,
+     "y": 1539.5,
+     "w": 320,
+     "h": 240
+    },
+    "box": {
+     "x": 0,
+     "y": 819.5,
+     "w": 320,
+     "h": 2640
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": ""
+   },
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_17d309d3f86e4455a3eabf3df2db94b7~mv2.png/v1/fill/w_320,h_240,q_90,enc_avif,quality_auto/a8ae1a_17d309d3f86e4455a3eabf3df2db94b7~mv2.png",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 0,
+     "y": 1779.5,
+     "w": 320,
+     "h": 240
+    },
+    "box": {
+     "x": 0,
+     "y": 819.5,
+     "w": 320,
+     "h": 2640
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": ""
+   },
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_84c17c6cb54e45b78525d89b36565964~mv2.png/v1/fill/w_320,h_240,q_90,enc_avif,quality_auto/a8ae1a_84c17c6cb54e45b78525d89b36565964~mv2.png",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 0,
+     "y": 2019.5,
+     "w": 320,
+     "h": 240
+    },
+    "box": {
+     "x": 0,
+     "y": 819.5,
+     "w": 320,
+     "h": 2640
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": ""
+   },
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_e95f7fc7551b48e39c03e203fe9aae66~mv2.png/v1/fill/w_390,h_293,q_90,enc_avif,quality_auto/a8ae1a_e95f7fc7551b48e39c03e203fe9aae66~mv2.png",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 0,
+     "y": 2259.5,
+     "w": 320,
+     "h": 240
+    },
+    "box": {
+     "x": 0,
+     "y": 819.5,
+     "w": 320,
+     "h": 2640
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": ""
+   },
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_3a28c94c42d249a085e90505c1434973~mv2.png/v1/fill/w_390,h_293,q_90,enc_avif,quality_auto/a8ae1a_3a28c94c42d249a085e90505c1434973~mv2.png",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 0,
+     "y": 2499.5,
+     "w": 320,
+     "h": 240
+    },
+    "box": {
+     "x": 0,
+     "y": 819.5,
+     "w": 320,
+     "h": 2640
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": ""
+   },
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_f7c3b29ac4304da2965463e8455bf889~mv2.png/v1/fill/w_390,h_293,q_90,enc_avif,quality_auto/a8ae1a_f7c3b29ac4304da2965463e8455bf889~mv2.png",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 0,
+     "y": 2739.5,
+     "w": 320,
+     "h": 240
+    },
+    "box": {
+     "x": 0,
+     "y": 819.5,
+     "w": 320,
+     "h": 2640
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": ""
+   },
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_d761d01ac6654361b351656183a0fc8a~mv2.jpg/v1/fill/w_390,h_293,q_90,enc_avif,quality_auto/a8ae1a_d761d01ac6654361b351656183a0fc8a~mv2.jpg",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 0,
+     "y": 2979.5,
+     "w": 320,
+     "h": 240
+    },
+    "box": {
+     "x": 0,
+     "y": 819.5,
+     "w": 320,
+     "h": 2640
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": ""
+   },
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_d822261807174cf29b6ff64473837f15~mv2.jpg/v1/fill/w_390,h_293,q_90,enc_avif,quality_auto/a8ae1a_d822261807174cf29b6ff64473837f15~mv2.jpg",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 0,
+     "y": 3219.5,
+     "w": 320,
+     "h": 240
+    },
+    "box": {
+     "x": 0,
+     "y": 819.5,
+     "w": 320,
+     "h": 2640
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": ""
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span class=\"color_41 wixui-rich-text__text\"><span style=\"text-decoration:underline;\" class=\"wixui-rich-text__text\"><a href=\"mailto:jenny@makunas.com?subject=Let's work together!\" target=\"_self\" class=\"wixui-rich-text__text\"><span style=\"letter-spacing:normal;\" class=\"wixui-rich-text__text\">Get in Touch!</span></a></span></span>",
+    "text": "Get in Touch!",
+    "rect": {
+     "x": 20,
+     "y": 3504.5,
+     "w": 282,
+     "h": 24
+    },
+    "box": {
+     "x": 20,
+     "y": 3504.5,
+     "w": 282,
+     "h": 24
+    },
+    "style": {
+     "font": "futura-lt-w01-book",
+     "size": 18,
+     "weight": 700,
+     "lineHeight": null,
+     "color": "rgb(217, 75, 149)",
+     "align": "center",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span class=\"color_37 wixui-rich-text__text\"><span style=\"letter-spacing:normal;\" class=\"wixui-rich-text__text\"><a data-auto-recognition=\"true\" href=\"mailto:jenny@makunas.com\" class=\"wixui-rich-text__text\">jenny@makunas.com</a>​ &nbsp;|&nbsp; <a data-auto-recognition=\"true\" href=\"tel:415-609-1504\" class=\"wixui-rich-text__text\">415-609-1504</a></span></span>",
+    "text": "jenny@makunas.com  |  415-609-1504",
+    "rect": {
+     "x": 80,
+     "y": 3576.5,
+     "w": 162,
+     "h": 42
+    },
+    "box": {
+     "x": 80,
+     "y": 3576.5,
+     "w": 162,
+     "h": 42
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 17,
+     "weight": 400,
+     "lineHeight": null,
+     "color": "rgb(217, 75, 149)",
+     "align": "center",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span style=\"letter-spacing:normal;\" class=\"wixui-rich-text__text\">© 2024 by Jenny Makunas</span>",
+    "text": "© 2024 by Jenny Makunas",
+    "rect": {
+     "x": 48,
+     "y": 3641.5,
+     "w": 224,
+     "h": 21
+    },
+    "box": {
+     "x": 48,
+     "y": 3641.5,
+     "w": 224,
+     "h": 21
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 15,
+     "weight": 400,
+     "lineHeight": 21,
+     "color": "rgb(217, 75, 149)",
+     "align": "center",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null
+   }
+  ]
+ }
+}

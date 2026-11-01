@@ -1,0 +1,37 @@
+---
+// Renders one placed block: geometry comes from the capture, words and images
+// from `content/<slug>.md`.
+import { url } from '../lib/url.js';
+const { block } = Astro.props;
+const cls = `blk ${block.kind === 'text' ? 'text' : block.kind} ${block.cls || ''}`;
+const Tag = block.tag && /^h[1-6]$/.test(block.tag) ? block.tag : 'p';
+const href = block.href ? url(block.href) : null;
+const embed = block.embedUrl || null;
+---
+{block.kind === 'text' && !block.list && <Tag class={cls} style={block.shared} set:html={block.html} />}
+{block.kind === 'text' && block.list && (
+  <div class={cls} style={block.shared}>
+    <ul set:html={block.html} />
+  </div>
+)}
+{block.kind === 'image' && block.src && (
+  href ? (
+    <a class={cls} style={block.shared} href={href}>
+      <img src={url(block.src)} alt={block.alt || ''} loading="lazy" style={`object-fit:${block.fit || 'cover'}`} />
+    </a>
+  ) : (
+    <div class={cls} style={block.shared}>
+      <img src={url(block.src)} alt={block.alt || ''} loading="lazy" style={`object-fit:${block.fit || 'cover'}`} />
+    </div>
+  )
+)}
+{block.kind === 'video' && !embed && (
+  <div class={cls} style={block.shared} data-video={block.label || ''}>
+    {block.still ? <img src={url(block.still)} alt={block.alt || ''} /> : null}
+  </div>
+)}
+{(block.kind === 'embed' || (block.kind === 'video' && embed)) && (
+  <a class={cls} style={block.shared} href={embed} target="_blank" rel="noopener" data-video={block.label || ''}>
+    {block.label}
+  </a>
+)}

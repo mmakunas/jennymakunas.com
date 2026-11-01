@@ -1,0 +1,21 @@
+{
+  "name": "jennymakunas.com",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "jennymakunas.com — static site (Astro) on GitHub Pages",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build && node scripts/site/lint-paths.mjs",
+    "preview": "astro preview",
+    "lint:paths": "node scripts/site/lint-paths.mjs",
+    "extract-layout": "node scripts/site/extract-layout.mjs",
+    "shots": "node scripts/site/shots.mjs"
+  },
+  "dependencies": {
+    "astro": "^5.18.2"
+  },
+  "devDependencies": {
+    "playwright": "1.49.1"
+  }
+}
