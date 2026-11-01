@@ -9,11 +9,8 @@ const social = footer.blocks.find((b) => b.social);
 <footer class="site-footer">
   {social && (
     <p class={`blk text social ${social.cls}`}>
-      {social.social.map((l, i) => (
-        <>
-          {i > 0 && <span class="sep"> · </span>}
-          <a href={url(l.href)} target={/^https?:/.test(l.href) ? '_blank' : undefined} rel="noopener">{l.text}</a>
-        </>
+      {social.social.map((l) => (
+        <a href={url(l.href)} target={/^https?:/.test(l.href) ? '_blank' : undefined} rel="noopener">{l.text}</a>
       ))}
     </p>
   )}

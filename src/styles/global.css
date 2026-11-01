@@ -407,6 +407,8 @@ img {
 .site-footer {
   position: relative;
   width: 100%;
+  /* Wix draws the rule above the footer as the footer's own top border. */
+  border-top: 1px solid rgb(217, 75, 149);
   background: var(--night);
 }
 @media (min-width: 750px) {
@@ -423,7 +425,17 @@ img {
   position: absolute;
   margin: 0;
 }
+/* Wix spaces the two social words; it draws no separator between them. The row
+   only exists on the desktop layout, so the phone keeps its own hidden state. */
+@media (min-width: 750px) {
+  .site-footer .social {
+    display: flex;
+    gap: 28px;
+    justify-content: center;
+  }
+}
 .site-footer .social a {
+  display: inline-block;
   text-decoration: none;
 }
 .site-footer .social a:hover {

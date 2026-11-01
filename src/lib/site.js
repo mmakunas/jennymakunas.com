@@ -450,6 +450,9 @@ function tileData(slug, images, headerH, mobileHeaderH) {
         shared: 'font-family:inherit',
         desktopCss: layoutCss({ kind: 'image', rect: shift(cell.rect), wide: shift(wideCell.rect), style: {} }, 'desktop'),
         mobileCss: m ? layoutCss({ ...m, rect: shiftMobile(m.rect), kind: 'image', style: {} }, 'mobile') : '',
+        top: shift(cell.rect).y,
+        wideTop: shift(wideCell.rect).y,
+        mobileTop: m ? shiftMobile(m.rect).y : 0,
         bottom: shift(cell.rect).y + cell.rect.h,
         wideBottom: shift(wideCell.rect).y + wideCell.rect.h,
         mobileBottom: m ? shiftMobile(m.rect).y + m.rect.h : 0,
@@ -561,6 +564,23 @@ export function composePage(slug) {
     if (!m && b.kind !== 'text') m = mediaPool[mediaTaken++] || mobZipped.placed[i];
     return { b, m, cls: `b${i}` };
   });
+
+  // Wix's gallery finishes laying out its last row after the page was measured,
+  // so a block the capture found inside the grid belongs under it: everything
+  // below the gallery sits at the grid's bottom plus the captured gap.
+  if (tiles.length) {
+    const gap = 20;
+    const lastRow = Math.max(...tiles.map((t) => t.top));
+    const below = entries.map((e) => e.b).filter((b) => b.rect.y > lastRow);
+    if (below.length) {
+      const dyRef = Math.max(...tiles.map((t) => t.bottom)) + gap - Math.min(...below.map((b) => b.rect.y));
+      const dyWide = Math.max(...tiles.map((t) => t.wideBottom)) + gap - Math.min(...below.map((b) => (b.wide || b.rect).y));
+      for (const b of below) {
+        b.rect = { ...b.rect, y: b.rect.y + dyRef };
+        if (b.wide) b.wide = { ...b.wide, y: b.wide.y + dyWide };
+      }
+    }
+  }
 
   // A box keeps the number of lines the capture shows: Jost runs wider than
   // Futura, so where the substitute face would break a line early the size gives
