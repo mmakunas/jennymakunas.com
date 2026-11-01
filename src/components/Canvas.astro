@@ -7,7 +7,7 @@ import Block from './Block.astro';
 import { url } from '../lib/url.js';
 
 const { composed } = Astro.props;
-const style = `--h-d:${composed.height}px;--h-m:${(composed.mobileHeight / 320) * 100}cqw`;
+const style = `--h-d:${composed.heightCss || `${composed.height}px`};--h-m:${(composed.mobileHeight / 320) * 100}cqw`;
 ---
 <div class="canvas" style={style}>
   {composed.blocks.map((b) => <Block block={b} />)}

@@ -1,19 +1,21 @@
 ---
-// The footer as Wix serves it: the Instagram and LinkedIn marks, the email and
-// phone line, and the © line. Rendered from the capture so it lands at the same
-// place on every page.
+// The footer as Wix serves it: the Instagram and LinkedIn links, the email and
+// phone line, and the © line. Positions come from the capture so it lands in the
+// same place on every page.
 import { url } from '../lib/url.js';
 const { footer } = Astro.props;
-const height = `--footer-h:${footer.height}px`;
+const social = footer.blocks.find((b) => b.social);
 ---
-<footer class="site-footer" style={height}>
-  {footer.blocks.map((b) =>
-    b.kind === 'text' ? (
-      <p class={`blk text ${b.cls}`} style={b.shared} set:html={b.html} />
-    ) : b.src ? (
-      <a class={`blk ${b.cls}`} style={b.shared} href={url(b.href || '#')} target={/^https?:/.test(b.href || '') ? '_blank' : undefined} rel="noopener">
-        <img src={url(b.src)} alt={b.alt || ''} />
-      </a>
-    ) : null,
+<footer class="site-footer">
+  {social && (
+    <p class={`blk text social ${social.cls}`}>
+      {social.social.map((l, i) => (
+        <>
+          {i > 0 && <span class="sep"> · </span>}
+          <a href={url(l.href)} target={/^https?:/.test(l.href) ? '_blank' : undefined} rel="noopener">{l.text}</a>
+        </>
+      ))}
+    </p>
   )}
+  {footer.blocks.filter((b) => b.html).map((b) => <p class={`blk text ${b.cls}`} set:html={b.html} />)}
 </footer>

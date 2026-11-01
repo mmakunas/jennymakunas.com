@@ -112,7 +112,7 @@ img {
     height: 88px;
     width: 100%;
   }
-  .site-header .nav a {
+  .site-header .nav-item {
     position: absolute;
     display: flex;
     align-items: center;
@@ -123,13 +123,24 @@ img {
     color: var(--muted);
     white-space: nowrap;
   }
-  .site-header .nav a.is-active {
+  .site-header .nav-work .nav-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    font-size: inherit;
+    color: inherit;
+  }
+  .site-header .nav-item.is-active {
     color: var(--accent);
   }
   .site-header .logo {
     position: absolute;
     display: flex;
     align-items: center;
+    justify-content: center;
+    height: 40px;
     font-size: 25px;
     color: var(--ink);
     white-space: nowrap;
@@ -137,10 +148,14 @@ img {
   .work-menu {
     display: none;
     position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 50;
     background: var(--night);
     min-width: 340px;
     padding: 10px 0;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
   }
   .nav-work:hover .work-menu,
   .nav-work:focus-within .work-menu {
@@ -295,11 +310,50 @@ img {
 .canvas .blk a {
   text-decoration: underline;
 }
-/* A video player's still frame: the block keeps the player's box and nothing
-   plays. Flipping this to a real <video> is the one change a decision needs. */
 .canvas .blk.video {
   background: #000;
   overflow: hidden;
+  display: block;
+}
+.canvas video {
+  object-fit: cover;
+  display: block;
+}
+.canvas .facade {
+  position: absolute;
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+}
+.canvas .facade img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.canvas .facade .play {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  width: 64px;
+  height: 64px;
+  margin: -32px 0 0 -32px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.55);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.85) inset;
+}
+.canvas .facade .play::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-40%, -50%);
+  border-left: 18px solid #fff;
+  border-top: 11px solid transparent;
+  border-bottom: 11px solid transparent;
+}
+.canvas iframe.embed {
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 /* Footer ------------------------------------------------------------------ */
@@ -320,6 +374,13 @@ img {
 }
 .site-footer .blk {
   position: absolute;
+  margin: 0;
+}
+.site-footer .social a {
+  text-decoration: none;
+}
+.site-footer .social a:hover {
+  text-decoration: underline;
 }
 .site-footer img {
   height: 100%;

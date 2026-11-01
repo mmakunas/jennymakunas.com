@@ -328,10 +328,13 @@ for (const { slug, url } of pages.filter((p) => !only.length || only.includes(p.
       width: DESKTOP_REF,
       wideWidth: DESKTOP_WIDE,
       docHeight: shots.ref.docHeight,
+      docHeightWide: shots.wide.docHeight,
       header: shots.ref.header,
       footer: shots.ref.footer,
+      footerWide: shots.wide.footer,
       bands: shots.ref.bands,
       gallery: shots.ref.gallery,
+      galleryWide: shots.wide.gallery,
       blocks,
     },
     mobile: {

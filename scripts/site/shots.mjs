@@ -36,7 +36,7 @@ const server = createServer(async (req, res) => {
       return;
     } catch {}
   }
-  res.writeHead(404, { 'content-type': 'text/plain' });
+  if (!res.headersSent) res.writeHead(404, { 'content-type': 'text/plain' });
   res.end('not found');
 });
 await new Promise((r) => server.listen(0, r));

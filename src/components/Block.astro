@@ -1,12 +1,13 @@
 ---
-// Renders one placed block: geometry comes from the capture, words and images
+// Renders one placed block: geometry comes from the capture, words and media
 // from `content/<slug>.md`.
 import { url } from '../lib/url.js';
 const { block } = Astro.props;
 const cls = `blk ${block.kind === 'text' ? 'text' : block.kind} ${block.cls || ''}`;
 const Tag = block.tag && /^h[1-6]$/.test(block.tag) ? block.tag : 'p';
 const href = block.href ? url(block.href) : null;
-const embed = block.embedUrl || null;
+const film = block.content && block.content.type === 'video' ? block.content : null;
+const facade = block.content && block.content.type === 'facade' ? block.content : null;
 ---
 {block.kind === 'text' && !block.list && <Tag class={cls} style={block.shared} set:html={block.html} />}
 {block.kind === 'text' && block.list && (
@@ -25,13 +26,46 @@ const embed = block.embedUrl || null;
     </div>
   )
 )}
-{block.kind === 'video' && !embed && (
-  <div class={cls} style={block.shared} data-video={block.label || ''}>
-    {block.still ? <img src={url(block.still)} alt={block.alt || ''} /> : null}
-  </div>
+{film && (
+  <video
+    class={cls}
+    style={block.shared}
+    src={url(film.src)}
+    poster={film.poster ? url(film.poster) : undefined}
+    controls={film.controls}
+    autoplay={film.autoplay}
+    muted={film.muted}
+    loop={film.loop}
+    playsinline
+    preload="metadata"
+  >
+  </video>
 )}
-{(block.kind === 'embed' || (block.kind === 'video' && embed)) && (
-  <a class={cls} style={block.shared} href={embed} target="_blank" rel="noopener" data-video={block.label || ''}>
-    {block.label}
+{facade && (
+  <a class={`${cls} facade`} style={block.shared} href={facade.embedUrl} data-embed={facade.embedUrl} target="_blank" rel="noopener">
+    <img src={url(facade.src)} alt={facade.alt || 'Play the film'} />
+    <span class="play" aria-hidden="true"></span>
   </a>
+)}
+{facade && (
+  <script is:inline>
+    // A clicked still is replaced by the player itself; nothing from YouTube is
+    // fetched until that click.
+    document.currentScript.previousElementSibling?.addEventListener('click', function (e) {
+      e.preventDefault();
+      const embed = this.dataset.embed;
+      const frame = document.createElement('iframe');
+      frame.className = 'embed';
+      frame.src = embed + (embed.includes('?') ? '&' : '?') + 'autoplay=1';
+      frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      frame.allowFullscreen = true;
+      frame.title = this.querySelector('img')?.alt || 'Video player';
+      this.replaceWith(frame);
+    });
+  </script>
+)}
+{!film && !facade && block.kind === 'video' && block.still && !block.drop && (
+  <div class={cls} style={block.shared}>
+    <img src={url(block.still)} alt={block.alt || ''} />
+  </div>
 )}

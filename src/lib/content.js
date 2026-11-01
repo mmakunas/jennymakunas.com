@@ -40,7 +40,17 @@ export function inline(text) {
   return s;
 }
 
-const plain = (html) => unescapeWs(html.replace(/<[^>]+>/g, ''));
+const plain = (html) =>
+  unescapeWs(
+    html
+      .replace(/<[^>]+>/g, '')
+      .replace(/&amp;/g, '&')
+      .replace(/&lt;/g, '<')
+      .replace(/&gt;/g, '>')
+      .replace(/&quot;/g, '"')
+      .replace(/&#39;/g, "'")
+      .replace(/&nbsp;/g, ' '),
+  );
 
 const parseFrontMatter = (source) => {
   const m = /^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/.exec(source);

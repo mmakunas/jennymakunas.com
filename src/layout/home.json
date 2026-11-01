@@ -1,11 +1,12 @@
 {
  "slug": "home",
  "url": "https://jenny6926.wixsite.com/mysite",
- "captured": "2026-11-01T00:48:21.571Z",
+ "captured": "2026-11-01T01:13:32.060Z",
  "desktop": {
   "width": 983,
   "wideWidth": 1440,
   "docHeight": 3034,
+  "docHeightWide": 4064,
   "header": {
    "rect": {
     "x": 0,
@@ -382,6 +383,15 @@
    },
    "bg": "rgba(0, 0, 0, 0)"
   },
+  "footerWide": {
+   "rect": {
+    "x": 0,
+    "y": 3907.5,
+    "w": 1440,
+    "h": 156.6
+   },
+   "bg": "rgba(0, 0, 0, 0)"
+  },
   "bands": [
    {
     "bg": "rgb(59, 49, 63)",
@@ -557,6 +567,164 @@
      "h": 368.3
     },
     "src": "https://static.wixstatic.com/media/a8ae1a_d822261807174cf29b6ff64473837f15~mv2.jpg/v1/fill/w_492,h_369,q_90,enc_avif,quality_auto/a8ae1a_d822261807174cf29b6ff64473837f15~mv2.jpg",
+    "fit": "cover",
+    "href": null,
+    "alt": ""
+   }
+  ],
+  "galleryWide": [
+   {
+    "kind": "tile",
+    "rect": {
+     "x": 0,
+     "y": 644.5,
+     "w": 720,
+     "h": 540
+    },
+    "src": "https://static.wixstatic.com/media/a8ae1a_35fc39d7621b440e9d6bdef7a70db951~mv2.jpg/v1/fill/w_720,h_540,q_90,enc_avif,quality_auto/a8ae1a_35fc39d7621b440e9d6bdef7a70db951~mv2.jpg",
+    "fit": "cover",
+    "href": null,
+    "alt": ""
+   },
+   {
+    "kind": "tile",
+    "rect": {
+     "x": 720,
+     "y": 644.5,
+     "w": 720,
+     "h": 540
+    },
+    "src": "https://static.wixstatic.com/media/a8ae1a_29a5f282680542019130e4ed768571ba~mv2.png/v1/fill/w_720,h_540,q_90,enc_avif,quality_auto/a8ae1a_29a5f282680542019130e4ed768571ba~mv2.png",
+    "fit": "cover",
+    "href": null,
+    "alt": ""
+   },
+   {
+    "kind": "tile",
+    "rect": {
+     "x": 0,
+     "y": 1184.5,
+     "w": 720,
+     "h": 540
+    },
+    "src": "https://static.wixstatic.com/media/a8ae1a_9392128bf8474c649706c8e02f029474~mv2.png/v1/fill/w_720,h_540,q_90,enc_avif,quality_auto/a8ae1a_9392128bf8474c649706c8e02f029474~mv2.png",
+    "fit": "cover",
+    "href": null,
+    "alt": ""
+   },
+   {
+    "kind": "tile",
+    "rect": {
+     "x": 720,
+     "y": 1184.5,
+     "w": 720,
+     "h": 540
+    },
+    "src": "https://static.wixstatic.com/media/a8ae1a_2a2d9c827bb941c79eb40aaf12d88bef~mv2.png/v1/fill/w_720,h_540,q_90,enc_avif,quality_auto/a8ae1a_2a2d9c827bb941c79eb40aaf12d88bef~mv2.png",
+    "fit": "cover",
+    "href": null,
+    "alt": ""
+   },
+   {
+    "kind": "tile",
+    "rect": {
+     "x": 0,
+     "y": 1724.5,
+     "w": 720,
+     "h": 540
+    },
+    "src": "https://static.wixstatic.com/media/a8ae1a_17d309d3f86e4455a3eabf3df2db94b7~mv2.png/v1/fill/w_720,h_540,q_90,enc_avif,quality_auto/a8ae1a_17d309d3f86e4455a3eabf3df2db94b7~mv2.png",
+    "fit": "cover",
+    "href": null,
+    "alt": ""
+   },
+   {
+    "kind": "tile",
+    "rect": {
+     "x": 720,
+     "y": 1724.5,
+     "w": 720,
+     "h": 540
+    },
+    "src": "https://static.wixstatic.com/media/a8ae1a_84c17c6cb54e45b78525d89b36565964~mv2.png/v1/fill/w_720,h_540,q_90,enc_avif,quality_auto/a8ae1a_84c17c6cb54e45b78525d89b36565964~mv2.png",
+    "fit": "cover",
+    "href": null,
+    "alt": ""
+   },
+   {
+    "kind": "tile",
+    "rect": {
+     "x": 0,
+     "y": 2264.5,
+     "w": 720,
+     "h": 540
+    },
+    "src": null,
+    "fit": null,
+    "href": null,
+    "alt": ""
+   },
+   {
+    "kind": "tile",
+    "rect": {
+     "x": 0,
+     "y": 2264.5,
+     "w": 720,
+     "h": 540
+    },
+    "src": "https://static.wixstatic.com/media/a8ae1a_e95f7fc7551b48e39c03e203fe9aae66~mv2.png/v1/fill/w_720,h_540,q_90,enc_avif,quality_auto/a8ae1a_e95f7fc7551b48e39c03e203fe9aae66~mv2.png",
+    "fit": "cover",
+    "href": null,
+    "alt": ""
+   },
+   {
+    "kind": "tile",
+    "rect": {
+     "x": 720,
+     "y": 2264.5,
+     "w": 720,
+     "h": 540
+    },
+    "src": "https://static.wixstatic.com/media/a8ae1a_3a28c94c42d249a085e90505c1434973~mv2.png/v1/fill/w_720,h_540,q_90,enc_avif,quality_auto/a8ae1a_3a28c94c42d249a085e90505c1434973~mv2.png",
+    "fit": "cover",
+    "href": null,
+    "alt": ""
+   },
+   {
+    "kind": "tile",
+    "rect": {
+     "x": 0,
+     "y": 2804.5,
+     "w": 720,
+     "h": 540
+    },
+    "src": "https://static.wixstatic.com/media/a8ae1a_f7c3b29ac4304da2965463e8455bf889~mv2.png/v1/fill/w_720,h_540,q_90,enc_avif,quality_auto/a8ae1a_f7c3b29ac4304da2965463e8455bf889~mv2.png",
+    "fit": "cover",
+    "href": null,
+    "alt": ""
+   },
+   {
+    "kind": "tile",
+    "rect": {
+     "x": 720,
+     "y": 2804.5,
+     "w": 720,
+     "h": 540
+    },
+    "src": "https://static.wixstatic.com/media/a8ae1a_d761d01ac6654361b351656183a0fc8a~mv2.jpg/v1/fill/w_720,h_540,q_90,enc_avif,quality_auto/a8ae1a_d761d01ac6654361b351656183a0fc8a~mv2.jpg",
+    "fit": "cover",
+    "href": null,
+    "alt": ""
+   },
+   {
+    "kind": "tile",
+    "rect": {
+     "x": 0,
+     "y": 3344.5,
+     "w": 720,
+     "h": 540
+    },
+    "src": "https://static.wixstatic.com/media/a8ae1a_d822261807174cf29b6ff64473837f15~mv2.jpg/v1/fill/w_720,h_540,q_90,enc_avif,quality_auto/a8ae1a_d822261807174cf29b6ff64473837f15~mv2.jpg",
     "fit": "cover",
     "href": null,
     "alt": ""

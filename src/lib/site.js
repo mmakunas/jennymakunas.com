@@ -10,8 +10,9 @@
 //   mobile  — the phone layout is a separate 320px canvas scaled uniformly to
 //             the device width, so every length is a share of that width.
 import { readFileSync } from 'node:fs';
+import { inline } from './content.js';
 import path from 'node:path';
-import { allPages } from './content.js';
+import { allPages, siteContent } from './content.js';
 
 const root = process.cwd();
 const read = (rel) => JSON.parse(readFileSync(path.join(root, rel), 'utf8'));
@@ -39,6 +40,11 @@ const localImages = new Map(manifest.images.map((i) => [mediaId(i.url), `/${i.fi
 // The reverse join: a Markdown image path back to the media id Wix serves it as.
 const fileToMedia = new Map(manifest.images.map((i) => [`/${i.file}`, mediaId(i.url)]));
 export const localImage = (wixUrl) => localImages.get(mediaId(wixUrl)) || null;
+
+// Markdown links are written as site paths; in the built page they carry the
+// deploy base like every other internal URL.
+const BASE = (import.meta.env?.BASE_URL || '/').replace(/\/?$/, '/');
+const withBase = (html) => String(html).replace(/href="\/(?!\/)/g, `href="${BASE}`);
 
 const fmt = (n) => String(Math.round(n * 100) / 100);
 const lin = (a, b) => {
@@ -83,7 +89,9 @@ const layoutCss = (block, mode) => {
   const s = block.style || {};
   const out = [];
   if (mode === 'desktop') {
-    out.push(linCss(r.x, wide.x, 'left'), linCss(r.w, wide.w, 'width'), `top:${fmt(r.y)}px`);
+    // Vertical offsets are fixed on most pages, but a block below a grid that
+    // stretches moves with it, so top interpolates like left and width.
+    out.push(linCss(r.x, wide.x, 'left'), linCss(r.w, wide.w, 'width'), linCss(r.y, wide.y ?? r.y, 'top'));
     if (block.kind !== 'text') out.push(`height:${fmt(r.h)}px`);
     if (s.size) out.push(`font-size:${fmt(s.size)}px`);
     if (s.lineHeight) out.push(`line-height:${fmt(s.lineHeight)}px`);
@@ -118,81 +126,113 @@ const sameText = (a, b) => {
   return x === y || y.startsWith(x.slice(0, 24)) || x.startsWith(y.slice(0, 24));
 };
 
-// Pairs Markdown blocks with captured blocks, per category, in document order.
-// A text block that does not match still consumes its slot only when nothing
-// queued matches it, so a paragraph Wix split differently does not shift the rest.
+// Pairs the Markdown's words with the page's captured boxes. Text pairs by its
+// own text; media pairs in document order — every image, film and facade in the
+// Markdown against every media box on the page — with an exact media-id match
+// taking precedence, because Wix lays a film's poster above its stills.
 function zip(contentBlocks, layoutBlocks) {
-  const queue = { text: [], image: [], media: [] };
+  const text = [];
+  const media = [];
   for (const b of contentBlocks) {
-    if (b.type === 'image') queue.image.push(b);
-    else if (b.type === 'text' || b.type === 'list') queue.text.push(b);
-    else queue.media.push(b);
+    if (b.type === 'image' || b.type === 'video' || b.type === 'facade') media.push(b);
+    else if (b.type === 'text' || b.type === 'list') text.push(b);
   }
   const placed = [];
   const orphaned = [];
+  let listSlots = 0;
   for (const lb of layoutBlocks) {
-    const cat = lb.kind === 'text' ? 'text' : lb.kind === 'image' ? 'image' : 'media';
-    let content = queue[cat][0];
-    if (cat === 'text' && content && !sameText(content.text, lb.text)) {
-      const idx = queue.text.findIndex((c) => sameText(c.text, lb.text));
-      content = idx >= 0 ? queue.text[idx] : null;
-    }
-    if (cat === 'image' && lb.src) {
-      // Match images by media id: Wix reorders and re-renditions freely, but the
-      // media id is stable, so the tree's image lands in its own frame.
-      const id = mediaId(lb.src);
-      const idx = queue.image.findIndex((c) => fileToMedia.get(c.src) === id);
-      if (idx >= 0) content = queue.image[idx];
-    } else if (cat === 'image') {
-      content = null;
-    }
-    if (!content) {
-      orphaned.push({ block: lb, why: `no ${cat} left in content` });
-      placed.push({ ...lb, orphan: true, src: isWixUrl(lb.src) ? localImage(lb.src) || lb.src : lb.src });
+    const wantsText = lb.kind === 'text';
+    // A bulleted list is one Markdown block but several boxes on the page; the
+    // first box carries the list and the rest are its continuation.
+    if (wantsText && listSlots > 0) {
+      listSlots -= 1;
+      placed.push({ ...lb, continuation: true, html: '' });
       continue;
     }
-    queue[cat].splice(queue[cat].indexOf(content), 1);
-    if (cat === 'image') {
+    if (wantsText) {
+      let content = text[0];
+      if (content && !sameText(content.text, lb.text)) {
+        const idx = text.findIndex((c) => sameText(c.text, lb.text));
+        content = idx >= 0 ? text[idx] : null;
+      }
+      if (!content) {
+        orphaned.push({ block: lb, why: 'no text left in content' });
+        placed.push({ ...lb, orphan: true, html: withBase(lb.html) });
+        continue;
+      }
+      text.splice(text.indexOf(content), 1);
+      if (content.type === 'list' && content.items > 1) listSlots = content.items - 1;
+      placed.push({ ...lb, content, html: withBase(content.html), list: content.type === 'list' });
+      continue;
+    }
+
+    let content = null;
+    if (lb.src) {
+      const id = mediaId(lb.src);
+      const idx = media.findIndex((c) => c.type === 'image' && fileToMedia.get(c.src) === id);
+      if (idx >= 0) content = media[idx];
+      // A film's poster frame is a media box too.
+      if (!content) {
+        const filmIdx = media.findIndex((c) => c.type === 'video' && c.poster && mediaId(c.poster) === id);
+        if (filmIdx >= 0) content = media[filmIdx];
+      }
+    }
+    if (!content) content = media[0] || null;
+    if (!content) {
+      orphaned.push({ block: lb, why: 'no media left in content' });
+      const local = isWixUrl(lb.src) ? localImage(lb.src) : lb.src;
+      // Never hot-link Wix: a box with no local image simply does not render.
+      placed.push({ ...lb, orphan: true, src: local, drop: !local });
+      continue;
+    }
+    media.splice(media.indexOf(content), 1);
+    if (content.type === 'image') {
       placed.push({ ...lb, content, src: content.src, alt: content.alt || lb.alt, href: content.href || lb.href });
-    } else if (cat === 'text') {
-      placed.push({ ...lb, content, html: content.html, list: content.type === 'list' });
     } else {
-      placed.push({ ...lb, content, label: content.label, mediaType: content.type, still: lb.iframe ? null : localImage(lb.src), embedUrl: cleanEmbed(lb.iframe || lb.playableUrl) });
+      // The box now carries a film or a facade: drop the captured still URL so
+      // nothing can fall back to a hot-linked Wix image.
+      placed.push({ ...lb, content, src: null, still: null, label: content.label, mediaType: content.type, embedUrl: content.embedUrl || null });
     }
   }
-  const leftover = [...queue.text, ...queue.image, ...queue.media];
-  return { placed, leftover, orphaned };
+  return { placed, leftover: [...text, ...media], orphaned };
 }
 
-// The header: logo, Work, Thoughts, About, Contact. Positions are captured;
-// the active page is tinted the accent the live site uses for it.
+// The header: logo, Work, Thoughts, About, Contact. Labels and destinations
+// come from `content/_site.md`; positions from the capture of the live site.
 function headerData(currentPath) {
   const s = site();
-  const navItems = s.desktop.header.nav.filter((n) => n.rect.w > 0);
-  const wideItems = s.desktopWide.header.nav.filter((n) => n.rect.w > 0);
-  const items = navItems.map((n, i) => {
-    const w = wideItems[i] || n;
-    const p = new URL(n.href).pathname.replace(/^\/mysite/, '') || '/';
-    const isLogo = n.rect.y < 10;
+  const siteNav = siteContent();
+  const captured = s.desktop.header.nav.filter((n) => n.rect.w > 0);
+  const capturedWide = s.desktopWide.header.nav.filter((n) => n.rect.w > 0);
+  const logoIdx = captured.findIndex((n) => !siteNav.nav.some((v) => v.text === n.text));
+  const logo = captured[logoIdx] || captured[0];
+  const logoWide = capturedWide[logoIdx] || logo;
+  const topLevel = captured.filter((_, i) => i !== logoIdx);
+  const topWide = capturedWide.filter((_, i) => i !== logoIdx);
+  // `_site.md` lists Work, the 11 case studies, then Thoughts, About, Contact.
+  const work = siteNav.nav[0];
+  const studies = siteNav.nav.slice(1).filter((n) => !['Thoughts', 'About', 'Contact'].includes(n.text));
+  const rest = siteNav.nav.filter((n) => ['Thoughts', 'About', 'Contact'].includes(n.text));
+  const items = [work, ...rest].map((n, i) => {
+    const c = topLevel[i] || topLevel[topLevel.length - 1];
+    const w = topWide[i] || c;
     return {
       text: n.text,
-      href: p,
-      isLogo,
-      isActive: !isLogo && (p === currentPath || (p === '/' && currentPath === '/')),
-      style: { ...n.style, color: isLogo ? 'rgb(217, 75, 149)' : n.style.color },
-      rect: n.rect,
+      href: n.href,
+      isActive: n.href === currentPath,
+      rect: c.rect,
       wide: w.rect,
+      color: n.href === currentPath ? 'rgb(228, 162, 128)' : 'rgb(160, 161, 173)',
     };
   });
-  const study = allPages().filter((p) => p.kind === 'case_study').sort((a, b) => a.order - b.order);
   return {
     height: s.desktop.header.rect.h,
     mobileHeight: s.mobile.header.rect.h,
-    desktopNav: items.filter((i) => !i.isLogo),
-    logo: items.find((i) => i.isLogo),
-    mobileLogo: s.mobile.header.nav.find((n) => n.text === 'Jenny Makunas'),
+    desktopNav: items,
+    logo: { text: logo.text, href: '/', rect: logo.rect, wide: logoWide.rect },
+    mobileLogo: s.mobile.header.nav.find((n) => n.text === logo.text),
     mobileBurger: s.mobile.header.burger,
-    studies: study.map((p) => ({ text: p.nav_label, href: p.path, active: p.path === currentPath })),
+    studies: studies.map((p) => ({ text: p.text, href: p.href, active: p.href === currentPath })),
     menu: s.mobileMenu,
   };
 }
@@ -201,29 +241,59 @@ const ACTIVE_DESKTOP = 'rgb(228, 162, 128)';
 const ACTIVE_MOBILE = 'rgb(217, 75, 149)';
 export { ACTIVE_DESKTOP, ACTIVE_MOBILE };
 
-// Footer: everything the capture found below the footer top, moved into its own
-// coordinate space so it renders once, after the page canvas.
+// Footer: the social row, the contact line and the © line, in `_site.md`'s
+// words at the capture's positions. Rendered once, shared by every page.
 function footerData() {
-  const home = layoutOf('home');
-  const top = home.desktop.footer.rect.y;
-  const mtop = home.mobile.footer.rect.y;
-  const shift = (b, t) => ({ ...b, rect: { ...b.rect, y: b.rect.y - t }, wide: { ...(b.wide || b.rect), y: (b.wide || b.rect).y - t } });
-  const desk = home.desktop.blocks.filter((b) => b.rect.y >= top - 2).map((b) => shift(b, top));
-  const mob = home.mobile.blocks.filter((b) => b.rect.y >= mtop - 2).map((b) => shift(b, mtop));
-  // The two captures segment the footer the same way; pair by index so one
-  // element carries both breakpoints.
-  const blocks = desk.map((b, i) => {
-    const m = mob[i] || mob[mob.length - 1];
-    return {
-      ...b,
-      src: isWixUrl(b.src) ? localImage(b.src) || null : b.src,
-      cls: `f${i}`,
-      shared: sharedCss(b),
-      desktopCss: layoutCss(b, 'desktop'),
-      mobileCss: m ? layoutCss({ ...m, style: b.style }, 'mobile') : '',
-    };
+  const s = site();
+  const sc = siteContent();
+  const dTop = s.desktop.footer.rect.y;
+  const wTop = s.desktopWide.footer.rect.y;
+  const mTop = s.mobile.footer.rect.y;
+  const dBlocks = s.desktop.footerBlocks || [];
+  const wBlocks = s.desktopWide.footerBlocks || [];
+  const mBlocks = s.mobile.footerBlocks || [];
+  const dLinks = s.desktop.footerLinks || [];
+  const wLinks = s.desktopWide.footerLinks || [];
+  const mLinks = s.mobile.footerLinks || [];
+  const rel = (r, top) => ({ ...r, y: r.y - top });
+
+  const rows = [
+    {
+      cls: 'f0',
+      social: sc.social,
+      rect: dLinks[0] ? { x: dLinks[0].rect.x, y: dLinks[0].rect.y - dTop, w: 234, h: 21 } : { x: 373.5, y: 41, w: 234, h: 21 },
+      wide: wLinks[0] ? { x: wLinks[0].rect.x, y: wLinks[0].rect.y - wTop, w: 234, h: 21 } : null,
+      mobile: mLinks[0] ? { x: mLinks[0].rect.x, y: mLinks[0].rect.y - mTop, w: 130, h: 21 } : { x: 100, y: 20, w: 130, h: 21 },
+      style: dLinks[0] ? dLinks[0].style : { font: 'cormorantgaramond-semibold', size: 14, color: 'rgb(217, 75, 149)' },
+    },
+    {
+      cls: 'f1',
+      html: withBase(inline(sc.contact)),
+      rect: { x: 211.5, y: 91, w: 560, h: 21 },
+      wide: { x: 440, y: 91, w: 560, h: 21 },
+      mobile: { x: 80, y: 20, w: 162, h: 42 },
+      style: { font: 'cormorantgaramond-semibold', size: 17, color: 'rgb(217, 75, 149)' },
+    },
+    {
+      cls: 'f2',
+      html: withBase(inline(sc.copyright)),
+      rect: { x: 181.5, y: 121, w: 619, h: 19.6 },
+      wide: { x: 410, y: 121, w: 619, h: 19.6 },
+      mobile: { x: 48, y: 85, w: 224, h: 21 },
+      style: { font: 'cormorantgaramond-semibold', size: 14, color: 'rgb(217, 75, 149)' },
+    },
+  ];
+  const decorate = (row) => ({
+    ...row,
+    shared: sharedCss({ style: row.style }),
+    desktopCss: layoutCss({ kind: 'text', rect: row.rect, wide: { ...row.rect, ...(row.wide || {}) }, style: row.style }, 'desktop'),
+    mobileCss: layoutCss({ kind: 'text', rect: row.mobile, style: row.style }, 'mobile'),
   });
-  return { height: home.desktop.footer.rect.h, mobileHeight: home.mobile.footer.rect.h, blocks };
+  return {
+    height: s.desktop.footer.rect.h,
+    mobileHeight: s.mobile.footer.rect.h,
+    blocks: rows.map(decorate),
+  };
 }
 
 // The Work grid is a Wix gallery, so its tiles never appear as block content:
@@ -231,6 +301,7 @@ function footerData() {
 function tileData(slug, images) {
   const l = layoutOf(slug);
   const desk = l.desktop.gallery || [];
+  const wide = l.desktop.galleryWide || [];
   const mob = l.mobile.gallery || [];
   return images.map((image, i) => {
     const d = desk[i];
@@ -243,7 +314,9 @@ function tileData(slug, images) {
       href: image.href || (d.href ? new URL(d.href).pathname.replace(/^\/mysite/, '') : null),
       fit: d.fit || 'cover',
       shared: 'font-family:inherit',
-      desktopCss: layoutCss({ ...d, kind: 'image', style: {} }, 'desktop'),
+      // The grid stretches with the page, rows included, so its cells need the
+      // wide measurement as much as its columns do.
+      desktopCss: layoutCss({ ...d, wide: (wide[i] || d).rect, kind: 'image', style: {} }, 'desktop'),
       mobileCss: m ? layoutCss({ ...m, kind: 'image', style: {} }, 'mobile') : '',
     };
   }).filter(Boolean);
@@ -257,6 +330,9 @@ export function composePage(slug) {
   const footer = footerData();
   const homeImages = slug === 'home' ? page.blocks.filter((b) => b.type === 'image') : [];
   const contentBlocks = homeImages.length ? page.blocks.filter((b) => b.type !== 'image') : page.blocks;
+  // The Work grid's boxes come from the captured gallery, not from block content.
+  const galleryIds =
+    slug === 'home' ? new Set((l.desktop.gallery || []).map((t) => mediaId(t.src))) : new Set();
 
   const split = (bp) => {
     const headerH = bp.header?.rect.h ?? 0;
@@ -269,8 +345,9 @@ export function composePage(slug) {
 
   const desk = split(l.desktop);
   const mob = split(l.mobile);
-  const zipped = zip(contentBlocks, desk.body);
-  const mobZipped = zip(contentBlocks, mob.body);
+  const withoutGallery = (body) => body.filter((b) => !(b.kind === 'image' && galleryIds.has(mediaId(b.src))));
+  const zipped = zip(contentBlocks, withoutGallery(desk.body));
+  const mobZipped = zip(contentBlocks, withoutGallery(mob.body));
 
   // One DOM, two stylesheets: each desktop block borrows the geometry of the
   // mobile block that occupies the same slot in the phone layout.
@@ -281,12 +358,17 @@ export function composePage(slug) {
       cls: `b${i}`,
       shared: sharedCss(b),
       desktopCss: layoutCss(b, 'desktop'),
-      mobileCss: m ? layoutCss({ ...m, style: b.style }, 'mobile') : '',
+      // The phone layout sets its own type sizes; only geometry is borrowed.
+      mobileCss: m ? layoutCss(m, 'mobile') : '',
     };
   });
 
   const tiles = homeImages.length ? tileData(slug, homeImages) : [];
 
+  // On the Work page the grid stretches vertically too, which moves the footer
+  // down with the page: the canvas height follows the same interpolation.
+  const footerWideY = l.desktop.footerWide ? l.desktop.footerWide.rect.y - desk.headerH : desk.height;
+  const h = lin(desk.height, footerWideY);
   return {
     page,
     header,
@@ -294,6 +376,7 @@ export function composePage(slug) {
     tiles,
     blocks,
     height: desk.height,
+    heightCss: `calc(${fmt(h.c)}px + ${fmt(h.m * 100)}cqw)`,
     mobileHeight: mob.height,
     headerHeight: desk.headerH,
     mobileHeaderHeight: mob.headerH,
