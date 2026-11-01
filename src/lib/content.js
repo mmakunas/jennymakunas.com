@@ -95,6 +95,7 @@ export function parseBlocks(body) {
         type: 'video',
         src: attr('src'),
         poster: attr('poster'),
+        title: attr('title'),
         controls: has('controls'),
         autoplay: has('autoplay'),
         muted: has('muted') || has('autoplay'),

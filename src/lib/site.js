@@ -52,9 +52,13 @@ const lin = (a, b) => {
   const m = (b - a) / (WIDE - REF);
   return { c: a - REF * m, m };
 };
+// Below the captured desktop width Wix serves that layout unchanged — the page
+// is wider than the window and scrolls sideways — so the container never counts
+// for less than the width the layout was captured at.
+const scale = (c, m) => (m ? `calc(${fmt(c)}px + ${fmt(m)} * max(${REF}px, 100cqw))` : `${fmt(c)}px`);
 const linCss = (a, b, prop) => {
   const { c, m } = lin(a, b);
-  return `${prop}:calc(${fmt(c)}px + ${fmt(m * 100)}cqw)`;
+  return `${prop}:${scale(c, m)}`;
 };
 const mq = (px) => `${fmt((px / MOBILE_DESIGN) * 100)}cqw`;
 
@@ -130,6 +134,49 @@ const sameText = (a, b) => {
   return x === y || y.startsWith(x.slice(0, 24)) || x.startsWith(y.slice(0, 24));
 };
 
+// Wix rich text carries its own line structure: where each line breaks and how
+// big that line is set. The Markdown cannot say that, so the capture does,
+// segment by segment, in the order the copy runs.
+const BR_RUN = /((?:<br[^>]*>\s*)+)/i;
+const segmentsOf = (html) => String(html).split(BR_RUN);
+
+const capturedShape = (html, size) => {
+  const parts = segmentsOf(html);
+  const shape = [];
+  let breaks = 0;
+  for (let i = 0; i < parts.length; i += 1) {
+    if (i % 2 === 1) {
+      breaks = (parts[i].match(/<br/gi) || []).length;
+      continue;
+    }
+    const raw = parts[i];
+    const text = raw.replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').trim();
+    if (!text) continue;
+    const own = /font-size:\s*([\d.]+)px/.exec(raw);
+    shape.push({ size: own ? Number(own[1]) : size, breaks });
+    breaks = 0;
+  }
+  return shape;
+};
+
+const shapedHtml = (contentHtml, capturedHtml, style) => {
+  const shape = capturedShape(capturedHtml, (style && style.size) || 16);
+  const parts = segmentsOf(contentHtml);
+  const lines = [];
+  for (let i = 0; i < parts.length; i += 2) if (parts[i].replace(/<[^>]+>/g, '').trim()) lines.push(parts[i].trim());
+  if (shape.length < 2 || lines.length !== shape.length) return null;
+  // The largest line sets the box, and each line is sized against it, so the
+  // phone layout's own type size scales the whole run.
+  const size = Math.max(...shape.map((l) => l.size));
+  let out = '';
+  for (let i = 0; i < lines.length; i += 1) {
+    const line = shape[i];
+    if (i > 0) out += '<br />'.repeat(Math.max(1, line.breaks));
+    out += Math.abs(line.size - size) > 0.5 ? `<span style="font-size:${Number((line.size / size).toFixed(4))}em">${lines[i]}</span>` : lines[i];
+  }
+  return { html: out, size };
+};
+
 // Pairs the Markdown's words with the page's captured boxes. Text pairs by its
 // own text; media pairs in document order — every image, film and facade in the
 // Markdown against every media box on the page — with an exact media-id match
@@ -176,14 +223,22 @@ function zip(contentBlocks, layoutBlocks, { byText = false } = {}) {
       }
       text.splice(text.indexOf(content), 1);
       // One captured box can hold several Markdown paragraphs: the Markdown
-      // keeps a blank line between them and they render as paragraphs in the
-      // one box, with the captured gap between them.
+      // keeps a blank line between them and each renders as its own paragraph
+      // inside the one box, with the gap the capture shows between them.
+      const parts = [content];
       while (text.length) {
         const next = text[0];
         const nt = norm(next.text);
         if (nt.length < 8 || !norm(lb.text).includes(nt.slice(0, 40))) break;
-        content = { ...content, html: `${content.html}<br /><br />${next.html}`, text: `${content.text} ${next.text}` };
+        parts.push(next);
         text.shift();
+      }
+      if (parts.length > 1) {
+        content = {
+          ...content,
+          html: parts.map((p) => p.html).join('<br /><br />'),
+          text: parts.map((p) => p.text).join('\n\n'),
+        };
       }
       // One Markdown paragraph can be several boxes on the page (a run of
       // attribution lines, for one): the paragraph renders in the first box and
@@ -199,7 +254,14 @@ function zip(contentBlocks, layoutBlocks, { byText = false } = {}) {
       }
       if (absorb) listSlots = absorb;
       if (content.type === 'list' && content.items > 1) listSlots = content.items - 1;
-      placed.push({ ...lb, content, html: withBase(content.html), list: content.type === 'list' });
+      const shaped = content.type === 'text' ? shapedHtml(content.html, lb.html, lb.style) : null;
+      placed.push({
+        ...lb,
+        content,
+        style: shaped ? { ...lb.style, size: shaped.size } : lb.style,
+        html: withBase(shaped ? shaped.html : content.html),
+        list: content.type === 'list',
+      });
       continue;
     }
 
@@ -388,6 +450,9 @@ function tileData(slug, images, headerH, mobileHeaderH) {
         shared: 'font-family:inherit',
         desktopCss: layoutCss({ kind: 'image', rect: shift(cell.rect), wide: shift(wideCell.rect), style: {} }, 'desktop'),
         mobileCss: m ? layoutCss({ ...m, rect: shiftMobile(m.rect), kind: 'image', style: {} }, 'mobile') : '',
+        bottom: shift(cell.rect).y + cell.rect.h,
+        wideBottom: shift(wideCell.rect).y + wideCell.rect.h,
+        mobileBottom: m ? shiftMobile(m.rect).y + m.rect.h : 0,
       };
     })
     .filter(Boolean);
@@ -518,7 +583,7 @@ export function composePage(slug) {
   const deskFlow = flowTops(entries.map((e) => e.b), REF);
   const wideFlow = flowTops(entries.map((e) => e.b), WIDE);
   const mobFlow = flowTops(
-    entries.map((e) => (e.m ? { ...e.b, rect: e.m.rect, wide: e.m.rect } : e.b)),
+    entries.map((e) => (e.m ? { ...e.b, rect: e.m.rect, wide: e.m.rect, style: e.m.style } : e.b)),
     MOBILE_DESIGN,
   );
 
@@ -529,6 +594,32 @@ export function composePage(slug) {
     desktopCss: withTop(layoutCss(b, 'desktop'), linCss(deskFlow.tops[i].top, wideFlow.tops[i].top, 'top')),
     mobileCss: withTop(m ? layoutCss(m, 'mobile') : '', `top:${mq(mobFlow.tops[i].top)}`),
   }));
+
+  // The captured hairlines ride with the blocks above them: if a text box grew,
+  // the rules under it move down with everything else.
+  const ruleShift = (flow) => (y) => {
+    let delta = 0;
+    entries.forEach(({ b }, i) => {
+      if (b.rect.y <= y) delta = Math.max(delta, flow.tops[i].top - b.rect.y);
+    });
+    return delta;
+  };
+  const deskShift = ruleShift(deskFlow);
+  const wideShift = ruleShift(wideFlow);
+  const rules = (l.desktop.rules || []).map((r, i) => {
+    const wr = (l.desktop.rulesWide || [])[i] || r;
+    const deskTop = r.y - desk.headerH + deskShift(r.y - desk.headerH);
+    const wideTop = wr.y - desk.headerH + wideShift(wr.y - desk.headerH);
+    return {
+      cls: `rule${i}`,
+      css: [
+        linCss(r.x, wr.x, 'left'),
+        linCss(r.w, wr.w, 'width'),
+        linCss(deskTop, wideTop, 'top'),
+        `border-top:${fmt(r.weight || 1)}px solid ${r.color}`,
+      ].join(';'),
+    };
+  });
 
   // Content that has nowhere to go is a hard error: silently publishing the
   // captured text would make an edit to the Markdown look applied when it is not.
@@ -544,9 +635,9 @@ export function composePage(slug) {
   const footerWideY = l.desktop.footerWide ? l.desktop.footerWide.rect.y - desk.headerH : desk.height;
   const h = lin(desk.height, footerWideY);
   // The canvas is as tall as the flowed content, never shorter than the capture.
-  const grownRef = Math.max(desk.height, deskFlow.bottom + (desk.height - (desk.height - 0)));
-  const growRef = Math.max(desk.height, deskFlow.bottom);
-  const growWide = Math.max(footerWideY, wideFlow.bottom);
+  const tileBottom = (key) => (tiles || []).reduce((m, t) => Math.max(m, t[key] || 0), 0);
+  const growRef = Math.max(desk.height, deskFlow.bottom, tileBottom('bottom'));
+  const growWide = Math.max(footerWideY, wideFlow.bottom, tileBottom('wideBottom'));
   const hg = lin(growRef, growWide);
   return {
     page,
@@ -555,11 +646,12 @@ export function composePage(slug) {
     tiles,
     blocks,
     height: desk.height,
-    heightCss: `calc(${fmt(hg.c)}px + ${fmt(hg.m * 100)}cqw)`,
-    mobileHeightCss: mq(Math.max(mob.height, mobFlow.bottom)),
+    heightCss: scale(hg.c, hg.m),
+    mobileHeightCss: mq(Math.max(mob.height, mobFlow.bottom, tileBottom('mobileBottom'))),
     mobileHeight: mob.height,
     headerHeight: desk.headerH,
     mobileHeaderHeight: mob.headerH,
+    rules,
     leftover: zipped.leftover,
     orphaned: zipped.orphaned,
     mobileLeftover: mobZipped.leftover,
@@ -575,6 +667,7 @@ export function pageCss(composed) {
   };
   for (const b of composed.blocks) emit(b.cls, b.shared, b.desktopCss, b.mobileCss);
   for (const t of composed.tiles || []) emit(t.cls, t.shared, t.desktopCss, t.mobileCss);
+  for (const r of composed.rules || []) rules.push(`@media (min-width:750px){.${r.cls}{position:absolute;${r.css}}}`);
   for (const b of composed.footer.blocks) {
     if (b.hideMobile) {
       rules.push(`@media (min-width:750px){.${b.cls}{${b.shared};${b.desktopCss}}}`);
@@ -596,13 +689,13 @@ export function chromeCss(composed) {
     const { c, m } = lin(item.rect.x, item.wide.x);
     const w = lin(item.rect.w, item.wide.w);
     rules.push(
-      `@media (min-width:750px){.nav-${i}{left:calc(${fmt(c)}px + ${fmt(m * 100)}cqw);width:calc(${fmt(w.c)}px + ${fmt(w.m * 100)}cqw);top:${fmt(item.rect.y)}px;height:${fmt(item.rect.h)}px}}`,
+      `@media (min-width:750px){.nav-${i}{left:${scale(c, m)};width:${scale(w.c, w.m)};top:${fmt(item.rect.y)}px;height:${fmt(item.rect.h)}px}}`,
     );
   });
   const logo = header.logo;
   if (logo) {
     const { c, m } = lin(logo.rect.x, logo.wide.x);
-    rules.push(`@media (min-width:750px){.logo{left:calc(${fmt(c)}px + ${fmt(m * 100)}cqw);width:${fmt(logo.rect.w)}px;top:${fmt(logo.rect.y)}px}}`);
+    rules.push(`@media (min-width:750px){.logo{left:${scale(c, m)};width:${fmt(logo.rect.w)}px;top:${fmt(logo.rect.y)}px}}`);
   }
   if (header.mobileLogo) {
     rules.push(`@media (max-width:749.9px){.logo{left:${mq(header.mobileLogo.rect.x)};width:${mq(header.mobileLogo.rect.w)};top:${mq(header.mobileLogo.rect.y)}}}`);

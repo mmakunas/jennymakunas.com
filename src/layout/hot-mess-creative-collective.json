@@ -1,11 +1,12 @@
 {
  "slug": "hot-mess-creative-collective",
  "url": "https://jenny6926.wixsite.com/mysite/hot-mess-creative-collective",
- "captured": "2026-11-01T00:54:25.008Z",
+ "captured": "2026-11-01T03:07:58.395Z",
  "desktop": {
   "width": 983,
   "wideWidth": 1440,
   "docHeight": 2312,
+  "docHeightWide": 2312,
   "header": {
    "rect": {
     "x": 0,
@@ -382,6 +383,15 @@
    },
    "bg": "rgba(0, 0, 0, 0)"
   },
+  "footerWide": {
+   "rect": {
+    "x": 0,
+    "y": 2155.3,
+    "w": 1440,
+    "h": 156.6
+   },
+   "bg": "rgba(0, 0, 0, 0)"
+  },
   "bands": [
    {
     "bg": "rgb(59, 49, 63)",
@@ -410,6 +420,59 @@
    }
   ],
   "gallery": [],
+  "galleryWide": [],
+  "rules": [
+   {
+    "x": 1.5,
+    "y": 752.4,
+    "w": 980,
+    "h": 5,
+    "color": "rgb(217, 75, 149)",
+    "weight": 1
+   },
+   {
+    "x": 1.5,
+    "y": 1217.4,
+    "w": 980,
+    "h": 5,
+    "color": "rgb(73, 35, 244)",
+    "weight": 1
+   },
+   {
+    "x": 1.5,
+    "y": 1646.4,
+    "w": 980,
+    "h": 5,
+    "color": "rgb(73, 35, 244)",
+    "weight": 1
+   }
+  ],
+  "rulesWide": [
+   {
+    "x": 230,
+    "y": 752.4,
+    "w": 980,
+    "h": 5,
+    "color": "rgb(217, 75, 149)",
+    "weight": 1
+   },
+   {
+    "x": 230,
+    "y": 1217.4,
+    "w": 980,
+    "h": 5,
+    "color": "rgb(73, 35, 244)",
+    "weight": 1
+   },
+   {
+    "x": 230,
+    "y": 1646.4,
+    "w": 980,
+    "h": 5,
+    "color": "rgb(73, 35, 244)",
+    "weight": 1
+   }
+  ],
   "blocks": [
    {
     "kind": "image",

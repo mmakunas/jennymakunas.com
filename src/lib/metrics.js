@@ -12,8 +12,9 @@ const root = process.cwd();
 // for the Helvetica fallback. Cormorant ships a real bold face, the others are
 // variable files whose default instance is the regular weight.
 const files = {
-  jost: 'public/fonts/jost-latin.woff2',
-  mulish: 'public/fonts/mulish-latin.woff2',
+  futura: 'public/fonts/jost-latin.woff2',
+  avenir: 'public/fonts/mulish-latin.woff2',
+  system: 'public/fonts/mulish-latin.woff2',
   cormorant: 'public/fonts/cormorant-garamond-1.woff2',
 };
 const boldFiles = { cormorant: 'public/fonts/cormorant-garamond-2.woff2' };
@@ -21,6 +22,10 @@ const boldFiles = { cormorant: 'public/fonts/cormorant-garamond-2.woff2' };
 // A variable file opened at its default instance is the regular weight, so a
 // bold run is wider by the ratio measured off the font's own advance widths.
 const BOLD = 1.067;
+// A box whose capture records no line height uses the font's own: measured in
+// Chromium on the built page, per family and weight.
+const NORMAL_LINE = { futura: 1.45, avenir: 1.15, system: 1.15, cormorant: 1.21 };
+const normalLine = (family, weight) => (family === 'cormorant' && weight >= 600 ? 1.15 : NORMAL_LINE[family] || 1.2);
 // The shaper and the browser disagree slightly on the same glyph run; the scale
 // is calibrated against widths measured on the built page in Chromium.
 const SCALE = 1.05;
@@ -29,13 +34,13 @@ const fontFor = (family, weight) => {
   const bold = weight >= 600;
   const key = `${family}:${bold ? 700 : 400}`;
   if (cache.has(key)) return cache.get(key);
-  const file = (bold && boldFiles[family]) || files[family] || files.jost;
+  const file = (bold && boldFiles[family]) || files[family] || files.futura;
   const font = fontkit.openSync(path.join(root, file));
   cache.set(key, { font, synthetic: bold && !boldFiles[family] });
   return cache.get(key);
 };
 
-export function widthOf(text, { family = 'jost', size = 16, weight = 400, spacing = 0 } = {}) {
+export function widthOf(text, { family = 'futura', size = 16, weight = 400, spacing = 0 } = {}) {
   const { font, synthetic } = fontFor(family, weight);
   const base = font.layout(text).advanceWidth / font.unitsPerEm;
   return (base * SCALE * (synthetic ? BOLD : 1) * size) + Math.max(0, text.length - 1) * spacing;
@@ -88,19 +93,45 @@ export function fitSize(html, { width, family, size, weight, spacing, lines = 1,
   return Math.floor(lo * 10) / 10;
 }
 
-// Height of a text block at a given width: wrapped lines per paragraph plus the
-// gap between paragraphs, which the capture shows as roughly two thirds of a line.
-export function textHeight(html, { width, family, size, weight, lineHeight, spacing, paragraphGap }) {
-  const paragraphs = plain(html)
-    .split(/\n\s*\n/)
-    .map((p) => p.trim())
-    .filter(Boolean);
-  const lh = lineHeight || size * 1.2;
+// Height of a text block at a given width. Wix's rich text carries its own line
+// structure — where the lines break, and each line's own size — so the markup is
+// walked line by line: a line set smaller takes fewer pixels, and an empty line
+// between paragraphs takes a full one.
+export function textHeight(html, { width, family, size, weight, lineHeight, spacing }) {
+  const base = size || 16;
+  const baseLine = lineHeight || base * normalLine(family, weight);
+  const parts = String(html).split(/((?:<br[^>]*>\s*)+)/i);
   let lines = 0;
-  for (const p of paragraphs) {
-    const parts = p.split('\n');
-    for (const part of parts) lines += lineCount(part, { width, family, size, weight, spacing });
+  let height = 0;
+  let paragraphs = 0;
+  let pending = 0;
+  for (let i = 0; i < parts.length; i += 1) {
+    if (i % 2 === 1) {
+      pending = (parts[i].match(/<br/gi) || []).length;
+      continue;
+    }
+    const raw = parts[i];
+    const text = plain(raw).trim();
+    if (!text) continue;
+    const own = /font-size:\s*([\d.]+)(px|em)/.exec(raw);
+    const ownSize = own ? (own[2] === 'em' ? base * Number(own[1]) : Number(own[1])) : base;
+    const ownLine = lineHeight ? baseLine * (ownSize / base) : ownSize * normalLine(family, weight);
+    const ownSpacing = spacing ? spacing * (ownSize / base) : 0;
+    const count = text.split('\n').reduce((n, part) => n + lineCount(part, { width, family, size: ownSize, weight, spacing: ownSpacing }), 0);
+    lines += count;
+    height += count * ownLine;
+    if (pending > 1) {
+      // A blank line is one empty line of the box's own type.
+      const blanks = pending - 1;
+      lines += blanks;
+      height += blanks * baseLine;
+      paragraphs += 1;
+      pending = 0;
+      continue;
+    }
+    pending = 0;
+    paragraphs = Math.max(paragraphs, 1);
   }
-  const gap = paragraphGap ?? size * 0.66;
-  return { lines, height: lines * lh + Math.max(0, paragraphs.length - 1) * gap, paragraphs: paragraphs.length };
+  if (pending > 1) height += (pending - 1) * baseLine;
+  return { lines, height, paragraphs: Math.max(paragraphs, 1) };
 }

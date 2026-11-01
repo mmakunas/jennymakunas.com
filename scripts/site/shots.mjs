@@ -21,6 +21,10 @@ const pages = JSON.parse(await readFile(path.join(root, 'src/layout/pages.json')
 const only = process.argv.indexOf('--only');
 const bpOnly = process.argv.indexOf('--bp');
 const wantedBps = bpOnly > -1 ? process.argv[bpOnly + 1].split(',') : ['desktop', 'mobile'];
+// One extra pass at a chosen width, for the layout between the phone and the
+// 983px capture: `--width 820` writes <slug>-w820.png.
+const widthAt = process.argv.indexOf('--width');
+const extraWidth = widthAt > -1 ? Number(process.argv[widthAt + 1]) : null;
 const wanted = only > -1 ? pages.filter((p) => p.slug === process.argv[only + 1]) : pages;
 
 const TYPES = { '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript', '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.gif': 'image/gif', '.svg': 'image/svg+xml', '.woff2': 'font/woff2', '.pdf': 'application/pdf', '.ico': 'image/x-icon' };
@@ -116,6 +120,17 @@ for (const page of wanted) {
     await compare(buildFile, wixFile, cmpFile, bp === 'mobile' ? buildMeta.width : null);
     rows.push({ slug: page.slug, bp, file: cmpFile });
     console.log(`shot ${page.slug} ${bp}`);
+    if (extraWidth) {
+      const tag = `w${extraWidth}`;
+      const buildAt = path.join(out, `${page.slug}-${tag}-build.png`);
+      const wixAt = path.join(out, `${page.slug}-${tag}-wix.png`);
+      const cmpAt = path.join(out, `${page.slug}-${tag}.png`);
+      await shot({ url: `${local}${page.path.replace(/^\//, '')}`, width: extraWidth, device: null, file: buildAt, blockWix: true });
+      await shot({ url: page.url, width: extraWidth, device: null, file: wixAt, blockWix: false });
+      await compare(buildAt, wixAt, cmpAt, null);
+      rows.push({ slug: page.slug, bp: tag, file: cmpAt });
+      console.log(`shot ${page.slug} ${tag}`);
+    }
   }
 }
 

@@ -120,6 +120,21 @@ const PAGE_JS = ({ offset, wantMenu }) => {
     };
   });
 
+  // The page's own hairlines: Wix draws a section rule as a thin bordered box.
+  const rules = [...document.querySelectorAll('div,hr')]
+    .filter((el) => {
+      const cs = getComputedStyle(el);
+      const r0 = el.getBoundingClientRect();
+      const t = parseFloat(cs.borderTopWidth) || 0;
+      const b = parseFloat(cs.borderBottomWidth) || 0;
+      return (t > 0 || b > 0) && r0.width > 150 && r0.height <= 8 && !el.querySelector('img, video');
+    })
+    .map((el) => {
+      const cs = getComputedStyle(el);
+      const t = parseFloat(cs.borderTopWidth) || 0;
+      return { ...rect(el), color: t > 0 ? cs.borderTopColor : cs.borderBottomColor, weight: t || parseFloat(cs.borderBottomWidth) };
+    });
+
   const header = document.querySelector('#SITE_HEADER');
   const footer = document.querySelector('#SITE_FOOTER');
   const bgOf = (sel) =>
@@ -181,6 +196,7 @@ const PAGE_JS = ({ offset, wantMenu }) => {
     bands: bgOf('[data-testid="colorUnderlay"], #pageBackground_c1dmp'),
     blocks: kept.sort((a, b) => a.rect.y - b.rect.y || a.rect.x - b.rect.x),
     gallery,
+    rules,
     footerLinks,
     menu,
   };
@@ -335,6 +351,8 @@ for (const { slug, url } of pages.filter((p) => !only.length || only.includes(p.
       bands: shots.ref.bands,
       gallery: shots.ref.gallery,
       galleryWide: shots.wide.gallery,
+      rules: shots.ref.rules,
+      rulesWide: shots.wide.rules,
       blocks,
     },
     mobile: {

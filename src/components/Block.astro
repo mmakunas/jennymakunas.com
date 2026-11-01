@@ -41,6 +41,23 @@ const facade = block.content && block.content.type === 'facade' ? block.content 
   >
   </video>
 )}
+{film && film.title && !film.autoplay && (
+  <button class={`${cls} filmtitle`} style={block.shared} type="button">
+    <span>{film.title}</span>
+    <span class="play" aria-hidden="true"></span>
+  </button>
+)}
+{film && film.title && !film.autoplay && (
+  <script is:inline>
+    // The still carries the film's name the way Wix's player did; the button
+    // starts the film and gets out of the way.
+    document.currentScript.previousElementSibling?.addEventListener('click', function () {
+      const film = this.previousElementSibling;
+      this.remove();
+      film?.play?.();
+    });
+  </script>
+)}
 {facade && (
   <a class={`${cls} facade`} style={block.shared} href={facade.embedUrl} data-embed={facade.embedUrl} target="_blank" rel="noopener">
     <img src={url(facade.src)} alt={facade.alt || 'Play the film'} />
