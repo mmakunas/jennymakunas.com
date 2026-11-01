@@ -1,0 +1,1983 @@
+{
+ "slug": "hot-mess-creative-collective",
+ "url": "https://jenny6926.wixsite.com/mysite/hot-mess-creative-collective",
+ "captured": "2026-11-01T03:07:58.395Z",
+ "desktop": {
+  "width": 983,
+  "wideWidth": 1440,
+  "docHeight": 2312,
+  "docHeightWide": 2312,
+  "header": {
+   "rect": {
+    "x": 0,
+    "y": 0,
+    "w": 983,
+    "h": 88
+   },
+   "bg": "rgba(0, 0, 0, 0)",
+   "shadow": "none",
+   "border": "0px none rgb(0, 0, 0)",
+   "position": "sticky",
+   "nav": [
+    {
+     "text": "Jenny Makunas",
+     "href": "https://jenny6926.wixsite.com/mysite",
+     "rect": {
+      "x": 20.5,
+      "y": 20,
+      "w": 165,
+      "h": 40
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 25,
+      "weight": 700,
+      "lineHeight": 35,
+      "color": "rgb(217, 75, 149)",
+      "align": "start",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Work",
+     "href": "https://jenny6926.wixsite.com/mysite",
+     "rect": {
+      "x": 372.5,
+      "y": 14,
+      "w": 129.5,
+      "h": 52
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 25,
+      "weight": 700,
+      "lineHeight": null,
+      "color": "rgb(160, 161, 173)",
+      "align": "left",
+      "spacing": 1.25,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Now You: Brand Campaign",
+     "href": "https://jenny6926.wixsite.com/mysite/now-you-brand-campaign",
+     "rect": {
+      "x": 0,
+      "y": -50,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": null,
+      "color": "rgb(0, 0, 0)",
+      "align": "left",
+      "spacing": 0.8,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Anna Wintour: How to Be a Boss",
+     "href": "https://jenny6926.wixsite.com/mysite/anna-wintour-how-to-be-a-boss-1",
+     "rect": {
+      "x": 0,
+      "y": -50,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": null,
+      "color": "rgb(0, 0, 0)",
+      "align": "left",
+      "spacing": 0.8,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Alicia Keys: Words Create Worlds",
+     "href": "https://jenny6926.wixsite.com/mysite/alicia-keys-words-create-worlds-1",
+     "rect": {
+      "x": 0,
+      "y": -50,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": null,
+      "color": "rgb(0, 0, 0)",
+      "align": "left",
+      "spacing": 0.8,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Mariah Carey: Pass the Mic",
+     "href": "https://jenny6926.wixsite.com/mysite/mariah-carey-pass-the-mic",
+     "rect": {
+      "x": 0,
+      "y": -50,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": null,
+      "color": "rgb(0, 0, 0)",
+      "align": "left",
+      "spacing": 0.8,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "The World Could Use One of You",
+     "href": "https://jenny6926.wixsite.com/mysite/the-world-could-use-one-of-you",
+     "rect": {
+      "x": 0,
+      "y": -50,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": null,
+      "color": "rgb(0, 0, 0)",
+      "align": "left",
+      "spacing": 0.8,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Now You Countdown: Portfolio Campaign",
+     "href": "https://jenny6926.wixsite.com/mysite/now-you-countdown-portfolio-campaign",
+     "rect": {
+      "x": 0,
+      "y": -50,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": null,
+      "color": "rgb(0, 0, 0)",
+      "align": "left",
+      "spacing": 0.8,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "So Much New To Know: Portfolio Campaign",
+     "href": "https://jenny6926.wixsite.com/mysite/so-much-new-to-know-portfolio-campaign",
+     "rect": {
+      "x": 0,
+      "y": -50,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": null,
+      "color": "rgb(0, 0, 0)",
+      "align": "left",
+      "spacing": 0.8,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Today's the Day: Brand Campaign",
+     "href": "https://jenny6926.wixsite.com/mysite/today-s-the-day-brand-campaign",
+     "rect": {
+      "x": 0,
+      "y": -50,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": null,
+      "color": "rgb(0, 0, 0)",
+      "align": "left",
+      "spacing": 0.8,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Animaniacs x MasterClass",
+     "href": "https://jenny6926.wixsite.com/mysite/animaniacs-x-masterclass",
+     "rect": {
+      "x": 0,
+      "y": -50,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": null,
+      "color": "rgb(0, 0, 0)",
+      "align": "left",
+      "spacing": 0.8,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "23andMe: DNA Day 2023",
+     "href": "https://jenny6926.wixsite.com/mysite/23andme-dna-day-2023",
+     "rect": {
+      "x": 0,
+      "y": -50,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": null,
+      "color": "rgb(0, 0, 0)",
+      "align": "left",
+      "spacing": 0.8,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Hot Mess: Creative Collective",
+     "href": "https://jenny6926.wixsite.com/mysite/hot-mess-creative-collective",
+     "rect": {
+      "x": 0,
+      "y": -50,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": null,
+      "color": "rgb(228, 162, 128)",
+      "align": "left",
+      "spacing": 0.8,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Thoughts",
+     "href": "https://jenny6926.wixsite.com/mysite/thoughts",
+     "rect": {
+      "x": 508,
+      "y": 14,
+      "w": 170.5,
+      "h": 52
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 25,
+      "weight": 700,
+      "lineHeight": null,
+      "color": "rgb(160, 161, 173)",
+      "align": "left",
+      "spacing": 1.25,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "About",
+     "href": "https://jenny6926.wixsite.com/mysite/about",
+     "rect": {
+      "x": 684.5,
+      "y": 14,
+      "w": 134.8,
+      "h": 52
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 25,
+      "weight": 700,
+      "lineHeight": null,
+      "color": "rgb(160, 161, 173)",
+      "align": "left",
+      "spacing": 1.25,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Contact",
+     "href": "https://jenny6926.wixsite.com/mysite/contact-8",
+     "rect": {
+      "x": 825.3,
+      "y": 14,
+      "w": 156.3,
+      "h": 52
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 25,
+      "weight": 700,
+      "lineHeight": null,
+      "color": "rgb(160, 161, 173)",
+      "align": "left",
+      "spacing": 1.25,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    }
+   ],
+   "burger": null
+  },
+  "footer": {
+   "rect": {
+    "x": 0,
+    "y": 2155.3,
+    "w": 983,
+    "h": 156.6
+   },
+   "bg": "rgba(0, 0, 0, 0)"
+  },
+  "footerWide": {
+   "rect": {
+    "x": 0,
+    "y": 2155.3,
+    "w": 1440,
+    "h": 156.6
+   },
+   "bg": "rgba(0, 0, 0, 0)"
+  },
+  "bands": [
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 2312,
+    "y": 0
+   },
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 694,
+    "y": 88
+   },
+   {
+    "bg": "rgb(50, 87, 164)",
+    "h": 446,
+    "y": 88
+   },
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 231,
+    "y": 534
+   },
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 1373,
+    "y": 782
+   }
+  ],
+  "gallery": [],
+  "galleryWide": [],
+  "rules": [
+   {
+    "x": 1.5,
+    "y": 752.4,
+    "w": 980,
+    "h": 5,
+    "color": "rgb(217, 75, 149)",
+    "weight": 1
+   },
+   {
+    "x": 1.5,
+    "y": 1217.4,
+    "w": 980,
+    "h": 5,
+    "color": "rgb(73, 35, 244)",
+    "weight": 1
+   },
+   {
+    "x": 1.5,
+    "y": 1646.4,
+    "w": 980,
+    "h": 5,
+    "color": "rgb(73, 35, 244)",
+    "weight": 1
+   }
+  ],
+  "rulesWide": [
+   {
+    "x": 230,
+    "y": 752.4,
+    "w": 980,
+    "h": 5,
+    "color": "rgb(217, 75, 149)",
+    "weight": 1
+   },
+   {
+    "x": 230,
+    "y": 1217.4,
+    "w": 980,
+    "h": 5,
+    "color": "rgb(73, 35, 244)",
+    "weight": 1
+   },
+   {
+    "x": 230,
+    "y": 1646.4,
+    "w": 980,
+    "h": 5,
+    "color": "rgb(73, 35, 244)",
+    "weight": 1
+   }
+  ],
+  "blocks": [
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_8b1fac877a92419ebda79f5854c61e81~mv2.jpg/v1/fill/w_983,h_446,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_8b1fac877a92419ebda79f5854c61e81~mv2.jpg",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 0,
+     "y": 88,
+     "w": 983,
+     "h": 446
+    },
+    "box": {
+     "x": 0,
+     "y": 88,
+     "w": 983,
+     "h": 446
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": "IMG_0850.jpg",
+    "wide": {
+     "x": 0,
+     "y": 88,
+     "w": 1440,
+     "h": 446
+    }
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span class=\"color_37 wixui-rich-text__text\"><span style=\"font-size:18px;\" class=\"wixui-rich-text__text\">A collective of musicians, DJs, producers, writers, multi-media artists, engineers, and friends, the Hot Mess world encompasses live and streaming performances, album releases, parties and events, and the occasional advertising undertaking. We’ve worked together - officially and unofficially - for over a decade, collaborating on work that brings us collective joy and brings our creative talents to the forefront.&nbsp;</span></span>",
+    "text": "A collective of musicians, DJs, producers, writers, multi-media artists, engineers, and friends, the Hot Mess world encompasses live and streaming performances, album releases, parties and events, and the occasional advertising undertaking. We’ve worked together - officially and unofficially - for over a decade, collaborating on work that brings us collective joy and brings our creative talents to the forefront.",
+    "rect": {
+     "x": 162.5,
+     "y": 565,
+     "w": 658,
+     "h": 126
+    },
+    "box": {
+     "x": 162.5,
+     "y": 565,
+     "w": 658,
+     "h": 176.4
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 18,
+     "weight": 400,
+     "lineHeight": 25.2,
+     "color": "rgb(160, 161, 173)",
+     "align": "start",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null,
+    "wide": {
+     "x": 391,
+     "y": 565,
+     "w": 658,
+     "h": 126
+    }
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span class=\"color_37 wixui-rich-text__text\"><span style=\"font-size:18px;\" class=\"wixui-rich-text__text\">We’re available for projects large and small! <span style=\"text-decoration:underline;\" class=\"wixui-rich-text__text\"><a href=\"mailto:jenny@wearehotmess.com?subject=Who are Hot Mess?\" target=\"_self\" class=\"wixui-rich-text__text\">Hit us up via email.</a></span></span></span>",
+    "text": "We’re available for projects large and small! Hit us up via email.",
+    "rect": {
+     "x": 162.5,
+     "y": 716.2,
+     "w": 658,
+     "h": 25.2
+    },
+    "box": {
+     "x": 162.5,
+     "y": 565,
+     "w": 658,
+     "h": 176.4
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 18,
+     "weight": 400,
+     "lineHeight": 25.2,
+     "color": "rgb(160, 161, 173)",
+     "align": "start",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null,
+    "wide": {
+     "x": 391,
+     "y": 716.2,
+     "w": 658,
+     "h": 25.2
+    }
+   },
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_722249fae2994c7b81466a0489948f96~mv2.jpg/v1/fill/w_429,h_429,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/96290604_276405033391674_1154317344059505500_n.jpg",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 42.5,
+     "y": 788.4,
+     "w": 429,
+     "h": 429
+    },
+    "box": {
+     "x": 42.5,
+     "y": 788.4,
+     "w": 429,
+     "h": 429
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": "96290604_276405033391674_1154317344059505500_n.jpg",
+    "wide": {
+     "x": 271,
+     "y": 788.4,
+     "w": 429,
+     "h": 429
+    }
+   },
+   {
+    "kind": "text",
+    "tag": "h2",
+    "html": "<span style=\"letter-spacing:normal;\" class=\"wixui-rich-text__text\"><span style=\"font-size:30px;\" class=\"wixui-rich-text__text\">From The Loft</span></span>",
+    "text": "From The Loft",
+    "rect": {
+     "x": 540.5,
+     "y": 911.4,
+     "w": 401,
+     "h": 40
+    },
+    "box": {
+     "x": 540.5,
+     "y": 911.4,
+     "w": 401,
+     "h": 40
+    },
+    "style": {
+     "font": "futura-lt-w01-book",
+     "size": 30,
+     "weight": 700,
+     "lineHeight": null,
+     "color": "rgb(217, 75, 149)",
+     "align": "start",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null,
+    "wide": {
+     "x": 769,
+     "y": 911.4,
+     "w": 401,
+     "h": 40
+    }
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span class=\"color_37 wixui-rich-text__text\"><span style=\"font-size:18px;\" class=\"wixui-rich-text__text\">A pandemic-inspired weekly series of live streaming musical performances, DJ sets, and new music releases from Jenniflex and We are Galaxies, among others.</span></span>",
+    "text": "A pandemic-inspired weekly series of live streaming musical performances, DJ sets, and new music releases from Jenniflex and We are Galaxies, among others.",
+    "rect": {
+     "x": 540.5,
+     "y": 977.4,
+     "w": 401,
+     "h": 97.2
+    },
+    "box": {
+     "x": 540.5,
+     "y": 977.4,
+     "w": 401,
+     "h": 162
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 18,
+     "weight": 400,
+     "lineHeight": 32.4,
+     "color": "rgb(160, 161, 173)",
+     "align": "start",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null,
+    "wide": {
+     "x": 769,
+     "y": 977.4,
+     "w": 401,
+     "h": 97.2
+    }
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span class=\"color_37 wixui-rich-text__text\"><span style=\"font-size:18px;\" class=\"wixui-rich-text__text\"><span class=\"wixGuard wixui-rich-text__text\">​</span></span></span>",
+    "text": "",
+    "rect": {
+     "x": 540.5,
+     "y": 1074.6,
+     "w": 401,
+     "h": 32.4
+    },
+    "box": {
+     "x": 540.5,
+     "y": 977.4,
+     "w": 401,
+     "h": 162
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 18,
+     "weight": 400,
+     "lineHeight": 32.4,
+     "color": "rgb(160, 161, 173)",
+     "align": "start",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null,
+    "wide": {
+     "x": 769,
+     "y": 1074.6,
+     "w": 401,
+     "h": 32.4
+    }
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span class=\"color_37 wixui-rich-text__text\"><span style=\"font-size:18px;\" class=\"wixui-rich-text__text\"><span style=\"text-decoration:underline;\" class=\"wixui-rich-text__text\"><a href=\"http://soundcloud.com/wearehotmess\" target=\"_blank\" rel=\"noreferrer noopener\" class=\"wixui-rich-text__text\">Select SoundCloud recordings available here.</a></span></span></span>",
+    "text": "Select SoundCloud recordings available here.",
+    "rect": {
+     "x": 540.5,
+     "y": 1107,
+     "w": 401,
+     "h": 32.4
+    },
+    "box": {
+     "x": 540.5,
+     "y": 977.4,
+     "w": 401,
+     "h": 162
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 18,
+     "weight": 400,
+     "lineHeight": 32.4,
+     "color": "rgb(160, 161, 173)",
+     "align": "start",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null,
+    "wide": {
+     "x": 769,
+     "y": 1107,
+     "w": 401,
+     "h": 32.4
+    }
+   },
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_00c43922859c40688b71c846a4f47468~mv2.jpg/v1/fill/w_378,h_378,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/HM%20Pink.jpg",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 563.5,
+     "y": 1250.4,
+     "w": 378,
+     "h": 378
+    },
+    "box": {
+     "x": 563.5,
+     "y": 1250.4,
+     "w": 378,
+     "h": 378
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": "HM Pink.jpg",
+    "wide": {
+     "x": 792,
+     "y": 1250.4,
+     "w": 378,
+     "h": 378
+    }
+   },
+   {
+    "kind": "text",
+    "tag": "h2",
+    "html": "<span style=\"letter-spacing:normal;\" class=\"wixui-rich-text__text\"><span style=\"font-size:30px;\" class=\"wixui-rich-text__text\">Virtual Afterparties</span></span>",
+    "text": "Virtual Afterparties",
+    "rect": {
+     "x": 55.5,
+     "y": 1348.4,
+     "w": 402,
+     "h": 40
+    },
+    "box": {
+     "x": 55.5,
+     "y": 1348.4,
+     "w": 402,
+     "h": 40
+    },
+    "style": {
+     "font": "futura-lt-w01-book",
+     "size": 30,
+     "weight": 700,
+     "lineHeight": null,
+     "color": "rgb(217, 75, 149)",
+     "align": "start",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null,
+    "wide": {
+     "x": 284,
+     "y": 1348.4,
+     "w": 402,
+     "h": 40
+    }
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span style=\"font-size:18px;\" class=\"wixui-rich-text__text\"><span class=\"color_37 wixui-rich-text__text\">A series of streaming afterparties following the weekly pandemic \"Dinner and a Movie\" event designed to raise money for causes such as ArtsFund, BlackVisionsMN, The Waterwheel Foundation, and The Divided Sky Foundation.</span></span>",
+    "text": "A series of streaming afterparties following the weekly pandemic \"Dinner and a Movie\" event designed to raise money for causes such as ArtsFund, BlackVisionsMN, The Waterwheel Foundation, and The Divided Sky Foundation.",
+    "rect": {
+     "x": 55.5,
+     "y": 1414.4,
+     "w": 402,
+     "h": 162
+    },
+    "box": {
+     "x": 55.5,
+     "y": 1414.4,
+     "w": 402,
+     "h": 162
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 18,
+     "weight": 400,
+     "lineHeight": 32.4,
+     "color": "rgb(160, 161, 173)",
+     "align": "start",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null,
+    "wide": {
+     "x": 284,
+     "y": 1414.4,
+     "w": 402,
+     "h": 162
+    }
+   },
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_aa2c9c2044d1462d9054a4aae0bf732e~mv2.png/v1/fill/w_378,h_378,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/SANTOS-Patch-A.png",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 45.5,
+     "y": 1674.4,
+     "w": 378,
+     "h": 378
+    },
+    "box": {
+     "x": 45.5,
+     "y": 1674.4,
+     "w": 378,
+     "h": 378
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": "SANTOS-Patch-A.png",
+    "wide": {
+     "x": 274,
+     "y": 1674.4,
+     "w": 378,
+     "h": 378
+    }
+   },
+   {
+    "kind": "text",
+    "tag": "h2",
+    "html": "<span style=\"font-size:30px;\" class=\"wixui-rich-text__text\">Everything's Right<br class=\"wixui-rich-text__text\">\n&amp;<br class=\"wixui-rich-text__text\">\nScreaming</span><span style=\"font-size:30px; letter-spacing:normal;\" class=\"wixui-rich-text__text\"><span style=\"font-size:30px;\" class=\"wixui-rich-text__text\">&nbsp;Through Space</span></span>",
+    "text": "Everything's Right\n&\nScreaming Through Space",
+    "rect": {
+     "x": 540.5,
+     "y": 1708.4,
+     "w": 401,
+     "h": 147
+    },
+    "box": {
+     "x": 540.5,
+     "y": 1708.4,
+     "w": 401,
+     "h": 147
+    },
+    "style": {
+     "font": "futura-lt-w01-book",
+     "size": 38,
+     "weight": 700,
+     "lineHeight": null,
+     "color": "rgb(217, 75, 149)",
+     "align": "start",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null,
+    "wide": {
+     "x": 769,
+     "y": 1708.4,
+     "w": 401,
+     "h": 147
+    }
+   },
+   {
+    "kind": "text",
+    "tag": "h2",
+    "html": "<span class=\"color_37 wixui-rich-text__text\"><span style=\"font-size:18px;\" class=\"wixui-rich-text__text\">Small series of parties at The Peacock Lounge in San Francisco featuring DJs spinning psychedelic house, disco, funk, and soul.<br class=\"wixui-rich-text__text\">\n<br class=\"wixui-rich-text__text\">\nWe believe dancing is good for your soul. It's easier to find music to dance to at 2am than it is at 8pm. That shouldn't be the case. &nbsp;</span></span>",
+    "text": "Small series of parties at The Peacock Lounge in San Francisco featuring DJs spinning psychedelic house, disco, funk, and soul.\n\nWe believe dancing is good for your soul. It's easier to find music to dance to at 2am than it is at 8pm. That shouldn't be the case.",
+    "rect": {
+     "x": 540.5,
+     "y": 1887.4,
+     "w": 401,
+     "h": 226.8
+    },
+    "box": {
+     "x": 540.5,
+     "y": 1887.4,
+     "w": 401,
+     "h": 226.8
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 18,
+     "weight": 400,
+     "lineHeight": 32.4,
+     "color": "rgb(160, 161, 173)",
+     "align": "start",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null,
+    "wide": {
+     "x": 769,
+     "y": 1887.4,
+     "w": 401,
+     "h": 226.8
+    }
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span class=\"color_37 wixui-rich-text__text\"><span style=\"letter-spacing:normal;\" class=\"wixui-rich-text__text\"><a data-auto-recognition=\"true\" href=\"mailto:jenny@makunas.com\" class=\"wixui-rich-text__text\">jenny@makunas.com</a>​ &nbsp;|&nbsp; 415-609-1504</span></span>",
+    "text": "jenny@makunas.com  |  415-609-1504",
+    "rect": {
+     "x": 211.5,
+     "y": 2246.3,
+     "w": 560,
+     "h": 21
+    },
+    "box": {
+     "x": 211.5,
+     "y": 2246.3,
+     "w": 560,
+     "h": 21
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 17,
+     "weight": 400,
+     "lineHeight": null,
+     "color": "rgb(217, 75, 149)",
+     "align": "center",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null,
+    "wide": {
+     "x": 440,
+     "y": 2246.3,
+     "w": 560,
+     "h": 21
+    }
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span style=\"letter-spacing:normal;\" class=\"wixui-rich-text__text\">© 2024 by Jenny Makunas</span>",
+    "text": "© 2024 by Jenny Makunas",
+    "rect": {
+     "x": 181.5,
+     "y": 2276.3,
+     "w": 619,
+     "h": 19.6
+    },
+    "box": {
+     "x": 181.5,
+     "y": 2276.3,
+     "w": 619,
+     "h": 19.6
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 14,
+     "weight": 400,
+     "lineHeight": 19.6,
+     "color": "rgb(217, 75, 149)",
+     "align": "center",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null,
+    "wide": {
+     "x": 410,
+     "y": 2276.3,
+     "w": 619,
+     "h": 19.6
+    }
+   }
+  ]
+ },
+ "mobile": {
+  "width": 320,
+  "docHeight": 2952,
+  "header": {
+   "rect": {
+    "x": 0,
+    "y": 0,
+    "w": 320,
+    "h": 71
+   },
+   "bg": "rgba(0, 0, 0, 0)",
+   "shadow": "none",
+   "border": "0px none rgb(0, 0, 0)",
+   "position": "sticky",
+   "nav": [
+    {
+     "text": "Jenny Makunas",
+     "href": "https://jenny6926.wixsite.com/mysite",
+     "rect": {
+      "x": 18,
+      "y": 13,
+      "w": 155,
+      "h": 44
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 20,
+      "weight": 700,
+      "lineHeight": 28,
+      "color": "rgb(217, 75, 149)",
+      "align": "start",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Work",
+     "href": "https://jenny6926.wixsite.com/mysite",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Now You: Brand Campaign",
+     "href": "https://jenny6926.wixsite.com/mysite/now-you-brand-campaign",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Anna Wintour: How to Be a Boss",
+     "href": "https://jenny6926.wixsite.com/mysite/anna-wintour-how-to-be-a-boss-1",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Alicia Keys: Words Create Worlds",
+     "href": "https://jenny6926.wixsite.com/mysite/alicia-keys-words-create-worlds-1",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Mariah Carey: Pass the Mic",
+     "href": "https://jenny6926.wixsite.com/mysite/mariah-carey-pass-the-mic",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "The World Could Use One of You",
+     "href": "https://jenny6926.wixsite.com/mysite/the-world-could-use-one-of-you",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Now You Countdown: Portfolio Campaign",
+     "href": "https://jenny6926.wixsite.com/mysite/now-you-countdown-portfolio-campaign",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "So Much New To Know: Portfolio Campaign",
+     "href": "https://jenny6926.wixsite.com/mysite/so-much-new-to-know-portfolio-campaign",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Today's the Day: Brand Campaign",
+     "href": "https://jenny6926.wixsite.com/mysite/today-s-the-day-brand-campaign",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Animaniacs x MasterClass",
+     "href": "https://jenny6926.wixsite.com/mysite/animaniacs-x-masterclass",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "23andMe: DNA Day 2023",
+     "href": "https://jenny6926.wixsite.com/mysite/23andme-dna-day-2023",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Hot Mess: Creative Collective",
+     "href": "https://jenny6926.wixsite.com/mysite/hot-mess-creative-collective",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Thoughts",
+     "href": "https://jenny6926.wixsite.com/mysite/thoughts",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(193, 198, 209)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Hot Mess Creative",
+     "href": "https://jenny6926.wixsite.com/mysite/thoughts",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "SuperBowl 2024",
+     "href": "https://jenny6926.wixsite.com/mysite/thoughts",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "About",
+     "href": "https://jenny6926.wixsite.com/mysite/about",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(193, 198, 209)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Contact",
+     "href": "https://jenny6926.wixsite.com/mysite/contact-8",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(193, 198, 209)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    }
+   ],
+   "burger": {
+    "x": 251,
+    "y": 10,
+    "w": 50,
+    "h": 50
+   }
+  },
+  "footer": {
+   "rect": {
+    "x": 0,
+    "y": 2646.8,
+    "w": 320,
+    "h": 305
+   },
+   "bg": "rgba(0, 0, 0, 0)"
+  },
+  "bands": [
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 2952,
+    "y": 0
+   },
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 0,
+    "y": -38
+   },
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 764,
+    "y": 71
+   },
+   {
+    "bg": "rgb(50, 87, 164)",
+    "h": 200,
+    "y": 71
+   },
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 564,
+    "y": 271
+   },
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 1812,
+    "y": 835
+   }
+  ],
+  "gallery": [],
+  "blocks": [
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_8b1fac877a92419ebda79f5854c61e81~mv2.jpg/v1/fill/w_320,h_200,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_8b1fac877a92419ebda79f5854c61e81~mv2.jpg",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 0,
+     "y": 71,
+     "w": 320,
+     "h": 200
+    },
+    "box": {
+     "x": 0,
+     "y": 71,
+     "w": 320,
+     "h": 200
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": "IMG_0850.jpg"
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span class=\"color_37 wixui-rich-text__text\"><span style=\"font-size:18px;\" class=\"wixui-rich-text__text\">A collective of musicians, DJs, producers, writers, multi-media artists, engineers, and friends, the Hot Mess world encompasses live and streaming performances, album releases, parties and events, and the occasional advertising undertaking. We’ve worked together - officially and unofficially - for over a decade, collaborating on work that brings us collective joy and brings our creative talents to the forefront.&nbsp;</span></span>",
+    "text": "A collective of musicians, DJs, producers, writers, multi-media artists, engineers, and friends, the Hot Mess world encompasses live and streaming performances, album releases, parties and events, and the occasional advertising undertaking. We’ve worked together - officially and unofficially - for over a decade, collaborating on work that brings us collective joy and brings our creative talents to the forefront.",
+    "rect": {
+     "x": 20,
+     "y": 320,
+     "w": 280,
+     "h": 302.4
+    },
+    "box": {
+     "x": 20,
+     "y": 320,
+     "w": 280,
+     "h": 378
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 18,
+     "weight": 400,
+     "lineHeight": 25.2,
+     "color": "rgb(160, 161, 173)",
+     "align": "start",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span class=\"color_37 wixui-rich-text__text\"><span style=\"font-size:18px;\" class=\"wixui-rich-text__text\">We’re available for projects large and small! <span style=\"text-decoration:underline;\" class=\"wixui-rich-text__text\"><a href=\"mailto:jenny@wearehotmess.com?subject=Who are Hot Mess?\" target=\"_self\" class=\"wixui-rich-text__text\">Hit us up via email.</a></span></span></span>",
+    "text": "We’re available for projects large and small! Hit us up via email.",
+    "rect": {
+     "x": 20,
+     "y": 647.6,
+     "w": 280,
+     "h": 50.4
+    },
+    "box": {
+     "x": 20,
+     "y": 320,
+     "w": 280,
+     "h": 378
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 18,
+     "weight": 400,
+     "lineHeight": 25.2,
+     "color": "rgb(160, 161, 173)",
+     "align": "start",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null
+   },
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_722249fae2994c7b81466a0489948f96~mv2.jpg/v1/fill/w_280,h_170,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/96290604_276405033391674_1154317344059505500_n.jpg",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 20,
+     "y": 875,
+     "w": 280,
+     "h": 170
+    },
+    "box": {
+     "x": 20,
+     "y": 875,
+     "w": 280,
+     "h": 170
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": "96290604_276405033391674_1154317344059505500_n.jpg"
+   },
+   {
+    "kind": "text",
+    "tag": "h2",
+    "html": "<span style=\"letter-spacing:normal;\" class=\"wixui-rich-text__text\"><span style=\"font-size:20px;\" class=\"wixui-rich-text__text\">From The Loft</span></span>",
+    "text": "From The Loft",
+    "rect": {
+     "x": 20,
+     "y": 1087,
+     "w": 280,
+     "h": 26
+    },
+    "box": {
+     "x": 20,
+     "y": 1087,
+     "w": 280,
+     "h": 26
+    },
+    "style": {
+     "font": "futura-lt-w01-book",
+     "size": 20,
+     "weight": 700,
+     "lineHeight": null,
+     "color": "rgb(217, 75, 149)",
+     "align": "start",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span class=\"color_37 wixui-rich-text__text\"><span style=\"font-size:18px;\" class=\"wixui-rich-text__text\">A pandemic-inspired weekly series of live streaming musical performances, DJ sets, and new music releases from Jenniflex and We are Galaxies, among others.</span></span>",
+    "text": "A pandemic-inspired weekly series of live streaming musical performances, DJ sets, and new music releases from Jenniflex and We are Galaxies, among others.",
+    "rect": {
+     "x": 20,
+     "y": 1124,
+     "w": 268,
+     "h": 162
+    },
+    "box": {
+     "x": 20,
+     "y": 1124,
+     "w": 268,
+     "h": 259.3
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 18,
+     "weight": 400,
+     "lineHeight": 32.4,
+     "color": "rgb(160, 161, 173)",
+     "align": "start",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span class=\"color_37 wixui-rich-text__text\"><span style=\"font-size:18px;\" class=\"wixui-rich-text__text\"><span class=\"wixGuard wixui-rich-text__text\">​</span></span></span>",
+    "text": "",
+    "rect": {
+     "x": 20,
+     "y": 1286.1,
+     "w": 268,
+     "h": 32.4
+    },
+    "box": {
+     "x": 20,
+     "y": 1124,
+     "w": 268,
+     "h": 259.3
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 18,
+     "weight": 400,
+     "lineHeight": 32.4,
+     "color": "rgb(160, 161, 173)",
+     "align": "start",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span class=\"color_37 wixui-rich-text__text\"><span style=\"font-size:18px;\" class=\"wixui-rich-text__text\"><span style=\"text-decoration:underline;\" class=\"wixui-rich-text__text\"><a href=\"http://soundcloud.com/wearehotmess\" target=\"_blank\" rel=\"noreferrer noopener\" class=\"wixui-rich-text__text\">Select SoundCloud recordings available here.</a></span></span></span>",
+    "text": "Select SoundCloud recordings available here.",
+    "rect": {
+     "x": 20,
+     "y": 1318.5,
+     "w": 268,
+     "h": 64.8
+    },
+    "box": {
+     "x": 20,
+     "y": 1124,
+     "w": 268,
+     "h": 259.3
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 18,
+     "weight": 400,
+     "lineHeight": 32.4,
+     "color": "rgb(160, 161, 173)",
+     "align": "start",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null
+   },
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_00c43922859c40688b71c846a4f47468~mv2.jpg/v1/fill/w_280,h_170,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/HM%20Pink.jpg",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 20,
+     "y": 1488.3,
+     "w": 280,
+     "h": 170
+    },
+    "box": {
+     "x": 20,
+     "y": 1488.3,
+     "w": 280,
+     "h": 170
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": "HM Pink.jpg"
+   },
+   {
+    "kind": "text",
+    "tag": "h2",
+    "html": "<span style=\"letter-spacing:normal;\" class=\"wixui-rich-text__text\"><span style=\"font-size:21px;\" class=\"wixui-rich-text__text\">Virtual Afterparties</span></span>",
+    "text": "Virtual Afterparties",
+    "rect": {
+     "x": 20,
+     "y": 1690.3,
+     "w": 280,
+     "h": 27
+    },
+    "box": {
+     "x": 20,
+     "y": 1690.3,
+     "w": 280,
+     "h": 27
+    },
+    "style": {
+     "font": "futura-lt-w01-book",
+     "size": 21,
+     "weight": 700,
+     "lineHeight": null,
+     "color": "rgb(217, 75, 149)",
+     "align": "start",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span style=\"font-size:18px;\" class=\"wixui-rich-text__text\"><span class=\"color_37 wixui-rich-text__text\">A series of streaming afterparties following the weekly pandemic \"Dinner and a Movie\" event designed to raise money for causes such as ArtsFund, BlackVisionsMN, The Waterwheel Foundation, and The Divided Sky Foundation.</span></span>",
+    "text": "A series of streaming afterparties following the weekly pandemic \"Dinner and a Movie\" event designed to raise money for causes such as ArtsFund, BlackVisionsMN, The Waterwheel Foundation, and The Divided Sky Foundation.",
+    "rect": {
+     "x": 20,
+     "y": 1727.3,
+     "w": 280,
+     "h": 226.8
+    },
+    "box": {
+     "x": 20,
+     "y": 1727.3,
+     "w": 280,
+     "h": 226.8
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 18,
+     "weight": 400,
+     "lineHeight": 32.4,
+     "color": "rgb(160, 161, 173)",
+     "align": "start",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null
+   },
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_aa2c9c2044d1462d9054a4aae0bf732e~mv2.png/v1/fill/w_280,h_170,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/SANTOS-Patch-A.png",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 20,
+     "y": 2055.1,
+     "w": 280,
+     "h": 170
+    },
+    "box": {
+     "x": 20,
+     "y": 2055.1,
+     "w": 280,
+     "h": 170
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": "SANTOS-Patch-A.png"
+   },
+   {
+    "kind": "text",
+    "tag": "h2",
+    "html": "<span style=\"font-size:21px;\" class=\"wixui-rich-text__text\">Everything's Right<br class=\"wixui-rich-text__text\">\n&amp;<br class=\"wixui-rich-text__text\">\nScreaming</span><span style=\"font-size:21px; letter-spacing:normal;\" class=\"wixui-rich-text__text\"><span style=\"font-size:21px;\" class=\"wixui-rich-text__text\">&nbsp;Through Space</span></span>",
+    "text": "Everything's Right\n&\nScreaming Through Space",
+    "rect": {
+     "x": 20,
+     "y": 2255.1,
+     "w": 280,
+     "h": 90
+    },
+    "box": {
+     "x": 20,
+     "y": 2255.1,
+     "w": 280,
+     "h": 90
+    },
+    "style": {
+     "font": "futura-lt-w01-book",
+     "size": 23,
+     "weight": 700,
+     "lineHeight": null,
+     "color": "rgb(217, 75, 149)",
+     "align": "start",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null
+   },
+   {
+    "kind": "text",
+    "tag": "h2",
+    "html": "<span class=\"color_37 wixui-rich-text__text\"><span style=\"font-size:18px;\" class=\"wixui-rich-text__text\">Small series of parties at The Peacock Lounge in San Francisco featuring DJs spinning psychedelic house, disco, funk, and soul.<br class=\"wixui-rich-text__text\">\n<br class=\"wixui-rich-text__text\">\nWe believe dancing is good for your soul. It's easier to find music to dance to at 2am than it is at 8pm. That shouldn't be the case. &nbsp;</span></span>",
+    "text": "Small series of parties at The Peacock Lounge in San Francisco featuring DJs spinning psychedelic house, disco, funk, and soul.\n\nWe believe dancing is good for your soul. It's easier to find music to dance to at 2am than it is at 8pm. That shouldn't be the case.",
+    "rect": {
+     "x": 20,
+     "y": 2355.1,
+     "w": 280,
+     "h": 291.7
+    },
+    "box": {
+     "x": 20,
+     "y": 2355.1,
+     "w": 280,
+     "h": 291.7
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 18,
+     "weight": 400,
+     "lineHeight": 32.4,
+     "color": "rgb(160, 161, 173)",
+     "align": "start",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span class=\"color_37 wixui-rich-text__text\"><span style=\"letter-spacing:normal;\" class=\"wixui-rich-text__text\"><a data-auto-recognition=\"true\" href=\"mailto:jenny@makunas.com\" class=\"wixui-rich-text__text\">jenny@makunas.com</a>​ &nbsp;|&nbsp; <a data-auto-recognition=\"true\" href=\"tel:415-609-1504\" class=\"wixui-rich-text__text\">415-609-1504</a></span></span>",
+    "text": "jenny@makunas.com  |  415-609-1504",
+    "rect": {
+     "x": 80,
+     "y": 2666.8,
+     "w": 162,
+     "h": 42
+    },
+    "box": {
+     "x": 80,
+     "y": 2666.8,
+     "w": 162,
+     "h": 42
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 17,
+     "weight": 400,
+     "lineHeight": null,
+     "color": "rgb(217, 75, 149)",
+     "align": "center",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span style=\"letter-spacing:normal;\" class=\"wixui-rich-text__text\">© 2024 by Jenny Makunas</span>",
+    "text": "© 2024 by Jenny Makunas",
+    "rect": {
+     "x": 48,
+     "y": 2731.8,
+     "w": 224,
+     "h": 21
+    },
+    "box": {
+     "x": 48,
+     "y": 2731.8,
+     "w": 224,
+     "h": 21
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 15,
+     "weight": 400,
+     "lineHeight": 21,
+     "color": "rgb(217, 75, 149)",
+     "align": "center",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null
+   }
+  ]
+ }
+}

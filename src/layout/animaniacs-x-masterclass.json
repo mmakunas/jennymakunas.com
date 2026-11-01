@@ -1,0 +1,1720 @@
+{
+ "slug": "animaniacs-x-masterclass",
+ "url": "https://jenny6926.wixsite.com/mysite/animaniacs-x-masterclass",
+ "captured": "2026-11-01T00:53:19.720Z",
+ "desktop": {
+  "width": 983,
+  "wideWidth": 1440,
+  "docHeight": 2072,
+  "header": {
+   "rect": {
+    "x": 0,
+    "y": 0,
+    "w": 983,
+    "h": 88
+   },
+   "bg": "rgba(0, 0, 0, 0)",
+   "shadow": "none",
+   "border": "0px none rgb(0, 0, 0)",
+   "position": "sticky",
+   "nav": [
+    {
+     "text": "Jenny Makunas",
+     "href": "https://jenny6926.wixsite.com/mysite",
+     "rect": {
+      "x": 20.5,
+      "y": 20,
+      "w": 165,
+      "h": 40
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 25,
+      "weight": 700,
+      "lineHeight": 35,
+      "color": "rgb(217, 75, 149)",
+      "align": "start",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Work",
+     "href": "https://jenny6926.wixsite.com/mysite",
+     "rect": {
+      "x": 372.5,
+      "y": 14,
+      "w": 129.5,
+      "h": 52
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 25,
+      "weight": 700,
+      "lineHeight": null,
+      "color": "rgb(160, 161, 173)",
+      "align": "left",
+      "spacing": 1.25,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Now You: Brand Campaign",
+     "href": "https://jenny6926.wixsite.com/mysite/now-you-brand-campaign",
+     "rect": {
+      "x": 0,
+      "y": -50,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": null,
+      "color": "rgb(0, 0, 0)",
+      "align": "left",
+      "spacing": 0.8,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Anna Wintour: How to Be a Boss",
+     "href": "https://jenny6926.wixsite.com/mysite/anna-wintour-how-to-be-a-boss-1",
+     "rect": {
+      "x": 0,
+      "y": -50,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": null,
+      "color": "rgb(0, 0, 0)",
+      "align": "left",
+      "spacing": 0.8,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Alicia Keys: Words Create Worlds",
+     "href": "https://jenny6926.wixsite.com/mysite/alicia-keys-words-create-worlds-1",
+     "rect": {
+      "x": 0,
+      "y": -50,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": null,
+      "color": "rgb(0, 0, 0)",
+      "align": "left",
+      "spacing": 0.8,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Mariah Carey: Pass the Mic",
+     "href": "https://jenny6926.wixsite.com/mysite/mariah-carey-pass-the-mic",
+     "rect": {
+      "x": 0,
+      "y": -50,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": null,
+      "color": "rgb(0, 0, 0)",
+      "align": "left",
+      "spacing": 0.8,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "The World Could Use One of You",
+     "href": "https://jenny6926.wixsite.com/mysite/the-world-could-use-one-of-you",
+     "rect": {
+      "x": 0,
+      "y": -50,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": null,
+      "color": "rgb(0, 0, 0)",
+      "align": "left",
+      "spacing": 0.8,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Now You Countdown: Portfolio Campaign",
+     "href": "https://jenny6926.wixsite.com/mysite/now-you-countdown-portfolio-campaign",
+     "rect": {
+      "x": 0,
+      "y": -50,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": null,
+      "color": "rgb(0, 0, 0)",
+      "align": "left",
+      "spacing": 0.8,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "So Much New To Know: Portfolio Campaign",
+     "href": "https://jenny6926.wixsite.com/mysite/so-much-new-to-know-portfolio-campaign",
+     "rect": {
+      "x": 0,
+      "y": -50,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": null,
+      "color": "rgb(0, 0, 0)",
+      "align": "left",
+      "spacing": 0.8,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Today's the Day: Brand Campaign",
+     "href": "https://jenny6926.wixsite.com/mysite/today-s-the-day-brand-campaign",
+     "rect": {
+      "x": 0,
+      "y": -50,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": null,
+      "color": "rgb(0, 0, 0)",
+      "align": "left",
+      "spacing": 0.8,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Animaniacs x MasterClass",
+     "href": "https://jenny6926.wixsite.com/mysite/animaniacs-x-masterclass",
+     "rect": {
+      "x": 0,
+      "y": -50,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": null,
+      "color": "rgb(228, 162, 128)",
+      "align": "left",
+      "spacing": 0.8,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "23andMe: DNA Day 2023",
+     "href": "https://jenny6926.wixsite.com/mysite/23andme-dna-day-2023",
+     "rect": {
+      "x": 0,
+      "y": -50,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": null,
+      "color": "rgb(0, 0, 0)",
+      "align": "left",
+      "spacing": 0.8,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Hot Mess: Creative Collective",
+     "href": "https://jenny6926.wixsite.com/mysite/hot-mess-creative-collective",
+     "rect": {
+      "x": 0,
+      "y": -50,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": null,
+      "color": "rgb(0, 0, 0)",
+      "align": "left",
+      "spacing": 0.8,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Thoughts",
+     "href": "https://jenny6926.wixsite.com/mysite/thoughts",
+     "rect": {
+      "x": 508,
+      "y": 14,
+      "w": 170.5,
+      "h": 52
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 25,
+      "weight": 700,
+      "lineHeight": null,
+      "color": "rgb(160, 161, 173)",
+      "align": "left",
+      "spacing": 1.25,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "About",
+     "href": "https://jenny6926.wixsite.com/mysite/about",
+     "rect": {
+      "x": 684.5,
+      "y": 14,
+      "w": 134.8,
+      "h": 52
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 25,
+      "weight": 700,
+      "lineHeight": null,
+      "color": "rgb(160, 161, 173)",
+      "align": "left",
+      "spacing": 1.25,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Contact",
+     "href": "https://jenny6926.wixsite.com/mysite/contact-8",
+     "rect": {
+      "x": 825.3,
+      "y": 14,
+      "w": 156.3,
+      "h": 52
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 25,
+      "weight": 700,
+      "lineHeight": null,
+      "color": "rgb(160, 161, 173)",
+      "align": "left",
+      "spacing": 1.25,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    }
+   ],
+   "burger": null
+  },
+  "footer": {
+   "rect": {
+    "x": 0,
+    "y": 1915,
+    "w": 983,
+    "h": 156.6
+   },
+   "bg": "rgba(0, 0, 0, 0)"
+  },
+  "bands": [
+   {
+    "bg": "rgb(50, 87, 164)",
+    "h": 2072,
+    "y": 0
+   },
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 732,
+    "y": 88
+   },
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 590,
+    "y": 140
+   },
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 590,
+    "y": 140
+   },
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 1095,
+    "y": 820
+   },
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 362,
+    "y": 820
+   },
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 400,
+    "y": 1202
+   },
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 400,
+    "y": 1202
+   },
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 400,
+    "y": 1202
+   },
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 242,
+    "y": 1642
+   }
+  ],
+  "gallery": [],
+  "blocks": [
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_4bb76f7ef548410198ce9e6c6985a6b8~mv2.jpg/v1/fill/w_333,h_590,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_4bb76f7ef548410198ce9e6c6985a6b8~mv2.jpg",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 1.5,
+     "y": 140,
+     "w": 333,
+     "h": 590
+    },
+    "box": {
+     "x": 1.5,
+     "y": 140,
+     "w": 333,
+     "h": 590
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": "Screenshot 2024-01-11 at 11.35_edited.jpg",
+    "wide": {
+     "x": 80,
+     "y": 140,
+     "w": 434.9,
+     "h": 590
+    }
+   },
+   {
+    "kind": "text",
+    "tag": "h3",
+    "html": "Animaniacs x MasterClass<br class=\"wixui-rich-text__text\">\n<span style=\"font-size:34px;\" class=\"wixui-rich-text__text\">\"The Brain Teaches World Domination\"</span>",
+    "text": "Animaniacs x MasterClass\n\"The Brain Teaches World Domination\"",
+    "rect": {
+     "x": 336.5,
+     "y": 158,
+     "w": 730,
+     "h": 107.4
+    },
+    "box": {
+     "x": 336.5,
+     "y": 158,
+     "w": 730,
+     "h": 107.4
+    },
+    "style": {
+     "font": "futura-lt-w01-book",
+     "size": 38,
+     "weight": 700,
+     "lineHeight": 53.2,
+     "color": "rgb(217, 75, 149)",
+     "align": "start",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null,
+    "wide": {
+     "x": 616,
+     "y": 158,
+     "w": 730,
+     "h": 107.4
+    }
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span class=\"color_37 wixui-rich-text__text\"><span style=\"font-size:18px;\" class=\"wixui-rich-text__text\">A multi-year effort from inception to launch supporting a key pillar of MasterClass’s core brand strategy, we teamed up with Hulu and Titmouse Animation Studios to create a new four-part Pinky and the Brain series parodying MasterClass: “The Brain teaches World Domination.” Debuting as part of Animaniacs Season 3, viewers could learn from Brain firsthand the art of strategy and subterfuge, how he came to be the mastermind he is today, and how they could follow in his prodigious pawprints.&nbsp;</span></span>",
+    "text": "A multi-year effort from inception to launch supporting a key pillar of MasterClass’s core brand strategy, we teamed up with Hulu and Titmouse Animation Studios to create a new four-part Pinky and the Brain series parodying MasterClass: “The Brain teaches World Domination.” Debuting as part of Animaniacs Season 3, viewers could learn from Brain firsthand the art of strategy and subterfuge, how he came to be the mastermind he is today, and how they could follow in his prodigious pawprints.",
+    "rect": {
+     "x": 352.5,
+     "y": 265.4,
+     "w": 555,
+     "h": 176.4
+    },
+    "box": {
+     "x": 352.5,
+     "y": 265.4,
+     "w": 555,
+     "h": 428.5
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 18,
+     "weight": 400,
+     "lineHeight": 25.2,
+     "color": "rgb(160, 161, 173)",
+     "align": "start",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null,
+    "wide": {
+     "x": 632,
+     "y": 265.4,
+     "w": 555,
+     "h": 176.4
+    }
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span class=\"color_37 wixui-rich-text__text\"><span style=\"font-size:18px;\" class=\"wixui-rich-text__text\">The campaign was supported via social and comms, won two Clio awards for creative content and partnerships, and a Webby for Branded Video.</span></span>",
+    "text": "The campaign was supported via social and comms, won two Clio awards for creative content and partnerships, and a Webby for Branded Video.",
+    "rect": {
+     "x": 352.5,
+     "y": 467,
+     "w": 555,
+     "h": 50.4
+    },
+    "box": {
+     "x": 352.5,
+     "y": 265.4,
+     "w": 555,
+     "h": 428.5
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 18,
+     "weight": 400,
+     "lineHeight": 25.2,
+     "color": "rgb(160, 161, 173)",
+     "align": "start",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null,
+    "wide": {
+     "x": 632,
+     "y": 467,
+     "w": 555,
+     "h": 50.4
+    }
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span class=\"color_37 wixui-rich-text__text\"><span style=\"font-size:18px;\" class=\"wixui-rich-text__text\">Watch the episodes:&nbsp;<br class=\"wixui-rich-text__text\">\n<span style=\"font-weight:bold;\" class=\"wixui-rich-text__text\">Ep. 1: </span><span style=\"text-decoration:underline;\" class=\"wixui-rich-text__text\"><a href=\"https://www.youtube.com/watch?v=n35OUVcM4Tk\" target=\"_blank\" rel=\"noreferrer noopener\" class=\"wixui-rich-text__text\">Meet Your Instructor</a></span> &nbsp;<br class=\"wixui-rich-text__text\">\n<span style=\"font-weight:bold;\" class=\"wixui-rich-text__text\">Ep. 2: </span><span style=\"text-decoration:underline;\" class=\"wixui-rich-text__text\"><a href=\"https://www.youtube.com/watch?v=-B0bctq7i7Q&amp;t=10s\" target=\"_blank\" rel=\"noreferrer noopener\" class=\"wixui-rich-text__text\">Finding Your Assistant</a></span><br class=\"wixui-rich-text__text\">\n<span style=\"font-weight:bold;\" class=\"wixui-rich-text__text\">Ep. 3: </span><span style=\"text-decoration:underline;\" class=\"wixui-rich-text__text\"><a href=\"https://www.youtube.com/watch?v=9iA8YlUuNHQ&amp;t=11s\" target=\"_blank\" rel=\"noreferrer noopener\" class=\"wixui-rich-text__text\">Disguises and the Art of Subterfuge</a></span> &nbsp;<br class=\"wixui-rich-text__text\">\n<span style=\"font-weight:bold;\" class=\"wixui-rich-text__text\">Ep. 4:</span> <span style=\"text-decoration:underline;\" class=\"wixui-rich-text__text\"><a href=\"https://www.youtube.com/watch?v=Iz8SoYBxriA\" target=\"_blank\" rel=\"noreferrer noopener\" class=\"wixui-rich-text__text\">Analyzing your Adversaries</a></span></span></span><br class=\"wixui-rich-text__text\">\n&nbsp;",
+    "text": "Watch the episodes: \nEp. 1: Meet Your Instructor  \nEp. 2: Finding Your Assistant\nEp. 3: Disguises and the Art of Subterfuge  \nEp. 4: Analyzing your Adversaries",
+    "rect": {
+     "x": 352.5,
+     "y": 542.6,
+     "w": 555,
+     "h": 151.2
+    },
+    "box": {
+     "x": 352.5,
+     "y": 265.4,
+     "w": 555,
+     "h": 428.5
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 18,
+     "weight": 400,
+     "lineHeight": 25.2,
+     "color": "rgb(160, 161, 173)",
+     "align": "start",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null,
+    "wide": {
+     "x": 632,
+     "y": 542.6,
+     "w": 555,
+     "h": 151.2
+    }
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span style=\"font-size:18px;\" class=\"wixui-rich-text__text\"><span class=\"color_37 wixui-rich-text__text\"><span style=\"font-weight:bold;\" class=\"wixui-rich-text__text\">Partners</span>: Hulu, Titmouse Studios</span></span>",
+    "text": "Partners: Hulu, Titmouse Studios",
+    "rect": {
+     "x": 352.5,
+     "y": 712.9,
+     "w": 555,
+     "h": 25.2
+    },
+    "box": {
+     "x": 352.5,
+     "y": 712.9,
+     "w": 555,
+     "h": 74
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 18,
+     "weight": 400,
+     "lineHeight": 25.2,
+     "color": "rgb(160, 161, 173)",
+     "align": "start",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null,
+    "wide": {
+     "x": 632,
+     "y": 712.9,
+     "w": 555,
+     "h": 25.2
+    }
+   },
+   {
+    "kind": "video",
+    "src": null,
+    "iframe": "https://www.youtube.com/embed/YnRE67kwp94?autoplay=0&mute=0&controls=1&loop=0&origin=https%3A%2F%2Fjenny6926.wixsite.com&playsinline=1&enablejsapi=1&widgetid=1&forigin=https%3A%2F%2Fjenny6926.wixsite.com%2Fmysite%2Fanimaniacs-x-masterclass&aoriginsup=1&vf=1",
+    "playable": true,
+    "rect": {
+     "x": 203.5,
+     "y": 839,
+     "w": 575,
+     "h": 323
+    },
+    "box": {
+     "x": 203.5,
+     "y": 839,
+     "w": 575,
+     "h": 323
+    },
+    "fit": "fill",
+    "radius": "0px",
+    "href": null,
+    "alt": "",
+    "wide": {
+     "x": 432,
+     "y": 839,
+     "w": 575,
+     "h": 323
+    }
+   },
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_f7c3b29ac4304da2965463e8455bf889~mv2.png/v1/fill/w_206,h_400,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_f7c3b29ac4304da2965463e8455bf889~mv2.png",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 40,
+     "y": 1202,
+     "w": 205.8,
+     "h": 400
+    },
+    "box": {
+     "x": 40,
+     "y": 1202,
+     "w": 205.8,
+     "h": 400
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": "Screenshot 2024-01-11 at 11.38.41 AM.png",
+    "wide": {
+     "x": 40,
+     "y": 1202,
+     "w": 320,
+     "h": 400
+    }
+   },
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_255a9ab23b734e7795cadc99130819d5~mv2.png/v1/fill/w_412,h_400,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_255a9ab23b734e7795cadc99130819d5~mv2.png",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 285.8,
+     "y": 1202,
+     "w": 411.5,
+     "h": 400
+    },
+    "box": {
+     "x": 285.8,
+     "y": 1202,
+     "w": 411.5,
+     "h": 400
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": "Screenshot 2024-01-11 at 11.40.36 AM.png",
+    "wide": {
+     "x": 400,
+     "y": 1202,
+     "w": 640,
+     "h": 400
+    }
+   },
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_e9a2aba7ac7d4fb6a24404a4566020e9~mv2.png/v1/fill/w_206,h_400,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_e9a2aba7ac7d4fb6a24404a4566020e9~mv2.png",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 737.3,
+     "y": 1202,
+     "w": 205.8,
+     "h": 400
+    },
+    "box": {
+     "x": 737.3,
+     "y": 1202,
+     "w": 205.8,
+     "h": 400
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": "Screenshot 2024-01-11 at 1.00.49 PM.png",
+    "wide": {
+     "x": 1080,
+     "y": 1202,
+     "w": 320,
+     "h": 400
+    }
+   },
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_3c785c523d1344ada7685985fd559f06~mv2.jpg/v1/crop/x_0,y_34,w_600,h_242,q_80,enc_avif,quality_auto/a8ae1a_3c785c523d1344ada7685985fd559f06~mv2.jpg",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 1.5,
+     "y": 1642,
+     "w": 980,
+     "h": 242
+    },
+    "box": {
+     "x": 1.5,
+     "y": 1642,
+     "w": 980,
+     "h": 242
+    },
+    "fit": "none",
+    "radius": "0px",
+    "href": null,
+    "alt": "Clio-Awards-600x309.jpg",
+    "wide": {
+     "x": 230,
+     "y": 1642,
+     "w": 980,
+     "h": 242
+    }
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span class=\"color_37 wixui-rich-text__text\"><span style=\"letter-spacing:normal;\" class=\"wixui-rich-text__text\"><a data-auto-recognition=\"true\" href=\"mailto:jenny@makunas.com\" class=\"wixui-rich-text__text\">jenny@makunas.com</a>​ &nbsp;|&nbsp; 415-609-1504</span></span>",
+    "text": "jenny@makunas.com  |  415-609-1504",
+    "rect": {
+     "x": 211.5,
+     "y": 2006,
+     "w": 560,
+     "h": 21
+    },
+    "box": {
+     "x": 211.5,
+     "y": 2006,
+     "w": 560,
+     "h": 21
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 17,
+     "weight": 400,
+     "lineHeight": null,
+     "color": "rgb(217, 75, 149)",
+     "align": "center",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null,
+    "wide": {
+     "x": 440,
+     "y": 2006,
+     "w": 560,
+     "h": 21
+    }
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span style=\"letter-spacing:normal;\" class=\"wixui-rich-text__text\">© 2024 by Jenny Makunas</span>",
+    "text": "© 2024 by Jenny Makunas",
+    "rect": {
+     "x": 181.5,
+     "y": 2036,
+     "w": 619,
+     "h": 19.6
+    },
+    "box": {
+     "x": 181.5,
+     "y": 2036,
+     "w": 619,
+     "h": 19.6
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 14,
+     "weight": 400,
+     "lineHeight": 19.6,
+     "color": "rgb(217, 75, 149)",
+     "align": "center",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null,
+    "wide": {
+     "x": 410,
+     "y": 2036,
+     "w": 619,
+     "h": 19.6
+    }
+   }
+  ]
+ },
+ "mobile": {
+  "width": 320,
+  "docHeight": 2866,
+  "header": {
+   "rect": {
+    "x": 0,
+    "y": 0,
+    "w": 320,
+    "h": 71
+   },
+   "bg": "rgba(0, 0, 0, 0)",
+   "shadow": "none",
+   "border": "0px none rgb(0, 0, 0)",
+   "position": "sticky",
+   "nav": [
+    {
+     "text": "Jenny Makunas",
+     "href": "https://jenny6926.wixsite.com/mysite",
+     "rect": {
+      "x": 18,
+      "y": 13,
+      "w": 155,
+      "h": 44
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 20,
+      "weight": 700,
+      "lineHeight": 28,
+      "color": "rgb(217, 75, 149)",
+      "align": "start",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Work",
+     "href": "https://jenny6926.wixsite.com/mysite",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Now You: Brand Campaign",
+     "href": "https://jenny6926.wixsite.com/mysite/now-you-brand-campaign",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Anna Wintour: How to Be a Boss",
+     "href": "https://jenny6926.wixsite.com/mysite/anna-wintour-how-to-be-a-boss-1",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Alicia Keys: Words Create Worlds",
+     "href": "https://jenny6926.wixsite.com/mysite/alicia-keys-words-create-worlds-1",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Mariah Carey: Pass the Mic",
+     "href": "https://jenny6926.wixsite.com/mysite/mariah-carey-pass-the-mic",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "The World Could Use One of You",
+     "href": "https://jenny6926.wixsite.com/mysite/the-world-could-use-one-of-you",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Now You Countdown: Portfolio Campaign",
+     "href": "https://jenny6926.wixsite.com/mysite/now-you-countdown-portfolio-campaign",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "So Much New To Know: Portfolio Campaign",
+     "href": "https://jenny6926.wixsite.com/mysite/so-much-new-to-know-portfolio-campaign",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Today's the Day: Brand Campaign",
+     "href": "https://jenny6926.wixsite.com/mysite/today-s-the-day-brand-campaign",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Animaniacs x MasterClass",
+     "href": "https://jenny6926.wixsite.com/mysite/animaniacs-x-masterclass",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "23andMe: DNA Day 2023",
+     "href": "https://jenny6926.wixsite.com/mysite/23andme-dna-day-2023",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Hot Mess: Creative Collective",
+     "href": "https://jenny6926.wixsite.com/mysite/hot-mess-creative-collective",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Thoughts",
+     "href": "https://jenny6926.wixsite.com/mysite/thoughts",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(193, 198, 209)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Hot Mess Creative",
+     "href": "https://jenny6926.wixsite.com/mysite/thoughts",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "SuperBowl 2024",
+     "href": "https://jenny6926.wixsite.com/mysite/thoughts",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "About",
+     "href": "https://jenny6926.wixsite.com/mysite/about",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(193, 198, 209)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Contact",
+     "href": "https://jenny6926.wixsite.com/mysite/contact-8",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(193, 198, 209)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    }
+   ],
+   "burger": {
+    "x": 251,
+    "y": 10,
+    "w": 50,
+    "h": 50
+   }
+  },
+  "footer": {
+   "rect": {
+    "x": 0,
+    "y": 2560.9,
+    "w": 320,
+    "h": 305
+   },
+   "bg": "rgba(0, 0, 0, 0)"
+  },
+  "bands": [
+   {
+    "bg": "rgb(50, 87, 164)",
+    "h": 2866,
+    "y": 0
+   },
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 0,
+    "y": -38
+   },
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 923,
+    "y": 71
+   },
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 888,
+    "y": 71
+   },
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 150,
+    "y": 71
+   },
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 1567,
+    "y": 994
+   },
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 197,
+    "y": 994
+   },
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 357,
+    "y": 1241
+   },
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 200,
+    "y": 1638
+   },
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 390,
+    "y": 1878
+   },
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 213,
+    "y": 2348
+   }
+  ],
+  "gallery": [],
+  "blocks": [
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_4bb76f7ef548410198ce9e6c6985a6b8~mv2.jpg/v1/fill/w_320,h_150,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_4bb76f7ef548410198ce9e6c6985a6b8~mv2.jpg",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 0,
+     "y": 71,
+     "w": 320,
+     "h": 150
+    },
+    "box": {
+     "x": 0,
+     "y": 71,
+     "w": 320,
+     "h": 150
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": "Screenshot 2024-01-11 at 11.35_edited.jpg"
+   },
+   {
+    "kind": "text",
+    "tag": "h3",
+    "html": "Animaniacs x MasterClass<br class=\"wixui-rich-text__text\">\n<span style=\"font-size:25px;\" class=\"wixui-rich-text__text\">\"The Brain Teaches World Domination\"</span>",
+    "text": "Animaniacs x MasterClass\n\"The Brain Teaches World Domination\"",
+    "rect": {
+     "x": 20,
+     "y": 251,
+     "w": 280,
+     "h": 153.2
+    },
+    "box": {
+     "x": 20,
+     "y": 251,
+     "w": 280,
+     "h": 153.2
+    },
+    "style": {
+     "font": "futura-lt-w01-book",
+     "size": 27,
+     "weight": 700,
+     "lineHeight": 37.8,
+     "color": "rgb(217, 75, 149)",
+     "align": "start",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span class=\"color_37 wixui-rich-text__text\"><span style=\"font-size:18px;\" class=\"wixui-rich-text__text\">A multi-year effort from inception to launch supporting a key pillar of MasterClass’s core brand strategy, we teamed up with Hulu and Titmouse Animation Studios to create a new four-part Pinky and the Brain series parodying MasterClass: “The Brain teaches World Domination.” Debuting as part of Animaniacs Season 3, viewers could learn from Brain firsthand the art of strategy and subterfuge, how he came to be the mastermind he is today, and how they could follow in his prodigious pawprints.&nbsp;</span></span>",
+    "text": "A multi-year effort from inception to launch supporting a key pillar of MasterClass’s core brand strategy, we teamed up with Hulu and Titmouse Animation Studios to create a new four-part Pinky and the Brain series parodying MasterClass: “The Brain teaches World Domination.” Debuting as part of Animaniacs Season 3, viewers could learn from Brain firsthand the art of strategy and subterfuge, how he came to be the mastermind he is today, and how they could follow in his prodigious pawprints.",
+    "rect": {
+     "x": 25,
+     "y": 427.2,
+     "w": 280,
+     "h": 352.8
+    },
+    "box": {
+     "x": 25,
+     "y": 427.2,
+     "w": 280,
+     "h": 680.5
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 18,
+     "weight": 400,
+     "lineHeight": 25.2,
+     "color": "rgb(160, 161, 173)",
+     "align": "start",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span class=\"color_37 wixui-rich-text__text\"><span style=\"font-size:18px;\" class=\"wixui-rich-text__text\">The campaign was supported via social and comms, won two Clio awards for creative content and partnerships, and a Webby for Branded Video.</span></span>",
+    "text": "The campaign was supported via social and comms, won two Clio awards for creative content and partnerships, and a Webby for Branded Video.",
+    "rect": {
+     "x": 25,
+     "y": 805.2,
+     "w": 280,
+     "h": 100.8
+    },
+    "box": {
+     "x": 25,
+     "y": 427.2,
+     "w": 280,
+     "h": 680.5
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 18,
+     "weight": 400,
+     "lineHeight": 25.2,
+     "color": "rgb(160, 161, 173)",
+     "align": "start",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span class=\"color_37 wixui-rich-text__text\"><span style=\"font-size:18px;\" class=\"wixui-rich-text__text\">Watch the episodes:&nbsp;<br class=\"wixui-rich-text__text\">\n<span style=\"font-weight:bold;\" class=\"wixui-rich-text__text\">Ep. 1: </span><span style=\"text-decoration:underline;\" class=\"wixui-rich-text__text\"><a href=\"https://www.youtube.com/watch?v=n35OUVcM4Tk\" target=\"_blank\" rel=\"noreferrer noopener\" class=\"wixui-rich-text__text\">Meet Your Instructor</a></span> &nbsp;<br class=\"wixui-rich-text__text\">\n<span style=\"font-weight:bold;\" class=\"wixui-rich-text__text\">Ep. 2: </span><span style=\"text-decoration:underline;\" class=\"wixui-rich-text__text\"><a href=\"https://www.youtube.com/watch?v=-B0bctq7i7Q&amp;t=10s\" target=\"_blank\" rel=\"noreferrer noopener\" class=\"wixui-rich-text__text\">Finding Your Assistant</a></span><br class=\"wixui-rich-text__text\">\n<span style=\"font-weight:bold;\" class=\"wixui-rich-text__text\">Ep. 3: </span><span style=\"text-decoration:underline;\" class=\"wixui-rich-text__text\"><a href=\"https://www.youtube.com/watch?v=9iA8YlUuNHQ&amp;t=11s\" target=\"_blank\" rel=\"noreferrer noopener\" class=\"wixui-rich-text__text\">Disguises and the Art of Subterfuge</a></span> &nbsp;<br class=\"wixui-rich-text__text\">\n<span style=\"font-weight:bold;\" class=\"wixui-rich-text__text\">Ep. 4:</span> <span style=\"text-decoration:underline;\" class=\"wixui-rich-text__text\"><a href=\"https://www.youtube.com/watch?v=Iz8SoYBxriA\" target=\"_blank\" rel=\"noreferrer noopener\" class=\"wixui-rich-text__text\">Analyzing your Adversaries</a></span></span></span><br class=\"wixui-rich-text__text\">\n&nbsp;",
+    "text": "Watch the episodes: \nEp. 1: Meet Your Instructor  \nEp. 2: Finding Your Assistant\nEp. 3: Disguises and the Art of Subterfuge  \nEp. 4: Analyzing your Adversaries",
+    "rect": {
+     "x": 25,
+     "y": 931.3,
+     "w": 280,
+     "h": 176.4
+    },
+    "box": {
+     "x": 25,
+     "y": 427.2,
+     "w": 280,
+     "h": 680.5
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 18,
+     "weight": 400,
+     "lineHeight": 25.2,
+     "color": "rgb(160, 161, 173)",
+     "align": "start",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span style=\"font-size:18px;\" class=\"wixui-rich-text__text\"><span class=\"color_37 wixui-rich-text__text\"><span style=\"font-weight:bold;\" class=\"wixui-rich-text__text\">Partners</span>: Hulu, Titmouse Studios</span></span>",
+    "text": "Partners: Hulu, Titmouse Studios",
+    "rect": {
+     "x": 25,
+     "y": 968.7,
+     "w": 280,
+     "h": 25.2
+    },
+    "box": {
+     "x": 25,
+     "y": 968.7,
+     "w": 280,
+     "h": 25.2
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 18,
+     "weight": 400,
+     "lineHeight": 25.2,
+     "color": "rgb(160, 161, 173)",
+     "align": "start",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null
+   },
+   {
+    "kind": "video",
+    "src": null,
+    "iframe": "https://www.youtube.com/embed/YnRE67kwp94?autoplay=0&mute=0&controls=1&loop=0&origin=https%3A%2F%2Fjenny6926.wixsite.com&playsinline=1&enablejsapi=1&widgetid=1&forigin=https%3A%2F%2Fjenny6926.wixsite.com%2Fmysite%2Fanimaniacs-x-masterclass&aoriginsup=1&vf=6",
+    "playable": true,
+    "rect": {
+     "x": 20,
+     "y": 1013.9,
+     "w": 280,
+     "h": 157
+    },
+    "box": {
+     "x": 20,
+     "y": 1013.9,
+     "w": 280,
+     "h": 157
+    },
+    "fit": "fill",
+    "radius": "0px",
+    "href": null,
+    "alt": ""
+   },
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_f7c3b29ac4304da2965463e8455bf889~mv2.png/v1/fill/w_320,h_357,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_f7c3b29ac4304da2965463e8455bf889~mv2.png",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 0,
+     "y": 1240.9,
+     "w": 320,
+     "h": 357
+    },
+    "box": {
+     "x": 0,
+     "y": 1240.9,
+     "w": 320,
+     "h": 357
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": "Screenshot 2024-01-11 at 11.38.41 AM.png"
+   },
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_255a9ab23b734e7795cadc99130819d5~mv2.png/v1/fill/w_320,h_200,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_255a9ab23b734e7795cadc99130819d5~mv2.png",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 0,
+     "y": 1637.9,
+     "w": 320,
+     "h": 200
+    },
+    "box": {
+     "x": 0,
+     "y": 1637.9,
+     "w": 320,
+     "h": 200
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": "Screenshot 2024-01-11 at 11.40.36 AM.png"
+   },
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_e9a2aba7ac7d4fb6a24404a4566020e9~mv2.png/v1/fill/w_320,h_390,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_e9a2aba7ac7d4fb6a24404a4566020e9~mv2.png",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 0,
+     "y": 1877.9,
+     "w": 320,
+     "h": 390
+    },
+    "box": {
+     "x": 0,
+     "y": 1877.9,
+     "w": 320,
+     "h": 390
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": "Screenshot 2024-01-11 at 1.00.49 PM.png"
+   },
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_3c785c523d1344ada7685985fd559f06~mv2.jpg/v1/crop/x_140,y_48,w_320,h_213,q_80,enc_avif,quality_auto/a8ae1a_3c785c523d1344ada7685985fd559f06~mv2.jpg",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 0,
+     "y": 2347.9,
+     "w": 320,
+     "h": 213
+    },
+    "box": {
+     "x": 0,
+     "y": 2347.9,
+     "w": 320,
+     "h": 213
+    },
+    "fit": "none",
+    "radius": "0px",
+    "href": null,
+    "alt": "Clio-Awards-600x309.jpg"
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span class=\"color_37 wixui-rich-text__text\"><span style=\"letter-spacing:normal;\" class=\"wixui-rich-text__text\"><a data-auto-recognition=\"true\" href=\"mailto:jenny@makunas.com\" class=\"wixui-rich-text__text\">jenny@makunas.com</a>​ &nbsp;|&nbsp; <a data-auto-recognition=\"true\" href=\"tel:415-609-1504\" class=\"wixui-rich-text__text\">415-609-1504</a></span></span>",
+    "text": "jenny@makunas.com  |  415-609-1504",
+    "rect": {
+     "x": 80,
+     "y": 2580.9,
+     "w": 162,
+     "h": 42
+    },
+    "box": {
+     "x": 80,
+     "y": 2580.9,
+     "w": 162,
+     "h": 42
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 17,
+     "weight": 400,
+     "lineHeight": null,
+     "color": "rgb(217, 75, 149)",
+     "align": "center",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span style=\"letter-spacing:normal;\" class=\"wixui-rich-text__text\">© 2024 by Jenny Makunas</span>",
+    "text": "© 2024 by Jenny Makunas",
+    "rect": {
+     "x": 48,
+     "y": 2645.9,
+     "w": 224,
+     "h": 21
+    },
+    "box": {
+     "x": 48,
+     "y": 2645.9,
+     "w": 224,
+     "h": 21
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 15,
+     "weight": 400,
+     "lineHeight": 21,
+     "color": "rgb(217, 75, 149)",
+     "align": "center",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null
+   }
+  ]
+ }
+}

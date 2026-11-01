@@ -1,0 +1,1140 @@
+{
+ "slug": "thoughts",
+ "url": "https://jenny6926.wixsite.com/mysite/thoughts",
+ "captured": "2026-11-01T00:54:56.167Z",
+ "desktop": {
+  "width": 983,
+  "wideWidth": 1440,
+  "docHeight": 1293,
+  "header": {
+   "rect": {
+    "x": 0,
+    "y": 0,
+    "w": 983,
+    "h": 88
+   },
+   "bg": "rgba(0, 0, 0, 0)",
+   "shadow": "none",
+   "border": "0px none rgb(0, 0, 0)",
+   "position": "sticky",
+   "nav": [
+    {
+     "text": "Jenny Makunas",
+     "href": "https://jenny6926.wixsite.com/mysite",
+     "rect": {
+      "x": 20.5,
+      "y": 20,
+      "w": 165,
+      "h": 40
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 25,
+      "weight": 700,
+      "lineHeight": 35,
+      "color": "rgb(217, 75, 149)",
+      "align": "start",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Work",
+     "href": "https://jenny6926.wixsite.com/mysite",
+     "rect": {
+      "x": 372.5,
+      "y": 14,
+      "w": 129.5,
+      "h": 52
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 25,
+      "weight": 700,
+      "lineHeight": null,
+      "color": "rgb(160, 161, 173)",
+      "align": "left",
+      "spacing": 1.25,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Now You: Brand Campaign",
+     "href": "https://jenny6926.wixsite.com/mysite/now-you-brand-campaign",
+     "rect": {
+      "x": 0,
+      "y": -50,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": null,
+      "color": "rgb(0, 0, 0)",
+      "align": "left",
+      "spacing": 0.8,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Anna Wintour: How to Be a Boss",
+     "href": "https://jenny6926.wixsite.com/mysite/anna-wintour-how-to-be-a-boss-1",
+     "rect": {
+      "x": 0,
+      "y": -50,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": null,
+      "color": "rgb(0, 0, 0)",
+      "align": "left",
+      "spacing": 0.8,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Alicia Keys: Words Create Worlds",
+     "href": "https://jenny6926.wixsite.com/mysite/alicia-keys-words-create-worlds-1",
+     "rect": {
+      "x": 0,
+      "y": -50,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": null,
+      "color": "rgb(0, 0, 0)",
+      "align": "left",
+      "spacing": 0.8,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Mariah Carey: Pass the Mic",
+     "href": "https://jenny6926.wixsite.com/mysite/mariah-carey-pass-the-mic",
+     "rect": {
+      "x": 0,
+      "y": -50,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": null,
+      "color": "rgb(0, 0, 0)",
+      "align": "left",
+      "spacing": 0.8,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "The World Could Use One of You",
+     "href": "https://jenny6926.wixsite.com/mysite/the-world-could-use-one-of-you",
+     "rect": {
+      "x": 0,
+      "y": -50,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": null,
+      "color": "rgb(0, 0, 0)",
+      "align": "left",
+      "spacing": 0.8,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Now You Countdown: Portfolio Campaign",
+     "href": "https://jenny6926.wixsite.com/mysite/now-you-countdown-portfolio-campaign",
+     "rect": {
+      "x": 0,
+      "y": -50,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": null,
+      "color": "rgb(0, 0, 0)",
+      "align": "left",
+      "spacing": 0.8,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "So Much New To Know: Portfolio Campaign",
+     "href": "https://jenny6926.wixsite.com/mysite/so-much-new-to-know-portfolio-campaign",
+     "rect": {
+      "x": 0,
+      "y": -50,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": null,
+      "color": "rgb(0, 0, 0)",
+      "align": "left",
+      "spacing": 0.8,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Today's the Day: Brand Campaign",
+     "href": "https://jenny6926.wixsite.com/mysite/today-s-the-day-brand-campaign",
+     "rect": {
+      "x": 0,
+      "y": -50,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": null,
+      "color": "rgb(0, 0, 0)",
+      "align": "left",
+      "spacing": 0.8,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Animaniacs x MasterClass",
+     "href": "https://jenny6926.wixsite.com/mysite/animaniacs-x-masterclass",
+     "rect": {
+      "x": 0,
+      "y": -50,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": null,
+      "color": "rgb(0, 0, 0)",
+      "align": "left",
+      "spacing": 0.8,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "23andMe: DNA Day 2023",
+     "href": "https://jenny6926.wixsite.com/mysite/23andme-dna-day-2023",
+     "rect": {
+      "x": 0,
+      "y": -50,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": null,
+      "color": "rgb(0, 0, 0)",
+      "align": "left",
+      "spacing": 0.8,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Hot Mess: Creative Collective",
+     "href": "https://jenny6926.wixsite.com/mysite/hot-mess-creative-collective",
+     "rect": {
+      "x": 0,
+      "y": -50,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": null,
+      "color": "rgb(0, 0, 0)",
+      "align": "left",
+      "spacing": 0.8,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Thoughts",
+     "href": "https://jenny6926.wixsite.com/mysite/thoughts",
+     "rect": {
+      "x": 508,
+      "y": 14,
+      "w": 170.5,
+      "h": 52
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 25,
+      "weight": 700,
+      "lineHeight": null,
+      "color": "rgb(228, 162, 128)",
+      "align": "left",
+      "spacing": 1.25,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "About",
+     "href": "https://jenny6926.wixsite.com/mysite/about",
+     "rect": {
+      "x": 684.5,
+      "y": 14,
+      "w": 134.8,
+      "h": 52
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 25,
+      "weight": 700,
+      "lineHeight": null,
+      "color": "rgb(160, 161, 173)",
+      "align": "left",
+      "spacing": 1.25,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Contact",
+     "href": "https://jenny6926.wixsite.com/mysite/contact-8",
+     "rect": {
+      "x": 825.3,
+      "y": 14,
+      "w": 156.3,
+      "h": 52
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 25,
+      "weight": 700,
+      "lineHeight": null,
+      "color": "rgb(160, 161, 173)",
+      "align": "left",
+      "spacing": 1.25,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    }
+   ],
+   "burger": null
+  },
+  "footer": {
+   "rect": {
+    "x": 0,
+    "y": 1136.7,
+    "w": 983,
+    "h": 156.6
+   },
+   "bg": "rgba(0, 0, 0, 0)"
+  },
+  "bands": [
+   {
+    "bg": "rgb(50, 87, 164)",
+    "h": 1293,
+    "y": 0
+   },
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 1049,
+    "y": 88
+   },
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 1005,
+    "y": 126
+   }
+  ],
+  "gallery": [],
+  "blocks": [
+   {
+    "kind": "text",
+    "tag": "h1",
+    "html": "<span style=\"font-size:56px;\" class=\"wixui-rich-text__text\">Creative Chaos.</span><br class=\"wixui-rich-text__text\">\n<span style=\"font-size:35px;\" class=\"wixui-rich-text__text\">We're all a Hot Mess behind the scenes.</span>",
+    "text": "Creative Chaos.\nWe're all a Hot Mess behind the scenes.",
+    "rect": {
+     "x": 24.5,
+     "y": 169,
+     "w": 934,
+     "h": 208
+    },
+    "box": {
+     "x": 24.5,
+     "y": 169,
+     "w": 934,
+     "h": 208
+    },
+    "style": {
+     "font": "futura-lt-w01-book",
+     "size": 80,
+     "weight": 700,
+     "lineHeight": null,
+     "color": "rgb(217, 75, 149)",
+     "align": "center",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null,
+    "wide": {
+     "x": 253,
+     "y": 169,
+     "w": 934,
+     "h": 208
+    }
+   },
+   {
+    "kind": "text",
+    "tag": "h1",
+    "html": "<span class=\"color_37 wixui-rich-text__text\"><span style=\"font-size:18px;\" class=\"wixui-rich-text__text\">I’ve always joked with my best friends that if we ever started an agency it would be called “Hot Mess.” In fact, we’ve used that name for a collection of creative projects, consulting gigs, and collaborative experiments that we’ve done together over the years, and while a formal agency may not be on the front burner right now, the idea behind the sentiment still stands.<br class=\"wixui-rich-text__text\">\n<br class=\"wixui-rich-text__text\">\nCreative is messy - and not just in the physical process of paint or film or mixed media or the 8-foot tall black boards covered in concepts that have lined the halls of every creative company I’ve ever worked at. It requires the ability to sit patiently in chaos. To leave space for left turns. To defend choices then throw them out. To find kernels of truth in unexpected places. To look for inspiration in the mundane.<br class=\"wixui-rich-text__text\">\n<br class=\"wixui-rich-text__text\">\nIn short: Creativity is messy work. And it is, indeed, work.<br class=\"wixui-rich-text__text\">\n<br class=\"wixui-rich-text__text\">\nMy daughter, who is an artist, is applying to college this year and working on her portfolio this summer. She is learning about this kind of work. I’ve watched her learn that process is messy and perfection is elusive - she’s made and remade the same film three times already and is still not satisfied. I’ve watched her make connections between things that may not seem to go together; to defend her choices in her work, then defend her work as a whole. She’s finally able to pull out the consistent kernels of inspiration and truth that have driven her passions, to craft them into a cohesive story, and then to stand in her truth as a creator. This has all come from her willingness to embrace being a Hot Mess.<br class=\"wixui-rich-text__text\">\n<br class=\"wixui-rich-text__text\">\nI’ve also talked about this a lot during interviews this past year. I’m consistently surprised at the number of senior-level conversations that start with “We want our brand to be like [Insert company name here. Often Apple]. And this always (or at least very often) strikes me as a mistake.&nbsp;<br class=\"wixui-rich-text__text\">\n<br class=\"wixui-rich-text__text\">\nYou need to leave room for the mess: What specificity does your target audience demand? How are your brand truths different from your competition? What is truly defensible? What left turns can you take that no one else can? That’s where it gets interesting, distinctive, **differentiated.** Get your strategy, research, insight, and data sound, then step back and sit in the chaos for a while.&nbsp;<br class=\"wixui-rich-text__text\">\n<br class=\"wixui-rich-text__text\">\nThe work I’m the most proud of - the most impactful, memorable, award-winning, campaigns - were the hottest messes behind the scenes. Don’t believe anyone who tells you differently.</span></span>",
+    "text": "I’ve always joked with my best friends that if we ever started an agency it would be called “Hot Mess.” In fact, we’ve used that name for a collection of creative projects, consulting gigs, and collaborative experiments that we’ve done together over the years, and while a formal agency may not be on the front burner right now, the idea behind the sentiment still stands.\n\nCreative is messy - and not just in the physical process of paint or film or mixed media or the 8-foot tall black boards covered in concepts that have lined the halls of every creative company I’ve ever worked at. It requires the ability to sit patiently in chaos. To leave space for left turns. To defend choices then throw them out. To find kernels of truth in unexpected places. To look for inspiration in the mundane.\n\nIn short: Creativity is messy work. And it is, indeed, work.\n\nMy daughter, who is an artist, is applying to college this year and working on her portfolio this summer. She is learning about this kind of work. I’ve watched her learn that process is messy and perfection is elusive - she’s made and remade the same film three times already and is still not satisfied. I’ve watched her make connections between things that may not seem to go together; to defend her choices in her work, then defend her work as a whole. She’s finally able to pull out the consistent kernels of inspiration and truth that have driven her passions, to craft them into a cohesive story, and then to stand in her truth as a creator. This has all come from her willingness to embrace being a Hot Mess.\n\nI’ve also talked about this a lot during interviews this past year. I’m consistently surprised at the number of senior-level conversations that start with “We want our brand to be like [Insert company name here. Often Apple]. And this always (or at least very often) strikes me as a mistake. \n\nYou need to leave room for the mess: What specificity does your target audience demand? How are your brand truths different from your competition? What is truly defensible? What left turns can you take that no one else can? That’s where it gets interesting, distinctive, **differentiated.** Get your strategy, research, insight, and data sound, then step back and sit in the chaos for a while. \n\nThe work I’m the most proud of - the most impactful, memorable, award-winning, campaigns - were the hottest messes behind the scenes. Don’t believe anyone who tells you differently.",
+    "rect": {
+     "x": 16.5,
+     "y": 406,
+     "w": 950,
+     "h": 705.7
+    },
+    "box": {
+     "x": 16.5,
+     "y": 406,
+     "w": 950,
+     "h": 705.7
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 18,
+     "weight": 400,
+     "lineHeight": 25.2,
+     "color": "rgb(160, 161, 173)",
+     "align": "start",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null,
+    "wide": {
+     "x": 245,
+     "y": 406,
+     "w": 950,
+     "h": 705.7
+    }
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span class=\"color_37 wixui-rich-text__text\"><span style=\"letter-spacing:normal;\" class=\"wixui-rich-text__text\"><a data-auto-recognition=\"true\" href=\"mailto:jenny@makunas.com\" class=\"wixui-rich-text__text\">jenny@makunas.com</a>​ &nbsp;|&nbsp; 415-609-1504</span></span>",
+    "text": "jenny@makunas.com  |  415-609-1504",
+    "rect": {
+     "x": 211.5,
+     "y": 1227.7,
+     "w": 560,
+     "h": 21
+    },
+    "box": {
+     "x": 211.5,
+     "y": 1227.7,
+     "w": 560,
+     "h": 21
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 17,
+     "weight": 400,
+     "lineHeight": null,
+     "color": "rgb(217, 75, 149)",
+     "align": "center",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null,
+    "wide": {
+     "x": 440,
+     "y": 1227.7,
+     "w": 560,
+     "h": 21
+    }
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span style=\"letter-spacing:normal;\" class=\"wixui-rich-text__text\">© 2024 by Jenny Makunas</span>",
+    "text": "© 2024 by Jenny Makunas",
+    "rect": {
+     "x": 181.5,
+     "y": 1257.7,
+     "w": 619,
+     "h": 19.6
+    },
+    "box": {
+     "x": 181.5,
+     "y": 1257.7,
+     "w": 619,
+     "h": 19.6
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 14,
+     "weight": 400,
+     "lineHeight": 19.6,
+     "color": "rgb(217, 75, 149)",
+     "align": "center",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null,
+    "wide": {
+     "x": 410,
+     "y": 1257.7,
+     "w": 619,
+     "h": 19.6
+    }
+   }
+  ]
+ },
+ "mobile": {
+  "width": 320,
+  "docHeight": 2337,
+  "header": {
+   "rect": {
+    "x": 0,
+    "y": 0,
+    "w": 320,
+    "h": 71
+   },
+   "bg": "rgba(0, 0, 0, 0)",
+   "shadow": "none",
+   "border": "0px none rgb(0, 0, 0)",
+   "position": "sticky",
+   "nav": [
+    {
+     "text": "Jenny Makunas",
+     "href": "https://jenny6926.wixsite.com/mysite",
+     "rect": {
+      "x": 18,
+      "y": 13,
+      "w": 155,
+      "h": 44
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 20,
+      "weight": 700,
+      "lineHeight": 28,
+      "color": "rgb(217, 75, 149)",
+      "align": "start",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Work",
+     "href": "https://jenny6926.wixsite.com/mysite",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(193, 198, 209)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Now You: Brand Campaign",
+     "href": "https://jenny6926.wixsite.com/mysite/now-you-brand-campaign",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Anna Wintour: How to Be a Boss",
+     "href": "https://jenny6926.wixsite.com/mysite/anna-wintour-how-to-be-a-boss-1",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Alicia Keys: Words Create Worlds",
+     "href": "https://jenny6926.wixsite.com/mysite/alicia-keys-words-create-worlds-1",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Mariah Carey: Pass the Mic",
+     "href": "https://jenny6926.wixsite.com/mysite/mariah-carey-pass-the-mic",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "The World Could Use One of You",
+     "href": "https://jenny6926.wixsite.com/mysite/the-world-could-use-one-of-you",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Now You Countdown: Portfolio Campaign",
+     "href": "https://jenny6926.wixsite.com/mysite/now-you-countdown-portfolio-campaign",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "So Much New To Know: Portfolio Campaign",
+     "href": "https://jenny6926.wixsite.com/mysite/so-much-new-to-know-portfolio-campaign",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Today's the Day: Brand Campaign",
+     "href": "https://jenny6926.wixsite.com/mysite/today-s-the-day-brand-campaign",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Animaniacs x MasterClass",
+     "href": "https://jenny6926.wixsite.com/mysite/animaniacs-x-masterclass",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "23andMe: DNA Day 2023",
+     "href": "https://jenny6926.wixsite.com/mysite/23andme-dna-day-2023",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Hot Mess: Creative Collective",
+     "href": "https://jenny6926.wixsite.com/mysite/hot-mess-creative-collective",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Thoughts",
+     "href": "https://jenny6926.wixsite.com/mysite/thoughts",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Hot Mess Creative",
+     "href": "https://jenny6926.wixsite.com/mysite/thoughts",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "SuperBowl 2024",
+     "href": "https://jenny6926.wixsite.com/mysite/thoughts",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "About",
+     "href": "https://jenny6926.wixsite.com/mysite/about",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(193, 198, 209)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Contact",
+     "href": "https://jenny6926.wixsite.com/mysite/contact-8",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(193, 198, 209)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    }
+   ],
+   "burger": {
+    "x": 251,
+    "y": 10,
+    "w": 50,
+    "h": 50
+   }
+  },
+  "footer": {
+   "rect": {
+    "x": 0,
+    "y": 2031.6,
+    "w": 320,
+    "h": 305
+   },
+   "bg": "rgba(0, 0, 0, 0)"
+  },
+  "bands": [
+   {
+    "bg": "rgb(50, 87, 164)",
+    "h": 2337,
+    "y": 0
+   },
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 0,
+    "y": -38
+   },
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 1961,
+    "y": 71
+   },
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 1921,
+    "y": 71
+   }
+  ],
+  "gallery": [],
+  "blocks": [
+   {
+    "kind": "text",
+    "tag": "h1",
+    "html": "<span style=\"font-size:30px;\" class=\"wixui-rich-text__text\">Creative Chaos.</span><br class=\"wixui-rich-text__text\">\n<span style=\"font-size:24px;\" class=\"wixui-rich-text__text\">We're all a Hot Mess behind the scenes.</span>",
+    "text": "Creative Chaos.\nWe're all a Hot Mess behind the scenes.",
+    "rect": {
+     "x": 20,
+     "y": 138,
+     "w": 280,
+     "h": 144
+    },
+    "box": {
+     "x": 20,
+     "y": 138,
+     "w": 280,
+     "h": 144
+    },
+    "style": {
+     "font": "futura-lt-w01-book",
+     "size": 37,
+     "weight": 700,
+     "lineHeight": null,
+     "color": "rgb(217, 75, 149)",
+     "align": "center",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null
+   },
+   {
+    "kind": "text",
+    "tag": "h1",
+    "html": "<span class=\"color_37 wixui-rich-text__text\"><span style=\"font-size:17px;\" class=\"wixui-rich-text__text\">I’ve always joked with my best friends that if we ever started an agency it would be called “Hot Mess.” In fact, we’ve used that name for a collection of creative projects, consulting gigs, and collaborative experiments that we’ve done together over the years, and while a formal agency may not be on the front burner right now, the idea behind the sentiment still stands.<br class=\"wixui-rich-text__text\">\n<br class=\"wixui-rich-text__text\">\nCreative is messy - and not just in the physical process of paint or film or mixed media or the 8-foot tall black boards covered in concepts that have lined the halls of every creative company I’ve ever worked at. It requires the ability to sit patiently in chaos. To leave space for left turns. To defend choices then throw them out. To find kernels of truth in unexpected places. To look for inspiration in the mundane.<br class=\"wixui-rich-text__text\">\n<br class=\"wixui-rich-text__text\">\nIn short: Creativity is messy work. And it is, indeed, work.<br class=\"wixui-rich-text__text\">\n<br class=\"wixui-rich-text__text\">\nMy daughter, who is an artist, is applying to college this year and working on her portfolio this summer. She is learning about this kind of work. I’ve watched her learn that process is messy and perfection is elusive - she’s made and remade the same film three times already and is still not satisfied. I’ve watched her make connections between things that may not seem to go together; to defend her choices in her work, then defend her work as a whole. She’s finally able to pull out the consistent kernels of inspiration and truth that have driven her passions, to craft them into a cohesive story, and then to stand in her truth as a creator. This has all come from her willingness to embrace being a Hot Mess.<br class=\"wixui-rich-text__text\">\n<br class=\"wixui-rich-text__text\">\nI’ve also talked about this a lot during interviews this past year. I’m consistently surprised at the number of senior-level conversations that start with “We want our brand to be like [Insert company name here. Often Apple]. And this always (or at least very often) strikes me as a mistake.&nbsp;<br class=\"wixui-rich-text__text\">\n<br class=\"wixui-rich-text__text\">\nYou need to leave room for the mess: What specificity does your target audience demand? How are your brand truths different from your competition? What is truly defensible? What left turns can you take that no one else can? That’s where it gets interesting, distinctive, **differentiated.** Get your strategy, research, insight, and data sound, then step back and sit in the chaos for a while.&nbsp;<br class=\"wixui-rich-text__text\">\n<br class=\"wixui-rich-text__text\">\nThe work I’m the most proud of - the most impactful, memorable, award-winning, campaigns - were the hottest messes behind the scenes. Don’t believe anyone who tells you differently.</span></span>",
+    "text": "I’ve always joked with my best friends that if we ever started an agency it would be called “Hot Mess.” In fact, we’ve used that name for a collection of creative projects, consulting gigs, and collaborative experiments that we’ve done together over the years, and while a formal agency may not be on the front burner right now, the idea behind the sentiment still stands.\n\nCreative is messy - and not just in the physical process of paint or film or mixed media or the 8-foot tall black boards covered in concepts that have lined the halls of every creative company I’ve ever worked at. It requires the ability to sit patiently in chaos. To leave space for left turns. To defend choices then throw them out. To find kernels of truth in unexpected places. To look for inspiration in the mundane.\n\nIn short: Creativity is messy work. And it is, indeed, work.\n\nMy daughter, who is an artist, is applying to college this year and working on her portfolio this summer. She is learning about this kind of work. I’ve watched her learn that process is messy and perfection is elusive - she’s made and remade the same film three times already and is still not satisfied. I’ve watched her make connections between things that may not seem to go together; to defend her choices in her work, then defend her work as a whole. She’s finally able to pull out the consistent kernels of inspiration and truth that have driven her passions, to craft them into a cohesive story, and then to stand in her truth as a creator. This has all come from her willingness to embrace being a Hot Mess.\n\nI’ve also talked about this a lot during interviews this past year. I’m consistently surprised at the number of senior-level conversations that start with “We want our brand to be like [Insert company name here. Often Apple]. And this always (or at least very often) strikes me as a mistake. \n\nYou need to leave room for the mess: What specificity does your target audience demand? How are your brand truths different from your competition? What is truly defensible? What left turns can you take that no one else can? That’s where it gets interesting, distinctive, **differentiated.** Get your strategy, research, insight, and data sound, then step back and sit in the chaos for a while. \n\nThe work I’m the most proud of - the most impactful, memorable, award-winning, campaigns - were the hottest messes behind the scenes. Don’t believe anyone who tells you differently.",
+    "rect": {
+     "x": 20,
+     "y": 292,
+     "w": 280,
+     "h": 1689.6
+    },
+    "box": {
+     "x": 20,
+     "y": 292,
+     "w": 280,
+     "h": 1689.6
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 17,
+     "weight": 400,
+     "lineHeight": 23.8,
+     "color": "rgb(160, 161, 173)",
+     "align": "start",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span class=\"color_37 wixui-rich-text__text\"><span style=\"letter-spacing:normal;\" class=\"wixui-rich-text__text\"><a data-auto-recognition=\"true\" href=\"mailto:jenny@makunas.com\" class=\"wixui-rich-text__text\">jenny@makunas.com</a>​ &nbsp;|&nbsp; <a data-auto-recognition=\"true\" href=\"tel:415-609-1504\" class=\"wixui-rich-text__text\">415-609-1504</a></span></span>",
+    "text": "jenny@makunas.com  |  415-609-1504",
+    "rect": {
+     "x": 80,
+     "y": 2051.6,
+     "w": 162,
+     "h": 42
+    },
+    "box": {
+     "x": 80,
+     "y": 2051.6,
+     "w": 162,
+     "h": 42
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 17,
+     "weight": 400,
+     "lineHeight": null,
+     "color": "rgb(217, 75, 149)",
+     "align": "center",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span style=\"letter-spacing:normal;\" class=\"wixui-rich-text__text\">© 2024 by Jenny Makunas</span>",
+    "text": "© 2024 by Jenny Makunas",
+    "rect": {
+     "x": 48,
+     "y": 2116.6,
+     "w": 224,
+     "h": 21
+    },
+    "box": {
+     "x": 48,
+     "y": 2116.6,
+     "w": 224,
+     "h": 21
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 15,
+     "weight": 400,
+     "lineHeight": 21,
+     "color": "rgb(217, 75, 149)",
+     "align": "center",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null
+   }
+  ]
+ }
+}

@@ -1,0 +1,2060 @@
+{
+ "slug": "anna-wintour-how-to-be-a-boss-1",
+ "url": "https://jenny6926.wixsite.com/mysite/anna-wintour-how-to-be-a-boss-1",
+ "captured": "2026-11-01T00:49:30.563Z",
+ "desktop": {
+  "width": 983,
+  "wideWidth": 1440,
+  "docHeight": 2903,
+  "header": {
+   "rect": {
+    "x": 0,
+    "y": 0,
+    "w": 983,
+    "h": 88
+   },
+   "bg": "rgba(0, 0, 0, 0)",
+   "shadow": "none",
+   "border": "0px none rgb(0, 0, 0)",
+   "position": "sticky",
+   "nav": [
+    {
+     "text": "Jenny Makunas",
+     "href": "https://jenny6926.wixsite.com/mysite",
+     "rect": {
+      "x": 20.5,
+      "y": 20,
+      "w": 165,
+      "h": 40
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 25,
+      "weight": 700,
+      "lineHeight": 35,
+      "color": "rgb(217, 75, 149)",
+      "align": "start",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Work",
+     "href": "https://jenny6926.wixsite.com/mysite",
+     "rect": {
+      "x": 372.5,
+      "y": 14,
+      "w": 129.5,
+      "h": 52
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 25,
+      "weight": 700,
+      "lineHeight": null,
+      "color": "rgb(160, 161, 173)",
+      "align": "left",
+      "spacing": 1.25,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Now You: Brand Campaign",
+     "href": "https://jenny6926.wixsite.com/mysite/now-you-brand-campaign",
+     "rect": {
+      "x": 0,
+      "y": -50,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": null,
+      "color": "rgb(0, 0, 0)",
+      "align": "left",
+      "spacing": 0.8,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Anna Wintour: How to Be a Boss",
+     "href": "https://jenny6926.wixsite.com/mysite/anna-wintour-how-to-be-a-boss-1",
+     "rect": {
+      "x": 0,
+      "y": -50,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": null,
+      "color": "rgb(228, 162, 128)",
+      "align": "left",
+      "spacing": 0.8,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Alicia Keys: Words Create Worlds",
+     "href": "https://jenny6926.wixsite.com/mysite/alicia-keys-words-create-worlds-1",
+     "rect": {
+      "x": 0,
+      "y": -50,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": null,
+      "color": "rgb(0, 0, 0)",
+      "align": "left",
+      "spacing": 0.8,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Mariah Carey: Pass the Mic",
+     "href": "https://jenny6926.wixsite.com/mysite/mariah-carey-pass-the-mic",
+     "rect": {
+      "x": 0,
+      "y": -50,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": null,
+      "color": "rgb(0, 0, 0)",
+      "align": "left",
+      "spacing": 0.8,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "The World Could Use One of You",
+     "href": "https://jenny6926.wixsite.com/mysite/the-world-could-use-one-of-you",
+     "rect": {
+      "x": 0,
+      "y": -50,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": null,
+      "color": "rgb(0, 0, 0)",
+      "align": "left",
+      "spacing": 0.8,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Now You Countdown: Portfolio Campaign",
+     "href": "https://jenny6926.wixsite.com/mysite/now-you-countdown-portfolio-campaign",
+     "rect": {
+      "x": 0,
+      "y": -50,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": null,
+      "color": "rgb(0, 0, 0)",
+      "align": "left",
+      "spacing": 0.8,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "So Much New To Know: Portfolio Campaign",
+     "href": "https://jenny6926.wixsite.com/mysite/so-much-new-to-know-portfolio-campaign",
+     "rect": {
+      "x": 0,
+      "y": -50,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": null,
+      "color": "rgb(0, 0, 0)",
+      "align": "left",
+      "spacing": 0.8,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Today's the Day: Brand Campaign",
+     "href": "https://jenny6926.wixsite.com/mysite/today-s-the-day-brand-campaign",
+     "rect": {
+      "x": 0,
+      "y": -50,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": null,
+      "color": "rgb(0, 0, 0)",
+      "align": "left",
+      "spacing": 0.8,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Animaniacs x MasterClass",
+     "href": "https://jenny6926.wixsite.com/mysite/animaniacs-x-masterclass",
+     "rect": {
+      "x": 0,
+      "y": -50,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": null,
+      "color": "rgb(0, 0, 0)",
+      "align": "left",
+      "spacing": 0.8,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "23andMe: DNA Day 2023",
+     "href": "https://jenny6926.wixsite.com/mysite/23andme-dna-day-2023",
+     "rect": {
+      "x": 0,
+      "y": -50,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": null,
+      "color": "rgb(0, 0, 0)",
+      "align": "left",
+      "spacing": 0.8,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Hot Mess: Creative Collective",
+     "href": "https://jenny6926.wixsite.com/mysite/hot-mess-creative-collective",
+     "rect": {
+      "x": 0,
+      "y": -50,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": null,
+      "color": "rgb(0, 0, 0)",
+      "align": "left",
+      "spacing": 0.8,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Thoughts",
+     "href": "https://jenny6926.wixsite.com/mysite/thoughts",
+     "rect": {
+      "x": 508,
+      "y": 14,
+      "w": 170.5,
+      "h": 52
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 25,
+      "weight": 700,
+      "lineHeight": null,
+      "color": "rgb(160, 161, 173)",
+      "align": "left",
+      "spacing": 1.25,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "About",
+     "href": "https://jenny6926.wixsite.com/mysite/about",
+     "rect": {
+      "x": 684.5,
+      "y": 14,
+      "w": 134.8,
+      "h": 52
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 25,
+      "weight": 700,
+      "lineHeight": null,
+      "color": "rgb(160, 161, 173)",
+      "align": "left",
+      "spacing": 1.25,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Contact",
+     "href": "https://jenny6926.wixsite.com/mysite/contact-8",
+     "rect": {
+      "x": 825.3,
+      "y": 14,
+      "w": 156.3,
+      "h": 52
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 25,
+      "weight": 700,
+      "lineHeight": null,
+      "color": "rgb(160, 161, 173)",
+      "align": "left",
+      "spacing": 1.25,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    }
+   ],
+   "burger": null
+  },
+  "footer": {
+   "rect": {
+    "x": 0,
+    "y": 2746,
+    "w": 983,
+    "h": 156.6
+   },
+   "bg": "rgba(0, 0, 0, 0)"
+  },
+  "bands": [
+   {
+    "bg": "rgb(50, 87, 164)",
+    "h": 2903,
+    "y": 0
+   },
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 1007,
+    "y": 88
+   },
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 514,
+    "y": 131
+   },
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 514,
+    "y": 131
+   },
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 400,
+    "y": 694
+   },
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 1651,
+    "y": 1095
+   },
+   {
+    "bg": "rgb(50, 87, 164)",
+    "h": 470,
+    "y": 1095
+   },
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 550,
+    "y": 1565
+   },
+   {
+    "bg": "rgb(50, 87, 164)",
+    "h": 470,
+    "y": 1605
+   },
+   {
+    "bg": "rgb(50, 87, 164)",
+    "h": 470,
+    "y": 1605
+   },
+   {
+    "bg": "rgb(50, 87, 164)",
+    "h": 470,
+    "y": 1605
+   },
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 345,
+    "y": 2075
+   },
+   {
+    "bg": "rgb(50, 87, 164)",
+    "h": 265,
+    "y": 2115
+   },
+   {
+    "bg": "rgb(50, 87, 164)",
+    "h": 265,
+    "y": 2115
+   },
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 366,
+    "y": 2380
+   }
+  ],
+  "gallery": [],
+  "blocks": [
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_dd0c7faed7d243d29fad6e631098cc7e~mv2.jpg/v1/fill/w_333,h_514,al_l,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_dd0c7faed7d243d29fad6e631098cc7e~mv2.jpg",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 1.5,
+     "y": 131,
+     "w": 333,
+     "h": 514
+    },
+    "box": {
+     "x": 1.5,
+     "y": 131,
+     "w": 333,
+     "h": 514
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": "",
+    "wide": {
+     "x": 80,
+     "y": 131,
+     "w": 434.9,
+     "h": 514
+    }
+   },
+   {
+    "kind": "text",
+    "tag": "h3",
+    "html": "<span class=\"color_41 wixui-rich-text__text\"><span style=\"font-size:38px;\" class=\"wixui-rich-text__text\">Anna Wintour: How to be a Boss</span></span>",
+    "text": "Anna Wintour: How to be a Boss",
+    "rect": {
+     "x": 350.5,
+     "y": 143,
+     "w": 723,
+     "h": 53.2
+    },
+    "box": {
+     "x": 350.5,
+     "y": 143,
+     "w": 723,
+     "h": 61
+    },
+    "style": {
+     "font": "futura-lt-w01-book",
+     "size": 38,
+     "weight": 700,
+     "lineHeight": 53.2,
+     "color": "rgb(217, 75, 149)",
+     "align": "start",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null,
+    "wide": {
+     "x": 630,
+     "y": 143,
+     "w": 723,
+     "h": 53.2
+    }
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span style=\"font-size:18px;\" class=\"wixui-rich-text__text\"><span class=\"color_37 wixui-rich-text__text\">MasterClass's first-ever brand campaign told a new story for the brand. Elevating the iconic Anna Wintour's class on creativity and leadership to a full-scale brand moment, we targeted young, upwardly-mobile professionals on their way to work, surrounding them with inspiring quotes from Anna's class, and iconic images shot by the legendary Tyler Mitchell. Media included a 2-hour takeover of New York's World Trade Center during the morning commute, showcasing the first chapter of Anna's class as a teaser. </span></span>",
+    "text": "MasterClass's first-ever brand campaign told a new story for the brand. Elevating the iconic Anna Wintour's class on creativity and leadership to a full-scale brand moment, we targeted young, upwardly-mobile professionals on their way to work, surrounding them with inspiring quotes from Anna's class, and iconic images shot by the legendary Tyler Mitchell. Media included a 2-hour takeover of New York's World Trade Center during the morning commute, showcasing the first chapter of Anna's class as a teaser.",
+    "rect": {
+     "x": 350.5,
+     "y": 245,
+     "w": 549,
+     "h": 176.4
+    },
+    "box": {
+     "x": 350.5,
+     "y": 245,
+     "w": 549,
+     "h": 252
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 18,
+     "weight": 400,
+     "lineHeight": 25.2,
+     "color": "rgb(160, 161, 173)",
+     "align": "start",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null,
+    "wide": {
+     "x": 630,
+     "y": 245,
+     "w": 549,
+     "h": 176.4
+    }
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span style=\"font-size:18px;\" class=\"wixui-rich-text__text\"><span class=\"color_37 wixui-rich-text__text\">The campaign garnered over $500M in earned media, 1200 press hits, 14B impressions and won AdWeek's Media Plan of the Year.</span></span>",
+    "text": "The campaign garnered over $500M in earned media, 1200 press hits, 14B impressions and won AdWeek's Media Plan of the Year.",
+    "rect": {
+     "x": 350.5,
+     "y": 446.6,
+     "w": 549,
+     "h": 50.4
+    },
+    "box": {
+     "x": 350.5,
+     "y": 245,
+     "w": 549,
+     "h": 252
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 18,
+     "weight": 400,
+     "lineHeight": 25.2,
+     "color": "rgb(160, 161, 173)",
+     "align": "start",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null,
+    "wide": {
+     "x": 630,
+     "y": 446.6,
+     "w": 549,
+     "h": 50.4
+    }
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span class=\"color_37 wixui-rich-text__text\"><span style=\"font-size:18px;\" class=\"wixui-rich-text__text\"><span style=\"letter-spacing:normal;\" class=\"wixui-rich-text__text\"><span style=\"font-weight:bold;\" class=\"wixui-rich-text__text\">Creative Agency</span>: Observatory</span></span></span>",
+    "text": "Creative Agency: Observatory",
+    "rect": {
+     "x": 350.5,
+     "y": 519,
+     "w": 549,
+     "h": 25.2
+    },
+    "box": {
+     "x": 350.5,
+     "y": 519,
+     "w": 549,
+     "h": 100.8
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 18,
+     "weight": 400,
+     "lineHeight": 25.2,
+     "color": "rgb(160, 161, 173)",
+     "align": "start",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null,
+    "wide": {
+     "x": 630,
+     "y": 519,
+     "w": 549,
+     "h": 25.2
+    }
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span class=\"color_37 wixui-rich-text__text\"><span style=\"font-size:18px;\" class=\"wixui-rich-text__text\"><span style=\"letter-spacing:normal;\" class=\"wixui-rich-text__text\"><span style=\"font-weight:bold;\" class=\"wixui-rich-text__text\">Design</span>: &amp;Walsh</span></span></span>",
+    "text": "Design: &Walsh",
+    "rect": {
+     "x": 350.5,
+     "y": 544.2,
+     "w": 549,
+     "h": 25.2
+    },
+    "box": {
+     "x": 350.5,
+     "y": 519,
+     "w": 549,
+     "h": 100.8
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 18,
+     "weight": 400,
+     "lineHeight": 25.2,
+     "color": "rgb(160, 161, 173)",
+     "align": "start",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null,
+    "wide": {
+     "x": 630,
+     "y": 544.2,
+     "w": 549,
+     "h": 25.2
+    }
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span class=\"color_37 wixui-rich-text__text\"><span style=\"font-size:18px;\" class=\"wixui-rich-text__text\"><span style=\"letter-spacing:normal;\" class=\"wixui-rich-text__text\"><span style=\"font-weight:bold;\" class=\"wixui-rich-text__text\">Media</span>: Exverus</span></span></span>",
+    "text": "Media: Exverus",
+    "rect": {
+     "x": 350.5,
+     "y": 569.4,
+     "w": 549,
+     "h": 25.2
+    },
+    "box": {
+     "x": 350.5,
+     "y": 519,
+     "w": 549,
+     "h": 100.8
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 18,
+     "weight": 400,
+     "lineHeight": 25.2,
+     "color": "rgb(160, 161, 173)",
+     "align": "start",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null,
+    "wide": {
+     "x": 630,
+     "y": 569.4,
+     "w": 549,
+     "h": 25.2
+    }
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span class=\"color_37 wixui-rich-text__text\"><span style=\"font-size:18px;\" class=\"wixui-rich-text__text\"><span style=\"letter-spacing:normal;\" class=\"wixui-rich-text__text\"><span style=\"font-weight:bold;\" class=\"wixui-rich-text__text\">Photography</span>: Tyler Mitchell</span></span></span>",
+    "text": "Photography: Tyler Mitchell",
+    "rect": {
+     "x": 350.5,
+     "y": 594.6,
+     "w": 549,
+     "h": 25.2
+    },
+    "box": {
+     "x": 350.5,
+     "y": 519,
+     "w": 549,
+     "h": 100.8
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 18,
+     "weight": 400,
+     "lineHeight": 25.2,
+     "color": "rgb(160, 161, 173)",
+     "align": "start",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null,
+    "wide": {
+     "x": 630,
+     "y": 594.6,
+     "w": 549,
+     "h": 25.2
+    }
+   },
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_a3136107d7174c36b858354c15aa7bcff002.jpg/v1/fill/w_338,h_329,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_a3136107d7174c36b858354c15aa7bcff002.jpg",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 327.5,
+     "y": 729,
+     "w": 338.1,
+     "h": 329.1
+    },
+    "box": {
+     "x": 327.5,
+     "y": 729,
+     "w": 338.1,
+     "h": 329.1
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": "",
+    "wide": {
+     "x": 556,
+     "y": 729,
+     "w": 338.1,
+     "h": 329.1
+    }
+   },
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_cefa6fb679734e57993f6cb92548be60~mv2.png/v1/fill/w_980,h_470,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_cefa6fb679734e57993f6cb92548be60~mv2.png",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 1.5,
+     "y": 1095,
+     "w": 980,
+     "h": 470
+    },
+    "box": {
+     "x": 1.5,
+     "y": 1095,
+     "w": 980,
+     "h": 470
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": "Screen Shot 2023-09-12 at 11.48.23 AM.png",
+    "wide": {
+     "x": 230,
+     "y": 1095,
+     "w": 980,
+     "h": 470
+    }
+   },
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_d49a5cd09af74b82a6cb3498f998e7f4~mv2.jpg/v1/fill/w_270,h_470,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_d49a5cd09af74b82a6cb3498f998e7f4~mv2.jpg",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 41.5,
+     "y": 1605,
+     "w": 270,
+     "h": 470
+    },
+    "box": {
+     "x": 41.5,
+     "y": 1605,
+     "w": 270,
+     "h": 470
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": "A4-RED.jpg",
+    "wide": {
+     "x": 120,
+     "y": 1605,
+     "w": 368.8,
+     "h": 470
+    }
+   },
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_5a8548205bb14607b44e3b235f10e3dc~mv2.jpg/v1/fill/w_279,h_470,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_5a8548205bb14607b44e3b235f10e3dc~mv2.jpg",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 351.5,
+     "y": 1605,
+     "w": 279,
+     "h": 470
+    },
+    "box": {
+     "x": 351.5,
+     "y": 1605,
+     "w": 279,
+     "h": 470
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": "G.jpg",
+    "wide": {
+     "x": 528.8,
+     "y": 1605,
+     "w": 381,
+     "h": 470
+    }
+   },
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_2880a4836846400894b1cb806790dc71~mv2.jpg/v1/fill/w_271,h_470,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_2880a4836846400894b1cb806790dc71~mv2.jpg",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 670.5,
+     "y": 1605,
+     "w": 271,
+     "h": 470
+    },
+    "box": {
+     "x": 670.5,
+     "y": 1605,
+     "w": 271,
+     "h": 470
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": "A7.jpg",
+    "wide": {
+     "x": 949.9,
+     "y": 1605,
+     "w": 370,
+     "h": 470
+    }
+   },
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_583ba059ea0442bc947fb2d85752594f~mv2.jpg/v1/fill/w_576,h_265,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_583ba059ea0442bc947fb2d85752594f~mv2.jpg",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 41.5,
+     "y": 2115,
+     "w": 576,
+     "h": 265
+    },
+    "box": {
+     "x": 41.5,
+     "y": 2115,
+     "w": 576,
+     "h": 265
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": "20190918_MasterClass_Ad_Campaign_0072.jpg",
+    "wide": {
+     "x": 120,
+     "y": 2115,
+     "w": 776.9,
+     "h": 265
+    }
+   },
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_7b03f6240d334a5a814aa24791470586~mv2.jpg/v1/fill/w_284,h_265,al_l,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_7b03f6240d334a5a814aa24791470586~mv2.jpg",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 657.5,
+     "y": 2115,
+     "w": 284,
+     "h": 265
+    },
+    "box": {
+     "x": 657.5,
+     "y": 2115,
+     "w": 284,
+     "h": 265
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": "20190918_MasterClass_Ad_Campaign_0040.jpg",
+    "wide": {
+     "x": 936.9,
+     "y": 2115,
+     "w": 383,
+     "h": 265
+    }
+   },
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_dae958e1121149cba85d96afd94e06a3~mv2.gif",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 241.5,
+     "y": 2420,
+     "w": 500,
+     "h": 281
+    },
+    "box": {
+     "x": 241.5,
+     "y": 2420,
+     "w": 500,
+     "h": 281
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": "",
+    "wide": {
+     "x": 470,
+     "y": 2420,
+     "w": 500,
+     "h": 281
+    }
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span class=\"color_37 wixui-rich-text__text\"><span style=\"letter-spacing:normal;\" class=\"wixui-rich-text__text\"><a data-auto-recognition=\"true\" href=\"mailto:jenny@makunas.com\" class=\"wixui-rich-text__text\">jenny@makunas.com</a>​ &nbsp;|&nbsp; 415-609-1504</span></span>",
+    "text": "jenny@makunas.com  |  415-609-1504",
+    "rect": {
+     "x": 211.5,
+     "y": 2837,
+     "w": 560,
+     "h": 21
+    },
+    "box": {
+     "x": 211.5,
+     "y": 2837,
+     "w": 560,
+     "h": 21
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 17,
+     "weight": 400,
+     "lineHeight": null,
+     "color": "rgb(217, 75, 149)",
+     "align": "center",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null,
+    "wide": {
+     "x": 440,
+     "y": 2837,
+     "w": 560,
+     "h": 21
+    }
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span style=\"letter-spacing:normal;\" class=\"wixui-rich-text__text\">© 2024 by Jenny Makunas</span>",
+    "text": "© 2024 by Jenny Makunas",
+    "rect": {
+     "x": 181.5,
+     "y": 2867,
+     "w": 619,
+     "h": 19.6
+    },
+    "box": {
+     "x": 181.5,
+     "y": 2867,
+     "w": 619,
+     "h": 19.6
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 14,
+     "weight": 400,
+     "lineHeight": 19.6,
+     "color": "rgb(217, 75, 149)",
+     "align": "center",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null,
+    "wide": {
+     "x": 410,
+     "y": 2867,
+     "w": 619,
+     "h": 19.6
+    }
+   }
+  ]
+ },
+ "mobile": {
+  "width": 320,
+  "docHeight": 3512,
+  "header": {
+   "rect": {
+    "x": 0,
+    "y": 0,
+    "w": 320,
+    "h": 71
+   },
+   "bg": "rgba(0, 0, 0, 0)",
+   "shadow": "none",
+   "border": "0px none rgb(0, 0, 0)",
+   "position": "sticky",
+   "nav": [
+    {
+     "text": "Jenny Makunas",
+     "href": "https://jenny6926.wixsite.com/mysite",
+     "rect": {
+      "x": 18,
+      "y": 13,
+      "w": 155,
+      "h": 44
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 20,
+      "weight": 700,
+      "lineHeight": 28,
+      "color": "rgb(217, 75, 149)",
+      "align": "start",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Work",
+     "href": "https://jenny6926.wixsite.com/mysite",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Now You: Brand Campaign",
+     "href": "https://jenny6926.wixsite.com/mysite/now-you-brand-campaign",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Anna Wintour: How to Be a Boss",
+     "href": "https://jenny6926.wixsite.com/mysite/anna-wintour-how-to-be-a-boss-1",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Alicia Keys: Words Create Worlds",
+     "href": "https://jenny6926.wixsite.com/mysite/alicia-keys-words-create-worlds-1",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Mariah Carey: Pass the Mic",
+     "href": "https://jenny6926.wixsite.com/mysite/mariah-carey-pass-the-mic",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "The World Could Use One of You",
+     "href": "https://jenny6926.wixsite.com/mysite/the-world-could-use-one-of-you",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Now You Countdown: Portfolio Campaign",
+     "href": "https://jenny6926.wixsite.com/mysite/now-you-countdown-portfolio-campaign",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "So Much New To Know: Portfolio Campaign",
+     "href": "https://jenny6926.wixsite.com/mysite/so-much-new-to-know-portfolio-campaign",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Today's the Day: Brand Campaign",
+     "href": "https://jenny6926.wixsite.com/mysite/today-s-the-day-brand-campaign",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Animaniacs x MasterClass",
+     "href": "https://jenny6926.wixsite.com/mysite/animaniacs-x-masterclass",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "23andMe: DNA Day 2023",
+     "href": "https://jenny6926.wixsite.com/mysite/23andme-dna-day-2023",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Hot Mess: Creative Collective",
+     "href": "https://jenny6926.wixsite.com/mysite/hot-mess-creative-collective",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Thoughts",
+     "href": "https://jenny6926.wixsite.com/mysite/thoughts",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(193, 198, 209)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Hot Mess Creative",
+     "href": "https://jenny6926.wixsite.com/mysite/thoughts",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "SuperBowl 2024",
+     "href": "https://jenny6926.wixsite.com/mysite/thoughts",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(217, 75, 149)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "About",
+     "href": "https://jenny6926.wixsite.com/mysite/about",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(193, 198, 209)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    },
+    {
+     "text": "Contact",
+     "href": "https://jenny6926.wixsite.com/mysite/contact-8",
+     "rect": {
+      "x": 0,
+      "y": -38,
+      "w": 0,
+      "h": 0
+     },
+     "style": {
+      "font": "futura-lt-w01-book",
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 42.4,
+      "color": "rgb(193, 198, 209)",
+      "align": "center",
+      "spacing": null,
+      "transform": "none",
+      "decoration": "none",
+      "style": "normal"
+     }
+    }
+   ],
+   "burger": {
+    "x": 251,
+    "y": 10,
+    "w": 50,
+    "h": 50
+   }
+  },
+  "footer": {
+   "rect": {
+    "x": 0,
+    "y": 3207.1,
+    "w": 320,
+    "h": 305
+   },
+   "bg": "rgba(0, 0, 0, 0)"
+  },
+  "bands": [
+   {
+    "bg": "rgb(50, 87, 164)",
+    "h": 3512,
+    "y": 0
+   },
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 0,
+    "y": -38
+   },
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 1328,
+    "y": 71
+   },
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 1016,
+    "y": 71
+   },
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 150,
+    "y": 71
+   },
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 312,
+    "y": 1087
+   },
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 1808,
+    "y": 1399
+   },
+   {
+    "bg": "rgb(50, 87, 164)",
+    "h": 213,
+    "y": 1399
+   },
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 852,
+    "y": 1652
+   },
+   {
+    "bg": "rgb(50, 87, 164)",
+    "h": 213,
+    "y": 1692
+   },
+   {
+    "bg": "rgb(50, 87, 164)",
+    "h": 239,
+    "y": 1945
+   },
+   {
+    "bg": "rgb(50, 87, 164)",
+    "h": 200,
+    "y": 2224
+   },
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 506,
+    "y": 2504
+   },
+   {
+    "bg": "rgb(50, 87, 164)",
+    "h": 213,
+    "y": 2504
+   },
+   {
+    "bg": "rgb(50, 87, 164)",
+    "h": 213,
+    "y": 2757
+   },
+   {
+    "bg": "rgb(59, 49, 63)",
+    "h": 197,
+    "y": 3010
+   }
+  ],
+  "gallery": [],
+  "blocks": [
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_dd0c7faed7d243d29fad6e631098cc7e~mv2.jpg/v1/fill/w_320,h_150,al_l,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_dd0c7faed7d243d29fad6e631098cc7e~mv2.jpg",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 0,
+     "y": 71,
+     "w": 320,
+     "h": 150
+    },
+    "box": {
+     "x": 0,
+     "y": 71,
+     "w": 320,
+     "h": 150
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": ""
+   },
+   {
+    "kind": "text",
+    "tag": "h3",
+    "html": "<span class=\"color_41 wixui-rich-text__text\"><span style=\"font-size:27px;\" class=\"wixui-rich-text__text\">Anna Wintour: How to be a Boss</span></span>",
+    "text": "Anna Wintour: How to be a Boss",
+    "rect": {
+     "x": 20,
+     "y": 279,
+     "w": 280,
+     "h": 75.6
+    },
+    "box": {
+     "x": 20,
+     "y": 279,
+     "w": 280,
+     "h": 75.6
+    },
+    "style": {
+     "font": "futura-lt-w01-book",
+     "size": 27,
+     "weight": 700,
+     "lineHeight": 37.8,
+     "color": "rgb(217, 75, 149)",
+     "align": "start",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span style=\"font-size:18px;\" class=\"wixui-rich-text__text\"><span class=\"color_37 wixui-rich-text__text\">MasterClass's first-ever brand campaign told a new story for the brand. Elevating the iconic Anna Wintour's class on creativity and leadership to a full-scale brand moment, we targeted young, upwardly-mobile professionals on their way to work, surrounding them with inspiring quotes from Anna's class, and iconic images shot by the legendary Tyler Mitchell. Media included a 2-hour takeover of New York's World Trade Center during the morning commute, showcasing the first chapter of Anna's class as a teaser. </span></span>",
+    "text": "MasterClass's first-ever brand campaign told a new story for the brand. Elevating the iconic Anna Wintour's class on creativity and leadership to a full-scale brand moment, we targeted young, upwardly-mobile professionals on their way to work, surrounding them with inspiring quotes from Anna's class, and iconic images shot by the legendary Tyler Mitchell. Media included a 2-hour takeover of New York's World Trade Center during the morning commute, showcasing the first chapter of Anna's class as a teaser.",
+    "rect": {
+     "x": 20,
+     "y": 374.6,
+     "w": 280,
+     "h": 378
+    },
+    "box": {
+     "x": 20,
+     "y": 374.6,
+     "w": 280,
+     "h": 504.1
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 18,
+     "weight": 400,
+     "lineHeight": 25.2,
+     "color": "rgb(160, 161, 173)",
+     "align": "start",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span style=\"font-size:18px;\" class=\"wixui-rich-text__text\"><span class=\"color_37 wixui-rich-text__text\">The campaign garnered over $500M in earned media, 1200 press hits, 14B impressions and won AdWeek's Media Plan of the Year.</span></span>",
+    "text": "The campaign garnered over $500M in earned media, 1200 press hits, 14B impressions and won AdWeek's Media Plan of the Year.",
+    "rect": {
+     "x": 20,
+     "y": 777.8,
+     "w": 280,
+     "h": 100.8
+    },
+    "box": {
+     "x": 20,
+     "y": 374.6,
+     "w": 280,
+     "h": 504.1
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 18,
+     "weight": 400,
+     "lineHeight": 25.2,
+     "color": "rgb(160, 161, 173)",
+     "align": "start",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span class=\"color_37 wixui-rich-text__text\"><span style=\"font-size:18px;\" class=\"wixui-rich-text__text\"><span style=\"letter-spacing:normal;\" class=\"wixui-rich-text__text\"><span style=\"font-weight:bold;\" class=\"wixui-rich-text__text\">Creative Agency</span>: Observatory</span></span></span>",
+    "text": "Creative Agency: Observatory",
+    "rect": {
+     "x": 20,
+     "y": 888.7,
+     "w": 120,
+     "h": 75.6
+    },
+    "box": {
+     "x": 20,
+     "y": 888.7,
+     "w": 120,
+     "h": 176.4
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 18,
+     "weight": 400,
+     "lineHeight": 25.2,
+     "color": "rgb(160, 161, 173)",
+     "align": "start",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span class=\"color_37 wixui-rich-text__text\"><span style=\"font-size:18px;\" class=\"wixui-rich-text__text\"><span style=\"letter-spacing:normal;\" class=\"wixui-rich-text__text\"><span style=\"font-weight:bold;\" class=\"wixui-rich-text__text\">Design</span>: &amp;Walsh</span></span></span>",
+    "text": "Design: &Walsh",
+    "rect": {
+     "x": 20,
+     "y": 964.3,
+     "w": 120,
+     "h": 25.2
+    },
+    "box": {
+     "x": 20,
+     "y": 888.7,
+     "w": 120,
+     "h": 176.4
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 18,
+     "weight": 400,
+     "lineHeight": 25.2,
+     "color": "rgb(160, 161, 173)",
+     "align": "start",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span class=\"color_37 wixui-rich-text__text\"><span style=\"font-size:18px;\" class=\"wixui-rich-text__text\"><span style=\"letter-spacing:normal;\" class=\"wixui-rich-text__text\"><span style=\"font-weight:bold;\" class=\"wixui-rich-text__text\">Media</span>: Exverus</span></span></span>",
+    "text": "Media: Exverus",
+    "rect": {
+     "x": 20,
+     "y": 989.5,
+     "w": 120,
+     "h": 25.2
+    },
+    "box": {
+     "x": 20,
+     "y": 888.7,
+     "w": 120,
+     "h": 176.4
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 18,
+     "weight": 400,
+     "lineHeight": 25.2,
+     "color": "rgb(160, 161, 173)",
+     "align": "start",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span class=\"color_37 wixui-rich-text__text\"><span style=\"font-size:18px;\" class=\"wixui-rich-text__text\"><span style=\"letter-spacing:normal;\" class=\"wixui-rich-text__text\"><span style=\"font-weight:bold;\" class=\"wixui-rich-text__text\">Photography</span>: Tyler Mitchell</span></span></span>",
+    "text": "Photography: Tyler Mitchell",
+    "rect": {
+     "x": 20,
+     "y": 1014.7,
+     "w": 120,
+     "h": 50.4
+    },
+    "box": {
+     "x": 20,
+     "y": 888.7,
+     "w": 120,
+     "h": 176.4
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 18,
+     "weight": 400,
+     "lineHeight": 25.2,
+     "color": "rgb(160, 161, 173)",
+     "align": "start",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null
+   },
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_a3136107d7174c36b858354c15aa7bcff002.jpg/v1/fill/w_280,h_272,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_a3136107d7174c36b858354c15aa7bcff002.jpg",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 20,
+     "y": 1107.1,
+     "w": 280,
+     "h": 272
+    },
+    "box": {
+     "x": 20,
+     "y": 1107.1,
+     "w": 280,
+     "h": 272
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": ""
+   },
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_cefa6fb679734e57993f6cb92548be60~mv2.png/v1/fill/w_320,h_213,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_cefa6fb679734e57993f6cb92548be60~mv2.png",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 0,
+     "y": 1399.1,
+     "w": 320,
+     "h": 213
+    },
+    "box": {
+     "x": 0,
+     "y": 1399.1,
+     "w": 320,
+     "h": 213
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": "Screen Shot 2023-09-12 at 11.48.23 AM.png"
+   },
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_d49a5cd09af74b82a6cb3498f998e7f4~mv2.jpg/v1/fill/w_320,h_213,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_d49a5cd09af74b82a6cb3498f998e7f4~mv2.jpg",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 0,
+     "y": 1692.1,
+     "w": 320,
+     "h": 213
+    },
+    "box": {
+     "x": 0,
+     "y": 1692.1,
+     "w": 320,
+     "h": 213
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": "A4-RED.jpg"
+   },
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_5a8548205bb14607b44e3b235f10e3dc~mv2.jpg/v1/fill/w_320,h_239,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_5a8548205bb14607b44e3b235f10e3dc~mv2.jpg",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 0,
+     "y": 1945.1,
+     "w": 320,
+     "h": 239
+    },
+    "box": {
+     "x": 0,
+     "y": 1945.1,
+     "w": 320,
+     "h": 239
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": "G.jpg"
+   },
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_2880a4836846400894b1cb806790dc71~mv2.jpg/v1/fill/w_320,h_200,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_2880a4836846400894b1cb806790dc71~mv2.jpg",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 0,
+     "y": 2224.1,
+     "w": 320,
+     "h": 200
+    },
+    "box": {
+     "x": 0,
+     "y": 2224.1,
+     "w": 320,
+     "h": 200
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": "A7.jpg"
+   },
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_583ba059ea0442bc947fb2d85752594f~mv2.jpg/v1/fill/w_320,h_213,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_583ba059ea0442bc947fb2d85752594f~mv2.jpg",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 0,
+     "y": 2504.1,
+     "w": 320,
+     "h": 213
+    },
+    "box": {
+     "x": 0,
+     "y": 2504.1,
+     "w": 320,
+     "h": 213
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": "20190918_MasterClass_Ad_Campaign_0072.jpg"
+   },
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_7b03f6240d334a5a814aa24791470586~mv2.jpg/v1/fill/w_320,h_213,al_l,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/a8ae1a_7b03f6240d334a5a814aa24791470586~mv2.jpg",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 0,
+     "y": 2757.1,
+     "w": 320,
+     "h": 213
+    },
+    "box": {
+     "x": 0,
+     "y": 2757.1,
+     "w": 320,
+     "h": 213
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": "20190918_MasterClass_Ad_Campaign_0040.jpg"
+   },
+   {
+    "kind": "image",
+    "src": "https://static.wixstatic.com/media/a8ae1a_dae958e1121149cba85d96afd94e06a3~mv2.gif",
+    "iframe": null,
+    "playable": false,
+    "rect": {
+     "x": 20,
+     "y": 3030.1,
+     "w": 280,
+     "h": 157
+    },
+    "box": {
+     "x": 20,
+     "y": 3030.1,
+     "w": 280,
+     "h": 157
+    },
+    "fit": "cover",
+    "radius": "0px",
+    "href": null,
+    "alt": ""
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span class=\"color_37 wixui-rich-text__text\"><span style=\"letter-spacing:normal;\" class=\"wixui-rich-text__text\"><a data-auto-recognition=\"true\" href=\"mailto:jenny@makunas.com\" class=\"wixui-rich-text__text\">jenny@makunas.com</a>​ &nbsp;|&nbsp; <a data-auto-recognition=\"true\" href=\"tel:415-609-1504\" class=\"wixui-rich-text__text\">415-609-1504</a></span></span>",
+    "text": "jenny@makunas.com  |  415-609-1504",
+    "rect": {
+     "x": 80,
+     "y": 3227.1,
+     "w": 162,
+     "h": 42
+    },
+    "box": {
+     "x": 80,
+     "y": 3227.1,
+     "w": 162,
+     "h": 42
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 17,
+     "weight": 400,
+     "lineHeight": null,
+     "color": "rgb(217, 75, 149)",
+     "align": "center",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null
+   },
+   {
+    "kind": "text",
+    "tag": "p",
+    "html": "<span style=\"letter-spacing:normal;\" class=\"wixui-rich-text__text\">© 2024 by Jenny Makunas</span>",
+    "text": "© 2024 by Jenny Makunas",
+    "rect": {
+     "x": 48,
+     "y": 3292.1,
+     "w": 224,
+     "h": 21
+    },
+    "box": {
+     "x": 48,
+     "y": 3292.1,
+     "w": 224,
+     "h": 21
+    },
+    "style": {
+     "font": "cormorantgaramond-semibold",
+     "size": 15,
+     "weight": 400,
+     "lineHeight": 21,
+     "color": "rgb(217, 75, 149)",
+     "align": "center",
+     "spacing": null,
+     "transform": "none",
+     "decoration": "none",
+     "style": "normal"
+    },
+    "href": null,
+    "target": null
+   }
+  ]
+ }
+}

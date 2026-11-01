@@ -1,0 +1,18 @@
+---
+// The footer as Wix serves it: the Instagram and LinkedIn links, the email and
+// phone line, and the © line. Positions come from the capture so it lands in the
+// same place on every page.
+import { url } from '../lib/url.js';
+const { footer } = Astro.props;
+const social = footer.blocks.find((b) => b.social);
+---
+<footer class="site-footer">
+  {social && (
+    <p class={`blk text social ${social.cls}`}>
+      {social.social.map((l) => (
+        <a href={url(l.href)} target={/^https?:/.test(l.href) ? '_blank' : undefined} rel="noopener">{l.text}</a>
+      ))}
+    </p>
+  )}
+  {footer.blocks.filter((b) => b.html).map((b) => <p class={`blk text ${b.cls}`} set:html={b.html} />)}
+</footer>

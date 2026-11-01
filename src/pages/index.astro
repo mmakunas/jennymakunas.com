@@ -1,0 +1,10 @@
+---
+import Base from '../layouts/Base.astro';
+import Canvas from '../components/Canvas.astro';
+import { composePage, pageCss, chromeCss } from '../lib/site.js';
+
+const composed = composePage('home');
+---
+<Base composed={composed} css={pageCss(composed)} chrome={chromeCss(composed)}>
+  <Canvas composed={composed} />
+</Base>

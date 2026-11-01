@@ -49,3 +49,18 @@ python3 scripts/extract.py --check  # re-extracts to a temporary directory and f
 generated file would change. Text is compared exactly; pictures are compared by dimensions
 and a perceptual hash, because Wix re-encodes the same URL a few bytes differently on every
 fetch and a byte comparison would flap forever.
+
+## Building the site
+
+```
+npm ci
+BASE=/jennymakunas.com/ npm run build    # preview build (project site under www.makunas.com)
+BASE=/ npm run build                     # production build (www.jennymakunas.com)
+npm run preview
+```
+
+`npm run build` fails if any absolute `href`/`src` skips the base or anything asks
+a Wix domain. `npm run verify` runs 44 behaviour checks against the built output,
+`npm run measure` diffs block positions against the live site, and `npm run shots`
+writes the 30 side-by-side fidelity comparisons into `shots/`. How the layout is
+measured and applied is in `docs/SITE.md`.
