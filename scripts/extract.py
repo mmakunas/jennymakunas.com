@@ -382,19 +382,37 @@ def rendition_aspect(url: str) -> float:
     return width / height if width and height else 0.0
 
 
+def crop_window(url: str) -> tuple[float, float, float, float] | None:
+    """The region a rendition selects: its requested size and, for a crop, its offset.
+
+    A `fill` keeps the whole picture and only its size matters. A `crop` picks a window
+    out of it, so two crops of the same size at different offsets show different parts
+    of the picture.
+    """
+    width, height = requested_size(url)
+    if not (width and height):
+        return None
+    offset = lambda axis: float(match.group(1)) if (match := re.search(rf"{axis}_(\d+)", url)) else 0.0
+    return (offset("x"), offset("y"), float(width), float(height))
+
+
 def same_crop(left: str, right: str) -> bool:
     """One crop, allowing for the resizer's jitter.
 
-    The two renditions are compared at a common height, so a pixel or two of rounding
-    on the requested size does not flip the decision — the same tolerance the picture
-    comparison uses.
+    The two windows are compared at a common height, so a pixel or two of rounding on
+    the requested size does not flip the decision, and a crop that selects a different
+    region of the picture is not mistaken for the same one.
     """
-    left_w, left_h = requested_size(left)
-    right_w, right_h = requested_size(right)
-    if not (left_w and left_h and right_w and right_h):
+    left_window, right_window = crop_window(left), crop_window(right)
+    if not left_window or not right_window:
         return False
+    left_x, left_y, left_w, left_h = left_window
+    right_x, right_y, right_w, right_h = right_window
     height = max(left_h, right_h)
-    return abs(left_w * height / left_h - right_w * height / right_h) <= SIZE_TOLERANCE
+    return all(abs(a * height / side - b * height / other) <= SIZE_TOLERANCE
+               for a, side, b, other in ((left_x, left_h, right_x, right_h),
+                                         (left_y, left_h, right_y, right_h),
+                                         (left_w, left_h, right_w, right_h)))
 
 
 def rendition_width(url: str) -> int:

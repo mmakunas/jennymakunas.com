@@ -199,7 +199,36 @@ const browser = await chromium.launch();
   await ctx.close();
 }
 
-// 7. The desktop Work dropdown reveals the 11 case studies.
+// 7. A picture that has its own phone rendering uses it on a phone.
+{
+  const ctx = await browser.newContext({ ...devices['iPhone 12'], viewport: { width: 390, height: 844 }, deviceScaleFactor: 1 });
+  const page = await ctx.newPage();
+  const wrong = [];
+  let checked = 0;
+  for (const slug of ['today-s-the-day-brand-campaign', 'now-you-brand-campaign', '23andme-dna-day-2023']) {
+    await page.goto(`${local}${slug}/`, { waitUntil: 'domcontentloaded' });
+    await page.evaluate(async () => {
+      for (let y = 0; y < document.documentElement.scrollHeight; y += window.innerHeight * 0.8) {
+        window.scrollTo(0, y);
+        await new Promise((r) => setTimeout(r, 150));
+      }
+    });
+    await page.waitForTimeout(400);
+    const results = await page.evaluate(() => [...document.querySelectorAll('picture')].map((pic) => {
+      const phone = pic.querySelector('source[media*="749.9"]');
+      const img = pic.querySelector('img');
+      if (!phone || !img || !img.currentSrc) return null;
+      const wanted = phone.getAttribute('srcset').split('/').pop();
+      return { wanted, used: img.currentSrc.split('/').pop() };
+    }).filter(Boolean));
+    checked += results.length;
+    for (const r of results) if (r.used !== r.wanted) wrong.push(`${slug}: ${r.used} instead of ${r.wanted}`);
+  }
+  check('a picture with a phone rendering uses it on a phone', checked > 0 && wrong.length === 0, `${checked} checked, ${wrong.slice(0, 2).join(' ')}`);
+  await ctx.close();
+}
+
+// 8. The desktop Work dropdown reveals the 11 case studies.
 {
   const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 } });
   const page = await ctx.newPage();
