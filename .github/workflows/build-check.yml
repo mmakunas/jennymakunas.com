@@ -1,0 +1,26 @@
+# The free gate on pull requests (Michael 2026-11-01 card: "Add CI + protect main … Same for the Jenny site").
+# `pages.yml` deploys on pushes to main only, so a PR had no check at all; this builds the site the same way
+# (npm ci, astro build + lint-paths) without deploying. Branch protection requires the `build` check.
+name: build
+on:
+  pull_request:
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Build
+        run: npm run build
+        env:
+          BASE: ${{ vars.PAGES_BASE || '/' }}
+          SITE: ${{ vars.PAGES_SITE || 'https://www.jennymakunas.com' }}
