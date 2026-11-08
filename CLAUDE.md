@@ -7,7 +7,7 @@ Static site for Jenny Makunas (brand strategist), ported from Wix. Astro, GitHub
 - No analytics, no tracking, no third-party scripts, no request to any `wix*` domain in the built site.
 - Content lives in `content/<slug>.md`; images in `public/images/` with `images/manifest.json`; never hot-link to Wix.
 - Paths stay identical to the Wix site (including `/contact-8`). `BASE` env var sets Astro's `base` (`/jennymakunas.com/` preview, `/` production).
-- Branch `capy/<short-name>`; PR title in plain words saying what changed, with the issue as a trailing reference `(#N)`, and `Closes #N` in the body (`.gstack/plain-titles.json` lists the words and codes the `Plain title` check refuses); PR body opens with one or two plain sentences, then `## What changed`, `## Why`, `## Approvals`, `## Follow-ups`, with machine lines under the `<!-- gstack:agent-notes -->` marker; run `/ship` before the PR is ready when gstack is available. Do not merge: merging is Michael's.
+- Branch `capy/<short-name>`; PR title in plain words saying what changed, with the issue as a trailing reference `(#N)`, and `Closes #N` in the body (`.gstack/plain-titles.json` lists the words and codes the `Plain title` check refuses); PR body opens with one or two plain sentences, then `## What changed`, `## Why`, `## Approvals`, `## Follow-ups`, with machine lines under the `<!-- gstack:agent-notes -->` marker; run `/ship` before the PR is ready when gstack is available. Do not merge: a lane never merges. The Captain merges under Michael's standing approval (2026-11-05) once the PR has a READY block, a ship receipt and green required checks.
 - Never print environment values.
 
 ## Hosting facts (verified 2026-10-31)
