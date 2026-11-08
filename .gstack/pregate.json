@@ -1,0 +1,20 @@
+{
+  "$schema": "https://github.com/garrytan/gstack/blob/main/docs/pregate.md#pregate-v1",
+  "run_profiles": {
+    "ci/build": {
+      "workflow": "build-check.yml",
+      "events": ["pull_request"],
+      "jobs": ["build"],
+      "artifact": "build-tree",
+      "os": "Linux"
+    }
+  },
+  "remote_gate_runs": {
+    "profiles": ["ci/build"],
+    "inventory": "printf '%s\\n' scripts/site/lint-paths.mjs"
+  },
+  "ship_lanes_from": {
+    "npm run build": { "profiles": ["ci/build"], "jobs": ["build"] },
+    "npm run lint:paths": { "profiles": ["ci/build"], "jobs": ["build"] }
+  }
+}

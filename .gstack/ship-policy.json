@@ -1,0 +1,11 @@
+{
+  "$schema": "https://github.com/garrytan/gstack/blob/main/docs/ship-policy.md#schema-v1",
+  "min_gstack_version": "1.98.0.0",
+  "bump": "never",
+  "queue_mode": "claim-at-open",
+  "train": null,
+  "merge": "direct",
+  "history": "squash-ok",
+  "review": { "platform": "on" },
+  "plan_record": "warn"
+}

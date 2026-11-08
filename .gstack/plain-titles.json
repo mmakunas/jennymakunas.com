@@ -1,0 +1,18 @@
+{
+  "$schema": "https://github.com/garrytan/gstack/blob/main/docs/ship-policy.md#plain-titles",
+  "codes": ["\\bMIC-\\d+\\b", "\\bJENN-\\d+\\b"],
+  "terms": [
+    "pregate",
+    "ship receipt",
+    "receipt",
+    "receipts",
+    "lane",
+    "lanes",
+    "restamp",
+    "stamp-at-merge",
+    "fix-check",
+    "ledger"
+  ],
+  "since": "2026-11-08",
+  "exempt_branch_prefixes": ["release/"]
+}

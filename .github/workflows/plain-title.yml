@@ -1,0 +1,93 @@
+name: Plain title
+
+# Checks that a pull request's title reads in everyday words (CREW rule 16,
+# gstack docs/ship-policy.md "Plain titles"): no tracker codes, no words only
+# this harness uses, no `type(scope):` prefix. One trailing group of references
+# like (#12) is fine. The branch name, the body opening and the commit subjects
+# only warn, because they cannot always be fixed in place.
+#
+# The checker is gstack's `bin/gstack-plain-title`, and the words it refuses are
+# this repo's own, in .gstack/plain-titles.json. gstack is cloned at the release
+# .gstack/ship-policy.json sets as its floor; raise both together.
+#
+# WHY pull_request_target: it runs the base repository's copy of this workflow
+# and of .gstack/plain-titles.json, so a pull request cannot change the rule it
+# is checked against, and editing a title reruns the check.
+#
+# WHY this is safe: the job checks out the base repository (no ref:) and never
+# runs pull request code; the token is read-only; the title, branch, body and
+# created_at arrive through env: only and reach files through printf '%s', so no
+# pull request field is ever inlined into `run:`.
+
+on:
+  pull_request_target:
+    types: [opened, edited, synchronize, reopened, ready_for_review]
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  plain-title:
+    name: Plain title
+    # No job-level if: every event reruns the check, because a skipped run would
+    # count as passing over a refused title.
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    concurrency:
+      group: plain-title-${{ github.event.pull_request.number }}
+      cancel-in-progress: true
+    steps:
+      - name: Checkout base repo (trusted)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.4
+
+      - name: Clone gstack at the policy floor
+        run: |
+          set -euo pipefail
+          git clone --quiet --depth 1 --single-branch --branch v1.98.0.0 \
+            https://github.com/garrytan/gstack.git "$RUNNER_TEMP/gstack"
+
+      - name: Write the pull request fields to files
+        env:
+          # Attacker-controlled on fork pull requests: env only, never inlined into run:.
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          GH_TOKEN: ${{ github.token }}
+          PR_NUM: ${{ github.event.pull_request.number }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          printf '%s' "$PR_TITLE" > "$RUNNER_TEMP/pr-title.txt"
+          jq -j '.pull_request.body // ""' "$GITHUB_EVENT_PATH" > "$RUNNER_TEMP/pr-body.txt"
+          # Commit subjects are a warning only: skip quietly when the API read fails.
+          if ! gh api --paginate "repos/$REPO/pulls/$PR_NUM/commits" \
+              --jq '.[] | select((.parents | length) < 2) | .commit.message | split("\n")[0]' \
+              > "$RUNNER_TEMP/pr-commits.txt" 2>/dev/null; then
+            : > "$RUNNER_TEMP/pr-commits.txt"
+          fi
+
+      - name: Check the title
+        env:
+          PR_CREATED_AT: ${{ github.event.pull_request.created_at }}
+        run: |
+          set -euo pipefail
+          bun --no-env-file --config=/dev/null "$RUNNER_TEMP/gstack/bin/gstack-plain-title" check \
+            --title-file "$RUNNER_TEMP/pr-title.txt" --created-at "$PR_CREATED_AT" --mode refuse
+
+      - name: Check the branch name, opening and commit subjects (warnings only)
+        if: ${{ !cancelled() }}
+        env:
+          PR_BRANCH: ${{ github.event.pull_request.head.ref }}
+          PR_CREATED_AT: ${{ github.event.pull_request.created_at }}
+        run: |
+          set -euo pipefail
+          bun --no-env-file --config=/dev/null "$RUNNER_TEMP/gstack/bin/gstack-plain-title" check \
+            --branch "$PR_BRANCH" --body-file "$RUNNER_TEMP/pr-body.txt" \
+            --commits-file "$RUNNER_TEMP/pr-commits.txt" --created-at "$PR_CREATED_AT" --mode warn

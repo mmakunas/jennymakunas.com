@@ -1,0 +1,13 @@
+{
+  "$schema": "https://api.capy.ai/schemas/setup.v1.json",
+  "format_version": 1,
+  "scripts": {
+    "initialize": "set -euo pipefail\n\n# gstack, baked: the checkout, both host profiles and the per-directory bun shims are captured by the snapshot, so a session pays only its install check.\ngstack_root=\"$HOME/.local/share/gstack\"\nif [ ! -d \"$gstack_root/.git\" ]; then\n  git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git \"$gstack_root\"\nfi\n\"$gstack_root/bin/gstack-capy-install\" --require claude,codex,patch\n\n# The site's dependencies, installed the way the build workflow installs them (`.github/workflows/build-check.yml`).\nnpm ci\n\n# The Python packages `scripts/extract.py --check` imports (lxml, Pillow). `--user` keeps them under `$HOME`, so the system interpreter is untouched.\npython3 -m pip install --user --break-system-packages --quiet -r requirements.txt\n\n# The headless browser `npm run verify` drives. CI does not need it; every fidelity check on this repo does.\nnpx playwright install --only-shell chromium",
+    "refresh": "set -euo pipefail\n\nstamp=\"node_modules/.capy-install-stamp\"\ninputs=$(sha256sum package.json package-lock.json | sha256sum | cut -d' ' -f1)\nif [ ! -d node_modules ] || [ \"$(cat \"$stamp\" 2>/dev/null || true)\" != \"$inputs\" ]; then\n  npm ci\n  printf '%s\\n' \"$inputs\" > \"$stamp\"\nfi"
+  },
+  "commands": [
+    { "name": "build", "command": "npm run build" },
+    { "name": "verify", "command": "BASE=/jennymakunas.com/ npm run build && BASE=/jennymakunas.com/ npm run verify" },
+    { "name": "extract-check", "command": "python3 scripts/extract.py --check" }
+  ]
+}
