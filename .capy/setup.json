@@ -9,5 +9,6 @@
     { "name": "build", "command": "npm run build" },
     { "name": "verify", "command": "BASE=/jennymakunas.com/ npm run build && BASE=/jennymakunas.com/ npm run verify" },
     { "name": "extract-check", "command": "python3 scripts/extract.py --check" }
-  ]
+  ],
+  "startup": []
 }
