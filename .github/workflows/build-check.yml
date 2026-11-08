@@ -37,8 +37,10 @@ jobs:
         run: |
           set -euo pipefail
           # The record claims the build covered the base-path lint; fail here, not
-          # silently later, if package.json stops running it under `build`.
-          jq -e '.scripts.build | test("lint-paths")' package.json > /dev/null
+          # silently later, if package.json's build script stops running it as its
+          # last step (a `|| true` or a renamed call would otherwise still match).
+          jq -e '.scripts.build | test("&& node scripts/site/lint-paths\\.mjs$")' package.json > /dev/null
+          jq -e '.scripts.build | test("\\|\\|") | not' package.json > /dev/null
           # refs/pull/<n>/head is the pull request's own commit, in this repository
           # even for a fork, so the record can name its tree.
           git fetch --depth 1 origin "refs/pull/${{ github.event.number }}/head"
