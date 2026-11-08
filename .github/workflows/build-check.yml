@@ -4,6 +4,8 @@
 name: build
 on:
   pull_request:
+permissions:
+  contents: read
 concurrency:
   group: build-${{ github.ref }}
   cancel-in-progress: true
@@ -19,8 +21,40 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      # The same base and origin `pages.yml` builds with, so this check exercises
+      # the base-path rule `lint:paths` enforces instead of passing at '/'.
       - name: Build
         run: npm run build
         env:
-          BASE: ${{ vars.PAGES_BASE || '/' }}
-          SITE: ${{ vars.PAGES_SITE || 'https://www.jennymakunas.com' }}
+          BASE: ${{ vars.PAGES_BASE || '/jennymakunas.com/' }}
+          SITE: ${{ vars.PAGES_SITE || 'https://www.makunas.com' }}
+      # The run record `.gstack/pregate.json` accepts as the build gate at this
+      # tree, so pregate and /ship reuse this green run instead of building again.
+      # It names the pull request's own commit tree, which is what a lane builds
+      # and tests locally, not the merge commit GitHub builds here. `files` and
+      # `tests` describe the one check the build gates on, `lint:paths`.
+      - name: Record the tested tree
+        run: |
+          set -euo pipefail
+          # The record claims the build covered the base-path lint; fail here, not
+          # silently later, if package.json's build script stops running it as its
+          # last step (a `|| true` or a renamed call would otherwise still match).
+          jq -e '.scripts.build | test("&& node scripts/site/lint-paths\\.mjs$")' package.json > /dev/null
+          jq -e '.scripts.build | test("\\|\\|") | not' package.json > /dev/null
+          # refs/pull/<n>/head is the pull request's own commit, in this repository
+          # even for a fork, so the record can name its tree.
+          git fetch --depth 1 origin "refs/pull/${{ github.event.number }}/head"
+          head_sha=$(git rev-parse FETCH_HEAD)
+          jq -n --argjson run "${{ github.run_id }}" --argjson attempt "${{ github.run_attempt }}" \
+            --arg event "${{ github.event_name }}" --arg sha "${{ github.sha }}" \
+            --arg head_sha "$head_sha" --arg tree "$(git rev-parse FETCH_HEAD^{tree})" \
+            --arg os "${{ runner.os }}" --argjson files '["scripts/site/lint-paths.mjs"]' \
+            '{run_id: $run, run_attempt: $attempt, event: $event, sha: $sha, head_sha: $head_sha,
+              tree: $tree, os: $os, files: $files, tests: 1}' > "$RUNNER_TEMP/tree.json"
+          cat "$RUNNER_TEMP/tree.json"
+      - name: Upload the tested tree
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-tree
+          path: ${{ runner.temp }}/tree.json
+          retention-days: 7
