@@ -4,6 +4,8 @@
 name: build
 on:
   pull_request:
+permissions:
+  contents: read
 concurrency:
   group: build-${{ github.ref }}
   cancel-in-progress: true
@@ -19,11 +21,13 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      # The same base and origin `pages.yml` builds with, so this check exercises
+      # the base-path rule `lint:paths` enforces instead of passing at '/'.
       - name: Build
         run: npm run build
         env:
-          BASE: ${{ vars.PAGES_BASE || '/' }}
-          SITE: ${{ vars.PAGES_SITE || 'https://www.jennymakunas.com' }}
+          BASE: ${{ vars.PAGES_BASE || '/jennymakunas.com/' }}
+          SITE: ${{ vars.PAGES_SITE || 'https://www.makunas.com' }}
       # The run record `.gstack/pregate.json` accepts as the build gate at this
       # tree, so pregate and /ship reuse this green run instead of building again.
       # It names the pull request's own commit tree, which is what a lane builds
@@ -32,6 +36,9 @@ jobs:
       - name: Record the tested tree
         run: |
           set -euo pipefail
+          # The record claims the build covered the base-path lint; fail here, not
+          # silently later, if package.json stops running it under `build`.
+          jq -e '.scripts.build | test("lint-paths")' package.json > /dev/null
           # refs/pull/<n>/head is the pull request's own commit, in this repository
           # even for a fork, so the record can name its tree.
           git fetch --depth 1 origin "refs/pull/${{ github.event.number }}/head"
