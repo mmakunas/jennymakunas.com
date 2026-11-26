@@ -101,7 +101,7 @@ two families at a pinned version (`SUBSTITUTES`), so a fresh extraction reproduc
   `href`/`src` that skips the base and on any request to a Wix domain.
 - `npm run lint:paths` also covers `srcset`, `poster` and CSS `url()`, so a
   protocol-relative or base-skipping URL fails wherever it hides.
-- `npm run verify` — 50 behaviour checks on the built site: every route 200, no
+- `npm run verify` — 52 behaviour checks on the built site: every route 200, no
   third-party requests, nine films with posters and no control bar before play, the
   mailto and social links, every page's canonical address, the mobile menu opening,
   holding the keyboard and navigating, the trailer's facade, the Work dropdown.
