@@ -60,7 +60,7 @@ npm run preview
 ```
 
 `npm run build` fails if any absolute `href`/`src` skips the base or anything asks
-a Wix domain. `npm run verify` runs 44 behaviour checks against the built output,
+a Wix domain. `npm run verify` runs 52 behaviour checks against the built output,
 `npm run measure` diffs block positions against the live site, and `npm run shots`
 writes the 30 side-by-side fidelity comparisons into `shots/`. How the layout is
 measured and applied is in `docs/SITE.md`.
