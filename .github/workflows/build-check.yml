@@ -29,7 +29,7 @@ jobs:
           BASE: ${{ vars.PAGES_BASE || '/jennymakunas.com/' }}
           SITE: ${{ vars.PAGES_SITE || 'https://www.makunas.com' }}
       # The run record `.gstack/pregate.json` accepts as the build gate at this
-      # tree, so pregate and /ship reuse this green run instead of building again.
+      # tree, so pregate and /gstack-ship reuse this green run instead of building again.
       # It names the pull request's own commit tree, which is what a lane builds
       # and tests locally, not the merge commit GitHub builds here. `files` and
       # `tests` describe the one check the build gates on, `lint:paths`.
